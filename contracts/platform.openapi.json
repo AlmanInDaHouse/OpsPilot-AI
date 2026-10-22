@@ -1,0 +1,30 @@
+{
+  "openapi": "3.1.0",
+  "info": {"title": "OpsPilot platform target S02", "version": "0.1.0"},
+  "servers": [{"url": "https://opspilot.invalid"}],
+  "security": [{"bearerAuth": []}],
+  "paths": {
+    "/health/live": {"get": {"operationId": "liveness", "security": [], "responses": {"200": {"description": "Process alive", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Health"}}}}}}},
+    "/health/ready": {"get": {"operationId": "readiness", "security": [], "responses": {"200": {"description": "DB/schema/JWKS ready", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Health"}}}}, "503": {"$ref": "#/components/responses/Unavailable"}}}},
+    "/v1/me": {"get": {"operationId": "getMe", "responses": {"200": {"description": "Mapped enabled identity", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Me"}}}}, "401": {"$ref": "#/components/responses/Unauthenticated"}, "403": {"$ref": "#/components/responses/Forbidden"}, "503": {"$ref": "#/components/responses/Unavailable"}}}},
+    "/v1/audit-events": {"get": {"operationId": "listAuditEvents", "parameters": [
+      {"name": "limit", "in": "query", "schema": {"type": "integer", "minimum": 1, "maximum": 100, "default": 50}},
+      {"name": "after_seq", "in": "query", "schema": {"type": "integer", "minimum": 0, "default": 0}},
+      {"name": "stream_id", "in": "query", "required": true, "schema": {"type": "string", "format": "uuid"}}
+    ], "responses": {"200": {"description": "Auditor/admin-only ordered stream", "content": {"application/json": {"schema": {"type": "object", "additionalProperties": false, "required": ["items", "next_after_seq"], "properties": {"items": {"type": "array", "maxItems": 100, "items": {"$ref": "event-v1.schema.json"}}, "next_after_seq": {"type": "integer", "minimum": 0}}}}}}, "401": {"$ref": "#/components/responses/Unauthenticated"}, "403": {"$ref": "#/components/responses/Forbidden"}, "422": {"$ref": "#/components/responses/Invalid"}, "503": {"$ref": "#/components/responses/Unavailable"}}}}
+  },
+  "components": {
+    "securitySchemes": {"bearerAuth": {"type": "http", "scheme": "bearer", "bearerFormat": "JWT"}},
+    "schemas": {
+      "Health": {"type": "object", "additionalProperties": false, "required": ["status"], "properties": {"status": {"enum": ["ok"]}}},
+      "Me": {"type": "object", "additionalProperties": false, "required": ["principal_id", "roles"], "properties": {"principal_id": {"type": "string", "format": "uuid"}, "roles": {"type": "array", "uniqueItems": true, "items": {"enum": ["operator", "approver", "auditor", "admin"]}}}},
+      "Error": {"type": "object", "additionalProperties": false, "required": ["code", "request_id"], "properties": {"code": {"enum": ["UNAUTHENTICATED", "FORBIDDEN", "INVALID_REQUEST", "DEPENDENCY_UNAVAILABLE"]}, "request_id": {"type": "string", "format": "uuid"}}}
+    },
+    "responses": {
+      "Unauthenticated": {"description": "401; WWW-Authenticate: Bearer", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}},
+      "Forbidden": {"description": "403; no resource existence leak", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}},
+      "Invalid": {"description": "422; no reflected input", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}},
+      "Unavailable": {"description": "503; no internal details", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}}
+    }
+  }
+}

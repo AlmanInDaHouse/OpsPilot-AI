@@ -1,0 +1,307 @@
+[
+  {
+    "requirement": "REQ-PLAT-01",
+    "status": "PROPUESTO",
+    "spec": [
+      "specs/002-platform/spec.md"
+    ],
+    "design": [
+      "docs/architecture/API_CONTRACTS.md"
+    ],
+    "task": [
+      "specs/002-platform/tasks.md"
+    ],
+    "code": [
+      "src/opspilot/identity/application/authenticate.py"
+    ],
+    "test": [
+      "tests/integration/test_identity.py"
+    ],
+    "evidence": []
+  },
+  {
+    "requirement": "REQ-PLAT-02",
+    "status": "PROPUESTO",
+    "spec": [
+      "specs/002-platform/spec.md"
+    ],
+    "design": [
+      "docs/architecture/DATA_MODEL.md"
+    ],
+    "task": [
+      "specs/002-platform/tasks.md"
+    ],
+    "code": [
+      "src/opspilot/adapters/postgres/audit.py"
+    ],
+    "test": [
+      "tests/integration/test_audit.py"
+    ],
+    "evidence": []
+  },
+  {
+    "requirement": "REQ-WF-01",
+    "status": "PROPUESTO",
+    "spec": [
+      "specs/001-vpn/spec.md"
+    ],
+    "design": [
+      "docs/architecture/WORKFLOW_ENGINE.md"
+    ],
+    "task": [
+      "docs/roadmap/ROADMAP_8_SESSIONS.md"
+    ],
+    "code": [
+      "src/opspilot/incidents/application/create.py"
+    ],
+    "test": [
+      "tests/integration/test_intake_atomicity.py"
+    ],
+    "evidence": []
+  },
+  {
+    "requirement": "REQ-WF-02",
+    "status": "PROPUESTO",
+    "spec": [
+      "specs/001-vpn/spec.md"
+    ],
+    "design": [
+      "docs/architecture/WORKFLOW_ENGINE.md"
+    ],
+    "task": [
+      "docs/roadmap/ROADMAP_8_SESSIONS.md"
+    ],
+    "code": [
+      "src/opspilot/workflows/application/recovery.py"
+    ],
+    "test": [
+      "tests/integration/test_workflow_crash.py"
+    ],
+    "evidence": []
+  },
+  {
+    "requirement": "REQ-WF-03",
+    "status": "PROPUESTO",
+    "spec": [
+      "specs/001-vpn/spec.md"
+    ],
+    "design": [
+      "docs/architecture/WORKFLOW_ENGINE.md"
+    ],
+    "task": [
+      "docs/roadmap/ROADMAP_8_SESSIONS.md"
+    ],
+    "code": [
+      "src/opspilot/tools/application/reconcile.py"
+    ],
+    "test": [
+      "tests/integration/test_unknown_outcome.py"
+    ],
+    "evidence": []
+  },
+  {
+    "requirement": "REQ-AI-01",
+    "status": "PROPUESTO",
+    "spec": [
+      "specs/001-vpn/spec.md"
+    ],
+    "design": [
+      "docs/architecture/AGENT_RUNTIME.md"
+    ],
+    "task": [
+      "docs/roadmap/ROADMAP_8_SESSIONS.md"
+    ],
+    "code": [
+      "src/opspilot/ai/application/diagnose.py"
+    ],
+    "test": [
+      "tests/evals/test_grounding.py"
+    ],
+    "evidence": []
+  },
+  {
+    "requirement": "REQ-RAG-01",
+    "status": "PROPUESTO",
+    "spec": [
+      "specs/001-vpn/spec.md"
+    ],
+    "design": [
+      "docs/architecture/AGENT_RUNTIME.md"
+    ],
+    "task": [
+      "docs/roadmap/ROADMAP_8_SESSIONS.md"
+    ],
+    "code": [
+      "src/opspilot/knowledge/application/retrieve.py"
+    ],
+    "test": [
+      "tests/integration/test_retrieval_acl.py"
+    ],
+    "evidence": []
+  },
+  {
+    "requirement": "REQ-POL-01",
+    "status": "PROPUESTO",
+    "spec": [
+      "specs/001-vpn/spec.md"
+    ],
+    "design": [
+      "docs/architecture/AGENT_RUNTIME.md"
+    ],
+    "task": [
+      "docs/roadmap/ROADMAP_8_SESSIONS.md"
+    ],
+    "code": [
+      "src/opspilot/governance/domain/policy.py"
+    ],
+    "test": [
+      "tests/unit/test_policy.py"
+    ],
+    "evidence": []
+  },
+  {
+    "requirement": "REQ-APR-01",
+    "status": "PROPUESTO",
+    "spec": [
+      "specs/001-vpn/spec.md"
+    ],
+    "design": [
+      "docs/architecture/WORKFLOW_ENGINE.md"
+    ],
+    "task": [
+      "docs/roadmap/ROADMAP_8_SESSIONS.md"
+    ],
+    "code": [
+      "src/opspilot/governance/application/approve.py"
+    ],
+    "test": [
+      "tests/integration/test_approval_races.py"
+    ],
+    "evidence": []
+  },
+  {
+    "requirement": "REQ-TOOL-01",
+    "status": "PROPUESTO",
+    "spec": [
+      "specs/001-vpn/spec.md"
+    ],
+    "design": [
+      "docs/architecture/API_CONTRACTS.md"
+    ],
+    "task": [
+      "docs/roadmap/ROADMAP_8_SESSIONS.md"
+    ],
+    "code": [
+      "src/opspilot/tools/application/invoke.py"
+    ],
+    "test": [
+      "tests/integration/test_tool_gateway.py"
+    ],
+    "evidence": []
+  },
+  {
+    "requirement": "REQ-LAB-01",
+    "status": "PROPUESTO",
+    "spec": [
+      "specs/001-vpn/spec.md"
+    ],
+    "design": [
+      "docs/product/SCOPE.md"
+    ],
+    "task": [
+      "docs/roadmap/ROADMAP_8_SESSIONS.md"
+    ],
+    "code": [
+      "src/opspilot/adapters/lab/vpn.py"
+    ],
+    "test": [
+      "tests/e2e/test_vpn_lab.py"
+    ],
+    "evidence": []
+  },
+  {
+    "requirement": "REQ-VER-01",
+    "status": "PROPUESTO",
+    "spec": [
+      "specs/001-vpn/spec.md"
+    ],
+    "design": [
+      "docs/architecture/AGENT_RUNTIME.md"
+    ],
+    "task": [
+      "docs/roadmap/ROADMAP_8_SESSIONS.md"
+    ],
+    "code": [
+      "src/opspilot/adapters/lab/verifier.py"
+    ],
+    "test": [
+      "tests/e2e/test_false_resolution.py"
+    ],
+    "evidence": []
+  },
+  {
+    "requirement": "REQ-OPS-01",
+    "status": "PROPUESTO",
+    "spec": [
+      "specs/001-vpn/spec.md"
+    ],
+    "design": [
+      "docs/architecture/ARCHITECTURE.md"
+    ],
+    "task": [
+      "docs/roadmap/ROADMAP_8_SESSIONS.md"
+    ],
+    "code": [
+      "frontend/src/App.tsx"
+    ],
+    "test": [
+      "tests/e2e/test_operator_journey.py"
+    ],
+    "evidence": []
+  },
+  {
+    "requirement": "REQ-REL-01",
+    "status": "PROPUESTO",
+    "spec": [
+      "specs/001-vpn/spec.md"
+    ],
+    "design": [
+      "docs/product/NFR_SLO.md"
+    ],
+    "task": [
+      "docs/roadmap/ROADMAP_8_SESSIONS.md"
+    ],
+    "code": [
+      "scripts/restore.py"
+    ],
+    "test": [
+      "tests/e2e/test_restore.py"
+    ],
+    "evidence": []
+  },
+  {
+    "requirement": "REQ-HAR-01",
+    "status": "PROBADO",
+    "spec": [
+      "docs/engineering/HARNESS.md"
+    ],
+    "design": [
+      "docs/engineering/SDD.md"
+    ],
+    "task": [
+      "docs/roadmap/ROADMAP_8_SESSIONS.md"
+    ],
+    "code": [
+      "scripts/check_repository.py"
+    ],
+    "test": [
+      "tests/harness/test_checks.py"
+    ],
+    "evidence": [
+      "artifacts/session-01/tests-windows.json",
+      "artifacts/session-01/tests-linux.json",
+      "artifacts/session-01/checks.json",
+      "artifacts/session-01/checks-linux.json"
+    ]
+  }
+]

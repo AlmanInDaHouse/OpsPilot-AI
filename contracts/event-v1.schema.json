@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:opspilot:event:1",
+  "title": "Redacted audit event envelope v1 (target contract)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["event_id", "schema_version", "stream_id", "seq", "event_type", "occurred_at", "actor_id", "trace_id", "payload"],
+  "properties": {
+    "event_id": {"type": "string", "format": "uuid"},
+    "schema_version": {"const": 1},
+    "stream_id": {"type": "string", "format": "uuid"},
+    "seq": {"type": "integer", "minimum": 1},
+    "event_type": {"enum": ["identity.provisioned", "identity.disabled", "authorization.granted", "authorization.revoked", "authorization.denied", "incident.created", "workflow.transitioned", "proposal.created", "approval.decided", "intent.dispatched", "intent.unknown", "tool.completed", "verification.completed", "budget.exhausted"]},
+    "occurred_at": {"type": "string", "format": "date-time"},
+    "actor_id": {"type": ["string", "null"], "format": "uuid"},
+    "trace_id": {"type": "string", "pattern": "^[0-9a-f]{32}$"},
+    "payload": {"type": "object", "additionalProperties": false, "required": ["reason_code", "aggregate_id", "aggregate_version", "evidence_ids"], "properties": {
+      "reason_code": {"type": "string", "pattern": "^[A-Z][A-Z0-9_]{0,63}$"},
+      "aggregate_id": {"type": "string", "format": "uuid"},
+      "aggregate_version": {"type": "integer", "minimum": 0},
+      "snapshot_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+      "operation_id": {"type": "string", "format": "uuid"},
+      "proposal_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+      "transition": {"type": "object", "additionalProperties": false, "required": ["from", "to", "definition_version"], "properties": {
+        "from": {"enum": ["QUEUED", "INVESTIGATING", "PLAN_READY", "AWAITING_APPROVAL", "EXECUTING", "VERIFYING", "RETRY_WAIT", "OUTCOME_UNKNOWN", "NEEDS_OPERATOR", "SUCCEEDED", "FAILED", "CANCELLED"]},
+        "to": {"enum": ["QUEUED", "INVESTIGATING", "PLAN_READY", "AWAITING_APPROVAL", "EXECUTING", "VERIFYING", "RETRY_WAIT", "OUTCOME_UNKNOWN", "NEEDS_OPERATOR", "SUCCEEDED", "FAILED", "CANCELLED"]},
+        "definition_version": {"type": "integer", "minimum": 1}
+      }},
+      "evidence_ids": {"type": "array", "maxItems": 20, "items": {"type": "string", "format": "uuid"}}
+    }}
+  },
+  "allOf": [
+    {"if": {"properties": {"event_type": {"const": "workflow.transitioned"}}}, "then": {"properties": {"payload": {"required": ["transition", "snapshot_hash"]}}}},
+    {"if": {"properties": {"event_type": {"enum": ["intent.dispatched", "intent.unknown", "tool.completed"]}}}, "then": {"properties": {"payload": {"required": ["operation_id"]}}}},
+    {"if": {"properties": {"event_type": {"enum": ["proposal.created", "approval.decided"]}}}, "then": {"properties": {"payload": {"required": ["proposal_hash"]}}}}
+  ]
+}
