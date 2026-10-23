@@ -1,0 +1,1 @@
+"""Pure intake values."""

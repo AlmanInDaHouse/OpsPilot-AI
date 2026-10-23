@@ -1,0 +1,30 @@
+{
+  "status": "PROPOSED",
+  "definition_version": 1,
+  "step_key": "intake_snapshot",
+  "collector_id": "local-intake-v1",
+  "evidence_kind": "INCIDENT_SNAPSHOT_V1",
+  "independence_role": "INTAKE_SNAPSHOT",
+  "lease_seconds": 60,
+  "heartbeat_seconds": 15,
+  "poll_seconds": 2,
+  "poll_jitter_seconds": 1,
+  "max_attempts": 3,
+  "backoff_cap_seconds": 30,
+  "deadline_seconds": 300,
+  "active_budget_seconds": 300,
+  "unknown_definition": "HOLD_CURRENT_STATE",
+  "safe_cancel_states": ["QUEUED", "INVESTIGATING", "PLAN_READY", "AWAITING_APPROVAL", "RETRY_WAIT", "NEEDS_OPERATOR"],
+  "deferred_cancel_states": ["EXECUTING", "VERIFYING", "OUTCOME_UNKNOWN"],
+  "transitions": [
+    {"from": "QUEUED", "to": "INVESTIGATING", "reason_code": "LOCAL_STEP_STARTED"},
+    {"from": "INVESTIGATING", "to": "NEEDS_OPERATOR", "reason_code": "LOCAL_SNAPSHOT_RECORDED"},
+    {"from": "INVESTIGATING", "to": "RETRY_WAIT", "reason_code": "TRANSIENT_LOCAL_FAILURE"},
+    {"from": "RETRY_WAIT", "to": "INVESTIGATING", "reason_code": "RETRY_READY"},
+    {"from": "QUEUED", "to": "FAILED", "reason_code": "DEADLINE_EXHAUSTED"},
+    {"from": "INVESTIGATING", "to": "NEEDS_OPERATOR", "reason_code": "DEADLINE_EXHAUSTED"},
+    {"from": "RETRY_WAIT", "to": "NEEDS_OPERATOR", "reason_code": "DEADLINE_EXHAUSTED"},
+    {"from": "INVESTIGATING", "to": "NEEDS_OPERATOR", "reason_code": "RETRY_EXHAUSTED"},
+    {"from": "INVESTIGATING", "to": "NEEDS_OPERATOR", "reason_code": "PERMANENT_LOCAL_FAILURE"}
+  ]
+}

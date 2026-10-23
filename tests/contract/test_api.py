@@ -21,18 +21,21 @@ CONTRACT = json.loads((ROOT / "contracts/platform.openapi.json").read_text(encod
 EVENT = json.loads((ROOT / "contracts/event-v1.schema.json").read_text(encoding="utf-8"))
 
 
-def deref(value):
+def deref(value, document=None):
+    document = CONTRACT if document is None else document
     if isinstance(value, dict):
         if "$ref" in value:
-            if value["$ref"] == "event-v1.schema.json":
-                return EVENT
-            target = CONTRACT
-            for key in value["$ref"][2:].split("/"):
+            reference = value["$ref"]
+            if not reference.startswith("#/"):
+                target = json.loads((ROOT / "contracts" / reference).read_text(encoding="utf-8"))
+                return deref(target, target)
+            target = document
+            for key in reference[2:].split("/"):
                 target = target[key]
-            return deref(target)
-        return {key: deref(child) for key, child in value.items()}
+            return deref(target, document)
+        return {key: deref(child, document) for key, child in value.items()}
     if isinstance(value, list):
-        return [deref(child) for child in value]
+        return [deref(child, document) for child in value]
     return value
 
 
@@ -104,7 +107,7 @@ def test_runtime_generated_contract_has_exact_routes_operations_errors_and_model
     _, _, _, app = platform
     generated = app.openapi()
     validate(generated)
-    assert set(generated["paths"]) == set(CONTRACT["paths"])
+    assert set(generated["paths"]) == set(CONTRACT["paths"]) | {"/v1/incidents"}
     for path, methods in CONTRACT["paths"].items():
         assert generated["paths"][path]["get"]["operationId"] == methods["get"]["operationId"]
         assert set(generated["paths"][path]["get"]["responses"]) == set(methods["get"]["responses"])

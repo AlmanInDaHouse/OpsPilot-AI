@@ -1,0 +1,147 @@
+{
+  "status": "PASS",
+  "scope": "T03-02 storage/appender/read union, not S03 worker/durability acceptance",
+  "head": "3b91f58c2f54a59ea5825c41af0550a9acb416de",
+  "environment": {
+    "host": "Windows-11-10.0.26200-SP0",
+    "python": "3.13.14"
+  },
+  "human_entry_acceptance": "APPROVED: S02 closure/risks and T03-01/ADR-0008; user requested T03-02",
+  "commands": [
+    {
+      "name": "check",
+      "command": "python scripts/dev.py check",
+      "exit_code": 0,
+      "observation": "Actual shell process exit observed as zero after Ruff formatting",
+      "log_written_at_utc": "2026-10-23T12:58:19.437212+00:00",
+      "raw_sha256": "9898b8e801e8ded595010367689b62fd69df4cdd4230089bb1c7fdebd571d131"
+    },
+    {
+      "name": "windows",
+      "command": "C:\\Users\\manul\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe scripts/dev.py test",
+      "started_at_utc": "2026-10-23T12:55:10.119853+00:00",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-23T12:55:33.320858+00:00",
+      "raw_sha256": "7d9e0edd5ccaa3078cf63c6c6946c1791521fe424be89a198603c6e3c6ae6f99"
+    },
+    {
+      "name": "linux-build",
+      "command": "docker compose -f infra/compose.yaml build tests",
+      "started_at_utc": "2026-10-23T12:55:33.345529+00:00",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-23T12:55:38.301707+00:00",
+      "raw_sha256": "bb8485e1e21e260916183c9740c7caed7934edd0e769cf7e98480f3b7e7d29b8"
+    },
+    {
+      "name": "linux",
+      "command": "docker compose -f infra/compose.yaml run --rm --no-deps tests /app/.venv/bin/python -m pytest -q --tb=short -o cache_dir=/tmp/pytest-cache --junitxml=/lab/s03-t02-linux-final-private.xml",
+      "started_at_utc": "2026-10-23T12:55:38.313393+00:00",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-23T12:55:58.394397+00:00",
+      "raw_sha256": "6cbb1e6ecc464d8dd3373e8332475ad114b0fd34d6543ef603e5eaaa9622a163"
+    },
+    {
+      "name": "stop",
+      "command": "C:\\Users\\manul\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe scripts/dev.py stop",
+      "started_at_utc": "2026-10-23T12:55:58.410831+00:00",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-23T12:56:02.124664+00:00",
+      "raw_sha256": "4d4360785ea8e4bccb5a0699465d7a0e41d234630cf5f2c0b450e5606dc28e00"
+    }
+  ],
+  "go_s04": false,
+  "ci_current_tree": "NOT_RUN",
+  "api_image_build_scan_current_tree": "NOT_RUN",
+  "fresh_pg_and_full_recovery_current_image": "NOT_RUN",
+  "lab_migration": "lab-migration.json",
+  "publication": "NOT_AUTHORIZED",
+  "windows_tests": {
+    "tests": 482,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "real_integration_tests": 121,
+    "new_storage_integration_tests": 71,
+    "s03_contract_design_tests": 199
+  },
+  "linux_tests": {
+    "tests": 482,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "real_integration_tests": 121,
+    "new_storage_integration_tests": 71,
+    "s03_contract_design_tests": 199
+  },
+  "input_sha256": "2981f59ddaa3c57bd142805bd1747cf62b13a144783428084b402d2ba35de19d",
+  "captured_at_utc": "2026-10-23T13:00:16.671573+00:00",
+  "lab_final_state": "STOPPED_WITH_VOLUME_PRESERVED",
+  "command_attempts": [
+    {
+      "name": "check",
+      "command": "C:\\Users\\manul\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe scripts/dev.py check",
+      "started_at_utc": "2026-10-23T12:55:08.487082+00:00",
+      "exit_code": 1,
+      "finished_at_utc": "2026-10-23T12:55:10.101913+00:00",
+      "raw_sha256": "2e2c46d02a5c9b459e3a6871a4fcb48381184196848fbc3ca156530d63869993",
+      "failure_reason": "Manifest link checked before evidence generator created manifest"
+    },
+    {
+      "name": "windows",
+      "command": "C:\\Users\\manul\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe scripts/dev.py test",
+      "started_at_utc": "2026-10-23T12:55:10.119853+00:00",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-23T12:55:33.320858+00:00",
+      "raw_sha256": "7d9e0edd5ccaa3078cf63c6c6946c1791521fe424be89a198603c6e3c6ae6f99"
+    },
+    {
+      "name": "linux-build",
+      "command": "docker compose -f infra/compose.yaml build tests",
+      "started_at_utc": "2026-10-23T12:55:33.345529+00:00",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-23T12:55:38.301707+00:00",
+      "raw_sha256": "bb8485e1e21e260916183c9740c7caed7934edd0e769cf7e98480f3b7e7d29b8"
+    },
+    {
+      "name": "linux",
+      "command": "docker compose -f infra/compose.yaml run --rm --no-deps tests /app/.venv/bin/python -m pytest -q --tb=short -o cache_dir=/tmp/pytest-cache --junitxml=/lab/s03-t02-linux-final-private.xml",
+      "started_at_utc": "2026-10-23T12:55:38.313393+00:00",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-23T12:55:58.394397+00:00",
+      "raw_sha256": "6cbb1e6ecc464d8dd3373e8332475ad114b0fd34d6543ef603e5eaaa9622a163"
+    },
+    {
+      "name": "stop",
+      "command": "C:\\Users\\manul\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe scripts/dev.py stop",
+      "started_at_utc": "2026-10-23T12:55:58.410831+00:00",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-23T12:56:02.124664+00:00",
+      "raw_sha256": "4d4360785ea8e4bccb5a0699465d7a0e41d234630cf5f2c0b450e5606dc28e00"
+    },
+    {
+      "name": "check",
+      "command": "python scripts/dev.py check",
+      "exit_code": 1,
+      "observation": "Ruff fixture-read formatting after fixture relocation",
+      "log_written_at_utc": "2026-10-23T12:57:10.533298+00:00",
+      "raw_sha256": "c8c81369ff87d1335ade95a35d31ce791ec36146049832e5eb143c90780bc35d"
+    },
+    {
+      "name": "check",
+      "command": "python scripts/dev.py check",
+      "exit_code": 0,
+      "observation": "Actual shell process exit observed as zero after Ruff formatting",
+      "log_written_at_utc": "2026-10-23T12:58:19.437212+00:00",
+      "raw_sha256": "9898b8e801e8ded595010367689b62fd69df4cdd4230089bb1c7fdebd571d131"
+    }
+  ],
+  "post_format_contract_tests": {
+    "tests": 199,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "full_suite_tested_manifest": "tested-manifest.json",
+  "full_suite_source_note": "After the full Windows/Linux suites, only documentation and Ruff layout of the fixture read changed. The changed test file was rechecked: 199 contract tests passed. Product code, migrations and schema semantics unchanged.",
+  "t03_02": "IMPLEMENTED_AND_LOCALLY_TESTED"
+}

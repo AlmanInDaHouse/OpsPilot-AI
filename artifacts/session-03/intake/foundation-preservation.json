@@ -1,0 +1,41 @@
+{
+  "reference": "../persistence/tested-manifest.json",
+  "checks": [
+    {
+      "path": "migrations/env.py",
+      "preserved": true
+    },
+    {
+      "path": "migrations/script.py.mako",
+      "preserved": true
+    },
+    {
+      "path": "migrations/sql/0001_platform.sql",
+      "preserved": true
+    },
+    {
+      "path": "migrations/sql/0002_workflow_functions.sql",
+      "preserved": true
+    },
+    {
+      "path": "migrations/sql/0002_workflows.sql",
+      "preserved": true
+    },
+    {
+      "path": "migrations/versions/0001_platform.py",
+      "preserved": true
+    },
+    {
+      "path": "migrations/versions/0002_workflows.py",
+      "preserved": true
+    },
+    {
+      "path": "src/opspilot/adapters/postgres/audit.py",
+      "preserved": true
+    },
+    {
+      "path": "src/opspilot/adapters/postgres/models.py",
+      "preserved": true
+    }
+  ]
+}

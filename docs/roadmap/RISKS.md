@@ -4,6 +4,22 @@ Estado: evaluación de diseño, no incidentes de producción. Autor = responsabl
 Prioridad crítica implica NO-GO en hito indicado si no se resuelve. Alternativas no
 autorizan cambios externos ni reejecución de operaciones ambiguas.
 
+## Arranque S03 — T03-01, 2026-10-23
+
+Actualización T03-02: el autor aprueba cierre/riesgos S02 y T03-01/ADR-0008 tras
+revisión. Esquema/grants/appender/lectura v2 implementados y probados localmente;
+ver SESSION_03_PERSISTENCE_REVIEW. R01 sigue abierto: 121 integraciones de
+almacenamiento/regresión no equivalen a crash suite de worker. Revisión humana de
+entrada satisfecha; cierre humano global S03 y CI/scans/recovery actuales pendientes.
+Los párrafos de arranque siguientes conservan su estado histórico.
+
+Petición de inicio recibida; [contratos y decisiones para revisión](../../specs/003-workflows/contracts.md)
+y ADR-0008 preparados. Revisión humana pendiente antes del motor. R01 sigue ABIERTO:
+schemas/golden/negativos no prueban durabilidad, fencing ni cancelación real S03.
+R02/R14 mantienen gates S05/S06; worker local no realiza efectos externos.
+R11 exige privacidad/retención antes de datos reales. No GO S04/producción.
+Estado técnico S02 limitado al SHA de la sección siguiente, sin herencia al árbol nuevo.
+
 ## Estado vigente R15/R17 — cierre de 660f7d3
 
 R17 / alta: **RESUELTO TÉCNICAMENTE PARA EL SHA**

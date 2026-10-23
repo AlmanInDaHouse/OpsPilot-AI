@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:opspilot:workflow-snapshot:1",
+  "title": "Redacted S03 workflow state snapshot v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "workflow_id",
+    "incident_id",
+    "definition_version",
+    "state",
+    "version",
+    "cancel_requested_at",
+    "reason_code"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "workflow_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "incident_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "definition_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "state": {
+      "enum": [
+        "QUEUED",
+        "INVESTIGATING",
+        "PLAN_READY",
+        "AWAITING_APPROVAL",
+        "EXECUTING",
+        "VERIFYING",
+        "RETRY_WAIT",
+        "OUTCOME_UNKNOWN",
+        "NEEDS_OPERATOR",
+        "SUCCEEDED",
+        "FAILED",
+        "CANCELLED"
+      ]
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9223372036854775807
+    },
+    "cancel_requested_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "reason_code": {
+      "enum": [
+        "INTAKE_ACCEPTED",
+        "LOCAL_STEP_STARTED",
+        "LOCAL_SNAPSHOT_RECORDED",
+        "TRANSIENT_LOCAL_FAILURE",
+        "RETRY_READY",
+        "DEADLINE_EXHAUSTED",
+        "RETRY_EXHAUSTED",
+        "PERMANENT_LOCAL_FAILURE",
+        "UNSUPPORTED_DEFINITION",
+        "CANCELLED_BY_OPERATOR",
+        "CANCEL_REQUESTED"
+      ]
+    }
+  }
+}

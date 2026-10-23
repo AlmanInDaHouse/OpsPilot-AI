@@ -5,6 +5,7 @@ import hashlib
 import json
 import os
 import secrets
+from contextlib import contextmanager
 from html.parser import HTMLParser
 from pathlib import Path
 from unittest.mock import patch
@@ -30,9 +31,11 @@ from opspilot.adapters.postgres.database import (
     require_database,
 )
 from opspilot.adapters.postgres.identity import IdentityWriter, PostgresPrincipals
+from opspilot.adapters.postgres.incidents import PostgresIntakeUow
 from opspilot.entrypoints.api.app import platform_api
 from opspilot.identity.application.provision import change_identity, create_identity
 from opspilot.identity.domain.principal import Role
+from opspilot.incidents.application.create import CreateIncident
 
 ROOT = Path(__file__).resolve().parents[2]
 LOCAL = Path(os.environ.get("OPSPILOT_LAB_DIR", ROOT / "artifacts/local"))
@@ -65,8 +68,8 @@ def raw_connection(dsn, autocommit=True):
     )
 
 
-@pytest.fixture(scope="session")
-def pg():
+@contextmanager
+def postgres_database(revision="head"):
     database = "opspilot_test_" + uuid4().hex
     admin = raw_connection(dsn_for("admin"))
     assert int(admin.execute("SHOW server_version_num").fetchone()[0]) // 10000 == 18
@@ -82,7 +85,7 @@ def pg():
     )
     admin.execute(
         sql.SQL(
-            "GRANT CONNECT ON DATABASE {} TO opspilot_app,opspilot_provisioner,opspilot_migrator"
+            "GRANT CONNECT ON DATABASE {} TO opspilot_app,opspilot_provisioner,opspilot_migrator,opspilot_worker"
         ).format(sql.Identifier(database))
     )
     dsnfile = LOCAL / f"{database}.dsn"
@@ -93,9 +96,10 @@ def pg():
     engines = {}
     try:
         with patch.dict(os.environ, {"OPSPILOT_MIGRATION_DSN_FILE": str(dsnfile)}):
-            command.upgrade(cfg, "head")
-            command.check(cfg)
-        for role in ("app", "provisioner", "migration", "admin"):
+            command.upgrade(cfg, revision)
+            if revision == "head":
+                command.check(cfg)
+        for role in ("app", "worker", "provisioner", "migration", "admin"):
             engines[role] = make_engine(dsn_for(role, database))
         yield {
             "database": database,
@@ -112,6 +116,17 @@ def pg():
         admin.execute(sql.SQL("DROP DATABASE {} WITH (FORCE)").format(sql.Identifier(database)))
         admin.close()
         dsnfile.unlink(missing_ok=True)
+
+
+@pytest.fixture(scope="session")
+def pg():
+    with postgres_database() as database:
+        yield database
+
+
+@pytest.fixture
+def pg_factory():
+    return postgres_database
 
 
 @pytest.fixture(scope="session")
@@ -243,6 +258,7 @@ def api(pg, mapped):
             PostgresAuditReader(pg["sessions"]["app"]),
             lambda: database_ready(engine) and verifier.ready(),
             lambda: require_database(engine),
+            intake=CreateIncident(lambda: PostgresIntakeUow(pg["sessions"]["app"])),
         )
         with TestClient(app) as client:
             yield client

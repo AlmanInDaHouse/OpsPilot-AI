@@ -26,6 +26,10 @@ class Principal:
     enabled: bool
     roles: frozenset[Role]
 
+    def require_operator(self) -> None:
+        if not self.enabled or Role.OPERATOR not in self.roles:
+            raise Forbidden()
+
     def require_audit_read(self) -> None:
         if not self.enabled or not self.roles.intersection({Role.AUDITOR, Role.ADMIN}):
             raise Forbidden()

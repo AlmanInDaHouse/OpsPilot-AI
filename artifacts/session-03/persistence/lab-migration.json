@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "captured_at_utc": "2026-10-23T12:45:08.440986+00:00",
+  "command": "python scripts/dev.py migrate",
+  "exit_code": 0,
+  "database": "dedicated synthetic opspilot_lab",
+  "before_revision": "0001_platform",
+  "after_revision": "0002_workflows",
+  "s02_rows_and_function_preserved": true,
+  "s02_row_counts": {
+    "principals": 4,
+    "role_grants": 4,
+    "audit_events": 8,
+    "audit_streams": 4
+  },
+  "before_rows": {
+    "hash": "abd1bab290d0284a110342acaaecfafefc730527fe195eedcb548790186de6fb"
+  },
+  "limits": "Local schema application only; no API/worker image build, scans, CI or S03 durability acceptance"
+}

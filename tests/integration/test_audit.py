@@ -52,6 +52,12 @@ def test_empty_database_migrates_without_metadata_drift(pg):
         "audit_streams",
         "audit_events",
         "alembic_version",
+        "incidents",
+        "workflows",
+        "workflow_steps",
+        "jobs",
+        "api_idempotency",
+        "evidence",
     }
     assert database_ready(pg["engines"]["app"])
 

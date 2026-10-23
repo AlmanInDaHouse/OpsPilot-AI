@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:opspilot:audit-event:read:2",
+  "title": "Public audit read union: historical identity v1 and workflow v2",
+  "oneOf": [
+    {"allOf": [
+      {"$ref": "event-v1.schema.json"},
+      {"properties": {
+        "event_type": {"enum": ["identity.provisioned", "identity.disabled", "authorization.granted", "authorization.revoked", "authorization.denied"]},
+        "payload": {"propertyNames": {"enum": ["reason_code", "aggregate_id", "aggregate_version", "evidence_ids"]}}
+      }}
+    ]},
+    {"$ref": "workflow-events-v2.schema.json"}
+  ]
+}

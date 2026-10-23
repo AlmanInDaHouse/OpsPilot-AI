@@ -1,0 +1,36 @@
+{
+  "status": "IMPLEMENTED_T03_02_LOCAL",
+  "version": 1,
+  "default": "DENY",
+  "role_inheritance": false,
+  "routes": {
+    "createIncident": {"roles": ["operator"], "visibility": "NEW_RESOURCE"},
+    "getIncident": {"roles": ["operator", "auditor"], "visibility": "OPERATOR_CREATOR_OR_AUDITOR"},
+    "getWorkflow": {"roles": ["operator", "auditor"], "visibility": "OPERATOR_CREATOR_OR_AUDITOR"},
+    "cancelWorkflow": {"roles": ["operator"], "visibility": "OPERATOR_CREATOR"}
+  },
+  "roles": {
+    "opspilot_app": {
+      "incidents": ["SELECT", "INSERT"],
+      "workflows": ["SELECT", "INSERT", "UPDATE(state,version,cancel_requested_at,reason_code)"],
+      "workflow_steps": ["INSERT"],
+      "jobs": ["SELECT", "INSERT", "UPDATE(state,owner,lease_until,fence)"],
+      "api_idempotency": ["SELECT", "INSERT"],
+      "evidence": ["SELECT"],
+      "audit_append_v2": ["EXECUTE"]
+    },
+    "opspilot_worker": {
+      "incidents": ["SELECT"],
+      "workflows": ["SELECT", "UPDATE(state,resume_state,version,reason_code,budget_spent_ms)"],
+      "workflow_steps": ["SELECT", "INSERT", "UPDATE(attempt_no,status,input_hash,evidence_id,error_code)"],
+      "jobs": ["SELECT", "UPDATE(state,available_at,lease_until,owner,fence,attempts)"],
+      "evidence": ["SELECT", "INSERT"],
+      "alembic_version": ["SELECT"],
+      "audit_append_v2": ["EXECUTE"]
+    }
+  },
+  "appender_owner_extra_grants": {"workflows": ["SELECT"], "evidence": ["SELECT(id,workflow_id)"]},
+  "forbidden_for_runtime": ["DDL", "TRUNCATE", "DELETE", "SUPERUSER", "BYPASSRLS", "SET_ROLE_OWNER", "AUDIT_DIRECT_WRITE", "EVIDENCE_UPDATE", "IDENTITY_WRITE"],
+  "api_cannot_read": ["worker_dsn", "migration_dsn", "admin_dsn"],
+  "worker_cannot_read": ["api_idempotency", "role_grants", "worker_identity_tokens", "migration_dsn", "admin_dsn"]
+}

@@ -1,6 +1,9 @@
 # 003-workflows — plan propuesto
 
-Estado: PROPUESTO, sin código ni ejecución autorizada. Fuente: [spec](spec.md).
+Estado: entrada humana satisfecha; T03-01 aprobada y T03-02 implementada/probada
+localmente; [intake T03-03](intake.md) implementado. Sin worker ejecutable.
+[Spec](spec.md), [contratos](contracts.md) y [persistencia](persistence.md).
+T03-04..08 continúan pendientes.
 
 1. Aprobar entrada humana y cerrar contrato OpenAPI/evento/snapshot/errores y
    matriz RBAC. Reutilizar S02; ninguna autoridad derivada de claims del IdP.
@@ -14,4 +17,4 @@ Estado: PROPUESTO, sin código ni ejecución autorizada. Fuente: [spec](spec.md)
 
 Carpetas de producto futuras: src/opspilot/incidents, workflows, adapters/postgres,
 entrypoints; migración incremental y tests contract/integration/architecture. No se
-crean en este cierre. Sin nuevas dependencias salvo necesidad y decisión revisadas.
+crean en T03-01. Sin nuevas dependencias salvo necesidad y decisión revisadas.

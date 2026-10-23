@@ -16,17 +16,30 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from sqlalchemy.orm import sessionmaker
+from starlette.concurrency import run_in_threadpool
 from starlette.exceptions import HTTPException
 
 from opspilot.adapters.oidc.verifier import OidcVerifier
 from opspilot.adapters.postgres.audit import PostgresAuditReader
 from opspilot.adapters.postgres.database import database_ready, make_engine, require_database
 from opspilot.adapters.postgres.identity import PostgresPrincipals
+from opspilot.adapters.postgres.incidents import PostgresIntakeUow
 from opspilot.audit.application.ports import AuditReader
-from opspilot.entrypoints.api.dto import AuditPage, Error, Health, Me
+from opspilot.entrypoints.api.dto import (
+    AuditPage,
+    CreateIncidentInput,
+    Error,
+    Health,
+    IncidentAcceptedDTO,
+    IntakeConflict,
+    Me,
+)
+from opspilot.entrypoints.api.intake import InvalidIntake, parse_intake
 from opspilot.entrypoints.settings import Settings
 from opspilot.identity.application.authenticate import PrincipalReader, TokenVerifier, authenticate
 from opspilot.identity.domain.principal import Principal
+from opspilot.incidents.application.create import CreateIncident
+from opspilot.incidents.domain.intake import IdempotencyConflict
 from opspilot.shared.errors import DependencyUnavailable, Forbidden, Unauthenticated
 
 LOGGER = logging.getLogger("opspilot.requests")
@@ -40,10 +53,11 @@ def platform_api(
     ready: Callable[[], bool],
     schema_valid: Callable[[], None],
     lifespan: Any = None,
+    intake: CreateIncident | None = None,
 ) -> FastAPI:
     app = FastAPI(
         title="OpsPilot platform",
-        version="0.1.0",
+        version="0.2.0",
         lifespan=lifespan,
         docs_url=None,
         redoc_url=None,
@@ -83,11 +97,18 @@ def platform_api(
             async with asyncio.timeout(10):
                 # Bound actual bytes and elapsed time, including slow body streams.
                 total = 0
+                chunks = []
                 async for chunk in request.stream():
                     total += len(chunk)
                     if total > 16384:
                         break
-                if total > 16384 or len(request.headers.getlist("authorization")) > 1:
+                    chunks.append(chunk)
+                # Starlette's cached request replays bounded bytes to downstream consumers.
+                request._body = b"".join(chunks)
+                if total > 16384 or any(
+                    len(request.headers.getlist(header)) > 1
+                    for header in ("authorization", "idempotency-key", "if-match")
+                ):
                     response = error(request, "INVALID_REQUEST", 422)
                 else:
                     response = await call_next(request)
@@ -131,6 +152,14 @@ def platform_api(
     @app.exception_handler(RequestValidationError)
     async def invalid(request: Request, exc: RequestValidationError) -> JSONResponse:
         return error(request, "INVALID_REQUEST", 422)
+
+    @app.exception_handler(InvalidIntake)
+    async def invalid_intake(request: Request, exc: InvalidIntake) -> JSONResponse:
+        return error(request, "INVALID_REQUEST", 422)
+
+    @app.exception_handler(IdempotencyConflict)
+    async def conflict(request: Request, exc: IdempotencyConflict) -> JSONResponse:
+        return error(request, "IDEMPOTENCY_CONFLICT", 409)
 
     @app.exception_handler(HTTPException)
     async def http_error(request: Request, exc: HTTPException) -> JSONResponse:
@@ -182,6 +211,45 @@ def platform_api(
         page = audit.list_events(stream_id, after_seq, limit)
         return {"items": page.items, "next_after_seq": page.next_after_seq}
 
+    @app.post(
+        "/v1/incidents",
+        operation_id="createIncident",
+        status_code=202,
+        response_model=IncidentAcceptedDTO,
+        responses={**protected_errors, 409: {"model": IntakeConflict}, 422: {"model": Error}},
+        openapi_extra={
+            "parameters": [
+                {
+                    "name": "Idempotency-Key",
+                    "in": "header",
+                    "required": True,
+                    "schema": {
+                        "type": "string",
+                        "format": "uuid",
+                        "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$(?![\\s\\S])",
+                    },
+                }
+            ],
+            "requestBody": {
+                "required": True,
+                "content": {
+                    "application/json": {"schema": CreateIncidentInput.model_json_schema()}
+                },
+            },
+        },
+    )
+    async def create_incident(
+        request: Request, principal: Annotated[Principal, Depends(actor)]
+    ) -> dict[str, str]:
+        principal.require_operator()
+        key, body = await parse_intake(request)
+        if intake is None:
+            raise DependencyUnavailable()
+        result = await run_in_threadpool(
+            intake.execute, principal.id, key, body, request.state.trace_id
+        )
+        return result.body()
+
     return app
 
 
@@ -221,4 +289,5 @@ def create_app() -> FastAPI:
         lambda: database_ready(engine) and verifier.ready(),
         lambda: require_database(engine),
         lifespan,
+        intake=CreateIncident(lambda: PostgresIntakeUow(sessions)),
     )

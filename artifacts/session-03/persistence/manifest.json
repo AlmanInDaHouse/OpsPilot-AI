@@ -1,0 +1,622 @@
+{
+  "algorithm": "SHA-256 exact host working-tree bytes, sorted path/hash records excluding artifacts",
+  "input_sha256": "2981f59ddaa3c57bd142805bd1747cf62b13a144783428084b402d2ba35de19d",
+  "inputs": [
+    {
+      "path": ".dockerignore",
+      "hash": "7bae3dab3d3597f578ed97fe8e77c58a4fc82104b9b405baa761035136350881"
+    },
+    {
+      "path": ".env.example",
+      "hash": "33d59b9fa3807029186ea0fe833f34bf9cd1f5105d26398f110fe24b87927a99"
+    },
+    {
+      "path": ".gitattributes",
+      "hash": "d60f352d0db1404c70afb4bb8b2ca3fd1c610572aa40720e8a0b7baa7885418c"
+    },
+    {
+      "path": ".github/dependabot.yml",
+      "hash": "0292e1c0bdbcb9f71f2e8a7f53eb0efd5628b5d18ba99f7457471ca77c6ce8e0"
+    },
+    {
+      "path": ".github/workflows/harness.yml",
+      "hash": "e8f2674e46168c561e083c13556d57c5f5708d68edc65350da2bf92703d50a02"
+    },
+    {
+      "path": ".github/workflows/platform.yml",
+      "hash": "667ea29310340ad9ea378340c018b3bdcdceeb37a92c7c06883e24b1ea867812"
+    },
+    {
+      "path": ".gitignore",
+      "hash": "ca16ad98763048c63b4f39b043702625491de02bef190f1bd131b79c9f525232"
+    },
+    {
+      "path": ".pymarkdown.json",
+      "hash": "dad087a0b74c92a5f188a160b26a37d6748865e3a65e9f0be27ee1542dceb23b"
+    },
+    {
+      "path": ".python-version",
+      "hash": "f8faecf2505680716c6279bf2cdec3d5a5ba2ba852f0d7df45d51ac1ce8d9ade"
+    },
+    {
+      "path": ".secrets-allowlist.json",
+      "hash": "8241e1d16181c49df62398b1263f0d8725150e6916098fca4d482a908b6345ba"
+    },
+    {
+      "path": "AGENTS.md",
+      "hash": "b1c8e668fd0f64fa02f2aed1f6e572372351199abd07dc11eba5f99a368723f1"
+    },
+    {
+      "path": "Dockerfile",
+      "hash": "72d2b6956b6c79b99e13bf3fcd949b5dca41efacf8ea2519b1d816eb41fe5263"
+    },
+    {
+      "path": "README.md",
+      "hash": "363538dccb70e20b08f4eef857b7ce82039e283137df12d895fc260ca53da7c5"
+    },
+    {
+      "path": "alembic.ini",
+      "hash": "e7955a0ffb9c32a9c5067d7885ee9197328f17a4a12fb4a5bb556c2b85763aa2"
+    },
+    {
+      "path": "contracts/audit-event.schema.json",
+      "hash": "ad5d9e330d837d77c0865afbd54aad8421af6804b0d7c768a988e6ad47977c65"
+    },
+    {
+      "path": "contracts/event-v1.schema.json",
+      "hash": "bacdf1bfd5f07050b5c79b67ecdc6aaf607449b1c730cebcb1e58949dc6c71dc"
+    },
+    {
+      "path": "contracts/incident-snapshot-v1.schema.json",
+      "hash": "a7a10063d985c3c59b10a2219822a7abb6b7859c718eeeb46989be4dd1abd57e"
+    },
+    {
+      "path": "contracts/platform.openapi.json",
+      "hash": "c176dcdb6aa312ed5c7dd414cabc020db6d999d95c44ebc7207df210444ef5d5"
+    },
+    {
+      "path": "contracts/proposal-v1.schema.json",
+      "hash": "b431ccb62f8325fff8a10cc3c21a6c0d8ab27f2151915a5e15397b31316cf191"
+    },
+    {
+      "path": "contracts/workflow-events-v2.schema.json",
+      "hash": "20e897af1c18029183eb5d348465e3f7b11bce5c92ba1638f920d80590e4db81"
+    },
+    {
+      "path": "contracts/workflow-policy-v1.json",
+      "hash": "8a7591145ce1c5cb9cf228be53c8d1d8f495de5d172f5e9282670487bba302b9"
+    },
+    {
+      "path": "contracts/workflow-snapshot-v1.schema.json",
+      "hash": "2a6cad4a5ac0f7cbad40462f872d31dc4f434fe335d656035f3cc4ce0f4b4317"
+    },
+    {
+      "path": "contracts/workflow-step-v1.json",
+      "hash": "8815010c88bb3fd16a1382929faf8c5bac2bc5625a52699dd6e2a3733ae9b867"
+    },
+    {
+      "path": "contracts/workflow-v1.json",
+      "hash": "58daad4691e8495e9316d09fcf21eb8fac388609bfad1f3552023c37d877df00"
+    },
+    {
+      "path": "contracts/workflows.openapi.json",
+      "hash": "f76e7b1989782e6e5e600d071ffd863abbcd596882264b08efd1ef4540d087c1"
+    },
+    {
+      "path": "docs/architecture/AGENT_RUNTIME.md",
+      "hash": "d3ec7e9981657ad61345886626152de6d0909e82d9e69cfe8b3b73bd62689234"
+    },
+    {
+      "path": "docs/architecture/API_CONTRACTS.md",
+      "hash": "231c8bd1a8fa97a1e29bea5e3382ab149cf71dfb5372e2a176480a6a1df995db"
+    },
+    {
+      "path": "docs/architecture/ARCHITECTURE.md",
+      "hash": "bba4b1e8e8de564c1ce597d7efd213ef4106855dd82287db5fac926ead3d3289"
+    },
+    {
+      "path": "docs/architecture/C4.md",
+      "hash": "1056c9d1e23dfa6632a02adfde6b590cddc3b7814a706b2e7cbacdd5a60f28fe"
+    },
+    {
+      "path": "docs/architecture/DATA_MODEL.md",
+      "hash": "c6e1bc5dbc1391928b4ebde6e2bb6d7a85dea4a7e3c0ac426f5f70f2ada31651"
+    },
+    {
+      "path": "docs/architecture/WORKFLOW_ENGINE.md",
+      "hash": "49ac49737121371bbea5e9f7d9aeff549ae19191deed03139f61ba8fe69a14c1"
+    },
+    {
+      "path": "docs/decisions/0001-modular-monolith.md",
+      "hash": "f481a6f00565934dc27348d2a7cab02a5613004badd6422fcf6c0b6bc84627e5"
+    },
+    {
+      "path": "docs/decisions/0002-durable-postgres.md",
+      "hash": "6f8931a00cd17c5f7144d0728e9068d97a56b706ee9ca1d83d8a3c5a80317a86"
+    },
+    {
+      "path": "docs/decisions/0003-governed-runtime.md",
+      "hash": "2a39e65bcd76365aa74e677fc3719b44f253faad175addc8cf455177bb6a9ca9"
+    },
+    {
+      "path": "docs/decisions/0004-sdd-harness.md",
+      "hash": "6704df0cbefb6cf0d89d5c980e2ec15712d704ea87c664b8f733a91075fe166d"
+    },
+    {
+      "path": "docs/decisions/0005-platform-stack.md",
+      "hash": "931e6cd667eeb1668c0f9316bca6c5a43b7d98c26eec0605ae7f1c3c915496b9"
+    },
+    {
+      "path": "docs/decisions/0006-platform-boundaries.md",
+      "hash": "b6ca73fccc9ea5851bfd375f2e7e7944b632cf38b80e18fc01b4ef16b3eaf4a6"
+    },
+    {
+      "path": "docs/decisions/0007-keycloak-maintained-runtime.md",
+      "hash": "685bc9a16c4773e2e8f64356b377e5f8a80774400423839843ee0cd6b2eccc58"
+    },
+    {
+      "path": "docs/decisions/0008-workflow-contract-boundary.md",
+      "hash": "a389797b9086514e7841424b8b1b58f7bd475f45084e8abff424fc94d585d5a9"
+    },
+    {
+      "path": "docs/decisions/README.md",
+      "hash": "9d6bf3d10f3477aff6f4d9d424132a37fd1363251f872a0d8a5bb445d52dd5d3"
+    },
+    {
+      "path": "docs/engineering/CONSTITUTION.md",
+      "hash": "dd2969a0e8c3497cf45578384ddbb33f1d76f028f72980c07750ac9491d8e2bc"
+    },
+    {
+      "path": "docs/engineering/HARNESS.md",
+      "hash": "96af6c5b00b6fb44d8eef34ee96a1a5f55fab635d79db853db824467aa16fd46"
+    },
+    {
+      "path": "docs/engineering/PLATFORM_RUNBOOK.md",
+      "hash": "9e918917c0ddd383fea09d6cc34afbd11eb47fe2e82a2f7f7fcf4aaabc2ca2ed"
+    },
+    {
+      "path": "docs/engineering/QUALITY_GATES.md",
+      "hash": "0fb39ce43bfdca8b95f9b5a6655d0773b653547c72a82ec388f8d46f528d995e"
+    },
+    {
+      "path": "docs/engineering/SDD.md",
+      "hash": "ef2d69ad791dd1a8585c73c9aad8ecf955af654f7a41c297f2e7b28dbc51067d"
+    },
+    {
+      "path": "docs/engineering/SOURCES.md",
+      "hash": "f045dbd37c452479fb5cd2722f8f8c07781d2d0e2698f2d787e6c22c0c8314b1"
+    },
+    {
+      "path": "docs/engineering/TEST_STRATEGY.md",
+      "hash": "9043268758bdf572ec87196be523f36af399a60ed72f37c6dea1a35612d5dfe7"
+    },
+    {
+      "path": "docs/product/NFR_SLO.md",
+      "hash": "746013065a66ba34d081696bcf7fdc1421bf74a5833d7bbfaa0d109bdc0102a0"
+    },
+    {
+      "path": "docs/product/PRD.md",
+      "hash": "1c00b923262a7c9a40bf67b32bd92735b29b4fb10a5316c2ba3e5e57bf9b1da9"
+    },
+    {
+      "path": "docs/product/SCOPE.md",
+      "hash": "043aa8fcb4996cae924b973b291be893d4c1572a2701c51f380c292f827b92e2"
+    },
+    {
+      "path": "docs/roadmap/HANDOFF.md",
+      "hash": "c635e7be11eae75bdc781990a8b8a554de7be535d56b771e21098583b1f2ca00"
+    },
+    {
+      "path": "docs/roadmap/RISKS.md",
+      "hash": "3b8a35a08db303cce2ca9db81c4a8282450a0da03d42c86a0695d5001ab8036c"
+    },
+    {
+      "path": "docs/roadmap/ROADMAP_8_SESSIONS.md",
+      "hash": "8a23827056194076d9b0d91b425f7fe8a93b62ca84c59d58f7723db566053a43"
+    },
+    {
+      "path": "docs/roadmap/SESSION_01_REVIEW.md",
+      "hash": "80518958796fef908dee2d27b3435bcd9ca78c6271542563d6b6efd291d5e4b1"
+    },
+    {
+      "path": "docs/roadmap/SESSION_02_CLOSURE.md",
+      "hash": "d0daadc1400f0cdb57f12f9e6b4700f50a106da2ab14fb1ebb03ab42167ff028"
+    },
+    {
+      "path": "docs/roadmap/SESSION_02_PUBLICATION.md",
+      "hash": "0ddc0f3dd64c2de9455cf50850b6f03ebc1f8ab4ae6dd99a81169af3f67e606a"
+    },
+    {
+      "path": "docs/roadmap/SESSION_02_REVIEW.md",
+      "hash": "21f2d0313ea9037b41bc4624da7282c22e8c9fcc98457efc6bfa8adc3ce5bcf8"
+    },
+    {
+      "path": "docs/roadmap/SESSION_02_SCANNER_REMEDIATION.md",
+      "hash": "df2cf2a46415a64b238b9bb87c687008be80a191d23f71aef10cfcba87a5ceb3"
+    },
+    {
+      "path": "docs/roadmap/SESSION_02_SECURITY_REMEDIATION.md",
+      "hash": "71758e28a1de6b0b82c644f1939a76907ff19d429b1aae2c271b838bf7f934fc"
+    },
+    {
+      "path": "docs/roadmap/SESSION_02_SPEC.md",
+      "hash": "8d57ab0529e33046a61de8a4df4a9479dea11e4ac352282639cf4471455e9346"
+    },
+    {
+      "path": "docs/roadmap/SESSION_03_PERSISTENCE_REVIEW.md",
+      "hash": "73861bbd1e879c67d5049fa2792490f6e13b2715e097f6352f66ad6d514fc88f"
+    },
+    {
+      "path": "docs/roadmap/SESSION_03_SPEC.md",
+      "hash": "7cd88b43d78e88f873f50a4d7ec1b52b9b4227ecd9ca2dbebceed14c00dd39a6"
+    },
+    {
+      "path": "docs/roadmap/SESSION_03_START_REVIEW.md",
+      "hash": "9f2432439738c430ed0f61ae9292de835405704d8e1acdbcc6194bf4583b69d5"
+    },
+    {
+      "path": "docs/security/CONTROL_MATRIX.md",
+      "hash": "b60dc2776b93cdcb14e9a89c604e0ba40848c3f9debca85a6d5370d1e4b5741e"
+    },
+    {
+      "path": "docs/security/THREAT_MODEL.md",
+      "hash": "5e2315ad67a1c6ba5ee4cbd21488b8d0180c6a371ef1cf6b8cad704d14c71cfe"
+    },
+    {
+      "path": "infra/compose.yaml",
+      "hash": "fdc96da59f73f1147ba4338d194a3edbd9c14eb8d432212dae5a49781d66eb2d"
+    },
+    {
+      "path": "infra/keycloak.Dockerfile",
+      "hash": "41bffd487482f9f8809666d22b2e12f1daf1b2f04463268f2321f5503aa966ac"
+    },
+    {
+      "path": "infra/postgres.Dockerfile",
+      "hash": "f102861184a7e266f790df4bb9958d2e55178c3546cd673c58c374268cb5fc86"
+    },
+    {
+      "path": "infra/realm.json",
+      "hash": "e8c055f78c247087b74d099c00e611d9ac9f4b2f2ac46b618c5c13315b4d0fdc"
+    },
+    {
+      "path": "infra/start-keycloak.sh",
+      "hash": "8f76b3d220f58751f41a1001918080069c36a658c87d4177ffd8a342b9430549"
+    },
+    {
+      "path": "migrations/env.py",
+      "hash": "32fdc4448b0fb889085ffec68cefee8c6d24dff7af2d2eb9cfbceed52b45826d"
+    },
+    {
+      "path": "migrations/script.py.mako",
+      "hash": "a7219da51c81878ae9ff44b68989051404c0d1464413b780c7e79fd1a7356e83"
+    },
+    {
+      "path": "migrations/sql/0001_platform.sql",
+      "hash": "a88af2dfb916c19d0709eab810491db0d426aace08eca41ab6bdf28ab7c25d07"
+    },
+    {
+      "path": "migrations/sql/0002_workflow_functions.sql",
+      "hash": "bf233d02b9fb8218eb00a83756ebe647fb1af7b34ff8a080a66f1d410743ba22"
+    },
+    {
+      "path": "migrations/sql/0002_workflows.sql",
+      "hash": "a8c99db78806cceff4efdf520f2c01f0a867f9e66eafcd8015e4901318f00011"
+    },
+    {
+      "path": "migrations/versions/0001_platform.py",
+      "hash": "5d44217a3dda189ba7060c9ae6a2441bbf118437d0545a223fe9815c5cb5958e"
+    },
+    {
+      "path": "migrations/versions/0002_workflows.py",
+      "hash": "a54eb11ba68936e7b7494f98f2827a1e60277099a1a511604329bd7deb8c7667"
+    },
+    {
+      "path": "pyproject.toml",
+      "hash": "91c0abe560fbd95a17ec8a201af5c64a99e4e63756b966d2f0656df6817b005a"
+    },
+    {
+      "path": "scripts/check_architecture.py",
+      "hash": "102825575fd7c7dc8001c68fc8092a71e4f894e01284d36ebb68617887b20983"
+    },
+    {
+      "path": "scripts/check_repository.py",
+      "hash": "08457d9a5bd77b68c1a2c1832abc75fbda02a3778c6f8a91057a87b2540152ae"
+    },
+    {
+      "path": "scripts/check_secrets.py",
+      "hash": "6baadf79ac82e0b8a960923a7a8cad8d73b04ac43f2432181c78c7f034c1a655"
+    },
+    {
+      "path": "scripts/dev.py",
+      "hash": "e2021d4420a780f37d3c8b71be201de55cd7d52e092b7af3d875e366ae06533e"
+    },
+    {
+      "path": "scripts/lab.py",
+      "hash": "38419187b68d9acbd7c4e7002fd240a317c11a13f2bd666a47794fa07a494a7f"
+    },
+    {
+      "path": "scripts/scan_images.py",
+      "hash": "0c720bfe694b9356ec0e1b88ea605fd7252d7a487175bdac506bc29a5405cd04"
+    },
+    {
+      "path": "scripts/verify_fresh_postgres.py",
+      "hash": "92681fe587b7a13502a2cf55d1d41c32f4ab615bb9a13379adcde29771d57e9d"
+    },
+    {
+      "path": "scripts/verify_recovery.py",
+      "hash": "cd6700f20d00d7e45c829777aae190150f29fd7f14457224abdaeb5bb4338058"
+    },
+    {
+      "path": "scripts/verify_scanner_environment.py",
+      "hash": "687cc8364c72434e5deb833c5c69d25023ca8b87f6939fdc2ed6bdb9e445f0ea"
+    },
+    {
+      "path": "scripts/verify_session02.py",
+      "hash": "911147aa3db96f69ae90b0ce9f8eb3b340d8f17453188a6155ec03382d677e43"
+    },
+    {
+      "path": "specs/001-vpn/spec.md",
+      "hash": "93671767bb67c266d65347aa0de909e19df080bcf321d2c18d596fefcabf0128"
+    },
+    {
+      "path": "specs/002-platform/checklist.md",
+      "hash": "88796ee106be845eab87536ae360673b5b428059380c56b35835fa3fdef558ed"
+    },
+    {
+      "path": "specs/002-platform/execution.md",
+      "hash": "13d4a154c7b1f52e884b040bedad5650891a61a11d9eb34e961c561a232cf4f5"
+    },
+    {
+      "path": "specs/002-platform/formal-closure.md",
+      "hash": "2bc20d251a96b8cb5310312e1ce7b3a6fb156aa0ba65ea155e0521f741934b69"
+    },
+    {
+      "path": "specs/002-platform/plan.md",
+      "hash": "71f32038e990ae13bcf2b61d6b16e2962bde32d0979bad4cb953641e709086e4"
+    },
+    {
+      "path": "specs/002-platform/scanner-remediation.md",
+      "hash": "ae5f31d7a46c3dc162bf22cdfa84607d69da929bfc559382f1eafaae93ee0158"
+    },
+    {
+      "path": "specs/002-platform/security-remediation.md",
+      "hash": "bedc3c4354d09452547897f38553114dacbbcb4c1026f44abd904d28c0c4da52"
+    },
+    {
+      "path": "specs/002-platform/spec.md",
+      "hash": "16b08240d10099e925e5c8a1bffec155a2b5ea3157a26f0ac5f25f99058f7449"
+    },
+    {
+      "path": "specs/002-platform/tasks.md",
+      "hash": "ab11c633bfbaceddcc8d3918aaa637e3ad64361b58ea26ef33ef9051996c05c7"
+    },
+    {
+      "path": "specs/003-workflows/checklist.md",
+      "hash": "f9ad268a29aff66109bd39598f08136c0e26acd3529bfc81d691fb05d37c4db2"
+    },
+    {
+      "path": "specs/003-workflows/contracts.md",
+      "hash": "6c144f063869b9cf6562325a3d4472de702d891811314f68c5bf0dcde4616771"
+    },
+    {
+      "path": "specs/003-workflows/persistence.md",
+      "hash": "1c7b6d0ec290c4c499ddd81d6a2690cf50b5e31d306a5c01a787202b425f1118"
+    },
+    {
+      "path": "specs/003-workflows/plan.md",
+      "hash": "3e006a193728615f085d94f94a333f8c9c9346a6183cc742434e5761b8549b22"
+    },
+    {
+      "path": "specs/003-workflows/spec.md",
+      "hash": "d3fdfc3e86b2f515a2dc795769b64ddaea6cfb2a19205ece8e496c1808380867"
+    },
+    {
+      "path": "specs/003-workflows/start.md",
+      "hash": "3bc65762916077e6d22f70734f292bae83b5297c12831025622e01d30a47c88b"
+    },
+    {
+      "path": "specs/003-workflows/tasks.md",
+      "hash": "2c45eac9d8af4216b7aed2d248514bd049292481361a890fae622fae975678c5"
+    },
+    {
+      "path": "specs/TEMPLATE.md",
+      "hash": "203ffbc80b6641d1f598ee3a29c89abbf67d6cad25149eb2ff7e72dc5b7208f6"
+    },
+    {
+      "path": "specs/traceability.json",
+      "hash": "59e6407e3d0f192a3c91cd76be0b1e29d93f458fff6d243a3571f7f836210c23"
+    },
+    {
+      "path": "src/opspilot/__init__.py",
+      "hash": "bf5d732099051d2dad348214e9baa615bc13e17dc1196c32f1cdce11f2854c3b"
+    },
+    {
+      "path": "src/opspilot/adapters/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "path": "src/opspilot/adapters/oidc/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "path": "src/opspilot/adapters/oidc/verifier.py",
+      "hash": "634a61c6eb8ea13cf27d817d1745cb29653800727e073dbf1f0f1c5d54f080bf"
+    },
+    {
+      "path": "src/opspilot/adapters/postgres/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "path": "src/opspilot/adapters/postgres/audit.py",
+      "hash": "d1f14e8a44cb5e08803e4e9cccf64f35730f2f8b2a998d2a29dfbdbafce9f0b0"
+    },
+    {
+      "path": "src/opspilot/adapters/postgres/database.py",
+      "hash": "b2f9c250c76f750dd975b419844a917b1b7ca763df80a2d6c5262a2db83e7bf6"
+    },
+    {
+      "path": "src/opspilot/adapters/postgres/identity.py",
+      "hash": "3cb2d74a45a9cf874315c7062af91716ce9590dbaad852f61715eacc18955001"
+    },
+    {
+      "path": "src/opspilot/adapters/postgres/models.py",
+      "hash": "ec585ec4031f44312698186399c37162f1d1332961b00cb38af61230382b7c92"
+    },
+    {
+      "path": "src/opspilot/audit/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "path": "src/opspilot/audit/application/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "path": "src/opspilot/audit/application/ports.py",
+      "hash": "3439219a5e04a66db7133a4756e3c61d9c0a71ee68224dfc2eeccd2539074b84"
+    },
+    {
+      "path": "src/opspilot/audit/domain/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "path": "src/opspilot/audit/domain/envelope.py",
+      "hash": "e6a038d22c52d3eeebc08e8cbeb23aeb4d4173b6840cb137f469e45deaf8793a"
+    },
+    {
+      "path": "src/opspilot/entrypoints/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "path": "src/opspilot/entrypoints/api/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "path": "src/opspilot/entrypoints/api/app.py",
+      "hash": "878533607ff7d70e78059d9f10f6b7c9ede428ba43da3d027a6dcef1124375e0"
+    },
+    {
+      "path": "src/opspilot/entrypoints/api/dto.py",
+      "hash": "d7aff93cb7f8bb20942fde89cb14cf4953e43304e7ec406204d0ec722ce7bf5f"
+    },
+    {
+      "path": "src/opspilot/entrypoints/provision.py",
+      "hash": "2d2b76ed68dda87c2db393bbc67fdc508379856aa576dd5bbfdf7bb979465bf3"
+    },
+    {
+      "path": "src/opspilot/entrypoints/settings.py",
+      "hash": "1a359aa218906d5cb2e5c627e2242b764c6870357627086d3dda3d4fa4eae423"
+    },
+    {
+      "path": "src/opspilot/identity/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "path": "src/opspilot/identity/application/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "path": "src/opspilot/identity/application/authenticate.py",
+      "hash": "d3f1c01df27a2c8a8b6e55391b36e2d676534f1097a0df41fc8b051a1be1ea2f"
+    },
+    {
+      "path": "src/opspilot/identity/application/provision.py",
+      "hash": "0cf6d818b05223ad22167bf0d0fee1aa5d6644327f98150bcbb388d44e297c40"
+    },
+    {
+      "path": "src/opspilot/identity/domain/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "path": "src/opspilot/identity/domain/principal.py",
+      "hash": "a490d71314c2e535e0e6377b4be0ed279e3b4b073460da34a01052d21fa11cc3"
+    },
+    {
+      "path": "src/opspilot/shared/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "path": "src/opspilot/shared/errors.py",
+      "hash": "dd18dcc15cf3dff07108db74c6a57c946bdacf350fb9e936452e545456d8da44"
+    },
+    {
+      "path": "src/opspilot/shared/uow.py",
+      "hash": "f569a273c2da5cf9b821c028fa94aaab58ac31133e2a3237204e3ad76200116e"
+    },
+    {
+      "path": "tests/architecture/test_layers.py",
+      "hash": "b10c30c8bb309facd7f277f1cf92105628a6b21e552bbb1a3fdc1ca9f0c4419d"
+    },
+    {
+      "path": "tests/contract/test_api.py",
+      "hash": "38e0888496b1111ddc0a739ca6888452167ed976f6b6f9578df284dc388a5d6a"
+    },
+    {
+      "path": "tests/contract/test_workflow_design.py",
+      "hash": "3ed4fb9fb7e0eaf451ed491a1c6c4311ef0774545dbb5ce7a7316c3103f1c15b"
+    },
+    {
+      "path": "tests/fixtures/workflow-hash-v1.json",
+      "hash": "e65f560e4452c8d913452c26a4ff1afbe0cfe957a8b9f81f1b486cfd65754f00"
+    },
+    {
+      "path": "tests/harness/test_checks.py",
+      "hash": "2e8dcccc6044c9c472aa6a6c18120fb8770ef636bb88aed28f2c606b767e95a2"
+    },
+    {
+      "path": "tests/integration/conftest.py",
+      "hash": "db30200ed651ccf637621c7cc9426f8ee47ea5ff8244de4076547c605babd0d3"
+    },
+    {
+      "path": "tests/integration/test_audit.py",
+      "hash": "940f14c257b0ad7e4b2302d2b464e378c1f9bf3ea42a194f48f07f774ac71abc"
+    },
+    {
+      "path": "tests/integration/test_entrypoints.py",
+      "hash": "d76332199b58b83d3a3f69b0b4af1b009acb010a9d201e117dfc38dd696f379c"
+    },
+    {
+      "path": "tests/integration/test_identity.py",
+      "hash": "6c75d7312b9d6752bf333ef517228694bb6a748259eea96e37b7850b5208d46f"
+    },
+    {
+      "path": "tests/integration/test_idp_security.py",
+      "hash": "c432d2194ff8af40805488a9f7ffdcc671fb99c05816652a0ea6d7f247d39296"
+    },
+    {
+      "path": "tests/integration/test_workflow_persistence.py",
+      "hash": "48defec865d7b2eb6ec8b1ff5ee3d6ecffacbb5349f06278f4312abe042bc25e"
+    },
+    {
+      "path": "tests/unit/test_canonical.py",
+      "hash": "86a67cf195423f3774e0a8ab4f2a603d9d80494f865da06b15e1fe23ee7dbc56"
+    },
+    {
+      "path": "tests/unit/test_configuration.py",
+      "hash": "e5cb3e853cb8bbf0ec8c631c5054235be83df09469a4395011217d3fad55e1d6"
+    },
+    {
+      "path": "tests/unit/test_identity.py",
+      "hash": "4a888ce9bc60d51ca66f04d7e6e7414da2a996abc04ce48f48b9e15d3f3ccba6"
+    },
+    {
+      "path": "tests/unit/test_image_scan_gate.py",
+      "hash": "9f8777e9c08a5814a09e038cc62bd5b74475fdcdab1c8bec209da590bfa65c10"
+    },
+    {
+      "path": "tests/unit/test_oidc.py",
+      "hash": "93ee52beae1a782c7ee646249367b379792a132a93c666ff14777113b48d2ec7"
+    },
+    {
+      "path": "tests/unit/test_secret_scanner.py",
+      "hash": "b0eb03c77b68a5b86ff7b8f1da534de4d56a86b9b774e39c984450546cb86b6c"
+    },
+    {
+      "path": "tests/unit/test_verification_acceptance.py",
+      "hash": "3d6a219498dbe1b1ea215af1097e9513026b607c0238bab77a8958b75e5ff870"
+    },
+    {
+      "path": "uv.lock",
+      "hash": "ae0f7e79eabd24c7675308812a47bad5785911f7cf04b9d84d4ac5e5058537af"
+    }
+  ]
+}

@@ -42,9 +42,11 @@
       "artifacts/session-02/remediation/final-trust.json",
       "artifacts/session-02/closure-660f7d3/acceptance.json",
       "artifacts/session-02/closure-660f7d3/remote-audit.json",
-      "artifacts/session-02/closure-660f7d3/ci/tests-ci.xml"
+      "artifacts/session-02/closure-660f7d3/ci/tests-ci.xml",
+      "artifacts/session-03/persistence/verification.json",
+      "artifacts/session-03/intake/verification.json"
     ],
-    "acceptance": "GO tecnico S02 for 660f7d3, R17 technically resolved for exact SHA; human review/acceptance pending; no enterprise/production validation; S03 implementation not authorized",
+    "acceptance": "Historical technical GO S02 for exact 660f7d3; author accepted S02 closure/risks and T03-01 before implementing T03-02. Current tree has local regression evidence only, no inherited remote GO or production validation.",
     "task_ids": [
       "T02-01",
       "T02-02",
@@ -75,13 +77,15 @@
       "src/opspilot/audit/domain/envelope.py",
       "src/opspilot/identity/application/provision.py",
       "migrations/versions/0001_platform.py",
-      "migrations/sql/0001_platform.sql"
+      "migrations/sql/0001_platform.sql",
+      "src/opspilot/entrypoints/api/dto.py"
     ],
     "test": [
       "tests/unit/test_canonical.py",
       "tests/integration/test_audit.py",
       "tests/integration/test_entrypoints.py",
-      "tests/architecture/test_layers.py"
+      "tests/architecture/test_layers.py",
+      "tests/integration/test_workflow_persistence.py"
     ],
     "evidence": [
       "artifacts/session-02/tests-windows.xml",
@@ -96,9 +100,11 @@
       "artifacts/session-02/remediation/recovery-final.json",
       "artifacts/session-02/closure-660f7d3/acceptance.json",
       "artifacts/session-02/closure-660f7d3/remote-audit.json",
-      "artifacts/session-02/closure-660f7d3/ci/tests-ci.xml"
+      "artifacts/session-02/closure-660f7d3/ci/tests-ci.xml",
+      "artifacts/session-03/persistence/verification.json",
+      "artifacts/session-03/intake/verification.json"
     ],
-    "acceptance": "GO tecnico S02 for 660f7d3, R17 technically resolved for exact SHA; human review/acceptance pending; no enterprise/production validation; S03 implementation not authorized",
+    "acceptance": "Historical technical GO S02 for exact 660f7d3; author accepted S02 closure/risks and T03-01 before implementing T03-02. Current tree has local regression evidence only, no inherited remote GO or production validation.",
     "task_ids": [
       "T02-01",
       "T02-02",
@@ -115,23 +121,50 @@
     "spec": [
       "specs/001-vpn/spec.md",
       "docs/roadmap/SESSION_03_SPEC.md",
-      "specs/003-workflows/spec.md"
+      "specs/003-workflows/spec.md",
+      "specs/003-workflows/persistence.md",
+      "specs/003-workflows/intake.md"
     ],
     "design": [
-      "docs/architecture/WORKFLOW_ENGINE.md"
+      "docs/architecture/WORKFLOW_ENGINE.md",
+      "specs/003-workflows/contracts.md",
+      "docs/decisions/0008-workflow-contract-boundary.md",
+      "contracts/audit-event.schema.json",
+      "contracts/workflow-policy-v1.json"
     ],
     "task": [
       "docs/roadmap/ROADMAP_8_SESSIONS.md",
       "specs/003-workflows/tasks.md"
     ],
     "code": [
-      "src/opspilot/incidents/application/create.py"
+      "src/opspilot/incidents/application/create.py",
+      "migrations/versions/0002_workflows.py",
+      "migrations/sql/0002_workflows.sql",
+      "migrations/sql/0002_workflow_functions.sql",
+      "src/opspilot/adapters/postgres/models.py",
+      "src/opspilot/adapters/postgres/audit.py",
+      "src/opspilot/incidents/domain/intake.py",
+      "src/opspilot/adapters/postgres/incidents.py",
+      "src/opspilot/entrypoints/api/intake.py",
+      "src/opspilot/entrypoints/api/app.py"
     ],
     "test": [
-      "tests/integration/test_intake_atomicity.py"
+      "tests/contract/test_workflow_design.py",
+      "tests/integration/test_workflow_persistence.py",
+      "tests/unit/test_intake.py",
+      "tests/contract/test_intake_api.py",
+      "tests/integration/test_incident_intake.py",
+      "tests/integration/intake_process.py"
     ],
-    "evidence": [],
-    "acceptance": "PROPUESTO only; no S03 implementation/tests/evidence. REQ-WF-03 full external reconciliation remains S05/S06."
+    "evidence": [
+      "artifacts/session-03/start/verification.json",
+      "artifacts/session-03/persistence/verification.json",
+      "artifacts/session-03/persistence/lab-migration.json",
+      "artifacts/session-03/intake/verification.json",
+      "artifacts/session-03/intake/tests-windows.json",
+      "artifacts/session-03/intake/tests-linux.json"
+    ],
+    "acceptance": "T03-01 approved; T03-02 storage and T03-03 intake locally implemented/tested. AC03-01/02 atomic/idempotent intake and API process recovery proven with real PG18/Keycloak, 20 requests and actual rejected COMMIT. Full requirement remains PROPOSED pending worker/job crash/fence/cancel acceptance T03-04..08. No GO S04 or production; current-tree remote CI NOT_RUN."
   },
   {
     "requirement": "REQ-WF-02",
@@ -139,23 +172,52 @@
     "spec": [
       "specs/001-vpn/spec.md",
       "docs/roadmap/SESSION_03_SPEC.md",
-      "specs/003-workflows/spec.md"
+      "specs/003-workflows/spec.md",
+      "specs/003-workflows/persistence.md",
+      "specs/003-workflows/intake.md"
     ],
     "design": [
-      "docs/architecture/WORKFLOW_ENGINE.md"
+      "docs/architecture/WORKFLOW_ENGINE.md",
+      "specs/003-workflows/contracts.md",
+      "docs/decisions/0008-workflow-contract-boundary.md",
+      "contracts/audit-event.schema.json",
+      "contracts/workflow-policy-v1.json"
     ],
     "task": [
       "docs/roadmap/ROADMAP_8_SESSIONS.md",
       "specs/003-workflows/tasks.md"
     ],
     "code": [
-      "src/opspilot/workflows/application/recovery.py"
+      "src/opspilot/workflows/application/recovery.py",
+      "migrations/versions/0002_workflows.py",
+      "migrations/sql/0002_workflows.sql",
+      "migrations/sql/0002_workflow_functions.sql",
+      "src/opspilot/adapters/postgres/models.py",
+      "src/opspilot/adapters/postgres/audit.py",
+      "src/opspilot/incidents/domain/intake.py",
+      "src/opspilot/incidents/application/create.py",
+      "src/opspilot/adapters/postgres/incidents.py",
+      "src/opspilot/entrypoints/api/intake.py",
+      "src/opspilot/entrypoints/api/app.py"
     ],
     "test": [
-      "tests/integration/test_workflow_crash.py"
+      "tests/integration/test_workflow_crash.py",
+      "tests/contract/test_workflow_design.py",
+      "tests/integration/test_workflow_persistence.py",
+      "tests/unit/test_intake.py",
+      "tests/contract/test_intake_api.py",
+      "tests/integration/test_incident_intake.py",
+      "tests/integration/intake_process.py"
     ],
-    "evidence": [],
-    "acceptance": "PROPUESTO only; no S03 implementation/tests/evidence. REQ-WF-03 full external reconciliation remains S05/S06."
+    "evidence": [
+      "artifacts/session-03/start/verification.json",
+      "artifacts/session-03/persistence/verification.json",
+      "artifacts/session-03/persistence/lab-migration.json",
+      "artifacts/session-03/intake/verification.json",
+      "artifacts/session-03/intake/tests-windows.json",
+      "artifacts/session-03/intake/tests-linux.json"
+    ],
+    "acceptance": "T03-01 approved; T03-02 storage and T03-03 intake locally implemented/tested. AC03-01/02 atomic/idempotent intake and API process recovery proven with real PG18/Keycloak, 20 requests and actual rejected COMMIT. Full requirement remains PROPOSED pending worker/job crash/fence/cancel acceptance T03-04..08. No GO S04 or production; current-tree remote CI NOT_RUN."
   },
   {
     "requirement": "REQ-WF-03",
@@ -163,23 +225,39 @@
     "spec": [
       "specs/001-vpn/spec.md",
       "docs/roadmap/SESSION_03_SPEC.md",
-      "specs/003-workflows/spec.md"
+      "specs/003-workflows/spec.md",
+      "specs/003-workflows/persistence.md"
     ],
     "design": [
-      "docs/architecture/WORKFLOW_ENGINE.md"
+      "docs/architecture/WORKFLOW_ENGINE.md",
+      "specs/003-workflows/contracts.md",
+      "docs/decisions/0008-workflow-contract-boundary.md",
+      "contracts/audit-event.schema.json",
+      "contracts/workflow-policy-v1.json"
     ],
     "task": [
       "docs/roadmap/ROADMAP_8_SESSIONS.md",
       "specs/003-workflows/tasks.md"
     ],
     "code": [
-      "src/opspilot/tools/application/reconcile.py"
+      "src/opspilot/tools/application/reconcile.py",
+      "migrations/versions/0002_workflows.py",
+      "migrations/sql/0002_workflows.sql",
+      "migrations/sql/0002_workflow_functions.sql",
+      "src/opspilot/adapters/postgres/models.py",
+      "src/opspilot/adapters/postgres/audit.py"
     ],
     "test": [
-      "tests/integration/test_unknown_outcome.py"
+      "tests/integration/test_unknown_outcome.py",
+      "tests/contract/test_workflow_design.py",
+      "tests/integration/test_workflow_persistence.py"
     ],
-    "evidence": [],
-    "acceptance": "PROPUESTO only; no S03 implementation/tests/evidence. REQ-WF-03 full external reconciliation remains S05/S06."
+    "evidence": [
+      "artifacts/session-03/start/verification.json",
+      "artifacts/session-03/persistence/verification.json",
+      "artifacts/session-03/persistence/lab-migration.json"
+    ],
+    "acceptance": "T03-01 approved by author after S02 risk review; T03-02 storage/appender/read union implemented and tested locally. Requirement remains PROPOSED until intake, worker and crash acceptance. No GO S04; full CI/scans/recovery pending."
   },
   {
     "requirement": "REQ-AI-01",
@@ -401,8 +479,10 @@
       "artifacts/session-02/remediation/ci-post-push.json",
       "artifacts/session-02/closure-660f7d3/acceptance.json",
       "artifacts/session-02/closure-660f7d3/remote-audit.json",
-      "artifacts/session-02/closure-660f7d3/ci/tests-ci.xml"
+      "artifacts/session-02/closure-660f7d3/ci/tests-ci.xml",
+      "artifacts/session-03/persistence/verification.json",
+      "artifacts/session-03/intake/verification.json"
     ],
-    "acceptance": "GO tecnico S02 for 660f7d3, R17 technically resolved for exact SHA; human review/acceptance pending; no enterprise/production validation; S03 implementation not authorized"
+    "acceptance": "Historical technical GO S02 for exact 660f7d3; author accepted S02 closure/risks and T03-01 before implementing T03-02. Current tree has local regression evidence only, no inherited remote GO or production validation."
   }
 ]

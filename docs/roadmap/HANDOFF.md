@@ -1,4 +1,99 @@
-# Handoff versionado — plataforma S02 y futura S03
+# Handoff versionado — plataforma S02 y arranque S03
+
+## Publicación de T03-01..03 autorizada — 2026-10-23
+
+Tras la entrega local de T03-03, el autor autoriza commit y push a origin/main con
+«pushealo». Se publica el conjunto dependiente T03-01/02/03, conservando sus
+snapshots históricos de pruebas y autorización. Antes de editar, manifest de intake
+sin drift y HEAD/origin/main iguales en 3b91f58; 567 PASS por OS y 155 integraciones
+reales por OS respaldados por evidencia. Solo README y este handoff se actualizan
+para publicar; no cambios funcionales posteriores a las pruebas.
+
+Consultar Git para SHA efectivo y Actions para los gates de ese mismo SHA. Los
+resultados locales no acreditan CI remota. La autorización no inicia T03-04 ni
+incluye merge, release, despliegue o infraestructura externa. S03 sigue abierta;
+NO-GO S04/producción. Laboratorio detenido con volumen y credenciales preservados.
+
+## T03-03 — intake atómico/idempotente, 2026-10-23
+
+Nueva petición explícita del autor: implementar exclusivamente T03-03. T03-01/02
+sin publicar preservadas sobre main/HEAD 3b91f58. No reset/commit/push. Revisión:
+[SESSION_03_INTAKE_REVIEW](SESSION_03_INTAKE_REVIEW.md) y
+[spec acotada](../../specs/003-workflows/intake.md).
+
+T03-03 IMPLEMENTADA/PROBADA localmente: POST /v1/incidents, operator local explícito,
+input estricto y UUID Idempotency-Key; incident OPEN/workflow QUEUED/step PENDING/
+job READY/audit v2/respuesta en el PostgresUow existente. PK scoped decide carreras;
+perdedor revierte TODO y reautoriza/relee en transacción nueva. Replay sin evento
+nuevo, conflicto 409; revoke/disable deniegan. Sin nuevas migraciones ni grants.
+0001/0002 y adaptadores audit/models conservan hashes T03-02.
+
+567 PASS Windows y 567 PASS Linux, 155 integraciones reales por entorno, cero skips.
+20 requests, dos APIs reales y tercera instancia tras muerte; kills antes/después
+de commit, transporte perdido, timeout y commit rechazado por constraint diferida
+PG reales. Check/scans/PG fresco/recovery y estado final con exit codes en
+[evidencia propia](../../artifacts/session-03/intake/verification.json).
+Sin CI del árbol actual. GO técnico local T03-03 para preparar T03-04; no avance
+automático ni aceptación global S03. T03-04..08 pendientes; NO-GO S04/producción.
+
+Lab mantiene cuatro principals/cuatro grants y ocho eventos S02, más un intake
+sintético con su noveno evento/quinto stream. Tras reinicio, replay exacto y job
+READY, fence/attempts 0, sin owner/lease. Fallo del helper de observación se corrigió
+reusando la misma key: no segundo incidente. Parada conserva volumen/credenciales.
+R01/R02/R14/privacidad y mantenimiento R15/musl/linux-amd64 vigentes. No worker,
+lecturas/cancelación, herramientas IT ni resolución. Sin publicación ni despliegue.
+
+## T03-02 — aprobación humana y persistencia, 2026-10-23
+
+El autor responde a la solicitud de revisión de cierre/riesgos S02 y contratos
+T03-01/ADR-0008: «Apruebo tras revisión; continuar T03-02». Entrada humana satisfecha
+para esta implementación local; los pendientes de revisión de las secciones
+históricas inferiores corresponden a sus snapshots y no describen esta aprobación.
+
+T03-02 IMPLEMENTADA/PROBADA localmente: migración incremental 0002, seis tablas,
+constraints/FK/índices, login worker/grants mínimos y appender v2. Lector/DTO/OpenAPI
+audit v1/v2, cuatro GET originales, sin snapshot privado en respuesta. SQL 0001 y
+función v1 intactos. [Revisión](SESSION_03_PERSISTENCE_REVIEW.md),
+[spec acotada](../../specs/003-workflows/persistence.md) y
+[evidencia](../../artifacts/session-03/persistence/verification.json).
+
+482 tests PASS Windows y 482 Linux en imagen de tests sin root; 121 integraciones
+reales por entorno, cero skips. Vacío/N-1, grants, hashes, rollback DDL real y HTTP
+mixto probados. Lab migrado 0001→0002 con cuatro identidades/grants, ocho eventos
+y cuatro heads S02 preservados. No repetir `compose start api` de la imagen antigua:
+el wrapper `up` construye código actual y readiness exige revisión exacta.
+
+Siguiente: T03-03 intake atómico/idempotente, después T03-04..08. Sin endpoints de
+dominio, worker ejecutable ni crash suite. CI/scans/recovery actuales pendientes
+de T03-07; no herencia del GO S02 ni GO S04/producción. R01/R02/R14/privacidad y R15
+vigentes. Check final/parada y hashes en evidencia. Sin commit/push/merge/release/
+despliegue ni infraestructura externa. Conservar cambios anteriores T03-01 y todos
+los snapshots históricos; HEAD base 3b91f58, árbol sin publicar.
+
+## Arranque S03 solicitado — 2026-10-23
+
+Petición explícita del autor: «empieza la sesion 03». Git inicial limpio en main,
+HEAD 3b91f58. GO técnico S02 de 660f7d3 documentado; aceptación humana de diff/riesgos
+continúa pendiente. Esta petición inicia S03, sin acreditar esa revisión.
+
+Tarea acotada T03-01: [contratos para revisión](../../specs/003-workflows/contracts.md),
+ADR-0008 PROPUESTO, OpenAPI, evento v2, snapshots y matriz de grants. Tests de diseño
+en tests/contract/test_workflow_design.py. [Revisión de arranque](SESSION_03_START_REVIEW.md)
+y [evidencia](../../artifacts/session-03/start/verification.json). Leer resultado real
+de los comandos finales en ese JSON; el estado histórico de S02 no lo sustituye.
+
+Sin cambios src/migrations/infra/lock/imágenes/CI. Sin endpoints, worker ni durabilidad
+S03 implementados. T03-01 no se declara aceptada: SESSION_03_SPEC exige revisión
+humana de cierre/riesgos S02 y contratos antes de código; solicitud pendiente.
+Después corresponde T03-02, no saltar a IA/S04. R01/R02/R14/privacidad abiertos;
+R15 conserva mantenimiento y límites musl/linux-amd64. NO-GO S04/producción.
+Sin commit, push, merge, release, despliegue ni infraestructura externa.
+
+El primer test falló con PG/IdP detenidos: 162 PASS, 2 FAIL, 48 ERROR. Se arrancó
+solo lab existente sin reconstrucción ni pérdida de volumen; repetición 212 PASS.
+Paquete ampliado: 411 PASS, incluidos 50 de integración real S02 y 199 de diseño;
+check final y estado del laboratorio registrados en evidencia de este arranque.
+Los apartados siguientes conservan autorizaciones/resultados históricos.
 
 ## Cierre técnico S02 — 660f7d3, 2026-10-23
 

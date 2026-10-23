@@ -9,9 +9,12 @@ no hay IA, VPN ni frontend implementados.
 [Cierre técnico S02](docs/roadmap/SESSION_02_CLOSURE.md): **GO técnico para 660f7d3**,
 CI plataforma y harness SUCCESS, tres scans/PG fresco/recovery PASS. R17 resuelto
 para ese SHA; R15 conserva mantenimiento y límites linux/amd64/Keycloak musl.
-Revisión y aceptación humana pendientes; sin validación empresarial ni readiness
-de producción. [S03 especificada](docs/roadmap/SESSION_03_SPEC.md), sin implementar
-ni autorizar el orquestador. Las evidencias históricas conservan sus NO-GO previos.
+El autor aprobó tras revisión el cierre/riesgos S02 y los contratos T03-01/ADR-0008;
+sin validación empresarial ni readiness de producción. [S03 en curso](docs/roadmap/SESSION_03_SPEC.md):
+[T03-02](docs/roadmap/SESSION_03_PERSISTENCE_REVIEW.md) implementa esquema durable,
+rol worker y auditoría v2 con lectura mixta. [T03-03](docs/roadmap/SESSION_03_INTAKE_REVIEW.md)
+implementa intake atómico/idempotente; worker ejecutable pendiente.
+Las evidencias históricas conservan sus NO-GO y aceptaciones pendientes originales.
 
 OpsPilot investigará incidencias IT con documentación autorizada y evidencias,
 propondrá acciones y ejecutará un catálogo cerrado bajo políticas y supervisión.
@@ -24,8 +27,9 @@ Una ejecución técnica correcta no demuestra la resolución del ticket.
 |---|---|
 | Checkouts CopilotDrive vecinos | EXISTENTE, ajeno a OpsPilot; sin cambios |
 | Arquitectura, contratos y roadmap | Diseño versionado; S02 implementada, hitos posteriores propuestos |
-| Harness y CI | 660f7d3: CI plataforma/harness SUCCESS, 212 tests Linux, PG fresco/recovery y tres scans PASS; aceptación humana pendiente |
-| API/identidad/audit | IMPLEMENTADO y probado con PG/Keycloak reales; ver gates S02 |
+| Harness y CI | 660f7d3: CI plataforma/harness SUCCESS; cierre/riesgos aceptados por autor. Árbol S03 con pruebas locales, CI nueva pendiente |
+| API/identidad/audit | S02 y lectura mixta audit v1/v2 implementados y probados con PG/Keycloak reales |
+| Persistencia/intake S03 | 0002 y appender v2 probados; POST atómico/idempotente T03-03 implementado; worker pendiente |
 | LLM y VPN | PROPUESTO; fuera de S02, sin conexiones ni efectos IT |
 
 Empieza por [alcance](docs/product/SCOPE.md), [arquitectura](docs/architecture/ARCHITECTURE.md),
@@ -59,7 +63,8 @@ tipos, arquitectura y scans. `test` requiere PG/IdP reales; ausencia es fallo, n
 Keycloak local. `up` construye/arranca la API; `stop` conserva volúmenes. Solo `eval`
 sigue con código 2 NOT_IMPLEMENTED hasta S04. [Runbook](docs/engineering/PLATFORM_RUNBOOK.md).
 
-Endpoints: `GET /health/live`, `GET /health/ready`, `GET /v1/me`, `GET /v1/audit-events`.
+Endpoints: `GET /health/live`, `GET /health/ready`, `GET /v1/me`, `GET /v1/audit-events`
+y `POST /v1/incidents` (operator explícito, UUID Idempotency-Key, 202 tras commit).
 API loopback 59000; IdP 59080; PG 59432. API usa rol restringido y no migra al arrancar.
 El contrato [OpenAPI](contracts/platform.openapi.json) es independiente de los DTO y
 se verifica con HTTP. Compose es laboratorio sintético: no es un despliegue empresarial.

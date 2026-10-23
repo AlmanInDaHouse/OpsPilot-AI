@@ -1,0 +1,67 @@
+{
+  "status": "PASS",
+  "scope": "S03 T03-01 contract design plus S02 regression only; no S03 runtime/durability acceptance",
+  "head": "3b91f58c2f54a59ea5825c41af0550a9acb416de",
+  "input_sha256": "7bd47cce2ae8a097ddb2c79a87e370a3d36e5e82b7d0ef4402fbf3b5acc07430",
+  "captured_at_utc": "2026-10-23T12:12:49.380124+00:00",
+  "environment": {
+    "os": "Windows-11-10.0.26200-SP0",
+    "python": "3.13.14"
+  },
+  "authorization": "User explicitly requested start of S03; human review of S02 risks and T03-01 contracts remains pending",
+  "commands": [
+    {
+      "command": "python scripts/dev.py check",
+      "finished_at_utc": "2026-10-23T12:11:48.956491+00:00",
+      "exit_code": 0,
+      "status": "PASS",
+      "raw_sha256": "220ff33c268258c330d50ebb4a21c6ad5b52402bd9b9af8f88093f2f8d86321b"
+    },
+    {
+      "command": "python scripts/dev.py test",
+      "finished_at_utc": "2026-10-23T12:12:05.880444+00:00",
+      "exit_code": 0,
+      "status": "PASS",
+      "raw_sha256": "aa417a57a263a27ad560cb5bef19773776ae5d0dd3bcbecaaff6c14e3c4c9431"
+    }
+  ],
+  "tests": {
+    "tests": 411,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "s03_design_contract_tests": 199,
+    "real_s02_integration_tests": 50
+  },
+  "baseline": {
+    "check": "PASS",
+    "initial_test": {
+      "passed": 162,
+      "failed": 2,
+      "errors": 48,
+      "cause": "Existing local PostgreSQL/Keycloak containers stopped"
+    },
+    "after_existing_lab_start": {
+      "passed": 212,
+      "failed": 0,
+      "errors": 0
+    }
+  },
+  "human_acceptance": "PENDING",
+  "t03_01": "TECHNICAL_PACKAGE_FOR_REVIEW",
+  "t03_02_to_08": "NOT_IMPLEMENTED",
+  "go_s04": false,
+  "ci_current_tree": "NOT_RUN",
+  "new_image_scans": "NOT_RUN",
+  "fresh_pg_recovery_current_tree": "NOT_RUN",
+  "s02_remote_go": "Historical exact SHA 660f7d3 only, not inherited by this working tree",
+  "publish": "NOT_AUTHORIZED",
+  "lab": {
+    "started_existing_containers_only": true,
+    "rebuild": false,
+    "stop_command": "python scripts/dev.py stop",
+    "stop_exit_code": 0,
+    "final_state": "STOPPED",
+    "volume_and_credentials": "PRESERVED"
+  }
+}

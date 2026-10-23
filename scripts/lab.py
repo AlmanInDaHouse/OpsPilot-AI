@@ -101,7 +101,15 @@ def initialize() -> None:
         protect_windows_lab()
     else:
         LOCAL.chmod(0o700)
-    for name in ("pg_admin", "pg_migrator", "pg_app", "pg_provisioner", "kc_admin", "kc_db"):
+    for name in (
+        "pg_admin",
+        "pg_migrator",
+        "pg_app",
+        "pg_provisioner",
+        "pg_worker",
+        "kc_admin",
+        "kc_db",
+    ):
         if not (LOCAL / name).exists():
             private_file(LOCAL / name, secrets.token_urlsafe(32))
         if os.name != "nt" and name in {"pg_admin", "kc_admin", "kc_db"}:
@@ -112,12 +120,14 @@ def initialize() -> None:
         ("opspilot_app", "app"),
         ("opspilot_migrator", "migration"),
         ("opspilot_provisioner", "provisioner"),
+        ("opspilot_worker", "worker"),
         ("postgres", "admin"),
     ):
         secret_name = {
             "opspilot_app": "pg_app",
             "opspilot_migrator": "pg_migrator",
             "opspilot_provisioner": "pg_provisioner",
+            "opspilot_worker": "pg_worker",
             "postgres": "pg_admin",
         }[role]
         password = (LOCAL / secret_name).read_text(encoding="utf-8").strip()
@@ -157,6 +167,7 @@ def bootstrap() -> None:
             ("opspilot_migrator", "pg_migrator"),
             ("opspilot_app", "pg_app"),
             ("opspilot_provisioner", "pg_provisioner"),
+            ("opspilot_worker", "pg_worker"),
             ("opspilot_keycloak", "kc_db"),
         ]
         for role, secret_file in roles:
@@ -176,6 +187,14 @@ def bootstrap() -> None:
                 "CREATE ROLE opspilot_audit_owner NOLOGIN NOSUPERUSER NOCREATEDB NOCREATEROLE NOINHERIT"
             )
         conn.execute("GRANT opspilot_audit_owner TO opspilot_migrator")
+        # This dedicated Compose cluster is exclusively synthetic lab. Runtime
+        # logins must not inherit PUBLIC CONNECT/TEMP on the default databases.
+        for database in ("postgres", "template1"):
+            conn.execute(
+                sql.SQL("REVOKE CONNECT,TEMPORARY ON DATABASE {} FROM PUBLIC").format(
+                    sql.Identifier(database)
+                )
+            )
         for database, owner in (
             ("opspilot_lab", "opspilot_migrator"),
             ("opspilot_keycloak", "opspilot_keycloak"),
@@ -198,7 +217,9 @@ def bootstrap() -> None:
                     sql.Identifier(database), sql.Identifier(owner)
                 )
             )
-        conn.execute("GRANT CONNECT ON DATABASE opspilot_lab TO opspilot_app,opspilot_provisioner")
+        conn.execute(
+            "GRANT CONNECT ON DATABASE opspilot_lab TO opspilot_app,opspilot_provisioner,opspilot_worker"
+        )
     print("Dedicated lab roles and databases ready.")
 
 

@@ -7,6 +7,7 @@ import subprocess
 import time
 from datetime import UTC, datetime
 from pathlib import Path
+from uuid import uuid4
 
 import httpx
 from sqlalchemy import select
@@ -58,6 +59,8 @@ def main() -> int:
     account = next(row for row in accounts if row["role"] == "auditor")
     tokens = helper.pkce_tokens(account)
     headers = {"Authorization": "Bearer " + tokens["access_token"]}
+    operator = next(row for row in accounts if row["role"] == "operator")
+    operator_token = helper.pkce_tokens(operator)["access_token"]
     engine = make_engine((local / "app.dsn").read_text(encoding="utf-8").strip())
     report = {"checked_at_utc": datetime.now(UTC).isoformat(), "verdict": "FAIL"}
     try:
@@ -71,6 +74,15 @@ def main() -> int:
                     for path in ("/health/live", "/health/ready", "/v1/me")
                 }
                 assert statuses == {"/health/live": 200, "/health/ready": 503, "/v1/me": 503}
+                intake_status = http.post(
+                    API + "/v1/incidents",
+                    headers={
+                        "Authorization": "Bearer " + operator_token,
+                        "Idempotency-Key": str(uuid4()),
+                    },
+                    json={"title": "Outage sintético", "description": "No debe persistir"},
+                ).status_code
+                assert intake_status == 503
             finally:
                 compose("up", "-d", "--wait", "postgres")
             compose("restart", "keycloak", "api")
@@ -97,6 +109,7 @@ def main() -> int:
         report.update(
             verdict="PASS",
             during_database_outage=statuses,
+            intake_during_database_outage=intake_status,
             before=before,
             after=after,
             idp_pkce_after_restart="PASS",

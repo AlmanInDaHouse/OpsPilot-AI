@@ -1,0 +1,28 @@
+{
+  "phase": "after",
+  "status": "PASS",
+  "http_status": 202,
+  "response": {
+    "incident_id": "ac99cc32-599e-4bc2-a235-b6da96377e01",
+    "workflow_id": "f77c8ab9-f574-4658-b20c-a5d22a9bf118"
+  },
+  "exact_replay": true,
+  "job": {
+    "state": "READY",
+    "owner": null,
+    "lease_until": null,
+    "fence": 0,
+    "attempts": 0
+  },
+  "lab_counts": {
+    "principals": 4,
+    "role_grants": 4,
+    "audit_events": 9,
+    "audit_streams": 5,
+    "incidents": 1,
+    "workflows": 1,
+    "workflow_steps": 1,
+    "jobs": 1,
+    "api_idempotency": 1
+  }
+}

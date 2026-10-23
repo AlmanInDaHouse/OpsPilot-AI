@@ -1,0 +1,424 @@
+{
+  "status": "PASS_T03_03_LOCAL",
+  "captured_at_utc": "2026-10-23T15:18:35.083486+00:00",
+  "head": "3b91f58c2f54a59ea5825c41af0550a9acb416de",
+  "branch": "main",
+  "baseline": {
+    "windows_tests": 482,
+    "real_integrations": 121,
+    "linux_482": "Historical T03-02 evidence verified, not rerun before edits",
+    "check_exit_code": 0,
+    "foundation_preservation": "foundation-preservation.json"
+  },
+  "scope": "T03-03 only: AC03-01/02 intake; no worker/read/cancel/IT execution",
+  "commands": [
+    {
+      "name": "baseline-check",
+      "command": "python scripts/dev.py check",
+      "exit_code": 0,
+      "log_finished_at_utc": "2026-10-23T14:49:16.833385+00:00",
+      "raw_sha256": "1d364d88d13e33a2053c6e19dcdad29f268ade44d1e523b49404ae153b897063"
+    },
+    {
+      "name": "baseline-windows",
+      "command": "python scripts/dev.py test",
+      "exit_code": 0,
+      "log_finished_at_utc": "2026-10-23T14:49:45.653871+00:00",
+      "raw_sha256": "7cfddcc284a42315856c4b559e4e45f135ae925163658df5c57276cf329bd71b"
+    },
+    {
+      "name": "intake-attempt1",
+      "command": "uv run --frozen pytest tests/integration/test_incident_intake.py -q --tb=short",
+      "exit_code": 1,
+      "log_finished_at_utc": "2026-10-23T14:54:55.036554+00:00",
+      "raw_sha256": "ebdb2ba72671bbb6a3b36e3e1b4506250a44e3550710743e9d97d8c92d9be866"
+    },
+    {
+      "name": "intake-attempt2",
+      "command": "uv run --frozen pytest tests/integration/test_incident_intake.py -q --tb=short",
+      "exit_code": 1,
+      "log_finished_at_utc": "2026-10-23T14:56:14.184075+00:00",
+      "raw_sha256": "1026dc2a78b14e739c2da9356370e2141f4460c5d686a03d46739cb6ca0e3cc7"
+    },
+    {
+      "name": "intake-attempt3",
+      "command": "uv run --frozen pytest tests/integration/test_incident_intake.py -q --tb=short",
+      "exit_code": 0,
+      "log_finished_at_utc": "2026-10-23T14:56:53.900447+00:00",
+      "raw_sha256": "339e43c70759aa9e68439f84f05798df3f6a9cea09bfaa2b166f562e237a4588"
+    },
+    {
+      "name": "build-attempt1",
+      "command": "docker compose -f infra/compose.yaml build tests api",
+      "exit_code": 1,
+      "log_finished_at_utc": "2026-10-23T14:57:01.727051+00:00",
+      "raw_sha256": "260e6611c2ef6f990da4736625bb7ec3c005bd2db1338d81f8af0da2de112bc4"
+    },
+    {
+      "name": "build-tests-attempt2",
+      "command": "docker compose -f infra/compose.yaml build tests",
+      "exit_code": 0,
+      "log_finished_at_utc": "2026-10-23T14:57:32.090698+00:00",
+      "raw_sha256": "8fef636ce46bd1265e2f493c79d8dad0427362c56090a63f7ce436c85417778e"
+    },
+    {
+      "name": "build-api",
+      "command": "docker compose -f infra/compose.yaml build api",
+      "exit_code": 0,
+      "log_finished_at_utc": "2026-10-23T14:57:49.088952+00:00",
+      "raw_sha256": "0af778f073937dc642c526249fb7763b18c377fe3e4206407d301e14838682a9"
+    },
+    {
+      "name": "windows-first-full",
+      "command": "uv run --frozen pytest --junitxml=artifacts/local/t03-03-windows.xml",
+      "exit_code": 0,
+      "log_finished_at_utc": "2026-10-23T14:59:10.584388+00:00",
+      "raw_sha256": "eccc2f1a2fde24e48787f92ec408895f010afbf604f134fc2950baf3802480d0"
+    },
+    {
+      "name": "linux-first-full",
+      "command": "docker compose -f infra/compose.yaml run --rm --no-deps tests /app/.venv/bin/python -m pytest -q --tb=short -o cache_dir=/tmp/pytest-cache --junitxml=/lab/t03-03-linux.xml",
+      "exit_code": 1,
+      "log_finished_at_utc": "2026-10-23T14:59:30.250312+00:00",
+      "raw_sha256": "11a58e052bc2f8e075159ee07cfe012549620625763ff373dc0f5d453f3d82fd"
+    },
+    {
+      "name": "check-attempt1",
+      "command": "python scripts/dev.py check",
+      "exit_code": 1,
+      "log_finished_at_utc": "2026-10-23T14:57:14.094523+00:00",
+      "raw_sha256": "245b3223141eec7c894ae0f868625a6576c4bf901e7ceac8a9c23ce668552cb2"
+    },
+    {
+      "name": "check-attempt2",
+      "command": "python scripts/dev.py check",
+      "exit_code": 1,
+      "log_finished_at_utc": "2026-10-23T15:08:20.135574+00:00",
+      "raw_sha256": "ed45945520d9d03409b3e53634e712fd10bef8e4a2c13c7d0b2217507d989cfd"
+    },
+    {
+      "name": "check-attempt3",
+      "command": "python scripts/dev.py check",
+      "exit_code": 1,
+      "log_finished_at_utc": "2026-10-23T15:10:38.501992+00:00",
+      "raw_sha256": "f2263f947208becdca9c7569f87f3514b192acfae07b7dbeb44c11e24e7540d8"
+    },
+    {
+      "name": "windows-verified",
+      "command": "python scripts/dev.py test",
+      "exit_code": 0,
+      "log_finished_at_utc": "2026-10-23T15:09:54.511089+00:00",
+      "raw_sha256": "a3e4328d3a5725dca07e227edb3215ca7c9f36683b99782eb0e267d6e6f8ba37",
+      "environment_note": "See tests-windows.json; PYTEST_ADDOPTS supplied JUnit path and junit_family=xunit1; all suite via dev.py."
+    },
+    {
+      "name": "linux-verified",
+      "command": "docker compose -f infra/compose.yaml run --rm --no-deps tests /app/.venv/bin/python -m pytest -q --tb=short -o cache_dir=/tmp/pytest-cache -o junit_family=xunit1 --junitxml=/lab/t03-03-linux-verified.xml",
+      "exit_code": 0,
+      "log_finished_at_utc": "2026-10-23T15:09:54.722834+00:00",
+      "raw_sha256": "a7693ea32cbc27b230dc0bc91011cbb0257eabf779d4c1e53c5abff1cd7ee2a3"
+    },
+    {
+      "name": "post-comment-negatives",
+      "command": "uv run --frozen pytest tests/integration/test_incident_intake.py -k real_appender_rejects -q --tb=short",
+      "exit_code": 0,
+      "log_finished_at_utc": "2026-10-23T15:12:21.361531+00:00",
+      "raw_sha256": "337ceffa7bb38fcc265dd3b94d46316431f620b69d646795d98033f1a01b0d7d"
+    },
+    {
+      "name": "fresh-postgres",
+      "command": "uv run --frozen python scripts/verify_fresh_postgres.py --report artifacts/session-03/intake/fresh-postgres.json",
+      "exit_code": 0,
+      "log_finished_at_utc": "2026-10-23T15:03:03.200452+00:00",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "recovery",
+      "command": "uv run --frozen python scripts/verify_recovery.py --report artifacts/session-03/intake/recovery.json",
+      "exit_code": 0,
+      "log_finished_at_utc": "2026-10-23T15:03:50.492523+00:00",
+      "raw_sha256": "1365b755692e28f87269f10e74cad790cf0d2c3afe5cabcf0a978f6c883dbca8"
+    },
+    {
+      "name": "recovery-with-intake-outage",
+      "command": "uv run --frozen python scripts/verify_recovery.py --report artifacts/session-03/intake/recovery-with-intake-outage.json",
+      "exit_code": 0,
+      "log_finished_at_utc": "2026-10-23T15:06:55.250084+00:00",
+      "raw_sha256": "1365b755692e28f87269f10e74cad790cf0d2c3afe5cabcf0a978f6c883dbca8"
+    },
+    {
+      "name": "scans",
+      "command": "uv run --frozen python scripts/scan_images.py --evidence-dir artifacts/session-03/intake/scans",
+      "exit_code": 0,
+      "log_finished_at_utc": "2026-10-23T15:10:25.512717+00:00",
+      "raw_sha256": "2e1cfcaf8dd2929053f1948d2e271feb60f944cbbaa4a3d9cda17af3a0d93975"
+    },
+    {
+      "name": "build-api-final",
+      "command": "docker compose -f infra/compose.yaml build api",
+      "exit_code": 0,
+      "log_finished_at_utc": "2026-10-23T15:11:26.351332+00:00",
+      "raw_sha256": "4379e2a245f97c10cacf1cbd7b550d352716807cb8f78bbcc1a731af40b53f40"
+    },
+    {
+      "name": "check-final",
+      "command": "python scripts/dev.py check",
+      "exit_code": 0,
+      "log_finished_at_utc": "2026-10-23T15:14:30.884990+00:00",
+      "raw_sha256": "9443665c9a27ed8cba12d3fc740a32993af1a8714cdd5e872400829078401209"
+    },
+    {
+      "name": "scan-api-final",
+      "command": "uv run --frozen python scripts/scan_images.py --only api --evidence-dir artifacts/session-03/intake/scans-final-api",
+      "exit_code": 0,
+      "log_finished_at_utc": "2026-10-23T15:13:21.158029+00:00",
+      "raw_sha256": "15fe7e5e14eca48a08b6f349a815ebda06c9366e5bb71e04a595d7b37d8c9618"
+    },
+    {
+      "name": "up-api-final",
+      "command": "docker compose -f infra/compose.yaml up -d --no-deps --wait api",
+      "exit_code": 0,
+      "log_finished_at_utc": "2026-10-23T15:14:22.506189+00:00",
+      "raw_sha256": "004ab20757851e1204601d82bfd211c15f7bf0916e03fe7a7eaabb5c4d69da7e"
+    },
+    {
+      "name": "smoke-final-image",
+      "command": "Private PKCE helper: POST same key/body against rebuilt API; exact response and READY counters checked",
+      "exit_code": 0,
+      "log_finished_at_utc": "2026-10-23T15:14:43.683549+00:00",
+      "raw_sha256": "efdbd1a3b13f4fafc6a5100e67cd1ce5049a1d5f6482e2ca73847d103e2cb6bb"
+    },
+    {
+      "name": "stop",
+      "command": "python scripts/dev.py stop",
+      "exit_code": 0,
+      "log_finished_at_utc": "2026-10-23T15:15:33.296022+00:00",
+      "raw_sha256": "35b8b30ca8f308b08e0866ca95464d1a15f8d8c8413550f1814e978766255e45"
+    },
+    {
+      "name": "closure-check-generated-metadata-attempt",
+      "command": "python scripts/dev.py check",
+      "exit_code": 1,
+      "raw_sha256": "093fa0ca7eddf2bea4bf4a19ad5827cd0017f97be0063a985b6c97cb71dabf1e",
+      "observation": "Scanner keyword heuristic flagged generated field name with NONE value; renamed to numeric zero findings, no rules changed"
+    },
+    {
+      "name": "closure-check-final",
+      "command": "python scripts/dev.py check",
+      "exit_code": 0,
+      "raw_sha256": "6b0c44285bd288cde8150149ee687c6e1420ed3ee4c0bb15a891633e07d2a557",
+      "log_finished_at_utc": "2026-10-23T15:17:56.958370+00:00"
+    }
+  ],
+  "results": {
+    "windows": "tests-windows.json",
+    "linux": "tests-linux.json",
+    "full_suite_input_manifest": "tested-manifest.json",
+    "post_full_suite_change": "Only placement of exact synthetic fixture pragma; 4 real appender negatives rechecked PASS"
+  },
+  "gates": {
+    "windows": "PASS",
+    "linux": "PASS",
+    "pg18_keycloak_real": "PASS",
+    "atomic_commit_and_rollback": "PASS",
+    "twenty_requests_and_two_api_processes": "PASS",
+    "http_process_deaths_before_after_commit": "PASS",
+    "required_cold_jwks_failure": "PASS",
+    "pg_outage_post_503": "PASS",
+    "fresh_pg": "PASS",
+    "restart_and_exact_replay": "PASS",
+    "scans_pg_idp_api": "PASS",
+    "check": "PASS",
+    "api_final_contract_metadata_rescan": "PASS"
+  },
+  "publication": "NOT_AUTHORIZED",
+  "current_tree_remote_ci": "NOT_RUN",
+  "t03_04": "NOT_STARTED",
+  "t03_05": "NOT_STARTED",
+  "t03_06": "NOT_STARTED",
+  "go_t03_04": "TECHNICAL_LOCAL_GO; not started; new user instruction required",
+  "go_s04": false,
+  "production": "NO_GO",
+  "lab_case": "one synthetic OPEN incident, READY job without owner/lease/fence/attempts",
+  "lab_final_state": "STOPPED_WITH_VOLUME_AND_CREDENTIALS_PRESERVED",
+  "residual_risks": [
+    "R01",
+    "R02",
+    "R14",
+    "privacy/retention approval before real data",
+    "R15 maintained musl/linux-amd64 runtime",
+    "commit outcome uncertain -> 503 and retry same key; no HA/backup proof"
+  ],
+  "quality_controls": {
+    "formatting": "PASS",
+    "ruff": "PASS",
+    "pymarkdown": "PASS",
+    "mypy_strict": "PASS",
+    "architecture": "PASS",
+    "bandit": "PASS",
+    "dependency_audit": "No known vulnerabilities; local project itself not listed on PyPI",
+    "offline_scanner_unreviewed_findings": 0
+  },
+  "windows_tests": {
+    "tests": 567,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "real_integration_tests": 155
+  },
+  "linux_tests": {
+    "tests": 567,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "real_integration_tests": 155
+  },
+  "intake_new_tests": {
+    "unit": 24,
+    "contract": 27,
+    "integration": 34,
+    "total": 85
+  },
+  "image_scans": {
+    "postgres": {
+      "evidence": "artifacts/session-03/intake/scans/postgres-cves.json",
+      "verdict": "PASS",
+      "high_critical_findings": 0,
+      "current_image_verified": true
+    },
+    "keycloak": {
+      "evidence": "artifacts/session-03/intake/scans/keycloak-cves.json",
+      "verdict": "PASS",
+      "high_critical_findings": 0,
+      "current_image_verified": true
+    },
+    "api": {
+      "evidence": "artifacts/session-03/intake/scans-final-api/api-cves.json",
+      "verdict": "PASS",
+      "high_critical_findings": 0,
+      "current_image_verified": true
+    }
+  },
+  "restart_replay": {
+    "status": "PASS",
+    "lab_counts": {
+      "principals": 4,
+      "role_grants": 4,
+      "audit_events": 9,
+      "audit_streams": 5,
+      "incidents": 1,
+      "workflows": 1,
+      "workflow_steps": 1,
+      "jobs": 1,
+      "api_idempotency": 1
+    },
+    "job": {
+      "state": "READY",
+      "owner": null,
+      "lease_until": null,
+      "fence": 0,
+      "attempts": 0
+    },
+    "evidence": [
+      "lab-smoke-before.json",
+      "recovery-with-intake-outage.json",
+      "lab-smoke-after.json"
+    ],
+    "limitation": "Real restart/outage, not backup/restore or worker crash suite"
+  },
+  "known_failures_corrected": [
+    "verify_chain test called without head arguments; assert and head fixed",
+    "Missing import in lock-timeout test fixed",
+    "Linux SIGTERM graceful shutdown was not abrupt death; process.kill and bounded cleanup fixed",
+    "Ruff moved synthetic literal pragma to closing brace; placed on literal itself",
+    "Markdown strong-style fixed without disabling rules",
+    "BuildKit parallel image extraction failed; sequential builds passed",
+    "Smoke observation used administrative DB; corrected database and replayed original key",
+    "Generated quality field name falsely triggered keyword detector; renamed field with numeric zero, no suppressions"
+  ],
+  "git": {
+    "head": "3b91f58c2f54a59ea5825c41af0550a9acb416de",
+    "branch": "main",
+    "unpublished_commits": 0,
+    "status_short": [
+      " M .secrets-allowlist.json",
+      " M AGENTS.md",
+      " M README.md",
+      " M contracts/platform.openapi.json",
+      " M docs/architecture/API_CONTRACTS.md",
+      " M docs/architecture/DATA_MODEL.md",
+      " M docs/architecture/WORKFLOW_ENGINE.md",
+      " M docs/decisions/README.md",
+      " M docs/engineering/PLATFORM_RUNBOOK.md",
+      " M docs/roadmap/HANDOFF.md",
+      " M docs/roadmap/RISKS.md",
+      " M docs/roadmap/SESSION_03_SPEC.md",
+      " M scripts/check_architecture.py",
+      " M scripts/lab.py",
+      " M scripts/verify_recovery.py",
+      " M specs/003-workflows/checklist.md",
+      " M specs/003-workflows/plan.md",
+      " M specs/003-workflows/spec.md",
+      " M specs/003-workflows/tasks.md",
+      " M specs/traceability.json",
+      " M src/opspilot/adapters/postgres/audit.py",
+      " M src/opspilot/adapters/postgres/models.py",
+      " M src/opspilot/entrypoints/api/app.py",
+      " M src/opspilot/entrypoints/api/dto.py",
+      " M src/opspilot/identity/domain/principal.py",
+      " M tests/contract/test_api.py",
+      " M tests/integration/conftest.py",
+      " M tests/integration/test_audit.py",
+      " M tests/integration/test_identity.py",
+      "?? artifacts/session-03/",
+      "?? contracts/audit-event.schema.json",
+      "?? contracts/incident-snapshot-v1.schema.json",
+      "?? contracts/workflow-events-v2.schema.json",
+      "?? contracts/workflow-policy-v1.json",
+      "?? contracts/workflow-snapshot-v1.schema.json",
+      "?? contracts/workflow-step-v1.json",
+      "?? contracts/workflows.openapi.json",
+      "?? docs/decisions/0008-workflow-contract-boundary.md",
+      "?? docs/roadmap/SESSION_03_INTAKE_REVIEW.md",
+      "?? docs/roadmap/SESSION_03_PERSISTENCE_REVIEW.md",
+      "?? docs/roadmap/SESSION_03_START_REVIEW.md",
+      "?? migrations/sql/0002_workflow_functions.sql",
+      "?? migrations/sql/0002_workflows.sql",
+      "?? migrations/versions/0002_workflows.py",
+      "?? specs/003-workflows/contracts.md",
+      "?? specs/003-workflows/intake.md",
+      "?? specs/003-workflows/persistence.md",
+      "?? specs/003-workflows/start.md",
+      "?? src/opspilot/adapters/postgres/incidents.py",
+      "?? src/opspilot/entrypoints/api/intake.py",
+      "?? src/opspilot/incidents/",
+      "?? tests/contract/test_intake_api.py",
+      "?? tests/contract/test_workflow_design.py",
+      "?? tests/fixtures/",
+      "?? tests/integration/intake_process.py",
+      "?? tests/integration/test_incident_intake.py",
+      "?? tests/integration/test_workflow_persistence.py",
+      "?? tests/unit/test_intake.py"
+    ],
+    "commit_push_merge_release_deploy_performed": false
+  },
+  "lab_services": [
+    {
+      "service": "api",
+      "state": "exited"
+    },
+    {
+      "service": "keycloak",
+      "state": "exited"
+    },
+    {
+      "service": "postgres",
+      "state": "exited"
+    }
+  ],
+  "input_sha256": "1694b88baf17fb0a1c78fd1cf14a1792c30ff3fce991839a4332b04941cccbc8",
+  "post_suite_input_changes": [
+    "tests/integration/test_incident_intake.py"
+  ],
+  "t03_03": "IMPLEMENTED_AND_LOCALLY_TESTED"
+}

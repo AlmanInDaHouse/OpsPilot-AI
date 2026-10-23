@@ -13,3 +13,4 @@ Cambiar una decisión exige ADR nuevo y análisis de contratos/tests afectados.
 | [0005](0005-platform-stack.md) | Stack, identidad y operación mínima |
 | [0006](0006-platform-boundaries.md) | Cierre de contratos e identidad/audit S02 |
 | [0007](0007-keycloak-maintained-runtime.md) | Derivada mantenida del IdP y aceptación completa de S02 |
+| [0008](0008-workflow-contract-boundary.md) | PROPUESTO: contratos S03, appender v2 y worker con permisos mínimos |

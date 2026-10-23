@@ -155,6 +155,14 @@ def test_schema_mismatch_fails_closed_and_liveness_survives(api, pg, tokens):
         assert api.get("/health/live").status_code == 200
         assert api.get("/health/ready").status_code == 503
         assert api.get("/v1/me", headers=authorization(tokens)).status_code == 503
+        assert (
+            api.post(
+                "/v1/incidents",
+                json={"title": "Prueba", "description": "Schema inválido"},
+                headers={**authorization(tokens), "Idempotency-Key": str(uuid4())},
+            ).status_code
+            == 503
+        )
     finally:
         with pg["engines"]["migration"].begin() as connection:
-            connection.execute(text("UPDATE alembic_version SET version_num='0001_platform'"))
+            connection.execute(text("UPDATE alembic_version SET version_num='0002_workflows'"))

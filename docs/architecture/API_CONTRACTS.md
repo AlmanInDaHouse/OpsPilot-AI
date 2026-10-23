@@ -1,7 +1,8 @@
 # Contratos y versionado
 
 Estado: endpoints S02 implementados y probados localmente; sin despliegue externo.
-Dominio futuro sigue PROPUESTO. Contrato máquina S02:
+Intake T03-03 implementado; worker sigue PROPUESTO. T03-02 añade persistencia y lectura audit v1/v2.
+Contrato máquina de plataforma:
 [platform.openapi.json](../../contracts/platform.openapi.json). Dominio futuro abajo.
 Schemas JSON son contratos objetivo; comprobar JSON/refs no equivale a validación
 de instancias ni conformidad OpenAPI completa (gate con librería real S02).
@@ -14,6 +15,12 @@ de instancias ni conformidad OpenAPI completa (gate con librería real S02).
 | GET /health/ready | 200 mismo cuerpo si DB SELECT 1, schema Alembic exacto y JWKS válido en caché; 503 genérico en otro caso |
 | GET /v1/me | 200 principal_id+roles locales; 401 token inválido; 403 principal deshabilitado/no provisionado; 503 DB/JWKS necesarios ausentes |
 | GET /v1/audit-events | auditor/admin, stream_id requerido UUID, after_seq>=0 y limit 1..100; orden seq ascendente, next_after_seq=último o cursor entrante si vacío |
+
+T03-02: [unión pública](../../contracts/audit-event.schema.json) de identidad v1 y
+[workflow v2](../../contracts/workflow-events-v2.schema.json), discriminada por
+schema_version. Hash/prev_hash y state_snapshot permanecen privados. Appender v1
+no cambia; v2 valida actor de servicio/creator, tipo/reason/arista/version, hash
+del estado y pertenencia de evidence. Sin ampliar roles/rutas de lectura audit.
 
 Error cerrado `{code,request_id}`; no traceback, claims, cuerpo original o secretos.
 `request_id` UUID generado por servidor; traceparent W3C se valida, nunca se usa como
@@ -38,6 +45,12 @@ inmediato; documentar esta ventana. UI futura usa Authorization Code + PKCE S256
 tokens en memoria y CSP; no localStorage ni flujos password/implicit.
 
 ## Dominio futuro (no endpoints de sesión 02)
+
+S03 iniciada: [contrato OpenAPI concreto](../../contracts/workflows.openapi.json)
+y [semántica para revisión](../../specs/003-workflows/contracts.md), con eventos v2
+cerrados y snapshots independientes. Paquete T03-01 aprobado por autor; endpoints
+de intake instalado por T03-03. Lecturas/cancelación siguen pendientes T03-04.
+La descripción siguiente conserva el diseño general.
 
 S03 definirá OpenAPI exacto antes de implementar: POST /v1/incidents devuelve 202
 con incident_id/workflow_id tras commit atómico; `Idempotency-Key` UUID scoped por

@@ -1,6 +1,8 @@
 # Modelo de datos objetivo
 
-Estado: tablas S02 implementadas mediante Alembic; resto PROPUESTO. UUID para entidades, UTC `timestamptz`, secuencias por agregado,
+Estado: tablas S02 y seis tablas S03 implementadas mediante Alembic 0002; motor y
+campos de cierre/acciones futuras siguen PROPUESTOS. [Detalle T03-02](../../specs/003-workflows/persistence.md).
+UUID para entidades, UTC `timestamptz`, secuencias por agregado,
 JSONB solo para payloads validados/versionados. PK/FK/UNIQUE/CHECK en DB, no solo ORM.
 
 | Tabla / sesión | Campos e invariantes principales |
@@ -14,7 +16,7 @@ JSONB solo para payloads validados/versionados. PK/FK/UNIQUE/CHECK en DB, no sol
 | workflow_steps / 03 | id, workflow_id FK, step_key, attempt_no, status, input_hash, evidence_id, error_code; UNIQUE(workflow_id,step_key,attempt_no) |
 | jobs / 03 | id, workflow_id FK, step_id, kind, state READY/LEASED/DONE/DEAD, available_at, lease_until, owner, fence bigint, attempts; índice(state,available_at); payload por referencia |
 | resource_locks / 05 | resource_id PK, intent_id FK, owner, fence, lease_until, quarantined; UNKNOWN mantiene quarantined hasta reconciliación |
-| api_idempotency / 03 | subject_id, route, key, request_hash, response_status, response_body, created_at; UNIQUE(subject_id,route,key); TTL >=7 días, clave conflictiva 409 |
+| api_idempotency / 03 | principal_id, route, key UUID, request_hash, response_status 202, response_body, incident_id, workflow_id, created_at; PK(principal_id,route,key); retención >=7 días sin limpieza automática, clave conflictiva 409 |
 | proposals / 05 | id, workflow_id, tool_id/version, resource_id, args, canonical_hash, policy_version, created_by, expires_at; snapshot inmutable |
 | approvals / 05 | id, proposal_id FK, approver_id FK, decision APPROVED/DENIED, nonce UNIQUE, expires_at, consumed_at; UNIQUE(proposal_id); aprobador != proponente; versiones y snapshot vinculados |
 | execution_intents / 05 | id, proposal_id FK UNIQUE, operation_id UNIQUE, status PREPARED/IN_FLIGHT/SUCCEEDED/FAILED/UNKNOWN, dispatch_fence, sent_at, result_ref; intento mutante uno por propuesta |
@@ -57,5 +59,19 @@ no afirmar derecho de borrado satisfecho manteniendo datos identificables en bac
 Backups caducan según misma política y acceso se audita. No almacenar razonamiento
 interno del modelo, solo decisión resumida, fuentes, versión y resultado estructurado.
 
-Migraciones iniciales S02 solo principals, role_grants, audit_streams y audit_events. Resto es diseño
-para hitos posteriores; no crear tablas vacías de negocio durante sesión 01/02.
+Migración inicial S02 solo principals, role_grants, audit_streams y audit_events,
+conservada intacta. T03-02 añade incidents/workflows/workflow_steps/jobs/api_idempotency/
+evidence y audit_events.state_snapshot privado. Incidents solo OPEN/version 1;
+resolution_evidence_id y estados de cierre de la tabla objetivo no están implementados.
+Workflows añade creator_id ligado por FK a incident, presupuesto activo en ms y
+deadline PG. Índices parciales evitan workflow/job activos duplicados. API idempotency
+liga principal/incidente/workflow por FK compuesta; evidence solo snapshot de intake,
+sin texto libre ni inmutabilidad absoluta frente al administrador. Cierre de ticket,
+otras tablas y efectos externos continúan en hitos posteriores.
+
+T03-03 instala intake: incidents/workflows/step PENDING/job READY/audit v2/respuesta
+se confirman con el PostgresUow existente. La FK inmediata de idempotency requiere
+crear referencias antes del INSERT final. Solo 23505 de su PK implica carrera;
+rollback completo del perdedor y nueva transacción para reautorizar/releer. Sin
+placeholders, claves recicladas ni filas huérfanas. Tests PG y procesos reales en
+[revisión de intake](../roadmap/SESSION_03_INTAKE_REVIEW.md).

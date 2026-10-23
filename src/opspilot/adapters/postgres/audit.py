@@ -37,6 +37,33 @@ class PostgresAppender:
         return result
 
 
+class PostgresWorkflowAppender:
+    """V2 is explicit: it never expands or falls back to the S02 appender."""
+
+    def __init__(self, session: Session) -> None:
+        self.session = session
+
+    def append(
+        self,
+        stream_id: UUID,
+        event_type: str,
+        actor_id: UUID | None,
+        trace_id: str,
+        payload: dict[str, Any],
+    ) -> dict[str, Any]:
+        result: dict[str, Any] = self.session.execute(
+            text("SELECT audit_append_v2(:stream,:type,:actor,:trace,:payload)"),
+            {
+                "stream": stream_id,
+                "type": event_type,
+                "actor": actor_id,
+                "trace": trace_id,
+                "payload": canonical_bytes(payload).decode("utf-8"),
+            },
+        ).scalar_one()
+        return result
+
+
 def envelope(row: EventRow, include_hash: bool = False) -> dict[str, Any]:
     item = {
         "event_id": str(row.event_id),

@@ -1,0 +1,16 @@
+{
+  "verdict": "PASS",
+  "controls": {
+    "formatting": "PASS",
+    "ruff": "PASS",
+    "pymarkdown": "PASS",
+    "mypy_strict": "PASS",
+    "architecture": "PASS",
+    "bandit": "PASS",
+    "dependency_audit": "No known vulnerabilities; local project itself not listed on PyPI",
+    "offline_scanner_unreviewed_findings": 0
+  },
+  "raw_sha256": "6b0c44285bd288cde8150149ee687c6e1420ed3ee4c0bb15a891633e07d2a557",
+  "command": "python scripts/dev.py check",
+  "exit_code": 0
+}

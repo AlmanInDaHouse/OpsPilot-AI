@@ -1,0 +1,10 @@
+{
+  "checked_at_utc": "2026-10-23T15:03:03.480410+00:00",
+  "container": "opspilot-s02-fresh-8d346ce12d7e",
+  "verdict": "PASS",
+  "uid": 70,
+  "server": "18.6",
+  "fresh_volume": true,
+  "network": "none",
+  "readiness_transport": "TCP loopback (final server, not initdb temporary server)"
+}

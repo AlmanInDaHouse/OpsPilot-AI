@@ -2,15 +2,18 @@
 
 Lee [README](README.md), [handoff](docs/roadmap/HANDOFF.md),
 [constitución](docs/engineering/CONSTITUTION.md) y la especificación del hito activo.
-La sesión 02 está autorizada e implementada; consultar su revisión y el handoff para
-gates y limitaciones. No iniciar sesión 03 sin una nueva petición y GO de plataforma.
+S02 tiene GO técnico para 660f7d3. El autor aprobó cierre/riesgos S02, T03-01 y
+ADR-0008; T03-02 implementa persistencia/appender v2 y T03-03 añade intake atómico.
+Leer [revisión de intake](docs/roadmap/SESSION_03_INTAKE_REVIEW.md) y sus gates.
+Consultar revisión y handoff para gates y limitaciones; sin GO S04.
 
 - Producto y exclusiones: [PRD](docs/product/PRD.md), [alcance](docs/product/SCOPE.md).
 - Diseño objetivo: [arquitectura](docs/architecture/ARCHITECTURE.md), [ADR](docs/decisions/README.md).
 - Contratos: [API](docs/architecture/API_CONTRACTS.md), `contracts/`.
 - Seguridad: [amenazas](docs/security/THREAT_MODEL.md), [controles](docs/security/CONTROL_MATRIX.md).
 - Proceso: [harness](docs/engineering/HARNESS.md), [gates](docs/engineering/QUALITY_GATES.md).
-- Siguiente hito: [sesión 02](docs/roadmap/SESSION_02_SPEC.md), [tareas](specs/002-platform/tasks.md).
+- Hito activo: [sesión 03](docs/roadmap/SESSION_03_SPEC.md), [tareas](specs/003-workflows/tasks.md),
+  [contratos para revisión](specs/003-workflows/contracts.md).
 
 Antes de editar: inspeccionar Git, seleccionar requisito y tarea acotada, comprobar
 dependencias y registrar supuestos. No sobrescribir trabajo ajeno. No push, merge,

@@ -1,6 +1,8 @@
 # Motor durable — especificación normativa
 
-Estado: PROPUESTO. REQ-WF-01/02/03. Fuente de estados/transiciones:
+Estado: ejecución de motor PROPUESTA; T03-02 implementa almacenamiento, constraints
+y appender/lectura v2; T03-03 añade intake/UoW/idempotencia. Sin worker.
+REQ-WF-01/02/03. Fuente de estados/transiciones:
 [workflow-v1.json](../../contracts/workflow-v1.json); diagrama derivado en [C4](C4.md).
 Workflow, ticket y ejecución externa tienen estados independientes.
 

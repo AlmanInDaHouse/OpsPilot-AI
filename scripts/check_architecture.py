@@ -61,7 +61,7 @@ def violations(root: Path) -> list[str]:
                 dest_layer = dest[1]
                 if layer == "shared" and dest_layer != "shared":
                     errors.append(f"{name}: shared depends on {target}")
-                if layer in {"identity", "audit"}:
+                if layer in {"identity", "audit", "incidents"}:
                     if dest_layer not in {layer, "shared"}:
                         errors.append(f"{name}: module boundary to {target}")
                     if "domain" in parts and "application" in dest:

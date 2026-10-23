@@ -1,0 +1,681 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "OpsPilot S03 workflows — approved contract",
+    "version": "0.3.0"
+  },
+  "x-implementation-status": "PARTIAL: POST /v1/incidents implemented by T03-03; reads/cancel pending T03-04",
+  "servers": [
+    {
+      "url": "https://opspilot.invalid"
+    }
+  ],
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/v1/incidents": {
+      "post": {
+        "operationId": "createIncident",
+        "description": "Enabled local operator. Principal/route/normalized UUID scope; replay revalidates permission and returns original status/body after commit. No ETag on intake.",
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$(?![\\s\\S])"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateIncident"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Incident, workflow, job, audit and original response durably committed together",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IncidentAccepted"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthenticated"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "409": {
+            "description": "Same scope/key with a different canonical body",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IdempotencyConflict"
+                }
+              }
+            }
+          },
+          "422": {
+            "$ref": "#/components/responses/Invalid"
+          },
+          "503": {
+            "$ref": "#/components/responses/Unavailable"
+          }
+        }
+      }
+    },
+    "/v1/incidents/{incident_id}": {
+      "get": {
+        "operationId": "getIncident",
+        "description": "Creator with active operator grant, or explicit auditor grant. Admin/approver do not inherit access. Unknown and invisible use identical 404 envelope.",
+        "parameters": [
+          {
+            "name": "incident_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Authorized incident; OPEN is independent of workflow completion",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Incident"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthenticated"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/Invalid"
+          },
+          "503": {
+            "$ref": "#/components/responses/Unavailable"
+          }
+        }
+      }
+    },
+    "/v1/workflows/{workflow_id}": {
+      "get": {
+        "operationId": "getWorkflow",
+        "description": "Same visibility as incident. Strong resource-bound ETag matches this response version. References/hashes only; no lease ownership, tokens or free-form evidence content.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/WorkflowId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Authorized workflow snapshot",
+            "headers": {
+              "ETag": {
+                "$ref": "#/components/headers/ETag"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Workflow"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthenticated"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "422": {
+            "$ref": "#/components/responses/Invalid"
+          },
+          "503": {
+            "$ref": "#/components/responses/Unavailable"
+          }
+        }
+      }
+    },
+    "/v1/workflows/{workflow_id}/cancel": {
+      "post": {
+        "operationId": "cancelWorkflow",
+        "description": "Creator with active operator grant only. No body. Under workflow/job locks: check matching resource/version before terminal handling. S03 safe states cancel atomically. Future ambiguous states only persist intention; never retry UNKNOWN. CANCELLED plus current ETag returns 202 without another write; stale ETag always 409.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/WorkflowId"
+          },
+          {
+            "name": "If-Match",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/WorkflowETag"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Durable intention, or already CANCELLED with current ETag. No physical rollback or incident closure implied",
+            "headers": {
+              "ETag": {
+                "$ref": "#/components/headers/ETag"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CancelAccepted"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthenticated"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "409": {
+            "description": "Resource/version mismatch, or SUCCEEDED/FAILED with current version",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CancelConflict"
+                }
+              }
+            }
+          },
+          "422": {
+            "$ref": "#/components/responses/Invalid"
+          },
+          "503": {
+            "$ref": "#/components/responses/Unavailable"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "parameters": {
+      "WorkflowId": {
+        "name": "workflow_id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "format": "uuid"
+        }
+      }
+    },
+    "headers": {
+      "ETag": {
+        "description": "Required on workflow GET 200 and cancel 202. Exact lowercase resource UUID and response version, strong quoted tag",
+        "required": true,
+        "schema": {
+          "$ref": "#/components/schemas/WorkflowETag"
+        }
+      }
+    },
+    "schemas": {
+      "WorkflowETag": {
+        "type": "string",
+        "pattern": "^\"wf-[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}-v[1-9][0-9]{0,18}\"$(?![\\s\\S])",
+        "maxLength": 62
+      },
+      "CreateIncident": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "title",
+          "description"
+        ],
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4000
+          }
+        }
+      },
+      "IncidentAccepted": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "incident_id",
+          "workflow_id"
+        ],
+        "properties": {
+          "incident_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "workflow_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      },
+      "Incident": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "incident_id",
+          "workflow_id",
+          "creator_id",
+          "title",
+          "description",
+          "status",
+          "version"
+        ],
+        "properties": {
+          "incident_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "workflow_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "creator_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4000
+          },
+          "status": {
+            "const": "OPEN"
+          },
+          "version": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9223372036854775807
+          }
+        }
+      },
+      "State": {
+        "enum": [
+          "QUEUED",
+          "INVESTIGATING",
+          "PLAN_READY",
+          "AWAITING_APPROVAL",
+          "EXECUTING",
+          "VERIFYING",
+          "RETRY_WAIT",
+          "OUTCOME_UNKNOWN",
+          "NEEDS_OPERATOR",
+          "SUCCEEDED",
+          "FAILED",
+          "CANCELLED"
+        ]
+      },
+      "Reason": {
+        "enum": [
+          "INTAKE_ACCEPTED",
+          "LOCAL_STEP_STARTED",
+          "LOCAL_SNAPSHOT_RECORDED",
+          "TRANSIENT_LOCAL_FAILURE",
+          "RETRY_READY",
+          "DEADLINE_EXHAUSTED",
+          "RETRY_EXHAUSTED",
+          "PERMANENT_LOCAL_FAILURE",
+          "UNSUPPORTED_DEFINITION",
+          "CANCELLED_BY_OPERATOR",
+          "CANCEL_REQUESTED"
+        ]
+      },
+      "EvidenceRef": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "evidence_id",
+          "kind",
+          "content_hash",
+          "observed_at",
+          "collector_id",
+          "source_ref",
+          "independence_role"
+        ],
+        "properties": {
+          "evidence_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "kind": {
+            "const": "INCIDENT_SNAPSHOT_V1"
+          },
+          "content_hash": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"
+          },
+          "observed_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "collector_id": {
+            "const": "local-intake-v1"
+          },
+          "source_ref": {
+            "type": "string",
+            "pattern": "^incident:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}:v[1-9][0-9]{0,18}$(?![\\s\\S])"
+          },
+          "independence_role": {
+            "const": "INTAKE_SNAPSHOT"
+          }
+        }
+      },
+      "Workflow": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "workflow_id",
+          "incident_id",
+          "state",
+          "version",
+          "definition_version",
+          "cancel_requested_at",
+          "reason_code",
+          "evidence"
+        ],
+        "properties": {
+          "workflow_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "incident_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "state": {
+            "$ref": "#/components/schemas/State"
+          },
+          "version": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9223372036854775807
+          },
+          "definition_version": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "cancel_requested_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "reason_code": {
+            "$ref": "#/components/schemas/Reason"
+          },
+          "evidence": {
+            "type": "array",
+            "maxItems": 1,
+            "items": {
+              "$ref": "#/components/schemas/EvidenceRef"
+            }
+          }
+        }
+      },
+      "CancelAccepted": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "workflow_id",
+          "state",
+          "version",
+          "cancel_requested_at"
+        ],
+        "properties": {
+          "workflow_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "state": {
+            "enum": [
+              "CANCELLED",
+              "EXECUTING",
+              "VERIFYING",
+              "OUTCOME_UNKNOWN"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9223372036854775807
+          },
+          "cancel_requested_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "code",
+          "request_id"
+        ],
+        "properties": {
+          "code": {
+            "enum": [
+              "UNAUTHENTICATED",
+              "FORBIDDEN",
+              "NOT_FOUND",
+              "INVALID_REQUEST",
+              "DEPENDENCY_UNAVAILABLE"
+            ]
+          },
+          "request_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      },
+      "IdempotencyConflict": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "code",
+          "request_id"
+        ],
+        "properties": {
+          "code": {
+            "const": "IDEMPOTENCY_CONFLICT"
+          },
+          "request_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      },
+      "CancelConflict": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "code",
+          "request_id"
+        ],
+        "properties": {
+          "code": {
+            "enum": [
+              "VERSION_CONFLICT",
+              "TERMINAL_WORKFLOW"
+            ]
+          },
+          "request_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      }
+    },
+    "responses": {
+      "Unauthenticated": {
+        "description": "401, WWW-Authenticate: Bearer",
+        "headers": {
+          "WWW-Authenticate": {
+            "required": true,
+            "schema": {
+              "const": "Bearer"
+            }
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Error"
+                },
+                {
+                  "properties": {
+                    "code": {
+                      "const": "UNAUTHENTICATED"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      "Forbidden": {
+        "description": "403, inactive/unmapped principal or insufficient route role; no resource existence detail",
+        "content": {
+          "application/json": {
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Error"
+                },
+                {
+                  "properties": {
+                    "code": {
+                      "const": "FORBIDDEN"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      "NotFound": {
+        "description": "404, same code and shape for missing and non-visible resource; fresh server request_id",
+        "content": {
+          "application/json": {
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Error"
+                },
+                {
+                  "properties": {
+                    "code": {
+                      "const": "NOT_FOUND"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      "Invalid": {
+        "description": "422, missing/invalid/duplicate header, malformed body/path; no reflected input",
+        "content": {
+          "application/json": {
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Error"
+                },
+                {
+                  "properties": {
+                    "code": {
+                      "const": "INVALID_REQUEST"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      "Unavailable": {
+        "description": "503, required DB/IdP/commit unavailable or bounded lock wait exhausted; never accepted before commit",
+        "content": {
+          "application/json": {
+            "schema": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/Error"
+                },
+                {
+                  "properties": {
+                    "code": {
+                      "const": "DEPENDENCY_UNAVAILABLE"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

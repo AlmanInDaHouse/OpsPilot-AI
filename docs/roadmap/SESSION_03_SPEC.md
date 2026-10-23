@@ -1,9 +1,14 @@
 # Sesión 03 — especificación de continuación durable
 
-Estado: PROPUESTO, preparado el 2026-10-23; responsable: autor del proyecto.
-Esta petición autoriza documentación, no implementar el orquestador. La base técnica
-es S02 en 660f7d3, según [cierre](SESSION_02_CLOSURE.md). Revisión/aceptación humana
-pendientes. No hay autorización de commit, push, despliegue ni S03 de producto.
+Estado: EN CURSO por petición explícita del autor el 2026-10-23. T03-01 y ADR-0008
+aprobados tras revisión de cierre/riesgos S02; T03-02 implementada/probada localmente.
+Motor/intake PROPUESTOS. Base técnica S02 en 660f7d3, según [cierre](SESSION_02_CLOSURE.md).
+[Arranque y supuestos](../../specs/003-workflows/start.md),
+[paquete técnico revisable](../../specs/003-workflows/contracts.md) y ADR-0008.
+[Alcance de persistencia](../../specs/003-workflows/persistence.md) y
+[resultados T03-02](SESSION_03_PERSISTENCE_REVIEW.md). Aceptación humana global S03
+pendiente de T03-08; aprobar entrada no valida durabilidad ni producción.
+Sin autorización de commit, push ni despliegue.
 
 ## Requisitos y objetivo
 
@@ -143,10 +148,14 @@ No sleeps ciegos como prueba de crash ni mocks de commit para declarar recuperac
 
 ## Entrega y decisiones pendientes
 
-Tareas T03-01..08 en el paquete propuesto; no hay código/test/evidencia S03 existente.
-Cerrar antes de código: wire OpenAPI, alcance exacto de lectura/cancelación, versión
-mínima del appender/evento y permisos worker, handler local y compatibilidad de
-DefinitionVersion. R01/R02/R14 guían adversariales; si no se logra el motor acotado,
+T03-01 aprobada por autor; T03-02 implementa migración/grants/appender v2 y lectura
+mixta con pruebas PG/IdP reales de almacenamiento. T03-03 implementa intake atómico,
+idempotencia y recuperación de procesos API. T03-04..08 pendientes, incluidas
+lecturas/cancelación, leases/fences de worker y crashes de jobs S03.
+El paquete concreta wire OpenAPI, lectura/cancelación, appender/evento v2, permisos
+worker, handler local y DefinitionVersion; solo persistencia/appender/lector están
+instalados en T03-02, sin rutas de dominio ni handler ejecutable.
+R01/R02/R14 guían adversariales; si no se logra el motor acotado,
 registrar NO-GO y evaluar alternativa por ADR, sin instalar Temporal automáticamente.
 
 DoD futuro: AC03-01..10 ejecutados, migraciones/contratos revisados, CI del SHA final

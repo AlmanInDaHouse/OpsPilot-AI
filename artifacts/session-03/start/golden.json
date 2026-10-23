@@ -1,0 +1,33 @@
+{
+  "algorithm": "request-hash-v1 / audit-canonical-v1",
+  "cases": [
+    {
+      "kind": "request",
+      "value": {
+        "schema_version": 1,
+        "route": "/v1/incidents",
+        "body": {
+          "title": "VPN de prueba",
+          "description": "Laboratorio sintético"
+        }
+      },
+      "canonical_utf8": "{\"body\":{\"description\":\"Laboratorio sintético\",\"title\":\"VPN de prueba\"},\"route\":\"/v1/incidents\",\"schema_version\":1}",
+      "hash": "0dfa54191f21e9fdea4b76083daeae669a92de67258b2baf95bf65aeaa8bfc31"
+    },
+    {
+      "kind": "incident_snapshot",
+      "value": {
+        "schema_version": 1,
+        "incident_id": "10000000-0000-0000-0000-000000000001",
+        "incident_version": 1,
+        "workflow_id": "20000000-0000-0000-0000-000000000002",
+        "definition_version": 1,
+        "status": "OPEN",
+        "title_hash": "4f6bbd3337a4d74372e1e9fd2832312eb932bcad579575990fb21916d65851f2",
+        "description_hash": "f046e234a8b9d1aa002fa17b2f488a3002507cd162d9c3022147e1676e925bed"
+      },
+      "canonical_utf8": "{\"definition_version\":1,\"description_hash\":\"f046e234a8b9d1aa002fa17b2f488a3002507cd162d9c3022147e1676e925bed\",\"incident_id\":\"10000000-0000-0000-0000-000000000001\",\"incident_version\":1,\"schema_version\":1,\"status\":\"OPEN\",\"title_hash\":\"4f6bbd3337a4d74372e1e9fd2832312eb932bcad579575990fb21916d65851f2\",\"workflow_id\":\"20000000-0000-0000-0000-000000000002\"}",
+      "hash": "635672c08544e40036fa0727ca00690112d427569656fe3f6061d6a688bdcde2"
+    }
+  ]
+}

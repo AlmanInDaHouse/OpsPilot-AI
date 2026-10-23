@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:opspilot:incident-snapshot:1",
+  "title": "S03 local intake snapshot v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "incident_id",
+    "incident_version",
+    "workflow_id",
+    "definition_version",
+    "status",
+    "title_hash",
+    "description_hash"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "incident_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "incident_version": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9223372036854775807
+    },
+    "workflow_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "definition_version": {
+      "const": 1
+    },
+    "status": {
+      "const": "OPEN"
+    },
+    "title_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"
+    },
+    "description_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$(?![\\s\\S])"
+    }
+  }
+}

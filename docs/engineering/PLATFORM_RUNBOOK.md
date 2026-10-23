@@ -1,5 +1,26 @@
 # Runbook de plataforma S02
 
+## Actualización S03 — persistencia T03-02
+
+El autor aprobó cierre/riesgos S02 y T03-01/ADR-0008 antes de código. Migración 0002
+implementada y aplicada al lab: conserva filas/hashes/función S02; añade seis tablas,
+snapshot privado y appender v2. [Revisión T03-02](../roadmap/SESSION_03_PERSISTENCE_REVIEW.md).
+Sin intake, worker ejecutable ni aceptación de durabilidad. S04/producción NO-GO.
+
+`init` añade pg_worker y worker.dsn/worker-internal.dsn privados sin rotar archivos
+existentes. `bootstrap` crea login dedicado sin DDL/herencia/bypass y CONNECT solo
+lab; retira CONNECT/TEMP de PUBLIC también en postgres/template1 del cluster propio.
+`migrate` concede permisos por columna; API no monta DSN worker ni migrador. No
+usar bootstrap en un cluster compartido o ajeno: sigue limitado al Compose sintético.
+Tests crean bases efímeras propias e incluyen N-1, fallo de migración, FK/checks y
+negativos de permisos. Incidents continúa OPEN, independiente de cualquier job.
+
+Después de migrar, una API de imagen S02 antigua falla readiness por versión exacta.
+Usar `python scripts/dev.py up`, que construye el código actual; no reparar el gate
+relajando schema ni arrancando una imagen antigua a mano. T03-02 no afirma build/
+scans/CI actuales aprobados por los resultados históricos S02. Al terminar se para
+solo el lab propio conservando volumen/credenciales. Historial S02 a continuación.
+
 Remediación actual: [informe](../roadmap/SESSION_02_SECURITY_REMEDIATION.md) y
 ADR-0007. Keycloak se construye localmente con Alpine/Temurin mantenidos, inputs
 por digest/SHA-256 y paquetes directos fijados; solo linux/amd64. No editar CA/JVM
@@ -169,6 +190,27 @@ ajenos. Logs de API contienen request_id, trace_id, actor, ruta de contrato, UTC
 resultado y duración, sin query/body/Authorization. No usar logs verbose HTTP con
 credenciales reales. Readiness 503 no debe repararse saltando OIDC o migraciones:
 comprobar primero servicios propios, revisión Alembic, JWKS configurado y permisos.
+
+## Intake local T03-03
+
+POST /v1/incidents requiere access token validado y grant operator local activo,
+Content-Type application/json y un Idempotency-Key UUID con guiones. Body cerrado:
+`{"title":"Prueba sintética","description":"Intake local"}`. Nunca usar datos reales
+antes de cerrar privacidad. 202 devuelve incident_id/workflow_id después de commit.
+Misma key/body recupera esos IDs; otro body devuelve 409. Revocar operator o
+deshabilitar principal impide también el replay. Admin no hereda operator.
+
+Ante 503 o pérdida de conexión, repetir con la misma key/body después de recuperar
+dependencias. No fabricar una key nueva para resolver incertidumbre de commit.
+Los registros se conservan sin limpieza automática. El job READY queda almacenado;
+no hay worker/polling ni diagnóstico/resolución. No iniciar T03-04 automáticamente.
+
+La suite completa añade carreras de 20 requests, dos procesos API y kills reales
+antes/después de commit. El test-only helper intake_process.py contiene pausas de
+sincronización, nunca switches de fallo en src. verify_recovery.py comprueba también
+503 del POST durante caída real de PostgreSQL. El smoke T03-03 deja una incidencia
+sintética en el volumen del lab y comprueba replay exacto después del reinicio.
+[Revisión/evidencias](../roadmap/SESSION_03_INTAKE_REVIEW.md), sin modificar snapshots S02/T03-02.
 
 ## Scanner aislado y evidencia nueva
 
