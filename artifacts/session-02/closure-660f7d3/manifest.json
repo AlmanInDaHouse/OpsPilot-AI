@@ -1,0 +1,158 @@
+{
+  "recorded_at_utc": "2026-10-23T11:32:43.514433+00:00",
+  "head": "660f7d31170de2d8ecb80ddd0bbf7f4c21e8eb20",
+  "input_sha256": "5a2fa58e949a081f7c24547d3a877b4ab2547dd75f44e71092cdc3ed4d92b6a5",
+  "scope": "Formal S02 technical audit; immutable historical snapshots kept; local documentation edits unpublished",
+  "files": [
+    {
+      "path": "acceptance.json",
+      "hash": "619c57b46cda01a348f976e0ebffce7c42dfc8345856bb94a75a50bb43d070bc",
+      "bytes": 7567
+    },
+    {
+      "path": "ci/fresh-postgres.json",
+      "hash": "48d40584984140509e0cad582e7be728a3e57c8309f52e1fed09e52483f62717",
+      "bytes": 293
+    },
+    {
+      "path": "ci/manifest.json",
+      "hash": "3f3f91ae31993c6008dcecf4938f90973545bddffdac70fc97f2cf6f6c5ba340",
+      "bytes": 1409
+    },
+    {
+      "path": "ci/recovery.json",
+      "hash": "65dcc902abc595bd7947145d010cb06e19670a6c41daa766a20f0252c7f3bd6d",
+      "bytes": 1887
+    },
+    {
+      "path": "ci/scanner-environment.json",
+      "hash": "956634f85d1b9509be2b7888171356c07f01c3fd06ae9bb3d0f2d21a84021335",
+      "bytes": 4365
+    },
+    {
+      "path": "ci/scans/api-cves.json",
+      "hash": "4fba9722d1501f802331d1b82d342139011edd2742210614c41cd72b91157033",
+      "bytes": 1484
+    },
+    {
+      "path": "ci/scans/keycloak-cves.json",
+      "hash": "1b79b8cb527cc64278c791b53fb26f144691d0617f91ee230b47776a4860d110",
+      "bytes": 1495
+    },
+    {
+      "path": "ci/scans/postgres-cves.json",
+      "hash": "4827d042e522a3d8c630a4a0c5c9b50fcb6ceaac2f06ff583e0b1f42ad149ac4",
+      "bytes": 1493
+    },
+    {
+      "path": "ci/tests-ci.xml",
+      "hash": "6f5894462805d72afff58f9813bf4d5ec9449655e28a31e538ed5674b81a7e00",
+      "bytes": 27479
+    },
+    {
+      "path": "delivery-scan.json",
+      "hash": "111e53e261a718ae0861f6353929618f2a9bff74f77c43d046f49fb2b73c00d9",
+      "bytes": 347
+    },
+    {
+      "path": "docs-check.json",
+      "hash": "ef76009f5965408ac9c9d5773a5712da51ca6eb6f036098b763f6b0cf048f58d",
+      "bytes": 811
+    },
+    {
+      "path": "docs-final.json",
+      "hash": "999411ac1c9af4542f963211145cb438fef9749cd299978ebd0f99133f82625c",
+      "bytes": 811
+    },
+    {
+      "path": "local-runs.json",
+      "hash": "7883df9db5de70e6bdd6056ea27f1f8dd0822f7d72c3b383ba05d273a989967a",
+      "bytes": 948
+    },
+    {
+      "path": "remote-audit.json",
+      "hash": "9d3d50acfe2d33a2051f854a05021ac5375928c4be5286db12a893abb786d545",
+      "bytes": 15079
+    },
+    {
+      "path": "tests-local.xml",
+      "hash": "a8082e86f47d4064019b5402efacae2100bcd27543ea5ef7a60e26295135b833",
+      "bytes": 20816
+    },
+    {
+      "path": "verification.json",
+      "hash": "99992d96f23774cf570b98c27fdfa1b179449640ffd625e41b6d2744f136641b",
+      "bytes": 1554
+    }
+  ],
+  "documentation": [
+    {
+      "path": "README.md",
+      "hash": "a09e94fd9e2047d53d4287ae8c5831cbe8bb2f871cb3e77ae868989fa2606d76"
+    },
+    {
+      "path": "docs/roadmap/HANDOFF.md",
+      "hash": "726b0b6fd6fcdc14d061dd182396539fc92c9bd68aa85f37a7b07ce0c2c755a8"
+    },
+    {
+      "path": "docs/roadmap/RISKS.md",
+      "hash": "13a80983cc8a1477be115befa448fbd7571bdbff63fd9771cec9c3d4276ebfc5"
+    },
+    {
+      "path": "docs/roadmap/SESSION_02_CLOSURE.md",
+      "hash": "d0daadc1400f0cdb57f12f9e6b4700f50a106da2ab14fb1ebb03ab42167ff028"
+    },
+    {
+      "path": "docs/roadmap/SESSION_02_REVIEW.md",
+      "hash": "21f2d0313ea9037b41bc4624da7282c22e8c9fcc98457efc6bfa8adc3ce5bcf8"
+    },
+    {
+      "path": "docs/roadmap/SESSION_02_SCANNER_REMEDIATION.md",
+      "hash": "df2cf2a46415a64b238b9bb87c687008be80a191d23f71aef10cfcba87a5ceb3"
+    },
+    {
+      "path": "docs/roadmap/SESSION_02_SECURITY_REMEDIATION.md",
+      "hash": "71758e28a1de6b0b82c644f1939a76907ff19d429b1aae2c271b838bf7f934fc"
+    },
+    {
+      "path": "docs/roadmap/SESSION_02_SPEC.md",
+      "hash": "8d57ab0529e33046a61de8a4df4a9479dea11e4ac352282639cf4471455e9346"
+    },
+    {
+      "path": "docs/roadmap/SESSION_03_SPEC.md",
+      "hash": "6f0d2a83c0d1347ff51fb528cbf03d4875255cacc5f0fc8b173778040967f42c"
+    },
+    {
+      "path": "specs/002-platform/checklist.md",
+      "hash": "88796ee106be845eab87536ae360673b5b428059380c56b35835fa3fdef558ed"
+    },
+    {
+      "path": "specs/002-platform/formal-closure.md",
+      "hash": "2bc20d251a96b8cb5310312e1ce7b3a6fb156aa0ba65ea155e0521f741934b69"
+    },
+    {
+      "path": "specs/002-platform/tasks.md",
+      "hash": "ab11c633bfbaceddcc8d3918aaa637e3ad64361b58ea26ef33ef9051996c05c7"
+    },
+    {
+      "path": "specs/003-workflows/checklist.md",
+      "hash": "c02070b66d1cb5d6bb38325f7b436fc0fa907393992ca00a9dee2e5c89df1dde"
+    },
+    {
+      "path": "specs/003-workflows/plan.md",
+      "hash": "4f1eb38ac9a955487116f96af126bffe11eef8a01442c245f3d8cd4584359dc4"
+    },
+    {
+      "path": "specs/003-workflows/spec.md",
+      "hash": "ab31eb67ed5000a61e8f7350f4dc9543181b8b2a6009bba620809472e7d8d16e"
+    },
+    {
+      "path": "specs/003-workflows/tasks.md",
+      "hash": "52fe2457212c8dd5b86ec20852c6c7d0be3aa1772002b789f5c1bd6fbdd4ca1f"
+    },
+    {
+      "path": "specs/traceability.json",
+      "hash": "130c9deae51db2d18c2d99f145a7350d27b08b8c971fd0cd143c4a288b90bda6"
+    }
+  ]
+}

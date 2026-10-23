@@ -1,5 +1,9 @@
 # Sesión 02 — revisión de ingeniería y evidencias
 
+Estado vigente: [cierre técnico 660f7d3](SESSION_02_CLOSURE.md), GO técnico S02;
+revisión/aceptación humana pendientes y S03 solo especificada. El contenido
+siguiente conserva la especificación original o resultados históricos.
+
 Actualización: [remediación del scanner](SESSION_02_SCANNER_REMEDIATION.md).
 Resultados anteriores conservados; nueva CI del commit corregido pendiente, NO-GO S03.
 

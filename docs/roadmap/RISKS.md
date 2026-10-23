@@ -4,6 +4,28 @@ Estado: evaluación de diseño, no incidentes de producción. Autor = responsabl
 Prioridad crítica implica NO-GO en hito indicado si no se resuelve. Alternativas no
 autorizan cambios externos ni reejecución de operaciones ambiguas.
 
+## Estado vigente R15/R17 — cierre de 660f7d3
+
+R17 / alta: **RESUELTO TÉCNICAMENTE PARA EL SHA**
+660f7d31170de2d8ecb80ddd0bbf7f4c21e8eb20. CI 39898182916 y harness 39898182820
+SUCCESS; jobs, SHA, artefacto, scans, PG fresco y recovery contrastados en
+[SESSION_02_CLOSURE](SESSION_02_CLOSURE.md). Dueño autor, T02-07/08/AC02-08.
+El bloqueo remoto de S02 queda resuelto; no implica aceptación humana ni autoriza
+S03. Si cambian revisión/imágenes o fallan gates, reevaluar/reabrir para ese build.
+La causa exacta de los scans incompletos de b221037 sigue sin stderr remoto.
+
+R15 / alta: **MITIGADO TÉCNICAMENTE EN EL BUILD VALIDADO**, no eliminado como riesgo
+continuo. Tres scans remotos con 0 HIGH/CRITICAL, identidades y reportes válidos.
+Derivada Keycloak/Temurin/Alpine musl solo linux/amd64; no certificación de proveedor,
+ni cobertura completa garantizada para JRE en archivo. Autor mantiene CA/JVM,
+digests y revalidación de cada cambio; ADR-0007 vigente. Sin excepciones de CVE.
+
+Revisión y aceptación humana de riesgos PENDIENTES; no hay acta que las acredite.
+La autorización de push no las sustituye. No validación empresarial ni readiness
+de producción; IdP corporativo, auditoría independiente, DR/HA y ancla externa
+siguen pendientes. R01/R02/R14 conservan sus gates futuros. Los apartados S02
+inferiores son históricos y conservan sus resultados originales.
+
 | ID / prioridad | Riesgo, impacto y alternativas | Mitigación / dueño / gate |
 |---|---|---|
 | R01 / crítica | Motor propio introduce carreras/pérdida; Temporal reduce código a cambio de servicio extra | Flujo lineal, suite crash/fence/PG; autor S03, NO-GO S04 si falla |

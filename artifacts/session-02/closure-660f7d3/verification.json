@@ -1,0 +1,52 @@
+{
+  "recorded_at_utc": "2026-10-23T11:31:01.852129+00:00",
+  "head": "660f7d31170de2d8ecb80ddd0bbf7f4c21e8eb20",
+  "scope": "Read-only audit of remote technical gates and local documentation regression; no new integration lab run",
+  "s02_technical": "GO",
+  "human_review": "PENDING",
+  "human_acceptance": "PENDING",
+  "s03_implementation": "NOT_AUTHORIZED",
+  "ci_zip_digest_verified": true,
+  "ci_manifest_entries_verified": 7,
+  "git_blob_inputs_reproduced": true,
+  "historical_evidence_files_unchanged": 127,
+  "product_scripts_tests_contracts_infra_unchanged": true,
+  "local_check": {
+    "command": [
+      "python",
+      "scripts/dev.py",
+      "check"
+    ],
+    "exit_code": 0,
+    "raw_sha256": "f08daf48239d63eaabea9cbb5eecab39e28eb901ee800700adc5b795437f2380"
+  },
+  "local_tests": {
+    "passed": 162,
+    "integration_deselected": 50,
+    "harness_passed": 23
+  },
+  "remote_tests": {
+    "linux_complete_passed": 212,
+    "integration_included": 50,
+    "errors": 0,
+    "failures": 0,
+    "skips": 0
+  },
+  "limits": [
+    "Human acceptance not documented",
+    "No enterprise validation or production readiness",
+    "Remote raw scanner reports/logs not independently rehashed; emitted hashes and CI summary provenance reviewed"
+  ],
+  "git": {
+    "branch": "main",
+    "new_commit": false,
+    "push": false,
+    "merge": false,
+    "deployment": false
+  },
+  "delivery_source_scan": {
+    "exit_code": 0,
+    "unreviewed_tree_count": 0,
+    "unreviewed_history_count": 0
+  }
+}

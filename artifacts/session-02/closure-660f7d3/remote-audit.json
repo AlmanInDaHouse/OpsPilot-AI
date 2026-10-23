@@ -1,0 +1,495 @@
+{
+  "head": "660f7d31170de2d8ecb80ddd0bbf7f4c21e8eb20",
+  "branch": "refs/heads/main",
+  "platform": {
+    "id": 39898182916,
+    "name": "Platform S02 gates",
+    "head": "660f7d31170de2d8ecb80ddd0bbf7f4c21e8eb20",
+    "event": "push",
+    "status": "completed",
+    "conclusion": "success",
+    "run_attempt": 1,
+    "url": "https://github.com/AlmanInDaHouse/OpsPilot-AI/actions/runs/39898182916",
+    "created_at": "2026-10-23T04:02:31Z",
+    "updated_at": "2026-10-23T04:09:25Z"
+  },
+  "harness": {
+    "id": 39898182820,
+    "name": "Documentary harness (preserved from S01)",
+    "head": "660f7d31170de2d8ecb80ddd0bbf7f4c21e8eb20",
+    "event": "push",
+    "status": "completed",
+    "conclusion": "success",
+    "run_attempt": 1,
+    "url": "https://github.com/AlmanInDaHouse/OpsPilot-AI/actions/runs/39898182820",
+    "created_at": "2026-10-23T04:02:30Z",
+    "updated_at": "2026-10-23T04:02:47Z"
+  },
+  "artifact": {
+    "id": 12477208772,
+    "name": "platform-s02-evidence",
+    "bytes": 9132,
+    "digest": "sha256:5cc3e58c275cb625fbca0bb197de5dc4b4b2aecd29399295529aea8f87f38d7a",
+    "expired": false,
+    "head": "660f7d31170de2d8ecb80ddd0bbf7f4c21e8eb20",
+    "url": "https://github.com/AlmanInDaHouse/OpsPilot-AI/actions/runs/39898182916/artifacts/12477208772"
+  },
+  "jobs": [
+    {
+      "id": 120233371890,
+      "name": "quality (ubuntu-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 39898182916,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run python -m pip install uv==0.11.13",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run python scripts/dev.py install",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run python scripts/dev.py check",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Run python scripts/dev.py test --suite local",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13
+        },
+        {
+          "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15
+        }
+      ],
+      "proof": {
+        "job_id": 120233371890,
+        "name": "quality (ubuntu-latest)",
+        "head_observed": true,
+        "pytest_counts": [
+          {
+            "passed": 162,
+            "deselected": 50
+          }
+        ],
+        "harness_counts": [],
+        "scan_passes": []
+      },
+      "log": {
+        "raw_sha256": "c056f15c196a905d7a9a4347b5745388fcc5dd0dccc902c3d2f6ce298694951b"
+      }
+    },
+    {
+      "id": 120233372189,
+      "name": "quality (windows-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 39898182916,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run python -m pip install uv==0.11.13",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run python scripts/dev.py install",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run python scripts/dev.py check",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Run python scripts/dev.py test --suite local",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13
+        },
+        {
+          "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15
+        }
+      ],
+      "proof": {
+        "job_id": 120233372189,
+        "name": "quality (windows-latest)",
+        "head_observed": true,
+        "pytest_counts": [
+          {
+            "passed": 162,
+            "deselected": 50
+          }
+        ],
+        "harness_counts": [],
+        "scan_passes": []
+      },
+      "log": {
+        "raw_sha256": "bba9f2c8b6f124fe5fe5cd82f4c734b08d0ee3e3781f8c2c6e99b34bfc17f489"
+      }
+    },
+    {
+      "id": 120233939645,
+      "name": "integration",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 39898182916,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run python -m pip install uv==0.11.13",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run python scripts/dev.py install",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Run python scripts/verify_scanner_environment.py --report artifacts/session-02/ci/scanner-environment.json",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Run python scripts/dev.py infra",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Run python scripts/dev.py up",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Run uv run --frozen pytest --junitxml=artifacts/session-02/ci/tests-ci.xml",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Run uv run --frozen python scripts/verify_fresh_postgres.py --report artifacts/session-02/ci/fresh-postgres.json",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10
+        },
+        {
+          "name": "Run uv run --frozen python scripts/verify_recovery.py --report artifacts/session-02/ci/recovery.json",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11
+        },
+        {
+          "name": "Run uv run --frozen python scripts/scan_images.py --evidence-dir artifacts/session-02/ci/scans",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12
+        },
+        {
+          "name": "Run uv run --frozen python scripts/verify_session02.py --manifest-only --evidence-dir artifacts/session-02/ci",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13
+        },
+        {
+          "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14
+        },
+        {
+          "name": "Run python scripts/dev.py stop",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15
+        },
+        {
+          "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 29
+        },
+        {
+          "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 30
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31
+        }
+      ],
+      "proof": {
+        "job_id": 120233939645,
+        "name": "integration",
+        "head_observed": true,
+        "pytest_counts": [
+          {
+            "passed": 212,
+            "deselected": 0
+          }
+        ],
+        "harness_counts": [],
+        "scan_passes": [
+          "postgres",
+          "keycloak",
+          "api"
+        ]
+      },
+      "log": {
+        "raw_sha256": "893dead7c2197584526c0f48d047bb3a7b3faba487a65c4a65c54c584b8cac30"
+      }
+    },
+    {
+      "id": 120233370869,
+      "name": "documentation-and-harness (ubuntu-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 39898182820,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run python scripts/dev.py docs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run python scripts/dev.py test --suite harness",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11
+        }
+      ],
+      "proof": {
+        "job_id": 120233370869,
+        "name": "documentation-and-harness (ubuntu-latest)",
+        "head_observed": true,
+        "pytest_counts": [],
+        "harness_counts": [
+          23
+        ],
+        "scan_passes": []
+      },
+      "log": {
+        "raw_sha256": "d271d233304bea7756ba0ea1be51e89f1969de3f5c80f2917fede3482b4126e4"
+      }
+    },
+    {
+      "id": 120233371030,
+      "name": "documentation-and-harness (windows-latest)",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 39898182820,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Run python scripts/dev.py docs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Run python scripts/dev.py test --suite harness",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9
+        },
+        {
+          "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11
+        }
+      ],
+      "proof": {
+        "job_id": 120233371030,
+        "name": "documentation-and-harness (windows-latest)",
+        "head_observed": true,
+        "pytest_counts": [],
+        "harness_counts": [
+          23
+        ],
+        "scan_passes": []
+      },
+      "log": {
+        "raw_sha256": "8cb88807be0c691c74e3697f3d8a825b837dd15e147f923cba4386e848b5e0a4"
+      }
+    }
+  ],
+  "scope": "Remote GET observations only; exact SHA and latest attempt checked. Dynamic dependency jobs do not replace the named platform/harness gates.",
+  "remote_ref": {
+    "head": "660f7d31170de2d8ecb80ddd0bbf7f4c21e8eb20"
+  }
+}

@@ -1,5 +1,9 @@
 # Sesión 02 — especificación ejecutable de plataforma
 
+Estado vigente: [cierre técnico 660f7d3](SESSION_02_CLOSURE.md), GO técnico S02;
+revisión/aceptación humana pendientes y S03 solo especificada. El contenido
+siguiente conserva la especificación original o resultados históricos.
+
 Estado: IMPLEMENTADO y probado; remediación local del IdP en ADR-0007.
 Aceptación NO-GO: CI remota de b221037 FAIL por tres scans BLOCKED; ver
 [auditoría](SESSION_02_CLOSURE.md). Los criterios permanecen intactos.

@@ -1,5 +1,9 @@
 # S02 — remediación del scanner CI
 
+Estado vigente: [cierre técnico 660f7d3](SESSION_02_CLOSURE.md), GO técnico S02;
+revisión/aceptación humana pendientes y S03 solo especificada. El contenido
+siguiente conserva la especificación original o resultados históricos.
+
 2026-10-23, Europe/Madrid. REQ-HAR-01 / REQ-PLAT-01, T02-07/08, AC02-08.
 **NO-GO S03**: cambios locales sin commit/push; CI del nuevo commit pendiente.
 Se conservan la auditoría b221037, snapshots anteriores y modificaciones locales

@@ -1,5 +1,9 @@
 # S02 — informe de remediación de seguridad
 
+Estado vigente: [cierre técnico 660f7d3](SESSION_02_CLOSURE.md), GO técnico S02;
+revisión/aceptación humana pendientes y S03 solo especificada. El contenido
+siguiente conserva la especificación original o resultados históricos.
+
 Actualización local: [remediación del scanner](SESSION_02_SCANNER_REMEDIATION.md).
 La auditoría siguiente se conserva como snapshot histórico. NO-GO S03.
 

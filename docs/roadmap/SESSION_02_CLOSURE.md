@@ -1,4 +1,91 @@
-# S02 — auditoría del cierre publicado b221037
+# S02 — cierre técnico formal de 660f7d3
+
+2026-10-23, Europe/Madrid. **GO técnico de S02** exclusivamente para
+`660f7d31170de2d8ecb80ddd0bbf7f4c21e8eb20`. R17 RESUELTO TÉCNICAMENTE para ese SHA.
+Revisión y aceptación humana del diff/riesgos PENDIENTES: no se encontró acta que
+las acredite; «pushealo» autorizó publicación, no aceptación de riesgos.
+Sin validación empresarial ni readiness de producción. S03 solo especificada,
+sin autorización para implementar el orquestador. Sin commit/push/merge/despliegue.
+
+## Procedencia comprobada
+
+HEAD, origin/main, ls-remote y API refs/heads/main coinciden con el SHA anterior;
+Git estaba limpio al iniciar. [Platform S02 39898182916](https://github.com/AlmanInDaHouse/OpsPilot-AI/actions/runs/39898182916),
+intento 1, evento push, completed/success; 04:02:31–04:09:25 UTC. Se verificaron
+jobs, steps y logs del mismo SHA, sin usar jobs dinámicos de Dependabot como gates.
+[Harness 39898182820](https://github.com/AlmanInDaHouse/OpsPilot-AI/actions/runs/39898182820)
+también completed/success, mismo SHA e intento 1.
+
+[Artefacto 12477208772](https://github.com/AlmanInDaHouse/OpsPilot-AI/actions/runs/39898182916/artifacts/12477208772),
+platform-s02-evidence, 9132 bytes, ligado al run y SHA por la API. ZIP descargado:
+SHA-256 coincide con digest GitHub; siete archivos contrastados por tamaño/hash
+contra el manifest del runner. El hash de inputs se reprodujo desde los blobs del
+commit con el algoritmo del scanner; no se comparó con bytes CRLF del árbol Windows.
+Evidencia nueva en [acceptance.json](../../artifacts/session-02/closure-660f7d3/acceptance.json)
+y [remote-audit.json](../../artifacts/session-02/closure-660f7d3/remote-audit.json).
+El ZIP, URLs temporales y logs completos son privados; copias CI saneadas en ci/.
+
+## Gates técnicos observados
+
+| Gate / job | Resultado real |
+|---|---|
+| Quality Ubuntu 120233371890 | SUCCESS; check y 162 tests locales PASS, 50 integraciones excluidas explícitamente |
+| Quality Windows 120233372189 | SUCCESS; check y 162 tests locales PASS, 50 integraciones excluidas explícitamente |
+| Integration 120233939645 | SUCCESS; suite completa Linux 212 PASS, incluidas 50 integraciones PG/Keycloak reales; cero fallos/errores/skips |
+| Harness Ubuntu 120233370869 | SUCCESS; docs y 23 tests PASS |
+| Harness Windows 120233371030 | SUCCESS; docs y 23 tests PASS |
+| Preflight scanner | Ocho casos PASS; host/scanner 1001:1001, tar 0600 readonly y dirs 0700; negativos de permisos incluidos |
+| PostgreSQL fresco | PASS; PG18.6, UID 70, volumen nuevo, network none, espera TCP del servidor final |
+| Recuperación | PASS; live=200/ready=503/me=503 durante caída PG; ocho eventos y cabezas/hashes idénticos, principal persistido y PKCE nuevo |
+| Scan PostgreSQL | PASS, exit 0, JSON válido, identidad y digest coincidentes, 0 HIGH/CRITICAL |
+| Scan Keycloak | PASS, exit 0, JSON válido, identidad y digest coincidentes, 0 HIGH/CRITICAL |
+| Scan API | PASS, exit 0, JSON válido, identidad y digest coincidentes, 0 HIGH/CRITICAL |
+
+Los tres scans contienen HEAD y hash de inputs coincidentes con el manifest y el
+commit. Scanner fijado por digest, sin excepciones ni relajación de severidad.
+Los hashes de raw/log son emitidos por el scanner validado; esos ficheros privados
+remotos no están en el ZIP y no se rehashearon independientemente aquí. Sí se
+verificaron ZIP, manifest y resúmenes, más las validaciones del código que los produjo.
+El manifest CI conserva session_03 NO-GO por diseño; es inventario automático, no
+acta humana ni veredicto global. La aceptación formal separa esos conceptos.
+
+## Riesgos y alcance del GO
+
+R17: cerrado el bloqueo de aceptación remota de T02-07/AC02-08 para 660f7d3; no
+se transforma el run fallido b221037 en PASS ni se confirma su stderr perdido.
+Reabrir para una revisión nueva si no se verifican sus propios gates.
+
+R15: mitigación técnica comprobada en el build remoto de ese SHA, con tres scans
+limpios según HIGH/CRITICAL y tests reales. Continúa el riesgo de mantenimiento y
+cobertura de supply chain: derivada Keycloak 26.8.1 con Alpine/Temurin musl, solo
+linux/amd64, inputs fijados, autor responsable de parches/CA/JVM. ADR-0007 sigue
+vigente; no certificación del proveedor ni garantía de detectar todo CVE de un JRE
+en tar.gz. No se volvieron a ejecutar los probes de trust del snapshot anterior
+en CI: se conserva su evidencia histórica, sin atribuirle una ejecución nueva.
+
+GO técnico S02 significa que pasan los controles de esta fase en el laboratorio.
+No aprueba IdP corporativo, multitenancy, pentest/auditoría independiente, DR,
+backup/restore, HA/SLO/carga, ancla externa de auditoría, privacidad ni producción.
+Recovery es reinicio/persistencia, no restauración desde backup ni durabilidad S03.
+Revisión humana y aceptación residual siguen pendientes. R01/R02/R14 siguen abiertos
+para los hitos que corresponden. La parada local previa exit 137 permanece registrada;
+el step stop remoto SUCCESS no demuestra por sí solo todos los exit codes de servicios.
+
+## Continuación y verificación de esta documentación
+
+[SESSION_03_SPEC](SESSION_03_SPEC.md) y [paquete 003](../../specs/003-workflows/spec.md)
+están PROPUESTOS: contratos antes de código, intake atómico, cola PG, worker lineal,
+leases/fences, cancelación CAS y crash suite real con dos workers/100 jobs. Sin IA,
+runner IT ni ejecución externa. La presente petición no inicia su implementación.
+
+Los gates funcionales/integración/scan anteriores se auditaron desde CI real.
+Los cambios actuales son solo documentación, trazabilidad y evidencia nueva; las
+comprobaciones locales se registran aparte en verification.json. No se presenta
+una suite local sin integración como repetición de los 50 casos remotos.
+Los snapshots iniciales, remediation, closure-b221037 y scanner-remediation se
+conservan. Su NO-GO es histórico; la fuente vigente es closure-660f7d3.
+
+## Auditoría histórica b221037 conservada
 
 Actualización local: [remediación del scanner](SESSION_02_SCANNER_REMEDIATION.md).
 La auditoría siguiente se conserva como snapshot histórico. NO-GO S03.
@@ -8,7 +95,7 @@ El run de plataforma terminó en FAIL: falta completar satisfactoriamente los
 tres escaneos obligatorios. Calidad, integración funcional, PG fresco y reinicio
 sí pasaron. No se modificaron criterios de aceptación, runtime ni workflows.
 
-## Alcance, Git y procedencia
+### Alcance, Git y procedencia
 
 Petición: verificar el cierre publicado; REQ-PLAT-01/02, REQ-HAR-01,
 T02-07/08 y AC02-08. Supuesto: un PASS local anterior no valida un build remoto.
@@ -28,7 +115,7 @@ platform-s02-evidence, 105781 bytes; ZIP descargado, SHA-256 contrastado con
 el digest de GitHub y coincidente. remote-audit.json conserva el digest público.
 URL firmada temporal y ZIP completo permanecen privados en artifacts/local.
 
-## Gates reales
+### Gates reales
 
 | Comprobación | Resultado y evidencia |
 |---|---|
@@ -49,7 +136,7 @@ a backup/restore ni a workflows durables S03. El harness adicional está en
 [run 39888916473](https://github.com/AlmanInDaHouse/OpsPilot-AI/actions/runs/39888916473).
 El job integration no debe describirse como SUCCESS aunque sus 50 tests pasen.
 
-## Bloqueo exacto y límites del diagnóstico
+### Bloqueo exacto y límites del diagnóstico
 
 El log publicado registra postgres BLOCKED a 02:24:58 UTC, keycloak BLOCKED a
 02:25:03 y api BLOCKED a 02:25:07. Los tres JSON tienen exit_code=1,
@@ -80,7 +167,7 @@ el motivo original si falta el informe. Reejecutar todos los gates sobre el SHA
 de la corrección y verificar identidad de imágenes/informes. Sin root, chmod 777,
 excepciones, desactivar scanner ni rebajar HIGH/CRITICAL. No implementado aquí.
 
-## Consistencia de aceptación y evidencias
+### Consistencia de aceptación y evidencias
 
 Fuente actual: [acceptance.json](../../artifacts/session-02/closure-b221037/acceptance.json)
 y [remote-audit.json](../../artifacts/session-02/closure-b221037/remote-audit.json).
@@ -96,7 +183,7 @@ Los PASS de remediation/final dentro del ZIP son previos, no scans del runner.
 Los manifests históricos permanecen intactos; el manifest de closure-b221037
 identifica las copias y sus hashes, sin reinterpretar el snapshot anterior.
 
-## Verificación local de estos registros
+### Verificación local de estos registros
 
 python scripts/dev.py check PASS; suite local 126 PASS, 50 integraciones
 excluidas explícitamente; harness 23 PASS. La integración remota de 50 casos se
@@ -104,7 +191,7 @@ verificó mediante job/log y XML del artefacto, sin arrancar de nuevo el laborat
 verification.json separa estas comprobaciones del veredicto del run publicado.
 No se convierte el resultado local en aprobación del scanner remoto.
 
-## Riesgos y decisión
+### Riesgos y decisión
 
 R17 permanece ABIERTO y bloqueante: CI de la revisión corregida existe y falla.
 R15 solo REMEDIADO LOCALMENTE; la validación supply del build remoto no está

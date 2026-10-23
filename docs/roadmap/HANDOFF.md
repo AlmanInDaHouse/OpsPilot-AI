@@ -1,5 +1,28 @@
 # Handoff versionado — plataforma S02 y futura S03
 
+## Cierre técnico S02 — 660f7d3, 2026-10-23
+
+**GO técnico S02** para 660f7d31170de2d8ecb80ddd0bbf7f4c21e8eb20.
+[CI plataforma 39898182916](https://github.com/AlmanInDaHouse/OpsPilot-AI/actions/runs/39898182916)
+y [harness 39898182820](https://github.com/AlmanInDaHouse/OpsPilot-AI/actions/runs/39898182820)
+SUCCESS, mismo SHA. Quality Windows/Ubuntu: 162 PASS cada una (50 integraciones
+excluidas); suite completa Linux: 212 PASS, 50 integraciones reales y cero skips.
+PG fresco/recovery PASS; tres scans nuevos PASS, 0 HIGH/CRITICAL; harness 23/OS.
+ZIP/digest, siete entradas de manifest e inputs de blobs Git contrastados.
+
+R17 RESUELTO TÉCNICAMENTE para ese SHA; R15 mitigado para ese build, mantenimiento
+residual vigente. Fuentes: [cierre](SESSION_02_CLOSURE.md) y
+[aceptación](../../artifacts/session-02/closure-660f7d3/acceptance.json).
+Revisión y aceptación humana pendientes, sin acta documentada. No validación
+empresarial ni readiness de producción. Keycloak derivado Alpine/Temurin musl,
+solo linux/amd64, sin certificación del proveedor; autor mantiene hashes/parches.
+
+[Especificación S03](SESSION_03_SPEC.md) y specs/003-workflows preparados como
+PROPUESTOS. No orquestador, endpoints, migraciones ni tests S03 implementados.
+La petición actual solo autoriza cierre/documentación; otra petición y revisión
+humana son necesarias antes de implementar. Sin commit, push, merge ni despliegue.
+Los bloques siguientes conservan decisiones históricas, no revierten este cierre.
+
 ## Publicación del scanner autorizada — 2026-10-23
 
 El autor autoriza commit y push a origin/main con «pushealo», después del cierre

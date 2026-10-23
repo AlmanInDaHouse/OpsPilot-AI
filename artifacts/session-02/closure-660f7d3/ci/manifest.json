@@ -1,0 +1,44 @@
+{
+  "recorded_at_utc": "2026-10-23T04:09:19.240819+00:00",
+  "head": "660f7d31170de2d8ecb80ddd0bbf7f4c21e8eb20",
+  "input_sha256": "5a2fa58e949a081f7c24547d3a877b4ab2547dd75f44e71092cdc3ed4d92b6a5",
+  "scope": "Actual executable/configuration inputs; HEAD alone does not identify uncommitted edits",
+  "session_03": "NO-GO",
+  "files": [
+    {
+      "path": "fresh-postgres.json",
+      "hash": "48d40584984140509e0cad582e7be728a3e57c8309f52e1fed09e52483f62717",
+      "bytes": 293
+    },
+    {
+      "path": "recovery.json",
+      "hash": "65dcc902abc595bd7947145d010cb06e19670a6c41daa766a20f0252c7f3bd6d",
+      "bytes": 1887
+    },
+    {
+      "path": "scanner-environment.json",
+      "hash": "956634f85d1b9509be2b7888171356c07f01c3fd06ae9bb3d0f2d21a84021335",
+      "bytes": 4365
+    },
+    {
+      "path": "scans/api-cves.json",
+      "hash": "4fba9722d1501f802331d1b82d342139011edd2742210614c41cd72b91157033",
+      "bytes": 1484
+    },
+    {
+      "path": "scans/keycloak-cves.json",
+      "hash": "1b79b8cb527cc64278c791b53fb26f144691d0617f91ee230b47776a4860d110",
+      "bytes": 1495
+    },
+    {
+      "path": "scans/postgres-cves.json",
+      "hash": "4827d042e522a3d8c630a4a0c5c9b50fcb6ceaac2f06ff583e0b1f42ad149ac4",
+      "bytes": 1493
+    },
+    {
+      "path": "tests-ci.xml",
+      "hash": "6f5894462805d72afff58f9813bf4d5ec9449655e28a31e538ed5674b81a7e00",
+      "bytes": 27479
+    }
+  ]
+}

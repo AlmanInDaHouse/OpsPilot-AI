@@ -6,12 +6,12 @@ auditoría transaccional implementados. Resultados y GO/NO-GO en
 [revisión S02](docs/roadmap/SESSION_02_REVIEW.md). Tickets/workflows se reservan a S03;
 no hay IA, VPN ni frontend implementados.
 
-[Remediación de seguridad](docs/roadmap/SESSION_02_SECURITY_REMEDIATION.md): IdP
-derivado con inputs fijados y gates locales aprobados. **NO-GO S03** hasta CI remota
-satisfactoria de la revisión corregida. [Auditoría b221037](docs/roadmap/SESSION_02_CLOSURE.md):
-CI FAIL por tres scans BLOCKED. Sin publicación ni inicio de S03 automático.
-[Corrección local del scanner](docs/roadmap/SESSION_02_SCANNER_REMEDIATION.md):
-staging aislado, permisos y diagnóstico probados; NO-GO hasta nueva CI.
+[Cierre técnico S02](docs/roadmap/SESSION_02_CLOSURE.md): **GO técnico para 660f7d3**,
+CI plataforma y harness SUCCESS, tres scans/PG fresco/recovery PASS. R17 resuelto
+para ese SHA; R15 conserva mantenimiento y límites linux/amd64/Keycloak musl.
+Revisión y aceptación humana pendientes; sin validación empresarial ni readiness
+de producción. [S03 especificada](docs/roadmap/SESSION_03_SPEC.md), sin implementar
+ni autorizar el orquestador. Las evidencias históricas conservan sus NO-GO previos.
 
 OpsPilot investigará incidencias IT con documentación autorizada y evidencias,
 propondrá acciones y ejecutará un catálogo cerrado bajo políticas y supervisión.
@@ -24,7 +24,7 @@ Una ejecución técnica correcta no demuestra la resolución del ticket.
 |---|---|
 | Checkouts CopilotDrive vecinos | EXISTENTE, ajeno a OpsPilot; sin cambios |
 | Arquitectura, contratos y roadmap | Diseño versionado; S02 implementada, hitos posteriores propuestos |
-| Harness y CI | b221037: harness/calidad PASS, integración funcional/PG fresco/reinicio PASS; plataforma FAIL por scans BLOCKED |
+| Harness y CI | 660f7d3: CI plataforma/harness SUCCESS, 212 tests Linux, PG fresco/recovery y tres scans PASS; aceptación humana pendiente |
 | API/identidad/audit | IMPLEMENTADO y probado con PG/Keycloak reales; ver gates S02 |
 | LLM y VPN | PROPUESTO; fuera de S02, sin conexiones ni efectos IT |
 

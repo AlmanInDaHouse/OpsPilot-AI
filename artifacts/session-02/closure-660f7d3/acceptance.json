@@ -1,0 +1,214 @@
+{
+  "recorded_at_utc": "2026-10-23T11:27:18.551379+00:00",
+  "head": "660f7d31170de2d8ecb80ddd0bbf7f4c21e8eb20",
+  "input_sha256": "5a2fa58e949a081f7c24547d3a877b4ab2547dd75f44e71092cdc3ed4d92b6a5",
+  "scope": "Formal technical S02 closure of the exact published SHA; current edits only documentation/evidence, unpublished",
+  "s02_technical": "GO",
+  "technical_basis": "All required platform/harness jobs, steps and current CI evidence checked; code-input digest independently reproduced from committed blobs",
+  "human_review": "PENDING_NOT_DOCUMENTED",
+  "human_acceptance": "PENDING_NOT_DOCUMENTED",
+  "enterprise_validation": "NOT_PERFORMED",
+  "production_readiness": "NOT_ESTABLISHED",
+  "s03": {
+    "specification": "PREPARED_PROPOSED",
+    "implementation": "NOT_AUTHORIZED",
+    "technical_prerequisite": "S02_GATE_SATISFIED_FOR_VALIDATED_SHA",
+    "human_gate": "PENDING"
+  },
+  "risks": {
+    "R17": {
+      "status": "RESOLVED_TECHNICALLY_FOR_VALIDATED_SHA",
+      "head": "660f7d31170de2d8ecb80ddd0bbf7f4c21e8eb20",
+      "scope": "Remote S02 acceptance blocker only; historical b221037 remains failed"
+    },
+    "R15": {
+      "status": "MITIGATED_TECHNICALLY_FOR_VALIDATED_BUILD",
+      "ongoing_maintenance_risk": true,
+      "limit": "Keycloak derivative, linux/amd64 musl, maintained by author; Trivy coverage of archived JRE is incomplete"
+    }
+  },
+  "ci": {
+    "platform": {
+      "id": 39898182916,
+      "name": "Platform S02 gates",
+      "head": "660f7d31170de2d8ecb80ddd0bbf7f4c21e8eb20",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "run_attempt": 1,
+      "url": "https://github.com/AlmanInDaHouse/OpsPilot-AI/actions/runs/39898182916",
+      "created_at": "2026-10-23T04:02:31Z",
+      "updated_at": "2026-10-23T04:09:25Z"
+    },
+    "harness": {
+      "id": 39898182820,
+      "name": "Documentary harness (preserved from S01)",
+      "head": "660f7d31170de2d8ecb80ddd0bbf7f4c21e8eb20",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "run_attempt": 1,
+      "url": "https://github.com/AlmanInDaHouse/OpsPilot-AI/actions/runs/39898182820",
+      "created_at": "2026-10-23T04:02:30Z",
+      "updated_at": "2026-10-23T04:02:47Z"
+    },
+    "jobs": [
+      {
+        "id": 120233371890,
+        "name": "quality (ubuntu-latest)",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 120233372189,
+        "name": "quality (windows-latest)",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 120233939645,
+        "name": "integration",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 120233370869,
+        "name": "documentation-and-harness (ubuntu-latest)",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "id": 120233371030,
+        "name": "documentation-and-harness (windows-latest)",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    ]
+  },
+  "artifact": {
+    "id": 12477208772,
+    "name": "platform-s02-evidence",
+    "bytes": 9132,
+    "digest": "sha256:5cc3e58c275cb625fbca0bb197de5dc4b4b2aecd29399295529aea8f87f38d7a",
+    "expired": false,
+    "head": "660f7d31170de2d8ecb80ddd0bbf7f4c21e8eb20",
+    "url": "https://github.com/AlmanInDaHouse/OpsPilot-AI/actions/runs/39898182916/artifacts/12477208772"
+  },
+  "integrity": {
+    "zip_digest_verified": true,
+    "ci_manifest_entries_verified": 7,
+    "code_inputs_reproduced_from_git_blobs": true,
+    "remote_raw_reports_independently_rehashed": false,
+    "remote_raw_limit": "Raw Trivy JSON/logs remain private on runner; scanner emitted their hashes. ZIP/manifest/summaries verified independently."
+  },
+  "quality_suites": {
+    "ubuntu": {
+      "passed": 162,
+      "integration_deselected": 50
+    },
+    "windows": {
+      "passed": 162,
+      "integration_deselected": 50
+    }
+  },
+  "linux_complete_suite": {
+    "tests": 212,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "integration_tests": 50
+  },
+  "harness": {
+    "ubuntu_passed": 23,
+    "windows_passed": 23
+  },
+  "scans": {
+    "postgres": {
+      "verdict": "PASS",
+      "exit_code": 0,
+      "image": "opspilot-postgres:18.6-s02",
+      "docker_image_id": "sha256:96802112330003f4bf38f8187688242c861594812d15abd79ae753e7551b4d23",
+      "report_valid": true,
+      "archive_config_matches": true,
+      "high_critical": 0
+    },
+    "keycloak": {
+      "verdict": "PASS",
+      "exit_code": 0,
+      "image": "opspilot-keycloak:26.8.1-s02",
+      "docker_image_id": "sha256:c7f465ddc911c0d86df2e7acf098ea969e783fe826ede2782997965c2c0146aa",
+      "report_valid": true,
+      "archive_config_matches": true,
+      "high_critical": 0
+    },
+    "api": {
+      "verdict": "PASS",
+      "exit_code": 0,
+      "image": "opspilot-ai:0.2.0",
+      "docker_image_id": "sha256:48690d243032378e9a2f8279edfe49112c589d2c9bfe75af6eabf83e93ea529a",
+      "report_valid": true,
+      "archive_config_matches": true,
+      "high_critical": 0
+    }
+  },
+  "fresh_postgres": "PASS",
+  "recovery": "PASS",
+  "scanner_permission_cases_passed": 8,
+  "acceptance_criteria": {
+    "AC02-01": {
+      "technical_gate": "SATISFIED",
+      "basis": "Exact-SHA CI suite and supply/harness evidence; phase-scoped, not human acceptance"
+    },
+    "AC02-02": {
+      "technical_gate": "SATISFIED",
+      "basis": "Exact-SHA CI suite and supply/harness evidence; phase-scoped, not human acceptance"
+    },
+    "AC02-03": {
+      "technical_gate": "SATISFIED",
+      "basis": "Exact-SHA CI suite and supply/harness evidence; phase-scoped, not human acceptance"
+    },
+    "AC02-04": {
+      "technical_gate": "SATISFIED",
+      "basis": "Exact-SHA CI suite and supply/harness evidence; phase-scoped, not human acceptance"
+    },
+    "AC02-05": {
+      "technical_gate": "SATISFIED",
+      "basis": "Exact-SHA CI suite and supply/harness evidence; phase-scoped, not human acceptance"
+    },
+    "AC02-06": {
+      "technical_gate": "SATISFIED",
+      "basis": "Exact-SHA CI suite and supply/harness evidence; phase-scoped, not human acceptance"
+    },
+    "AC02-07": {
+      "technical_gate": "SATISFIED",
+      "basis": "Exact-SHA CI suite and supply/harness evidence; phase-scoped, not human acceptance"
+    },
+    "AC02-08": {
+      "technical_gate": "SATISFIED",
+      "basis": "Exact-SHA CI suite and supply/harness evidence; phase-scoped, not human acceptance"
+    },
+    "AC02-09": {
+      "technical_gate": "SATISFIED",
+      "basis": "Exact-SHA CI suite and supply/harness evidence; phase-scoped, not human acceptance"
+    },
+    "AC02-10": {
+      "technical_gate": "SATISFIED",
+      "basis": "Exact-SHA CI suite and supply/harness evidence; phase-scoped, not human acceptance"
+    }
+  },
+  "limits": [
+    "No act of human risk acceptance found; push authorization is not risk acceptance",
+    "No vendor certification for Keycloak Alpine/musl; linux/amd64 only",
+    "R15 continuous maintenance and JRE scan coverage limitations remain",
+    "Restart/persistence is not backup/restore or S03 durable-workflow proof",
+    "No corporate IdP, independent security audit, enterprise validation or production readiness",
+    "CI manifest session_03 NO-GO is a preserved inventory field, not a formal technical S02 acceptance verdict",
+    "Exact cause of lost stderr in failed b221037 run remains unconfirmed"
+  ],
+  "publication": {
+    "new_commit": false,
+    "push": false,
+    "merge": false,
+    "deployment": false
+  }
+}

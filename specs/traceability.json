@@ -1,7 +1,7 @@
 [
   {
     "requirement": "REQ-PLAT-01",
-    "status": "IMPLEMENTADO",
+    "status": "PROBADO",
     "spec": [
       "specs/002-platform/spec.md"
     ],
@@ -39,9 +39,12 @@
       "artifacts/session-02/remediation/tests-linux-final.xml",
       "artifacts/session-02/remediation/ci-post-push.json",
       "artifacts/session-02/remediation/final/keycloak-cves.json",
-      "artifacts/session-02/remediation/final-trust.json"
+      "artifacts/session-02/remediation/final-trust.json",
+      "artifacts/session-02/closure-660f7d3/acceptance.json",
+      "artifacts/session-02/closure-660f7d3/remote-audit.json",
+      "artifacts/session-02/closure-660f7d3/ci/tests-ci.xml"
     ],
-    "acceptance": "NO-GO: local remediation PROBADO; successful remote CI for final revision pending (R17)",
+    "acceptance": "GO tecnico S02 for 660f7d3, R17 technically resolved for exact SHA; human review/acceptance pending; no enterprise/production validation; S03 implementation not authorized",
     "task_ids": [
       "T02-01",
       "T02-02",
@@ -54,7 +57,7 @@
   },
   {
     "requirement": "REQ-PLAT-02",
-    "status": "IMPLEMENTADO",
+    "status": "PROBADO",
     "spec": [
       "specs/002-platform/spec.md"
     ],
@@ -90,9 +93,12 @@
       "artifacts/session-02/remediation/tests-linux-final.xml",
       "artifacts/session-02/remediation/ci-post-push.json",
       "artifacts/session-02/remediation/fresh-postgres-final.json",
-      "artifacts/session-02/remediation/recovery-final.json"
+      "artifacts/session-02/remediation/recovery-final.json",
+      "artifacts/session-02/closure-660f7d3/acceptance.json",
+      "artifacts/session-02/closure-660f7d3/remote-audit.json",
+      "artifacts/session-02/closure-660f7d3/ci/tests-ci.xml"
     ],
-    "acceptance": "NO-GO: local remediation PROBADO; successful remote CI for final revision pending (R17)",
+    "acceptance": "GO tecnico S02 for 660f7d3, R17 technically resolved for exact SHA; human review/acceptance pending; no enterprise/production validation; S03 implementation not authorized",
     "task_ids": [
       "T02-01",
       "T02-02",
@@ -107,13 +113,16 @@
     "requirement": "REQ-WF-01",
     "status": "PROPUESTO",
     "spec": [
-      "specs/001-vpn/spec.md"
+      "specs/001-vpn/spec.md",
+      "docs/roadmap/SESSION_03_SPEC.md",
+      "specs/003-workflows/spec.md"
     ],
     "design": [
       "docs/architecture/WORKFLOW_ENGINE.md"
     ],
     "task": [
-      "docs/roadmap/ROADMAP_8_SESSIONS.md"
+      "docs/roadmap/ROADMAP_8_SESSIONS.md",
+      "specs/003-workflows/tasks.md"
     ],
     "code": [
       "src/opspilot/incidents/application/create.py"
@@ -121,19 +130,23 @@
     "test": [
       "tests/integration/test_intake_atomicity.py"
     ],
-    "evidence": []
+    "evidence": [],
+    "acceptance": "PROPUESTO only; no S03 implementation/tests/evidence. REQ-WF-03 full external reconciliation remains S05/S06."
   },
   {
     "requirement": "REQ-WF-02",
     "status": "PROPUESTO",
     "spec": [
-      "specs/001-vpn/spec.md"
+      "specs/001-vpn/spec.md",
+      "docs/roadmap/SESSION_03_SPEC.md",
+      "specs/003-workflows/spec.md"
     ],
     "design": [
       "docs/architecture/WORKFLOW_ENGINE.md"
     ],
     "task": [
-      "docs/roadmap/ROADMAP_8_SESSIONS.md"
+      "docs/roadmap/ROADMAP_8_SESSIONS.md",
+      "specs/003-workflows/tasks.md"
     ],
     "code": [
       "src/opspilot/workflows/application/recovery.py"
@@ -141,19 +154,23 @@
     "test": [
       "tests/integration/test_workflow_crash.py"
     ],
-    "evidence": []
+    "evidence": [],
+    "acceptance": "PROPUESTO only; no S03 implementation/tests/evidence. REQ-WF-03 full external reconciliation remains S05/S06."
   },
   {
     "requirement": "REQ-WF-03",
     "status": "PROPUESTO",
     "spec": [
-      "specs/001-vpn/spec.md"
+      "specs/001-vpn/spec.md",
+      "docs/roadmap/SESSION_03_SPEC.md",
+      "specs/003-workflows/spec.md"
     ],
     "design": [
       "docs/architecture/WORKFLOW_ENGINE.md"
     ],
     "task": [
-      "docs/roadmap/ROADMAP_8_SESSIONS.md"
+      "docs/roadmap/ROADMAP_8_SESSIONS.md",
+      "specs/003-workflows/tasks.md"
     ],
     "code": [
       "src/opspilot/tools/application/reconcile.py"
@@ -161,7 +178,8 @@
     "test": [
       "tests/integration/test_unknown_outcome.py"
     ],
-    "evidence": []
+    "evidence": [],
+    "acceptance": "PROPUESTO only; no S03 implementation/tests/evidence. REQ-WF-03 full external reconciliation remains S05/S06."
   },
   {
     "requirement": "REQ-AI-01",
@@ -380,8 +398,11 @@
       "artifacts/session-02/verification.json",
       "artifacts/session-02/remediation/tests-windows-final.xml",
       "artifacts/session-02/remediation/tests-linux-final.xml",
-      "artifacts/session-02/remediation/ci-post-push.json"
+      "artifacts/session-02/remediation/ci-post-push.json",
+      "artifacts/session-02/closure-660f7d3/acceptance.json",
+      "artifacts/session-02/closure-660f7d3/remote-audit.json",
+      "artifacts/session-02/closure-660f7d3/ci/tests-ci.xml"
     ],
-    "acceptance": "NO-GO: local remediation PROBADO; successful remote CI for final revision pending (R17)"
+    "acceptance": "GO tecnico S02 for 660f7d3, R17 technically resolved for exact SHA; human review/acceptance pending; no enterprise/production validation; S03 implementation not authorized"
   }
 ]

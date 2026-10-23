@@ -1,8 +1,9 @@
 # 002-platform — tareas secuenciadas
 
-Estado S02: implementación y suites funcionales ejecutadas; T02-07 no aceptada por
-scan de Keycloak FAIL. No se declara una cadena completa aceptada mientras falle ese
-gate. Ver [revisión](../../docs/roadmap/SESSION_02_REVIEW.md) y ejecución abajo.
+Estado S02: gates técnicos PROBADOS y GO técnico exclusivamente para 660f7d3.
+T02-07 satisfecho remotamente; cierre técnico T02-08 documentado, revisión humana
+pendiente. [Cierre](../../docs/roadmap/SESSION_02_CLOSURE.md) y acceptance nuevo
+separan el build validado de los snapshots históricos fallidos. No implementar S03.
 
 | ID | Dependencia | Cambio acotado y archivos previstos | Tests/evidencia obligatoria |
 |---|---|---|---|
@@ -23,16 +24,21 @@ existentes al pasar a IMPLEMENTADO/PROBADO; no inventar reportes futuros.
 
 | Tarea | Estado real | Código/test/evidencia existente |
 |---|---|---|
-| T02-01 | PROBADO localmente, CI final pendiente | infra/keycloak.Dockerfile y compose, ADR-0007; remediation/final/*-cves.json |
+| T02-01 | PROBADO local/CI 660f7d3 | infra/keycloak.Dockerfile y compose, ADR-0007; remediation/final/*-cves.json |
 | T02-02 | PROBADO | ADR-0006, contracts, audit/domain/envelope.py; tests/unit/test_canonical.py, tests/contract/test_api.py, integración SQL parity |
 | T02-03 | PROBADO | src/opspilot y scripts/check_architecture.py; tests/architecture/test_layers.py; tests-windows.xml |
 | T02-04 | PROBADO | migrations, adapters/postgres; tests/integration/test_audit.py; tests-windows.xml, integration-linux.xml, fresh-postgres.json, recovery.json |
 | T02-05 | PROBADO con derivada mantenida | adapters/oidc, identity/application; remediation/tests-windows-final.xml, tests-linux-final.xml y recovery-final.json |
 | T02-06 | PROBADO | entrypoints/api y DTO; tests/contract/test_api.py, test_entrypoints/test_identity reales; XML y recovery.json |
-| T02-07 | PROBADO localmente / NO-GO remoto | espera TCP de verify_fresh_postgres; verificador sin GO implícito; remediation/final scans PASS, ci-post-push.json FAIL del SHA publicado |
-| T02-08 | IMPLEMENTADO, cierre NO-GO | traceability.json, checklist, SESSION_02_REVIEW, HANDOFF; manifest/evidencia S02 |
+| T02-07 | PROBADO, CI 660f7d3 SUCCESS | espera TCP de verify_fresh_postgres; verificador sin GO implícito; remediation/final scans PASS, ci-post-push.json FAIL del SHA publicado |
+| T02-08 | PROBADO técnico 660f7d3; revisión humana pendiente | traceability.json, checklist, SESSION_02_REVIEW, HANDOFF; manifest/evidencia S02 |
 
 Rutas fuente abreviadas relativas a src/opspilot, tests o .github donde corresponde;
 las rutas máquina exactas están en traceability.json. Remediación y resultados
 actuales en security-remediation.md y SESSION_02_SECURITY_REMEDIATION. No se declara
 CI remota satisfactoria de la revisión final ni aprobación humana de riesgos.
+
+Cierre vigente T02-07/08: artifacts/session-02/closure-660f7d3/acceptance.json y
+remote-audit.json; pasos completos SUCCESS e integridad de artefacto contrastada.
+Las evidencias de filas anteriores se conservan como historial, no como resultado
+actual. GO técnico S02 no significa aceptación humana ni readiness de producción.

@@ -1,0 +1,32 @@
+[
+  {
+    "gate": "local-tests",
+    "command": [
+      "python",
+      "scripts/dev.py",
+      "test",
+      "--suite",
+      "local"
+    ],
+    "started_at_utc": "2026-10-23T11:28:44.158790+00:00",
+    "duration_seconds": 16.16,
+    "exit_code": 0,
+    "raw_sha256": "0164c3fa21d75c4b618f1d83dacde67481cfe920e999b3cc98a2c875ad40378e",
+    "scope": "Local documentation/harness regression; integration suite remains verified through exact-SHA remote CI"
+  },
+  {
+    "gate": "harness",
+    "command": [
+      "python",
+      "scripts/dev.py",
+      "test",
+      "--suite",
+      "harness"
+    ],
+    "started_at_utc": "2026-10-23T11:29:00.333622+00:00",
+    "duration_seconds": 1.77,
+    "exit_code": 0,
+    "raw_sha256": "b49bb5c5631955ded57e1fbea8afe0a60f3b3c3c8f5087666dc551345f70bbbf",
+    "scope": "Local documentation/harness regression; integration suite remains verified through exact-SHA remote CI"
+  }
+]
