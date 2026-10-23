@@ -44,7 +44,7 @@ jobs:
       - run: uv run --frozen python scripts/scan_images.py --evidence-dir artifacts/session-02/ci/scans
       - run: uv run --frozen python scripts/verify_session02.py --manifest-only --evidence-dir artifacts/session-02/ci
         if: always()
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
         if: always()
         with:
           name: platform-s02-evidence
