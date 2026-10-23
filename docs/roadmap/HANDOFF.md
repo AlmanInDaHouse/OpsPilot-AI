@@ -2,6 +2,34 @@
 
 ## Estado actual S02 — 2026-10-23 Europe/Madrid
 
+Última actualización: [informe de remediación](SESSION_02_SECURITY_REMEDIATION.md),
+[ADR-0007](../decisions/0007-keycloak-maintained-runtime.md) y
+artifacts/session-02/remediation. **NO-GO S03: falta CI remota satisfactoria del
+árbol corregido**. No iniciar S03 ni publicar sin nueva instrucción.
+
+HEAD publicado f165a47; árbol inicialmente limpio. Actions posterior al push:
+harness PASS, quality Windows/Ubuntu PASS, 50 integraciones PASS; PG fresco FAIL,
+recovery/scan SKIPPED. Carrera Unix/TCP de initdb reproducida y corregida sin quitar
+restricciones. La CI anterior sigue FAIL; esta revisión no se ha publicado.
+
+Keycloak se construye con infra/keycloak.Dockerfile: /opt/keycloak oficial por
+digest + Alpine 3.24.3 por digest + CA 20261020-r0 + archivo oficial Temurin
+21.0.13+9 musl por SHA-256. Solo linux/amd64. Sin editar CA ni excepciones de scan.
+Derivada Debian rechazada por otros CVE; evidencia conservada. Suites finales:
+176 PASS Windows y 176 Linux, cero skips; imágenes finales, PG fresco y recovery
+PASS. Manifest/evidencias actuales en remediation; JSON raíz son históricos.
+verify_session02 separa gates locales y nunca concede GO global por ellos.
+R15 remediado localmente; R17 exige CI de esta revisión antes de S03.
+No commit/push/merge/release/despliegue; secretos y volumen preservados.
+
+Publicación de la remediación: el autor autoriza ahora commit y push a origin/main
+con «pushealo». Los resultados anteriores y artifacts/session-02/remediation son
+el snapshot local previo a esta publicación. Consultar Git para el SHA efectivo y
+Actions para sus resultados; autorización sin merge, release, despliegue ni S03.
+NO-GO se conserva hasta comprobar todos los gates remotos de la revisión corregida.
+
+### Snapshot inicial S02 conservado
+
 Repositorio verificado: `C:/Users/manul/OneDrive/Escritorio/opspilot-ai`. Sesión 02
 autorizada expresamente. Implementación real en src/opspilot, migrations, infra y
 tests; no tickets/workflows/IA. Fuente de cierre:

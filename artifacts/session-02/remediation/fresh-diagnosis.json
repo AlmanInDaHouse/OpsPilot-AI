@@ -1,0 +1,47 @@
+{
+  "container": "opspilot-s02-fresh-diagnosis-3fb9ec97",
+  "states": [
+    {
+      "unix_exit": 2,
+      "tcp_exit": 2
+    },
+    {
+      "unix_exit": 2,
+      "tcp_exit": 2
+    },
+    {
+      "unix_exit": 2,
+      "tcp_exit": 2
+    },
+    {
+      "unix_exit": 2,
+      "tcp_exit": 2
+    },
+    {
+      "unix_exit": 2,
+      "tcp_exit": 2
+    },
+    {
+      "unix_exit": 2,
+      "tcp_exit": 2
+    },
+    {
+      "unix_exit": 2,
+      "tcp_exit": 2
+    },
+    {
+      "unix_exit": 2,
+      "tcp_exit": 2
+    },
+    {
+      "unix_exit": 0,
+      "tcp_exit": 2
+    },
+    {
+      "unix_exit": 0,
+      "tcp_exit": 0
+    }
+  ],
+  "temporary_server_observed": true,
+  "final_server_ready": true
+}

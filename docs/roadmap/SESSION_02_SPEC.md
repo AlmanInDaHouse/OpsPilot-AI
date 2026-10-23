@@ -1,6 +1,8 @@
 # Sesión 02 — especificación ejecutable de plataforma
 
-Estado: IMPLEMENTADO y probado funcionalmente; aceptación NO-GO por scan del IdP.
+Estado: IMPLEMENTADO y probado; remediación local del IdP en ADR-0007.
+Aceptación NO-GO por CI remota pendiente de la revisión corregida; ver
+[informe](SESSION_02_SECURITY_REMEDIATION.md). Los criterios permanecen intactos.
 Feature `002-platform`; no se implementó durante S01. Criterios de aceptación intactos.
 Ejecución S02 autorizada el 2026-10-23. Cierre previo de decisiones y tareas:
 [ADR-0006](../decisions/0006-platform-boundaries.md). `nbf` se valida cuando existe;

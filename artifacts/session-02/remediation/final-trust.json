@@ -1,0 +1,44 @@
+{
+  "image": "opspilot-keycloak:26.8.1-s02",
+  "verdict": "PASS",
+  "native_roots_count": 118,
+  "related_native_roots_present": 0,
+  "related_java_roots_present": 0,
+  "offline_chains": 14,
+  "ordinary_trusted_anchor": "PASS",
+  "limits": "Original JVM also rejects this chain corpus; these negatives alone are not differential proof. No TLS exploitation or reachability is claimed. Neither store was edited.",
+  "probes": [
+    {
+      "probe": "inventory",
+      "exit_code": 0,
+      "path": "artifacts/local/security-remediation/final-inventory.log",
+      "raw_sha256": "fa7394ce79362e1747d6e39918c8e2f086bb8d6255a0204d8360f24dd2c84a44"
+    },
+    {
+      "probe": "system-ca",
+      "exit_code": 0,
+      "path": "artifacts/local/security-remediation/final-system-ca.log",
+      "raw_sha256": "5961c0a3c65459931c023e0075c09733f09aea4ca439cb85bc4a08bb4f3f568b"
+    },
+    {
+      "probe": "java-trust",
+      "exit_code": 0,
+      "path": "artifacts/local/security-remediation/final-java-trust.log",
+      "raw_sha256": "d0440536a99929c7999d969a03f66fe1401896e9f6e47aa444f896c07bb533cc"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "artifacts/local/security-remediation/roots.json",
+      "hash": "119f32cd81a6b5a4e3c4c2df5fe07daa90dc43cafa123a62f0394f1895d92380"
+    },
+    {
+      "path": "artifacts/local/security-remediation/chains.zip",
+      "hash": "7b949956955fc501a30f4d98d2f513d34c0bbbe92e29a968194c96e097ce2345"
+    },
+    {
+      "path": "artifacts/local/security-remediation/candidate/TrustProbe.java",
+      "hash": "66ebca9e03aec661455d81ce0616459376c2e95c34e11d0bce6b0f88830eadc6"
+    }
+  ]
+}

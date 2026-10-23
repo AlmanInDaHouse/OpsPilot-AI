@@ -73,7 +73,7 @@ def main() -> int:
         ("postgres", "opspilot-postgres:18.6-s02"),
         (
             "keycloak",
-            "quay.io/keycloak/keycloak:26.8.1@sha256:79c623a22abacf3fe6c00a5fb30f5b7843d717b234033b80995891c06116d244",
+            "opspilot-keycloak:26.8.1-s02",
         ),
         ("api", "opspilot-ai:0.2.0"),
     ):

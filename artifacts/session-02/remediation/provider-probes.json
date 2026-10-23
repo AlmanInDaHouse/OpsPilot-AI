@@ -1,0 +1,182 @@
+{
+  "recorded_at_utc": "2026-10-23T01:17:42.044525+00:00",
+  "sources": [
+    {
+      "name": "rh-ca",
+      "url": "https://access.redhat.com/hydra/rest/securitydata/cve/CVE-2026-114406.json",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "name": "rh-java",
+      "url": "https://access.redhat.com/hydra/rest/securitydata/cve/CVE-2026-91415.json",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "name": "ubuntu-ca",
+      "url": "https://ubuntu.com/security/CVE-2026-114406",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "name": "adoptium21",
+      "url": "https://api.adoptium.net/v3/assets/latest/21/hotspot?architecture=x64&image_type=jre&os=linux",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "name": "quay",
+      "url": "https://quay.io/api/v1/repository/keycloak/keycloak/tag/?limit=15&onlyActiveTags=true",
+      "status": 200,
+      "hash": "136e8b94a6503e52ebacae2ed16b1249574aa39371be469a78627f9ead844a02",
+      "at": "2026-10-23T00:58:08.877975+00:00",
+      "tags": [
+        {
+          "name": "nightly",
+          "manifest_digest": "sha256:aaf15ba923ae9859ec1258016c5ed586f74efd4c4c89991257b6f71a46dba52b",
+          "last_modified": "Thu, 22 Oct 2026 05:30:55 -0000"
+        },
+        {
+          "name": "latest",
+          "manifest_digest": "sha256:79c623a22abacf3fe6c00a5fb30f5b7843d717b234033b80995891c06116d244",
+          "last_modified": "Tue, 13 Oct 2026 09:02:18 -0000"
+        },
+        {
+          "name": "26.8",
+          "manifest_digest": "sha256:79c623a22abacf3fe6c00a5fb30f5b7843d717b234033b80995891c06116d244",
+          "last_modified": "Tue, 13 Oct 2026 09:02:17 -0000"
+        },
+        {
+          "name": "26.8.1-0",
+          "manifest_digest": "sha256:79c623a22abacf3fe6c00a5fb30f5b7843d717b234033b80995891c06116d244",
+          "last_modified": "Tue, 13 Oct 2026 09:02:15 -0000"
+        },
+        {
+          "name": "26.8.1",
+          "manifest_digest": "sha256:79c623a22abacf3fe6c00a5fb30f5b7843d717b234033b80995891c06116d244",
+          "last_modified": "Tue, 13 Oct 2026 09:02:13 -0000"
+        },
+        {
+          "name": "26.8.0-1",
+          "manifest_digest": "sha256:27b3230fbabb8c9ff3c66c864cf09dcd8a41aca82e5100679d109ef0eeb05741",
+          "last_modified": "Sat, 10 Oct 2026 10:59:44 -0000"
+        },
+        {
+          "name": "26.8.0",
+          "manifest_digest": "sha256:27b3230fbabb8c9ff3c66c864cf09dcd8a41aca82e5100679d109ef0eeb05741",
+          "last_modified": "Sat, 10 Oct 2026 10:59:42 -0000"
+        },
+        {
+          "name": "26.8.0-0",
+          "manifest_digest": "sha256:b0f60d489d51c5d113390bdf5461d4c06e6051be026c05549f2e1e10ec352bcc",
+          "last_modified": "Thu, 01 Oct 2026 06:00:43 -0000"
+        },
+        {
+          "name": "26.7",
+          "manifest_digest": "sha256:37dbaf6f0722c9ec246335f36e1ef8b2e6cb960f7c27e0d8c615121a3d475a85",
+          "last_modified": "Wed, 30 Sep 2026 17:48:20 -0000"
+        },
+        {
+          "name": "26.7.5-0",
+          "manifest_digest": "sha256:37dbaf6f0722c9ec246335f36e1ef8b2e6cb960f7c27e0d8c615121a3d475a85",
+          "last_modified": "Wed, 30 Sep 2026 17:48:19 -0000"
+        },
+        {
+          "name": "26.7.5",
+          "manifest_digest": "sha256:37dbaf6f0722c9ec246335f36e1ef8b2e6cb960f7c27e0d8c615121a3d475a85",
+          "last_modified": "Wed, 30 Sep 2026 17:48:18 -0000"
+        },
+        {
+          "name": "26.7.4-0",
+          "manifest_digest": "sha256:82a77884f3af238beab1e7afd63b5f530e1b5c0590bd7aa60b40a40463e29b2c",
+          "last_modified": "Wed, 16 Sep 2026 14:47:57 -0000"
+        },
+        {
+          "name": "26.7.4",
+          "manifest_digest": "sha256:82a77884f3af238beab1e7afd63b5f530e1b5c0590bd7aa60b40a40463e29b2c",
+          "last_modified": "Wed, 16 Sep 2026 14:47:55 -0000"
+        },
+        {
+          "name": "26.7.3-1",
+          "manifest_digest": "sha256:29be7252db0a106f1cd2ac17b9a56ff2668073da645638a38b9fc67deeb2d6c4",
+          "last_modified": "Mon, 14 Sep 2026 10:21:09 -0000"
+        },
+        {
+          "name": "26.7.3",
+          "manifest_digest": "sha256:29be7252db0a106f1cd2ac17b9a56ff2668073da645638a38b9fc67deeb2d6c4",
+          "last_modified": "Mon, 14 Sep 2026 10:21:08 -0000"
+        }
+      ]
+    }
+  ],
+  "ubi": [
+    {
+      "repository": "https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/",
+      "at": "2026-10-23T00:58:47.700019+00:00",
+      "raw_sha256": "af19f81f951ab0c8aea0cd045b0a6ec73af467c196a90d8bb49d2013e9c0dee9",
+      "input_sha256": "a863d33f96fcf899b7824b1ef01121a847eebdd67d7b09e555144de5c7f38c90",
+      "packages": [
+        {
+          "name": "ca-certificates",
+          "version": {
+            "epoch": "0",
+            "rel": "91.el9",
+            "ver": "2025.2.80_v9.0.305"
+          },
+          "arch": "noarch",
+          "hash": "0554bf65d573950e7d550a07bf7d0b3def85ca3b45a7fbde4cce7cadd9a476a7",
+          "location": "https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/baseos/os/Packages/c/ca-certificates-2025.2.80_v9.0.305-91.el9.noarch.rpm"
+        }
+      ]
+    },
+    {
+      "repository": "https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/",
+      "at": "2026-10-23T00:58:48.801465+00:00",
+      "raw_sha256": "e88068906a38387460ade131cb73d0c9fbd9664bd67844ac4ec85fd961cc48ad",
+      "input_sha256": "6bba3cc4d8fa948ee91d96df65dd433a257d3bf46ba5eadf886868cc531a5fb1",
+      "packages": [
+        {
+          "name": "java-21-openjdk-headless",
+          "version": {
+            "epoch": "1",
+            "ver": "21.0.12.1.1",
+            "rel": "1.2.el9"
+          },
+          "arch": "x86_64",
+          "hash": "0e4919f08f221052f8244352d0821958b1b7db3d01a5048ca752a4c3c234b6d8",
+          "location": "https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi9/9/x86_64/appstream/os/Packages/j/java-21-openjdk-headless-21.0.12.1.1-1.2.el9.x86_64.rpm"
+        }
+      ]
+    }
+  ],
+  "azul_binary_availability": [
+    {
+      "url": "https://cdn.azul.com/zulu/bin/zulu21.54.107-ca-jre21.0.13-linux_x64.tar.gz.sha256",
+      "error": "HTTP Error 404: Not Found",
+      "at": "2026-10-23T01:01:01.884312+00:00"
+    },
+    {
+      "url": "https://cdn.azul.com/zulu/bin/zulu21.54.107-ca-jre21.0.13-linux_x64.tar.gz",
+      "error": "HTTP Error 404: Not Found",
+      "at": "2026-10-23T01:01:02.834893+00:00"
+    },
+    {
+      "url": "https://api.azul.com/metadata/v1/zulu/packages/?java_version=21.0.13&os=linux&arch=x86_64&archive_type=tar.gz&java_package_type=jre&release_status=ga&availability_types=CA",
+      "status": 200,
+      "bytes": 3,
+      "content": "[]\n",
+      "at": "2026-10-23T01:01:03.487661+00:00"
+    }
+  ],
+  "alpine_sources": [
+    {
+      "name": "alpine-ca",
+      "url": "https://pkgs.alpinelinux.org/package/v3.24/main/x86_64/ca-certificates",
+      "status": 200,
+      "raw_sha256": "17e925fd027989e9f1855d785df05f7794569e316d4855227379523b95124df5"
+    },
+    {
+      "name": "alpine-ca-source",
+      "url": "https://gitlab.alpinelinux.org/alpine/aports/-/raw/3.24-stable/main/ca-certificates/APKBUILD",
+      "status": 200,
+      "raw_sha256": "7b35fb8e11790105578f47d57a3b22831227b0d8ad7d064e575bad146023f3da"
+    }
+  ]
+}

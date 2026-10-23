@@ -1,0 +1,32 @@
+{
+  "image": "quay.io/keycloak/keycloak:26.8.1@sha256:79c623a22abacf3fe6c00a5fb30f5b7843d717b234033b80995891c06116d244",
+  "scanner": "ghcr.io/aquasecurity/trivy:0.76.1@sha256:790fd66d1697395d8693d1acaa1ea702406a20f109b6fc7bac8db623eca6c06c",
+  "exit_code": 1,
+  "checked_at_utc": "2026-10-23T01:03:19.844181+00:00",
+  "vulnerabilities": [
+    {
+      "VulnerabilityID": "CVE-2026-114406",
+      "PkgName": "ca-certificates",
+      "InstalledVersion": "2025.2.80_v9.0.305-91.el9",
+      "FixedVersion": null,
+      "Severity": "CRITICAL",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-114406",
+      "Status": "affected"
+    },
+    {
+      "VulnerabilityID": "CVE-2026-91415",
+      "PkgName": "java-21-openjdk-headless",
+      "InstalledVersion": "1:21.0.12.1.1-1.2.el9",
+      "FixedVersion": null,
+      "Severity": "HIGH",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-91415",
+      "Status": "affected"
+    }
+  ],
+  "raw_sha256": "7d3d161b803281cf4ff5666157d5870f6a6fc08ef35f06534dfb5ca18c8db25e",
+  "raw_report": "artifacts/local/image-scans/keycloak-3b286cde3cf7.raw.json",
+  "image_id": "sha256:817e41712252d6d3a2a61ac5d2a011be561d7942cee8227ee418ababa5f52b9a",
+  "verdict": "FAIL",
+  "docker_image_id": "sha256:79c623a22abacf3fe6c00a5fb30f5b7843d717b234033b80995891c06116d244",
+  "archive_config_matches": true
+}

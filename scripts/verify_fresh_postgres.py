@@ -47,7 +47,11 @@ def main() -> int:
         deadline = time.monotonic() + 30
         while time.monotonic() < deadline:
             ready = subprocess.run(
-                ["docker", "exec", name, "pg_isready", "-U", "postgres"], capture_output=True
+                # initdb's temporary server accepts Unix-socket connections before
+                # it shuts down. Only the final server listens on TCP; waiting on
+                # its loopback socket avoids racing that shutdown (also with no network).
+                ["docker", "exec", name, "pg_isready", "-h", "127.0.0.1", "-U", "postgres"],
+                capture_output=True,
             )
             if ready.returncode == 0:
                 break
@@ -73,7 +77,14 @@ def main() -> int:
             ["docker", "exec", name, "id", "-u"], check=True, capture_output=True, text=True
         ).stdout.strip()
         assert uid == "70" and result.stdout.strip() == "postgres|18.6"
-        report.update(verdict="PASS", uid=70, server="18.6", fresh_volume=True, network="none")
+        report.update(
+            verdict="PASS",
+            uid=70,
+            server="18.6",
+            fresh_volume=True,
+            network="none",
+            readiness_transport="TCP loopback (final server, not initdb temporary server)",
+        )
         return 0
     finally:
         if started:

@@ -1,0 +1,365 @@
+{
+  "checked_at_utc": "2026-10-23T01:00:59.021Z",
+  "head": "f165a47b29c22474750be145e5a4caeabd0dc367",
+  "runs": [
+    {
+      "id": 39880664981,
+      "name": "docker in /infra - Update #1646471659",
+      "event": "dynamic",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/AlmanInDaHouse/OpsPilot-AI/actions/runs/39880664981"
+    },
+    {
+      "id": 39880658315,
+      "name": "github_actions in /. - Update #1646471676",
+      "event": "dynamic",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/AlmanInDaHouse/OpsPilot-AI/actions/runs/39880658315"
+    },
+    {
+      "id": 39880654713,
+      "name": "docker in /. - Update #1646471639",
+      "event": "dynamic",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/AlmanInDaHouse/OpsPilot-AI/actions/runs/39880654713"
+    },
+    {
+      "id": 39880646439,
+      "name": "uv in /. - Update #1646471621",
+      "event": "dynamic",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/AlmanInDaHouse/OpsPilot-AI/actions/runs/39880646439"
+    },
+    {
+      "id": 39880623171,
+      "name": "Platform S02 gates",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "failure",
+      "url": "https://github.com/AlmanInDaHouse/OpsPilot-AI/actions/runs/39880623171"
+    },
+    {
+      "id": 39880622999,
+      "name": "Documentary harness (preserved from S01)",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/AlmanInDaHouse/OpsPilot-AI/actions/runs/39880622999"
+    }
+  ],
+  "jobs": [
+    {
+      "id": 120176863156,
+      "name": "quality (windows-latest)",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-23T00:51:49Z",
+          "completed_at": "2026-10-23T00:51:53Z"
+        },
+        {
+          "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-23T00:51:53Z",
+          "completed_at": "2026-10-23T00:52:06Z"
+        },
+        {
+          "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-23T00:52:06Z",
+          "completed_at": "2026-10-23T00:52:51Z"
+        },
+        {
+          "name": "Run python -m pip install uv==0.11.13",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-23T00:52:51Z",
+          "completed_at": "2026-10-23T00:53:01Z"
+        },
+        {
+          "name": "Run python scripts/dev.py install",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-23T00:53:01Z",
+          "completed_at": "2026-10-23T00:53:13Z"
+        },
+        {
+          "name": "Run python scripts/dev.py check",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-23T00:53:13Z",
+          "completed_at": "2026-10-23T00:53:49Z"
+        },
+        {
+          "name": "Run python scripts/dev.py test --suite local",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-23T00:53:49Z",
+          "completed_at": "2026-10-23T00:54:03Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-10-23T00:54:03Z",
+          "completed_at": "2026-10-23T00:54:03Z"
+        },
+        {
+          "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-10-23T00:54:03Z",
+          "completed_at": "2026-10-23T00:54:05Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-23T00:54:05Z",
+          "completed_at": "2026-10-23T00:54:05Z"
+        }
+      ]
+    },
+    {
+      "id": 120176863432,
+      "name": "quality (ubuntu-latest)",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-23T00:51:48Z",
+          "completed_at": "2026-10-23T00:51:48Z"
+        },
+        {
+          "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-23T00:51:48Z",
+          "completed_at": "2026-10-23T00:51:49Z"
+        },
+        {
+          "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-23T00:51:49Z",
+          "completed_at": "2026-10-23T00:51:57Z"
+        },
+        {
+          "name": "Run python -m pip install uv==0.11.13",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-23T00:51:57Z",
+          "completed_at": "2026-10-23T00:51:58Z"
+        },
+        {
+          "name": "Run python scripts/dev.py install",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-23T00:51:58Z",
+          "completed_at": "2026-10-23T00:52:00Z"
+        },
+        {
+          "name": "Run python scripts/dev.py check",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-23T00:52:00Z",
+          "completed_at": "2026-10-23T00:52:19Z"
+        },
+        {
+          "name": "Run python scripts/dev.py test --suite local",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-23T00:52:19Z",
+          "completed_at": "2026-10-23T00:52:26Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-10-23T00:52:26Z",
+          "completed_at": "2026-10-23T00:52:26Z"
+        },
+        {
+          "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-10-23T00:52:26Z",
+          "completed_at": "2026-10-23T00:52:27Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-23T00:52:27Z",
+          "completed_at": "2026-10-23T00:52:27Z"
+        }
+      ]
+    },
+    {
+      "id": 120177621307,
+      "name": "integration",
+      "conclusion": "failure",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-23T00:54:11Z",
+          "completed_at": "2026-10-23T00:54:11Z"
+        },
+        {
+          "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-23T00:54:11Z",
+          "completed_at": "2026-10-23T00:54:12Z"
+        },
+        {
+          "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-23T00:54:12Z",
+          "completed_at": "2026-10-23T00:54:18Z"
+        },
+        {
+          "name": "Run python -m pip install uv==0.11.13",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-23T00:54:18Z",
+          "completed_at": "2026-10-23T00:54:19Z"
+        },
+        {
+          "name": "Run python scripts/dev.py install",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-23T00:54:19Z",
+          "completed_at": "2026-10-23T00:54:20Z"
+        },
+        {
+          "name": "Run python scripts/dev.py infra",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-23T00:54:20Z",
+          "completed_at": "2026-10-23T00:55:24Z"
+        },
+        {
+          "name": "Run python scripts/dev.py up",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-23T00:55:24Z",
+          "completed_at": "2026-10-23T00:55:47Z"
+        },
+        {
+          "name": "Run uv run --frozen pytest tests/integration --junitxml=artifacts/session-02/integration-ci.xml",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-23T00:55:47Z",
+          "completed_at": "2026-10-23T00:55:51Z"
+        },
+        {
+          "name": "Run uv run --frozen python scripts/verify_fresh_postgres.py",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 9,
+          "started_at": "2026-10-23T00:55:51Z",
+          "completed_at": "2026-10-23T00:56:03Z"
+        },
+        {
+          "name": "Run uv run --frozen python scripts/verify_recovery.py",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 10,
+          "started_at": "2026-10-23T00:56:03Z",
+          "completed_at": "2026-10-23T00:56:03Z"
+        },
+        {
+          "name": "Run uv run --frozen python scripts/scan_images.py",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 11,
+          "started_at": "2026-10-23T00:56:03Z",
+          "completed_at": "2026-10-23T00:56:03Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-10-23T00:56:03Z",
+          "completed_at": "2026-10-23T00:56:04Z"
+        },
+        {
+          "name": "Run python scripts/dev.py stop",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-10-23T00:56:04Z",
+          "completed_at": "2026-10-23T00:56:06Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 25,
+          "started_at": "2026-10-23T00:56:06Z",
+          "completed_at": "2026-10-23T00:56:06Z"
+        },
+        {
+          "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 26,
+          "started_at": "2026-10-23T00:56:06Z",
+          "completed_at": "2026-10-23T00:56:06Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 27,
+          "started_at": "2026-10-23T00:56:06Z",
+          "completed_at": "2026-10-23T00:56:06Z"
+        }
+      ]
+    }
+  ]
+}

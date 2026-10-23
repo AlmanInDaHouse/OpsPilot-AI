@@ -1,0 +1,103 @@
+{
+  "recorded_at_utc": "2026-10-23T01:28:27.269749+00:00",
+  "image": "opspilot-keycloak:26.8.1-s02",
+  "keycloak_upstream": "quay.io/keycloak/keycloak:26.8.1@sha256:79c623a22abacf3fe6c00a5fb30f5b7843d717b234033b80995891c06116d244",
+  "alpine_upstream": "alpine:3.24@sha256:71e9b7bae160ba167fa17414401b94cbcdaf3c32feeab9298bd794a2a0614c35",
+  "jre_url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13%2B9/OpenJDK21U-jre_x64_alpine-linux_hotspot_21.0.13_9.tar.gz",
+  "hash": "9138eab0f7d230e17163953f015ec9ae2431dbc49069c658b7f991e45b54fb9b",
+  "verification": "BuildKit ADD --checksum and vendor GitHub release metadata; Alpine signed APK repositories; no trust-store edits",
+  "jre_version": "Temurin 21.0.13+9-LTS",
+  "packages": [
+    "bash-5.3.9-r1",
+    "ca-certificates-20261020-r0",
+    "ca-certificates-bundle-20261020-r0",
+    "fontconfig-2.17.1-r1",
+    "freetype-2.14.3-r0",
+    "libgcc-15.2.0-r5",
+    "libstdc++-15.2.0-r5",
+    "musl-1.2.6-r3",
+    "musl-utils-1.2.6-r3"
+  ],
+  "platform": "linux/amd64",
+  "images": {
+    "postgres": {
+      "reference": "opspilot-postgres:18.6-s02",
+      "docker_image_id": "sha256:5c00e691c430c550a4d8653ec855cae0bbe5ad2b63161c75f4d32920bacc8650",
+      "scanned_config_id": "sha256:4030d72fe5e55d7782a50108224e6d912baa4510881caa5a3fb9d69bf259a475",
+      "container_image_id": "sha256:5c00e691c430c550a4d8653ec855cae0bbe5ad2b63161c75f4d32920bacc8650",
+      "image_id_matches_scan": true,
+      "container_matches_scan": true,
+      "archive_config_matches": true,
+      "user": "postgres",
+      "architecture": "amd64",
+      "verdict": "PASS",
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "published_ports": {
+        "5432/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "59432"
+          }
+        ]
+      }
+    },
+    "keycloak": {
+      "reference": "opspilot-keycloak:26.8.1-s02",
+      "docker_image_id": "sha256:5da3c53ca5cb9593a60a9018d0b28c2fade40b33c65eec0115b735776d4bc5b1",
+      "scanned_config_id": "sha256:38292add2f0c1502ffecbdf7f3778622fc274f2ef0ba04f7c9f1ccc5ddafca48",
+      "container_image_id": "sha256:5da3c53ca5cb9593a60a9018d0b28c2fade40b33c65eec0115b735776d4bc5b1",
+      "image_id_matches_scan": true,
+      "container_matches_scan": true,
+      "archive_config_matches": true,
+      "user": "1000:0",
+      "architecture": "amd64",
+      "verdict": "PASS",
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "published_ports": {
+        "8080/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "59080"
+          }
+        ]
+      }
+    },
+    "api": {
+      "reference": "opspilot-ai:0.2.0",
+      "docker_image_id": "sha256:2eb21b763ca41b84604d4788d210bf22f178a177613f3ab32957e46dd901a851",
+      "scanned_config_id": "sha256:aa11fa44ee9c001eefb5e11bb01d3511e301e0f02098bd30d66b32d4eaad9e8e",
+      "container_image_id": "sha256:2eb21b763ca41b84604d4788d210bf22f178a177613f3ab32957e46dd901a851",
+      "image_id_matches_scan": true,
+      "container_matches_scan": true,
+      "archive_config_matches": true,
+      "user": "10001:10001",
+      "architecture": "amd64",
+      "verdict": "PASS",
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges:true"
+      ],
+      "published_ports": {
+        "8000/tcp": [
+          {
+            "HostIp": "127.0.0.1",
+            "HostPort": "59000"
+          }
+        ]
+      }
+    }
+  },
+  "limitation": "Own maintained derivative, no vendor certification; JRE archive scan coverage complemented by provenance/version/trust inventories"
+}

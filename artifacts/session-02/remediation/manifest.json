@@ -1,0 +1,688 @@
+{
+  "recorded_at_utc": "2026-10-23T02:18:33.039006+00:00",
+  "head": "f165a47b29c22474750be145e5a4caeabd0dc367",
+  "session_03": "NO-GO",
+  "local_gates": "PASS",
+  "blocking": [
+    "R17: successful remote CI for final corrected revision pending"
+  ],
+  "tree_sha256": "5122fe574888a177371a7a807e4bec26fc9de99162d73b9233044f8ea3e796c4",
+  "hash_method": "SHA-256 of sorted JSON source file records (local bytes, not a Git tree object)",
+  "source_files": [
+    {
+      "path": ".dockerignore",
+      "hash": "7bae3dab3d3597f578ed97fe8e77c58a4fc82104b9b405baa761035136350881",
+      "bytes": 95
+    },
+    {
+      "path": ".github/dependabot.yml",
+      "hash": "0292e1c0bdbcb9f71f2e8a7f53eb0efd5628b5d18ba99f7457471ca77c6ce8e0",
+      "bytes": 349
+    },
+    {
+      "path": ".github/workflows/harness.yml",
+      "hash": "e8f2674e46168c561e083c13556d57c5f5708d68edc65350da2bf92703d50a02",
+      "bytes": 675
+    },
+    {
+      "path": ".github/workflows/platform.yml",
+      "hash": "04703e32171e860b741650cba6de9f8f47ac849e48e5193a479475171ef175b4",
+      "bytes": 1831
+    },
+    {
+      "path": ".python-version",
+      "hash": "f8faecf2505680716c6279bf2cdec3d5a5ba2ba852f0d7df45d51ac1ce8d9ade",
+      "bytes": 8
+    },
+    {
+      "path": "Dockerfile",
+      "hash": "72d2b6956b6c79b99e13bf3fcd949b5dca41efacf8ea2519b1d816eb41fe5263",
+      "bytes": 1580
+    },
+    {
+      "path": "contracts/event-v1.schema.json",
+      "hash": "bacdf1bfd5f07050b5c79b67ecdc6aaf607449b1c730cebcb1e58949dc6c71dc",
+      "bytes": 2907
+    },
+    {
+      "path": "contracts/platform.openapi.json",
+      "hash": "5407bcf1d88afb736ca74bb61544a10ea82e3df4ecadf8fa3d05b8cb1b162078",
+      "bytes": 3535
+    },
+    {
+      "path": "contracts/proposal-v1.schema.json",
+      "hash": "b431ccb62f8325fff8a10cc3c21a6c0d8ab27f2151915a5e15397b31316cf191",
+      "bytes": 949
+    },
+    {
+      "path": "contracts/workflow-v1.json",
+      "hash": "58daad4691e8495e9316d09fcf21eb8fac388609bfad1f3552023c37d877df00",
+      "bytes": 1065
+    },
+    {
+      "path": "infra/compose.yaml",
+      "hash": "fdc96da59f73f1147ba4338d194a3edbd9c14eb8d432212dae5a49781d66eb2d",
+      "bytes": 3739
+    },
+    {
+      "path": "infra/keycloak.Dockerfile",
+      "hash": "41bffd487482f9f8809666d22b2e12f1daf1b2f04463268f2321f5503aa966ac",
+      "bytes": 1007
+    },
+    {
+      "path": "infra/postgres.Dockerfile",
+      "hash": "f102861184a7e266f790df4bb9958d2e55178c3546cd673c58c374268cb5fc86",
+      "bytes": 227
+    },
+    {
+      "path": "infra/realm.json",
+      "hash": "e8c055f78c247087b74d099c00e611d9ac9f4b2f2ac46b618c5c13315b4d0fdc",
+      "bytes": 828
+    },
+    {
+      "path": "infra/start-keycloak.sh",
+      "hash": "8f76b3d220f58751f41a1001918080069c36a658c87d4177ffd8a342b9430549",
+      "bytes": 190
+    },
+    {
+      "path": "migrations/env.py",
+      "hash": "32fdc4448b0fb889085ffec68cefee8c6d24dff7af2d2eb9cfbceed52b45826d",
+      "bytes": 1128
+    },
+    {
+      "path": "migrations/script.py.mako",
+      "hash": "a7219da51c81878ae9ff44b68989051404c0d1464413b780c7e79fd1a7356e83",
+      "bytes": 394
+    },
+    {
+      "path": "migrations/sql/0001_platform.sql",
+      "hash": "a88af2dfb916c19d0709eab810491db0d426aace08eca41ab6bdf28ab7c25d07",
+      "bytes": 7461
+    },
+    {
+      "path": "migrations/versions/0001_platform.py",
+      "hash": "5d44217a3dda189ba7060c9ae6a2441bbf118437d0545a223fe9815c5cb5958e",
+      "bytes": 536
+    },
+    {
+      "path": "pyproject.toml",
+      "hash": "91c0abe560fbd95a17ec8a201af5c64a99e4e63756b966d2f0656df6817b005a",
+      "bytes": 1324
+    },
+    {
+      "path": "scripts/check_architecture.py",
+      "hash": "102825575fd7c7dc8001c68fc8092a71e4f894e01284d36ebb68617887b20983",
+      "bytes": 3843
+    },
+    {
+      "path": "scripts/check_repository.py",
+      "hash": "08457d9a5bd77b68c1a2c1832abc75fbda02a3778c6f8a91057a87b2540152ae",
+      "bytes": 15250
+    },
+    {
+      "path": "scripts/check_secrets.py",
+      "hash": "6baadf79ac82e0b8a960923a7a8cad8d73b04ac43f2432181c78c7f034c1a655",
+      "bytes": 5273
+    },
+    {
+      "path": "scripts/dev.py",
+      "hash": "e2021d4420a780f37d3c8b71be201de55cd7d52e092b7af3d875e366ae06533e",
+      "bytes": 4679
+    },
+    {
+      "path": "scripts/lab.py",
+      "hash": "4cf8e79f56ee7559de3ee2d1555bb2c8923f1a8ab2cde97ca75e42fd7eec295c",
+      "bytes": 13924
+    },
+    {
+      "path": "scripts/scan_images.py",
+      "hash": "a62800f89708e5b1881eb87fcc410ccd1988a6be15f443113607150ae78a5589",
+      "bytes": 5741
+    },
+    {
+      "path": "scripts/verify_fresh_postgres.py",
+      "hash": "237111ec990b9337f99d2204b155d94a53d3c536eccff6d2f2a2796b8a376746",
+      "bytes": 3373
+    },
+    {
+      "path": "scripts/verify_recovery.py",
+      "hash": "8a007ebe5a4aee7c27502323d450e4395e469599e507f35b22c7c1315a8a3d73",
+      "bytes": 4585
+    },
+    {
+      "path": "scripts/verify_session02.py",
+      "hash": "5ec8a1dda7f9f99c66361da46175fb03320a4ff4bf29fc3423e7f438972fe405",
+      "bytes": 9058
+    },
+    {
+      "path": "src/opspilot/__init__.py",
+      "hash": "bf5d732099051d2dad348214e9baa615bc13e17dc1196c32f1cdce11f2854c3b",
+      "bytes": 84
+    },
+    {
+      "path": "src/opspilot/adapters/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c",
+      "bytes": 21
+    },
+    {
+      "path": "src/opspilot/adapters/oidc/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c",
+      "bytes": 21
+    },
+    {
+      "path": "src/opspilot/adapters/oidc/verifier.py",
+      "hash": "634a61c6eb8ea13cf27d817d1745cb29653800727e073dbf1f0f1c5d54f080bf",
+      "bytes": 5370
+    },
+    {
+      "path": "src/opspilot/adapters/postgres/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c",
+      "bytes": 21
+    },
+    {
+      "path": "src/opspilot/adapters/postgres/audit.py",
+      "hash": "bf80248dfc0919a90cdc225001737d5ec8cc2add3b79bec3c847bdf44e497901",
+      "bytes": 2515
+    },
+    {
+      "path": "src/opspilot/adapters/postgres/database.py",
+      "hash": "b2f9c250c76f750dd975b419844a917b1b7ca763df80a2d6c5262a2db83e7bf6",
+      "bytes": 1955
+    },
+    {
+      "path": "src/opspilot/adapters/postgres/identity.py",
+      "hash": "3cb2d74a45a9cf874315c7062af91716ce9590dbaad852f61715eacc18955001",
+      "bytes": 3757
+    },
+    {
+      "path": "src/opspilot/adapters/postgres/models.py",
+      "hash": "c64e138aabf2ff400f9f3a13da89331b21b3254f82240dd7e102f910882b040a",
+      "bytes": 3484
+    },
+    {
+      "path": "src/opspilot/audit/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c",
+      "bytes": 21
+    },
+    {
+      "path": "src/opspilot/audit/application/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c",
+      "bytes": 21
+    },
+    {
+      "path": "src/opspilot/audit/application/ports.py",
+      "hash": "3439219a5e04a66db7133a4756e3c61d9c0a71ee68224dfc2eeccd2539074b84",
+      "bytes": 619
+    },
+    {
+      "path": "src/opspilot/audit/domain/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c",
+      "bytes": 21
+    },
+    {
+      "path": "src/opspilot/audit/domain/envelope.py",
+      "hash": "e6a038d22c52d3eeebc08e8cbeb23aeb4d4173b6840cb137f469e45deaf8793a",
+      "bytes": 2515
+    },
+    {
+      "path": "src/opspilot/entrypoints/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c",
+      "bytes": 21
+    },
+    {
+      "path": "src/opspilot/entrypoints/api/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c",
+      "bytes": 21
+    },
+    {
+      "path": "src/opspilot/entrypoints/api/app.py",
+      "hash": "86b2c1ce7bc736f1a77a8ae3c18dfd2ba2077864975c05e3fc6e91a2a01b29f4",
+      "bytes": 8675
+    },
+    {
+      "path": "src/opspilot/entrypoints/api/dto.py",
+      "hash": "1bc87d94d2f45c9b9d45593750cc4ad7398496ca021ac3439b71cfbd3361dd5e",
+      "bytes": 1399
+    },
+    {
+      "path": "src/opspilot/entrypoints/provision.py",
+      "hash": "2d2b76ed68dda87c2db393bbc67fdc508379856aa576dd5bbfdf7bb979465bf3",
+      "bytes": 2177
+    },
+    {
+      "path": "src/opspilot/entrypoints/settings.py",
+      "hash": "1a359aa218906d5cb2e5c627e2242b764c6870357627086d3dda3d4fa4eae423",
+      "bytes": 2533
+    },
+    {
+      "path": "src/opspilot/identity/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c",
+      "bytes": 21
+    },
+    {
+      "path": "src/opspilot/identity/application/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c",
+      "bytes": 21
+    },
+    {
+      "path": "src/opspilot/identity/application/authenticate.py",
+      "hash": "d3f1c01df27a2c8a8b6e55391b36e2d676534f1097a0df41fc8b051a1be1ea2f",
+      "bytes": 745
+    },
+    {
+      "path": "src/opspilot/identity/application/provision.py",
+      "hash": "0cf6d818b05223ad22167bf0d0fee1aa5d6644327f98150bcbb388d44e297c40",
+      "bytes": 2245
+    },
+    {
+      "path": "src/opspilot/identity/domain/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c",
+      "bytes": 21
+    },
+    {
+      "path": "src/opspilot/identity/domain/principal.py",
+      "hash": "a490d71314c2e535e0e6377b4be0ed279e3b4b073460da34a01052d21fa11cc3",
+      "bytes": 666
+    },
+    {
+      "path": "src/opspilot/shared/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c",
+      "bytes": 21
+    },
+    {
+      "path": "src/opspilot/shared/errors.py",
+      "hash": "dd18dcc15cf3dff07108db74c6a57c946bdacf350fb9e936452e545456d8da44",
+      "bytes": 249
+    },
+    {
+      "path": "src/opspilot/shared/uow.py",
+      "hash": "f569a273c2da5cf9b821c028fa94aaab58ac31133e2a3237204e3ad76200116e",
+      "bytes": 418
+    },
+    {
+      "path": "tests/architecture/test_layers.py",
+      "hash": "b10c30c8bb309facd7f277f1cf92105628a6b21e552bbb1a3fdc1ca9f0c4419d",
+      "bytes": 1734
+    },
+    {
+      "path": "tests/contract/test_api.py",
+      "hash": "d40e6e7efb14531935fd34ab4ecc9912411f08a7dc76c1bb1f7361d290ac8992",
+      "bytes": 8426
+    },
+    {
+      "path": "tests/harness/test_checks.py",
+      "hash": "2e8dcccc6044c9c472aa6a6c18120fb8770ef636bb88aed28f2c606b767e95a2",
+      "bytes": 7843
+    },
+    {
+      "path": "tests/integration/conftest.py",
+      "hash": "104acde0e28bde0f09463cb45557d129fc97b38f2182f6d1feb1ce6bb75e12a2",
+      "bytes": 9222
+    },
+    {
+      "path": "tests/integration/test_audit.py",
+      "hash": "563ec09a00f5d88a2c7e45d5fb90e300f6eabe6e5cf47465d5a5b6526a9dcf96",
+      "bytes": 10267
+    },
+    {
+      "path": "tests/integration/test_entrypoints.py",
+      "hash": "d76332199b58b83d3a3f69b0b4af1b009acb010a9d201e117dfc38dd696f379c",
+      "bytes": 2881
+    },
+    {
+      "path": "tests/integration/test_identity.py",
+      "hash": "73fa0f135978cc99b8477d208b0c3a0cf34c8fca4359e0625af8812e53dad131",
+      "bytes": 5654
+    },
+    {
+      "path": "tests/integration/test_idp_security.py",
+      "hash": "c432d2194ff8af40805488a9f7ffdcc671fb99c05816652a0ea6d7f247d39296",
+      "bytes": 943
+    },
+    {
+      "path": "tests/unit/test_canonical.py",
+      "hash": "86a67cf195423f3774e0a8ab4f2a603d9d80494f865da06b15e1fe23ee7dbc56",
+      "bytes": 938
+    },
+    {
+      "path": "tests/unit/test_configuration.py",
+      "hash": "e5cb3e853cb8bbf0ec8c631c5054235be83df09469a4395011217d3fad55e1d6",
+      "bytes": 2715
+    },
+    {
+      "path": "tests/unit/test_identity.py",
+      "hash": "4a888ce9bc60d51ca66f04d7e6e7414da2a996abc04ce48f48b9e15d3f3ccba6",
+      "bytes": 1897
+    },
+    {
+      "path": "tests/unit/test_image_scan_gate.py",
+      "hash": "4b746083d9f7c6e67829438139b4e73d90add0c8016939e43e3c154329908d23",
+      "bytes": 1509
+    },
+    {
+      "path": "tests/unit/test_oidc.py",
+      "hash": "93ee52beae1a782c7ee646249367b379792a132a93c666ff14777113b48d2ec7",
+      "bytes": 7374
+    },
+    {
+      "path": "tests/unit/test_secret_scanner.py",
+      "hash": "b0eb03c77b68a5b86ff7b8f1da534de4d56a86b9b774e39c984450546cb86b6c",
+      "bytes": 2249
+    },
+    {
+      "path": "tests/unit/test_verification_acceptance.py",
+      "hash": "cd7b07cf3d72d8f4d03abaad7685cfc5d0a053b1e3e6a20df2f21b545f42d61e",
+      "bytes": 1498
+    },
+    {
+      "path": "uv.lock",
+      "hash": "ae0f7e79eabd24c7675308812a47bad5785911f7cf04b9d84d4ac5e5058537af",
+      "bytes": 181490
+    }
+  ],
+  "changed_files": [
+    {
+      "path": "README.md",
+      "hash": "c0c46379f48428a5d9f3c569883107388aaf39792747362186266f84de7cc0a8",
+      "bytes": 4976
+    },
+    {
+      "path": "artifacts/session-02/remediation-baseline-docs.json",
+      "hash": "e06c9b884084b884812149e91fa8f8051d0359ce90f8d7ddfe0199d1b68b7251",
+      "bytes": 811
+    },
+    {
+      "path": "artifacts/session-02/remediation/acceptance.json",
+      "hash": "da92c82105078928187e8f86b2ffa81e94c346941256cf4808c9d0ed67cfb0ab",
+      "bytes": 7627
+    },
+    {
+      "path": "artifacts/session-02/remediation/alpine-candidate-cves.json",
+      "hash": "445cc59a0e54eced843e40885867c8214671d04b2661553e6f5342a09139d8ec",
+      "bytes": 708
+    },
+    {
+      "path": "artifacts/session-02/remediation/api-cves.json",
+      "hash": "fce54d6227c59a4953c90c730d2378bebd26c812674bfdd58095827cd663d370",
+      "bytes": 666
+    },
+    {
+      "path": "artifacts/session-02/remediation/candidate-cves.json",
+      "hash": "ea74f26a5cdbfb80a8373639b5b88aaf62113f7cff111a73b40d716af050dcbb",
+      "bytes": 17712
+    },
+    {
+      "path": "artifacts/session-02/remediation/ci-post-push.json",
+      "hash": "78fe0e3e4eff7eedcc2bc5a255b3b3725dc332af1a7d0813c567de1f096c300b",
+      "bytes": 12045
+    },
+    {
+      "path": "artifacts/session-02/remediation/coverage-windows-final.json",
+      "hash": "3808467973e3df157f6ce829c3cc9a10fecd32a1b5c53fab611f109cdb43253e",
+      "bytes": 115473
+    },
+    {
+      "path": "artifacts/session-02/remediation/coverage-windows.json",
+      "hash": "3b112aa0397cd7b1ccb8ff892e937126a087227d9ddb12d0696b45d3334f730e",
+      "bytes": 115473
+    },
+    {
+      "path": "artifacts/session-02/remediation/docs-final.json",
+      "hash": "17ae4239ce5dfb7545e232623d14cfe30f60cb40ebb47867334fcac30ad304ce",
+      "bytes": 811
+    },
+    {
+      "path": "artifacts/session-02/remediation/final-images.json",
+      "hash": "f1094ee55261009346c73cb856616cc30ac315dc41a97849865cec6a413dd637",
+      "bytes": 2439
+    },
+    {
+      "path": "artifacts/session-02/remediation/final-trust.json",
+      "hash": "3e227dcfd05e5d750835c6add58304e889d6d4d476c758a090b91e850407eb01",
+      "bytes": 1659
+    },
+    {
+      "path": "artifacts/session-02/remediation/final/api-cves.json",
+      "hash": "bc564dda46112e731aea71cd517ac720f64c5c7a6d8ea7985a9801de966ffd79",
+      "bytes": 666
+    },
+    {
+      "path": "artifacts/session-02/remediation/final/keycloak-cves.json",
+      "hash": "9615bbdd5a63356cdb581b388efaeff1f4cefb6e1f51698860d16c0543156533",
+      "bytes": 682
+    },
+    {
+      "path": "artifacts/session-02/remediation/final/postgres-cves.json",
+      "hash": "df3030ed364ddc101dcc54d575dc3417bce5e3fc489001e206d30eb4e63f8818",
+      "bytes": 680
+    },
+    {
+      "path": "artifacts/session-02/remediation/fresh-diagnosis.json",
+      "hash": "7e0c691f642828bfb87ba8ac4d4cf26dce08ae09536a3245722c4b5ccbc308ee",
+      "bytes": 741
+    },
+    {
+      "path": "artifacts/session-02/remediation/fresh-postgres-final.json",
+      "hash": "363da7e1cf9f2e4315d4072d9fb2db0460f226bdf496f6ba5babad1575ea3854",
+      "bytes": 579
+    },
+    {
+      "path": "artifacts/session-02/remediation/functional-runs.json",
+      "hash": "3f321ee3c961560dff87957bc65e3ffc19baf0d12d5f1b2cf9f47fa9ecdada02",
+      "bytes": 755
+    },
+    {
+      "path": "artifacts/session-02/remediation/keycloak-cves.json",
+      "hash": "eab8fcafa5c5c8950fd45b65681ec0a1503ccffe2728a38e5c750cd22481fcda",
+      "bytes": 1378
+    },
+    {
+      "path": "artifacts/session-02/remediation/linux-final-runs.json",
+      "hash": "4cd7a9400bd1e950fb7211a1d665cae3db33e1f17fa40a43e8bc20a24b418c0b",
+      "bytes": 1023
+    },
+    {
+      "path": "artifacts/session-02/remediation/operational-runs.json",
+      "hash": "6ed07c9f3e416904e91bdb7e14883895236df95bb9d0e02eb2feb0cfca468569",
+      "bytes": 5807
+    },
+    {
+      "path": "artifacts/session-02/remediation/postgres-cves.json",
+      "hash": "52cfd460862e78226b3236d9d95ac773c255ac6b55660c651befa0e952ca6eae",
+      "bytes": 680
+    },
+    {
+      "path": "artifacts/session-02/remediation/probes/TrustProbe.java",
+      "hash": "66ebca9e03aec661455d81ce0616459376c2e95c34e11d0bce6b0f88830eadc6",
+      "bytes": 1986
+    },
+    {
+      "path": "artifacts/session-02/remediation/probes/alpine-candidate.Dockerfile",
+      "hash": "a25309bae2a607cb7f3c84a0f601644d0bbec0b5a609dde14466473442128518",
+      "bytes": 923
+    },
+    {
+      "path": "artifacts/session-02/remediation/probes/rejected-debian.Dockerfile",
+      "hash": "77ee760404b900b9ad5a3b0ca5a6e800e8645f4f6352dffe9b2ab4a52c99fa92",
+      "bytes": 992
+    },
+    {
+      "path": "artifacts/session-02/remediation/provenance.json",
+      "hash": "f7fba4c80c450c5bc5ca334ed45ff68820adee114e3422af422665be17229398",
+      "bytes": 3833
+    },
+    {
+      "path": "artifacts/session-02/remediation/provider-probes.json",
+      "hash": "715ce5f196f7a074804841d0508d653c584ad4d56d306234d9b63cbba28a5c1c",
+      "bytes": 7428
+    },
+    {
+      "path": "artifacts/session-02/remediation/publication-docs.json",
+      "hash": "00122e6af5a99b45d0b301db9ad2285c5b25042f5a3220402c605755b37a7868",
+      "bytes": 811
+    },
+    {
+      "path": "artifacts/session-02/remediation/quality-final.json",
+      "hash": "5977e6f863515b381b8de4af511c26ed78c5cb68c28ec72059cf1d3bca882051",
+      "bytes": 383
+    },
+    {
+      "path": "artifacts/session-02/remediation/recovery-final.json",
+      "hash": "10164ff373fd7fa1b776238a0d10f63a97f2097045bb599ad02e983bd23eb094",
+      "bytes": 2323
+    },
+    {
+      "path": "artifacts/session-02/remediation/secrets-final.json",
+      "hash": "6b1a5c79bfe767ac4eeeff28c937cd57f5ea4541ecfb279eefa1ffd8020558d7",
+      "bytes": 347
+    },
+    {
+      "path": "artifacts/session-02/remediation/shutdown-final.json",
+      "hash": "2f324e1ca0ad725630607ee27c922812241c5cf28a0a8fe946e52622dc66dcab",
+      "bytes": 649
+    },
+    {
+      "path": "artifacts/session-02/remediation/tests-linux-final.xml",
+      "hash": "a012cadd7f451f2576a58e0d3e2a260e099105d51f7030d51750499e47734dbd",
+      "bytes": 21803
+    },
+    {
+      "path": "artifacts/session-02/remediation/tests-linux.xml",
+      "hash": "aedff18220ef8ca41fc768401ab1d0c306d76be5e4c2f8444ca1a8acf91cbefb",
+      "bytes": 20825
+    },
+    {
+      "path": "artifacts/session-02/remediation/tests-windows-final.json",
+      "hash": "3dcde78939fc679eb4953d458c0309fec1e9fc68c7b9c6d23e1a0e81cba5c660",
+      "bytes": 316
+    },
+    {
+      "path": "artifacts/session-02/remediation/tests-windows-final.xml",
+      "hash": "3c57b0c5fa544464673d333670b60c7e3e3bad2ac0f0b3ff9528c50d9cfbac6f",
+      "bytes": 21799
+    },
+    {
+      "path": "artifacts/session-02/remediation/tests-windows.xml",
+      "hash": "6e836ad25e53161aa81303b96797dbc7be5b5e72007d103ac6a615f698dc030c",
+      "bytes": 20821
+    },
+    {
+      "path": "artifacts/session-02/remediation/trust-analysis.json",
+      "hash": "f537e5d7803a0249d1364d4cb44b57d3a9da55d7e535eef1a678e257588a610c",
+      "bytes": 1144
+    },
+    {
+      "path": "docs/decisions/0007-keycloak-maintained-runtime.md",
+      "hash": "685bc9a16c4773e2e8f64356b377e5f8a80774400423839843ee0cd6b2eccc58",
+      "bytes": 2901
+    },
+    {
+      "path": "docs/decisions/README.md",
+      "hash": "9d6c0d37b58a02434aa964fb13aa73784d758751511244777213504674a49689",
+      "bytes": 877
+    },
+    {
+      "path": "docs/engineering/PLATFORM_RUNBOOK.md",
+      "hash": "538f503dc6abaa0cf2e96438daaa2dc19e558706aac53f7eac76ba2d35e5c7ee",
+      "bytes": 9753
+    },
+    {
+      "path": "docs/engineering/SOURCES.md",
+      "hash": "f045dbd37c452479fb5cd2722f8f8c07781d2d0e2698f2d787e6c22c0c8314b1",
+      "bytes": 5468
+    },
+    {
+      "path": "docs/roadmap/HANDOFF.md",
+      "hash": "28fdc975b99cd159445e5b041e5de478a553940487db6e08e98bdc432d6ef636",
+      "bytes": 7328
+    },
+    {
+      "path": "docs/roadmap/RISKS.md",
+      "hash": "70f00c9a5b1b4a6bcea8c89cadd9935b6f64ba94df0072e72d42921918505092",
+      "bytes": 5088
+    },
+    {
+      "path": "docs/roadmap/SESSION_02_REVIEW.md",
+      "hash": "31f0b706f873bf7cb21cee55971fdf32e7127c86329e0b3e06b8a0a886554ed4",
+      "bytes": 16609
+    },
+    {
+      "path": "docs/roadmap/SESSION_02_SECURITY_REMEDIATION.md",
+      "hash": "879c559ba6bcdfd839f66d9628cfa457faa9e092cc1ee3b1174ff3ca9b6c421f",
+      "bytes": 7518
+    },
+    {
+      "path": "docs/roadmap/SESSION_02_SPEC.md",
+      "hash": "b0b1cd97eaad51d426b4d32b5a4e83fc860cc847e824f934e4bdb1e8900caddd",
+      "bytes": 9283
+    },
+    {
+      "path": "infra/compose.yaml",
+      "hash": "fdc96da59f73f1147ba4338d194a3edbd9c14eb8d432212dae5a49781d66eb2d",
+      "bytes": 3739
+    },
+    {
+      "path": "infra/keycloak.Dockerfile",
+      "hash": "41bffd487482f9f8809666d22b2e12f1daf1b2f04463268f2321f5503aa966ac",
+      "bytes": 1007
+    },
+    {
+      "path": "scripts/lab.py",
+      "hash": "4cf8e79f56ee7559de3ee2d1555bb2c8923f1a8ab2cde97ca75e42fd7eec295c",
+      "bytes": 13924
+    },
+    {
+      "path": "scripts/scan_images.py",
+      "hash": "a62800f89708e5b1881eb87fcc410ccd1988a6be15f443113607150ae78a5589",
+      "bytes": 5741
+    },
+    {
+      "path": "scripts/verify_fresh_postgres.py",
+      "hash": "237111ec990b9337f99d2204b155d94a53d3c536eccff6d2f2a2796b8a376746",
+      "bytes": 3373
+    },
+    {
+      "path": "scripts/verify_session02.py",
+      "hash": "5ec8a1dda7f9f99c66361da46175fb03320a4ff4bf29fc3423e7f438972fe405",
+      "bytes": 9058
+    },
+    {
+      "path": "specs/002-platform/checklist.md",
+      "hash": "2007ba3899c68093ad8905ac3958ef0e95016ab37acea937baf8d21687c5f248",
+      "bytes": 1225
+    },
+    {
+      "path": "specs/002-platform/plan.md",
+      "hash": "71f32038e990ae13bcf2b61d6b16e2962bde32d0979bad4cb953641e709086e4",
+      "bytes": 1534
+    },
+    {
+      "path": "specs/002-platform/security-remediation.md",
+      "hash": "bedc3c4354d09452547897f38553114dacbbcb4c1026f44abd904d28c0c4da52",
+      "bytes": 1978
+    },
+    {
+      "path": "specs/002-platform/spec.md",
+      "hash": "16b08240d10099e925e5c8a1bffec155a2b5ea3157a26f0ac5f25f99058f7449",
+      "bytes": 705
+    },
+    {
+      "path": "specs/002-platform/tasks.md",
+      "hash": "e8d9c24632ddcad6c4fb76e0a86241325b9f6de012d4b21834a4d8625fc031b4",
+      "bytes": 3523
+    },
+    {
+      "path": "specs/traceability.json",
+      "hash": "3fc4c719f8cabb3c80acef3f536f1ba89fb4981475a1fc32e753b434ea347f21",
+      "bytes": 9978
+    },
+    {
+      "path": "tests/unit/test_verification_acceptance.py",
+      "hash": "cd7b07cf3d72d8f4d03abaad7685cfc5d0a053b1e3e6a20df2f21b545f42d61e",
+      "bytes": 1498
+    }
+  ],
+  "self_excluded": "artifacts/session-02/remediation/manifest.json",
+  "historical_manifest": "artifacts/session-02/manifest.json retained unchanged",
+  "git_mutations": "Working-tree edits only; no commit, push, merge, release or deployment"
+}

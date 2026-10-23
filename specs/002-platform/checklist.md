@@ -10,7 +10,9 @@
 - [x] Handoff y trazabilidad coinciden con archivos y resultados reales.
 - [x] NO-GO S03 registrado; push/deploy no autorizado automáticamente.
 
-NO-GO: Keycloak tiene 1 crítico y 1 alto sin corregir en la imagen seleccionada.
+NO-GO: CI remota de la revisión corregida pendiente; el run publicado falló en PG
+fresco y omitió recovery/scan. La derivada mantenida supera los gates locales;
+ver SESSION_02_SECURITY_REMEDIATION y artifacts/session-02/remediation/final.
 El autor autorizó la ejecución S02; la revisión humana del diff/riesgos no se da por
 realizada. No marcar todas las casillas ni continuar a S03 por tener tests funcionales
 verdes. Evidencias en SESSION_02_REVIEW y artifacts/session-02.

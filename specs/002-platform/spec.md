@@ -1,7 +1,7 @@
 # 002-platform — especificación
 
-Estado: IMPLEMENTADO y probado funcionalmente; aceptación NO-GO por gate de imágenes
-Keycloak. REQ-PLAT-01 y REQ-PLAT-02. La especificación completa y única vive
+Estado: IMPLEMENTADO y probado; remediación local del IdP, aceptación NO-GO hasta
+CI remota de la revisión final. REQ-PLAT-01 y REQ-PLAT-02. La especificación completa y única vive
 en [SESSION_02_SPEC](../../docs/roadmap/SESSION_02_SPEC.md): incluye negocio, historia,
 precondiciones, flujos, NFR/seguridad, contratos, aceptación, pruebas, evidencia y DoD.
 Este archivo sirve de entrada compatible con organización spec/plan/tasks/checklist,

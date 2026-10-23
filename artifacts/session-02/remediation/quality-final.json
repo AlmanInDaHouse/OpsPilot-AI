@@ -1,0 +1,13 @@
+{
+  "command": [
+    "python",
+    "scripts/dev.py",
+    "check",
+    "--report",
+    "artifacts/session-02/remediation/docs-final.json"
+  ],
+  "started_at_utc": "2026-10-23T01:29:11.576840+00:00",
+  "exit_code": 0,
+  "raw_log": "artifacts/local/security-remediation/check-final.log",
+  "raw_sha256": "7a3bd37ba8f3ea48581afad58997177917c4deb88ac1bc1f8bda4e114940ebe7"
+}

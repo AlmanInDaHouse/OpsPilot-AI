@@ -6,6 +6,10 @@ auditoría transaccional implementados. Resultados y GO/NO-GO en
 [revisión S02](docs/roadmap/SESSION_02_REVIEW.md). Tickets/workflows se reservan a S03;
 no hay IA, VPN ni frontend implementados.
 
+[Remediación de seguridad](docs/roadmap/SESSION_02_SECURITY_REMEDIATION.md): IdP
+derivado con inputs fijados y gates locales aprobados. **NO-GO S03** hasta CI remota
+satisfactoria de la revisión corregida. Sin publicación ni inicio de S03 automático.
+
 OpsPilot investigará incidencias IT con documentación autorizada y evidencias,
 propondrá acciones y ejecutará un catálogo cerrado bajo políticas y supervisión.
 El primer vertical será una incidencia VPN reproducible en un laboratorio aislado.
@@ -17,7 +21,7 @@ Una ejecución técnica correcta no demuestra la resolución del ticket.
 |---|---|
 | Checkouts CopilotDrive vecinos | EXISTENTE, ajeno a OpsPilot; sin cambios |
 | Arquitectura, contratos y roadmap | Diseño versionado; S02 implementada, hitos posteriores propuestos |
-| Harness y CI | Harness extendido y probado localmente; workflows sin ejecutar en GitHub |
+| Harness y CI | Actions S02 ejecutado: harness/calidad PASS, plataforma FAIL; revisión corregida pendiente de CI remota |
 | API/identidad/audit | IMPLEMENTADO y probado con PG/Keycloak reales; ver gates S02 |
 | LLM y VPN | PROPUESTO; fuera de S02, sin conexiones ni efectos IT |
 
@@ -74,7 +78,7 @@ migrations/               Alembic + SQL de tablas, permisos y appender
 infra/                    Compose, imagen PG endurecida y realm sin secretos
 scripts/                  harness, provisión de lab y verificaciones operativas
 tests/harness/            pruebas del harness
-.github/workflows/        harness preservado y gates S02 (sin ejecución remota)
+.github/workflows/        harness preservado y gates S02; resultados en revisión
 ```
 
 Este repositorio se creó dentro de un workspace que no era Git, sin importar ni

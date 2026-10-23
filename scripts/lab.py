@@ -321,7 +321,7 @@ def main() -> int:
     else:
         command = {
             "postgres": ["up", "-d", "--build", "--wait", "postgres"],
-            "identity": ["up", "-d", "--wait", "keycloak"],
+            "identity": ["up", "-d", "--build", "--wait", "keycloak"],
             "up": ["up", "-d", "--build", "--wait", "api"],
             "stop": ["stop"],
             "config": ["config", "--quiet"],

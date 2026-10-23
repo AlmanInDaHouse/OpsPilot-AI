@@ -1,0 +1,40 @@
+[
+  {
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "infra/compose.yaml",
+      "build",
+      "tests"
+    ],
+    "started_at_utc": "2026-10-23T01:19:39.955469+00:00",
+    "exit_code": 0,
+    "raw_log": "artifacts/local/security-remediation/build-tests-final.log",
+    "raw_sha256": "7e46b46d9363d05fa5675f53abdfd415a6060378af4232640f89f565121a6e35"
+  },
+  {
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "infra/compose.yaml",
+      "run",
+      "--rm",
+      "--no-deps",
+      "tests",
+      "/app/.venv/bin/python",
+      "-m",
+      "pytest",
+      "tests",
+      "-o",
+      "cache_dir=/tmp/pytest-cache",
+      "--junitxml=/evidence/remediation/tests-linux-final.xml",
+      "-q"
+    ],
+    "started_at_utc": "2026-10-23T01:19:46.965740+00:00",
+    "exit_code": 0,
+    "raw_log": "artifacts/local/security-remediation/tests-linux-final.log",
+    "raw_sha256": "d15c4022f59c0829886137d623c6885a262bffe605beda02551f507de45334d5"
+  }
+]

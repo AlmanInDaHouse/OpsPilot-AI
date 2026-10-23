@@ -1,0 +1,13 @@
+{
+  "image": "opspilot-keycloak-candidate:26.8.1-alpine-s02",
+  "scanner": "ghcr.io/aquasecurity/trivy:0.76.1@sha256:790fd66d1697395d8693d1acaa1ea702406a20f109b6fc7bac8db623eca6c06c",
+  "exit_code": 0,
+  "checked_at_utc": "2026-10-23T01:14:39.430616+00:00",
+  "vulnerabilities": [],
+  "raw_sha256": "f46e1bac90f959de665c294d1a083aab2ca4d04d03335a5c59c24003a0052e59",
+  "raw_report": "artifacts/local/security-remediation/alpine-scan/candidate.raw.json",
+  "image_id": "sha256:f6a825f734425b211a5a12ecdbced848ab04351cee597e23dc21c4ef9bf2593c",
+  "verdict": "PASS",
+  "docker_image_id": "sha256:478648d5a728df8eca6ff59bfcaeea7dbeb20116af24f45f257c3ff904fd81d5",
+  "archive_config_matches": true
+}

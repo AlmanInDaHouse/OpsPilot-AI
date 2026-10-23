@@ -7,7 +7,8 @@
     ],
     "design": [
       "docs/architecture/API_CONTRACTS.md",
-      "docs/decisions/0006-platform-boundaries.md"
+      "docs/decisions/0006-platform-boundaries.md",
+      "docs/decisions/0007-keycloak-maintained-runtime.md"
     ],
     "task": [
       "specs/002-platform/tasks.md"
@@ -18,7 +19,8 @@
       "src/opspilot/adapters/oidc/verifier.py",
       "src/opspilot/adapters/postgres/identity.py",
       "src/opspilot/entrypoints/api/app.py",
-      "src/opspilot/entrypoints/settings.py"
+      "src/opspilot/entrypoints/settings.py",
+      "infra/keycloak.Dockerfile"
     ],
     "test": [
       "tests/unit/test_oidc.py",
@@ -32,9 +34,14 @@
       "artifacts/session-02/tests-windows.xml",
       "artifacts/session-02/tests-linux.xml",
       "artifacts/session-02/keycloak-cves.json",
-      "artifacts/session-02/verification.json"
+      "artifacts/session-02/verification.json",
+      "artifacts/session-02/remediation/tests-windows-final.xml",
+      "artifacts/session-02/remediation/tests-linux-final.xml",
+      "artifacts/session-02/remediation/ci-post-push.json",
+      "artifacts/session-02/remediation/final/keycloak-cves.json",
+      "artifacts/session-02/remediation/final-trust.json"
     ],
-    "acceptance": "NO-GO: CT-10 image scan Keycloak fails; functionality PROBADO",
+    "acceptance": "NO-GO: local remediation PROBADO; successful remote CI for final revision pending (R17)",
     "task_ids": [
       "T02-01",
       "T02-02",
@@ -78,9 +85,14 @@
       "artifacts/session-02/tests-linux.xml",
       "artifacts/session-02/fresh-postgres.json",
       "artifacts/session-02/recovery.json",
-      "artifacts/session-02/verification.json"
+      "artifacts/session-02/verification.json",
+      "artifacts/session-02/remediation/tests-windows-final.xml",
+      "artifacts/session-02/remediation/tests-linux-final.xml",
+      "artifacts/session-02/remediation/ci-post-push.json",
+      "artifacts/session-02/remediation/fresh-postgres-final.json",
+      "artifacts/session-02/remediation/recovery-final.json"
     ],
-    "acceptance": "NO-GO for session acceptance: CT-10; PG/audit behavior PROBADO",
+    "acceptance": "NO-GO: local remediation PROBADO; successful remote CI for final revision pending (R17)",
     "task_ids": [
       "T02-01",
       "T02-02",
@@ -355,7 +367,8 @@
       "tests/harness/test_checks.py",
       "tests/architecture/test_layers.py",
       "tests/unit/test_secret_scanner.py",
-      "tests/unit/test_image_scan_gate.py"
+      "tests/unit/test_image_scan_gate.py",
+      "tests/unit/test_verification_acceptance.py"
     ],
     "evidence": [
       "artifacts/session-01/tests-windows.json",
@@ -364,8 +377,11 @@
       "artifacts/session-01/checks-linux.json",
       "artifacts/session-02/tests-windows.xml",
       "artifacts/session-02/tests-linux.xml",
-      "artifacts/session-02/verification.json"
+      "artifacts/session-02/verification.json",
+      "artifacts/session-02/remediation/tests-windows-final.xml",
+      "artifacts/session-02/remediation/tests-linux-final.xml",
+      "artifacts/session-02/remediation/ci-post-push.json"
     ],
-    "acceptance": "Harness PROBADO: correctly returns NO-GO on supply findings; not a green S02 acceptance"
+    "acceptance": "NO-GO: local remediation PROBADO; successful remote CI for final revision pending (R17)"
   }
 ]

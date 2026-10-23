@@ -23,15 +23,16 @@ existentes al pasar a IMPLEMENTADO/PROBADO; no inventar reportes futuros.
 
 | Tarea | Estado real | Código/test/evidencia existente |
 |---|---|---|
-| T02-01 | IMPLEMENTADO, gate imagen IdP no aceptado | pyproject.toml, uv.lock, Dockerfile, infra/compose.yaml; scans de imágenes en artifacts/session-02 |
+| T02-01 | PROBADO localmente, CI final pendiente | infra/keycloak.Dockerfile y compose, ADR-0007; remediation/final/*-cves.json |
 | T02-02 | PROBADO | ADR-0006, contracts, audit/domain/envelope.py; tests/unit/test_canonical.py, tests/contract/test_api.py, integración SQL parity |
 | T02-03 | PROBADO | src/opspilot y scripts/check_architecture.py; tests/architecture/test_layers.py; tests-windows.xml |
 | T02-04 | PROBADO | migrations, adapters/postgres; tests/integration/test_audit.py; tests-windows.xml, integration-linux.xml, fresh-postgres.json, recovery.json |
-| T02-05 | PROBADO funcional, dependencia vulnerable | adapters/oidc, identity/application; tests/unit/test_oidc.py, test_identity/test_idp_security de integración; XML Windows/Linux |
+| T02-05 | PROBADO con derivada mantenida | adapters/oidc, identity/application; remediation/tests-windows-final.xml, tests-linux-final.xml y recovery-final.json |
 | T02-06 | PROBADO | entrypoints/api y DTO; tests/contract/test_api.py, test_entrypoints/test_identity reales; XML y recovery.json |
-| T02-07 | IMPLEMENTADO / NO-GO | workflows/harness+platform, scripts/dev.py/check_secrets.py/scan_images.py; Bandit/pip-audit y scans; keycloak-cves.json FAIL |
+| T02-07 | PROBADO localmente / NO-GO remoto | espera TCP de verify_fresh_postgres; verificador sin GO implícito; remediation/final scans PASS, ci-post-push.json FAIL del SHA publicado |
 | T02-08 | IMPLEMENTADO, cierre NO-GO | traceability.json, checklist, SESSION_02_REVIEW, HANDOFF; manifest/evidencia S02 |
 
 Rutas fuente abreviadas relativas a src/opspilot, tests o .github donde corresponde;
-las rutas máquina exactas están en traceability.json. No CI remota ni aprobación
-humana de riesgos declaradas. T02-07 debe repetirse tras corregir dependencia.
+las rutas máquina exactas están en traceability.json. Remediación y resultados
+actuales en security-remediation.md y SESSION_02_SECURITY_REMEDIATION. No se declara
+CI remota satisfactoria de la revisión final ni aprobación humana de riesgos.

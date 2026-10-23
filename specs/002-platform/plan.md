@@ -1,6 +1,7 @@
 # 002-platform — plan técnico
 
-Estado: EJECUTADO; NO-GO S03 por CVE del IdP, no por ausencia de integración.
+Estado: EJECUTADO; remediación local del IdP en ADR-0007 y security-remediation.md.
+NO-GO S03 hasta CI remota satisfactoria de la revisión corregida.
 Diseño rector: [arquitectura](../../docs/architecture/ARCHITECTURE.md),
 [ADR-0005](../../docs/decisions/0005-platform-stack.md) y [spec](spec.md).
 

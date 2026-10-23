@@ -1,0 +1,13 @@
+{
+  "image": "opspilot-postgres:18.6-s02",
+  "scanner": "ghcr.io/aquasecurity/trivy:0.76.1@sha256:790fd66d1697395d8693d1acaa1ea702406a20f109b6fc7bac8db623eca6c06c",
+  "exit_code": 0,
+  "checked_at_utc": "2026-10-23T01:18:56.285304+00:00",
+  "vulnerabilities": [],
+  "raw_sha256": "82c57c9bb7844ea9e2547e57c7c49d6c5d97b8ea19577c5fc042d1ce7fcef95b",
+  "raw_report": "artifacts/local/image-scans/postgres-7e85f9da7797.raw.json",
+  "image_id": "sha256:4030d72fe5e55d7782a50108224e6d912baa4510881caa5a3fb9d69bf259a475",
+  "verdict": "PASS",
+  "docker_image_id": "sha256:5c00e691c430c550a4d8653ec855cae0bbe5ad2b63161c75f4d32920bacc8650",
+  "archive_config_matches": true
+}

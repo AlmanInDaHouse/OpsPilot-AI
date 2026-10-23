@@ -1,5 +1,14 @@
 # Runbook de plataforma S02
 
+Remediación actual: [informe](../roadmap/SESSION_02_SECURITY_REMEDIATION.md) y
+ADR-0007. Keycloak se construye localmente con Alpine/Temurin mantenidos, inputs
+por digest/SHA-256 y paquetes directos fijados; solo linux/amd64. No editar CA/JVM
+a mano. `infra` reconstruye el IdP; repetir suites completas, recovery y scan al
+cambiar su receta. Imagen oficial UBI anterior conservada solo como evidencia.
+Los tags de builds locales se contrastan con los digests/config del manifest de
+remediation; no equivalen a imágenes publicadas. La aceptación S03 requiere CI
+remota satisfactoria de la revisión corregida, además de los gates locales.
+
 Solo laboratorio single-tenant con datos sintéticos. Repositorio autorizado:
 `C:/Users/manul/OneDrive/Escritorio/opspilot-ai`. No usar proyectos vecinos. No hay
 deploy, push ni commits automáticos. El estado del gate vive en SESSION_02_REVIEW.
@@ -142,8 +151,10 @@ identificados. No prueba ausencia absoluta de secretos.
 Trivy fijado por digest analiza imágenes finales sin Docker socket; solo monta
 archivos de imagen públicos/de aplicación y caché, nunca credenciales. Raw/SBOM se
 guardan ignorados; resumen, CVE y hash raw se versionan. No omitir altos/críticos.
-Los workflows CI están implementados; ejecutar comandos localmente no equivale a
-un run remoto de GitHub Actions. `eval` sigue devolviendo NOT_IMPLEMENTED, código 2.
+Actions S02 se ejecutó y falló en PG fresco; los pasos recovery/scan se omitieron.
+El diagnóstico/ajuste local y resultados nuevos están en el informe de remediación.
+Ejecutar comandos localmente no equivale a CI remota satisfactoria del nuevo árbol.
+`eval` sigue devolviendo NOT_IMPLEMENTED, código 2.
 
 ## Parada, logs y fallos
 

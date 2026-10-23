@@ -1,0 +1,29 @@
+{
+  "impacted_certificates": 16,
+  "unique_compromised_keys": 8,
+  "blocked": {
+    "azul_updated": 16,
+    "temurin": 0
+  },
+  "temurin_roots_inventory_exit_code": 0,
+  "impacted_issuers_present_in_temurin": 0,
+  "method": "Compare certificate fingerprints from public incident inventory (linked by Red Hat and Azul) with vendor block lists and keytool trusted roots. No trust store modified, no exploit executed.",
+  "inputs": [
+    {
+      "path": "artifacts/local/security-remediation/impacted-intermediates.json",
+      "hash": "f67b3abe9b4879f4e91874ed041beccd71257f1db41c588c724ccf12aa90c59e"
+    },
+    {
+      "path": "artifacts/local/security-remediation/azul-blocked.certs",
+      "hash": "2596bb6dda83c66d96c5a252d7b2ae1f24cc1ae3f1890223b4f3591a8d52bf10"
+    },
+    {
+      "path": "artifacts/local/security-remediation/temurin-blocked.certs",
+      "hash": "96572f243f31c2ef81a6e627542e596f6a9295cff3c7ae095c1b595cb1457ded"
+    },
+    {
+      "path": "artifacts/local/security-remediation/temurin-roots.log",
+      "hash": "212407dd6ddb597228fc620a32752aca62c021092ed200c63b1a6f456fea8a4e"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+[
+  {
+    "gate": "tests-windows",
+    "command": [
+      "python",
+      "scripts/dev.py",
+      "test"
+    ],
+    "started_at_utc": "2026-10-23T01:02:29.723868+00:00",
+    "exit_code": 0,
+    "raw_log": "artifacts/local/security-remediation/tests-windows.log",
+    "raw_sha256": "cfeac251a550d9fcdada1d8fac6740af525d7206b15046c9261fb4529f04d155"
+  },
+  {
+    "gate": "harness",
+    "command": [
+      "python",
+      "scripts/dev.py",
+      "test",
+      "--suite",
+      "harness"
+    ],
+    "started_at_utc": "2026-10-23T01:02:54.384082+00:00",
+    "exit_code": 0,
+    "raw_log": "artifacts/local/security-remediation/harness.log",
+    "raw_sha256": "aad2800f876df5bc7b65e69dce2d12f884b769ccc69717fb0930dbc7c93d75e2"
+  }
+]

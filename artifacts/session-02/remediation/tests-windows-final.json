@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python",
+    "scripts/dev.py",
+    "test"
+  ],
+  "started_at_utc": "2026-10-23T01:18:44.288130+00:00",
+  "exit_code": 0,
+  "raw_log": "artifacts/local/security-remediation/tests-windows-final.log",
+  "raw_sha256": "7afd6d3ebed4e6149e39494b7e9dbb163dfa08c399e90cd2e6bdeb61ffca2434"
+}

@@ -50,7 +50,7 @@ def metadata() -> dict:
         ("api", "opspilot-ai:0.2.0"),
         (
             "keycloak",
-            "quay.io/keycloak/keycloak:26.8.1@sha256:79c623a22abacf3fe6c00a5fb30f5b7843d717b234033b80995891c06116d244",
+            "opspilot-keycloak:26.8.1-s02",
         ),
     ):
         data = json.loads(
@@ -111,6 +111,44 @@ def metadata() -> dict:
         }
     json_file("ci-structure.json", workflows)
     return images
+
+
+def verification_summary(runs: list, images: dict, image_results: dict) -> dict:
+    """Report local checks without granting acceptance to unverified global gates."""
+    required_images = {"postgres", "keycloak", "api"}
+    passed = (
+        bool(runs)
+        and all(row["exit_code"] == 0 for row in runs)
+        and set(images) == set(image_results) == required_images
+        and all(
+            row["verdict"] == "PASS"
+            and row["exit_code"] == 0
+            and row.get("archive_config_matches") is True
+            and row.get("docker_image_id") == images[name]["id"]
+            for name, row in image_results.items()
+        )
+    )
+    return {
+        "recorded_at_utc": datetime.now(UTC).isoformat(),
+        "state": "COMPLETE",
+        "runs": runs,
+        "image_gates": {
+            name: {
+                "verdict": value["verdict"],
+                "exit_code": value["exit_code"],
+                "image_id_matches": value.get("docker_image_id") == images.get(name, {}).get("id"),
+                "archive_config_matches": value.get("archive_config_matches"),
+            }
+            for name, value in image_results.items()
+        },
+        "local_gates": "PASS" if passed else "FAIL",
+        "session_03": "NO-GO",
+        "acceptance_limit": (
+            "Local checks do not approve S03: matching recovery/fresh-PG evidence "
+            "and successful remote CI of the final revision are required."
+        ),
+        "remote_ci": "NOT_RUN",
+    }
 
 
 def main() -> int:
@@ -221,29 +259,9 @@ def main() -> int:
         name: json.loads((EVIDENCE / f"{name}-cves.json").read_text())
         for name in ("postgres", "keycloak", "api")
     }
-    passed = all(row["exit_code"] == 0 for row in runs) and all(
-        row["verdict"] == "PASS" and row.get("docker_image_id") == images[name]["id"]
-        for name, row in image_results.items()
-    )
-    json_file(
-        "verification.json",
-        {
-            "recorded_at_utc": datetime.now(UTC).isoformat(),
-            "state": "COMPLETE",
-            "runs": runs,
-            "image_gates": {
-                name: {
-                    "verdict": value["verdict"],
-                    "exit_code": value["exit_code"],
-                    "image_id_matches": value.get("docker_image_id") == images[name]["id"],
-                }
-                for name, value in image_results.items()
-            },
-            "session_03": "GO" if passed else "NO-GO",
-            "remote_ci": "NOT_RUN",
-        },
-    )
-    return 0 if passed else 1
+    summary = verification_summary(runs, images, image_results)
+    json_file("verification.json", summary)
+    return 0 if summary["local_gates"] == "PASS" else 1
 
 
 if __name__ == "__main__":

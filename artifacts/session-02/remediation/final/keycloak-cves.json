@@ -1,0 +1,13 @@
+{
+  "image": "opspilot-keycloak:26.8.1-s02",
+  "scanner": "ghcr.io/aquasecurity/trivy:0.76.1@sha256:790fd66d1697395d8693d1acaa1ea702406a20f109b6fc7bac8db623eca6c06c",
+  "exit_code": 0,
+  "checked_at_utc": "2026-10-23T01:20:25.492239+00:00",
+  "vulnerabilities": [],
+  "raw_sha256": "2be88313c90776b95a9e4fa3393a75e6d370ad86cfb362e29c964c0def976007",
+  "raw_report": "artifacts/local/image-scans/keycloak-aacbeabf3da2.raw.json",
+  "image_id": "sha256:38292add2f0c1502ffecbdf7f3778622fc274f2ef0ba04f7c9f1ccc5ddafca48",
+  "verdict": "PASS",
+  "docker_image_id": "sha256:5da3c53ca5cb9593a60a9018d0b28c2fade40b33c65eec0115b735776d4bc5b1",
+  "archive_config_matches": true
+}

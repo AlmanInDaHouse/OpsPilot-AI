@@ -1,6 +1,7 @@
 # Registro de decisiones
 
-Todas aceptadas como **diseño provisional**, sin implementación de producto.
+ADR-0001..0005 recogen el diseño provisional; ADR-0006 cierra la plataforma S02
+implementada y ADR-0007 su remediación local. Aceptación según revisión y gates.
 Cambiar una decisión exige ADR nuevo y análisis de contratos/tests afectados.
 
 | ADR | Decisión |
@@ -11,3 +12,4 @@ Cambiar una decisión exige ADR nuevo y análisis de contratos/tests afectados.
 | [0004](0004-sdd-harness.md) | SDD portable sin instalar Spec Kit |
 | [0005](0005-platform-stack.md) | Stack, identidad y operación mínima |
 | [0006](0006-platform-boundaries.md) | Cierre de contratos e identidad/audit S02 |
+| [0007](0007-keycloak-maintained-runtime.md) | Derivada mantenida del IdP y aceptación completa de S02 |

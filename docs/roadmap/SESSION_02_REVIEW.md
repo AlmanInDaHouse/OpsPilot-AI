@@ -1,5 +1,10 @@
 # Sesión 02 — revisión de ingeniería y evidencias
 
+Actualización posterior: [remediación de seguridad](SESSION_02_SECURITY_REMEDIATION.md)
+y artifacts/session-02/remediation describen la receta actual y los nuevos gates.
+Continúa **NO-GO S03 por CI remota pendiente de la revisión corregida**. Lo siguiente
+conserva el cierre inicial, anterior a la remediación, incluidos sus fallos y límites.
+
 Fecha de sesión: 2026-10-23, Europe/Madrid. Evidencias con timestamps UTC (la noche
 del 22 UTC corresponde al 23 en Madrid). Estado de cierre: **NO-GO para S03**.
 Implementación funcional probada; gate obligatorio de imágenes falla por un CVE

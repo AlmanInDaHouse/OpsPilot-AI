@@ -41,3 +41,14 @@ upstream equivalga a un entorno Codex configurado o una toolchain probada.
 Scans locales y pruebas son evidencias separadas de estas referencias. Dependencias
 dev en venv, sin instalación global. Spec Kit continúa sin instalarse: SDD existente
 es suficiente y no se duplica. No se ejecutó código del proveedor de modelos ni VPN.
+
+## Investigación de remediación S02 — 2026-10-23
+
+[Informe con fuentes y resultados](../roadmap/SESSION_02_SECURITY_REMEDIATION.md)
+y [ADR-0007](../decisions/0007-keycloak-maintained-runtime.md). Consultados boletín
+RHSB-2026-012, CPU Oracle octubre/alerta 91403, publicaciones de Azul, metadata
+UBI9/Quay, release oficial Adoptium y APKBUILD/paquete Alpine. La API Adoptium y
+JSON Red Hat respondieron 403; esos accesos no se presentan como lectura correcta.
+La release GitHub Adoptium permitió contrastar checksum y metadata del binario.
+provider-probes.json conserva consultas, hashes y límites, incluyendo Azul anunciado
+pero no servido en los canales públicos ensayados. Avisos no sustituyen scans ni tests.

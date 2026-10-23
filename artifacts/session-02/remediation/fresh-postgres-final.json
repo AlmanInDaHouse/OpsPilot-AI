@@ -1,0 +1,16 @@
+{
+  "started_at_utc": "2026-10-23T01:20:29.613599+00:00",
+  "exit_code": 0,
+  "report": {
+    "checked_at_utc": "2026-10-23T01:20:29.763695+00:00",
+    "container": "opspilot-s02-fresh-c08103bc5c1c",
+    "verdict": "PASS",
+    "uid": 70,
+    "server": "18.6",
+    "fresh_volume": true,
+    "network": "none",
+    "readiness_transport": "TCP loopback (final server, not initdb temporary server)"
+  },
+  "raw_log": "artifacts/local/security-remediation/fresh-postgres-final.log",
+  "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

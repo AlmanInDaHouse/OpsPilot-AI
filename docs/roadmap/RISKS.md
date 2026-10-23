@@ -36,7 +36,23 @@ ver SESSION_02_REVIEW para veredicto efectivo. R16 / media: host compartido con
 memoria limitada; timeout de escritura corregido a 5 s manteniendo health 1 s y
 prueba de 20 appends. No es un benchmark de capacidad ni un SLO de producción.
 R13 sigue pendiente antes de publicar diagramas; no bloquea el runtime S02 y no
-se afirma render visual de Mermaid. Workflow GitHub y auditoría externa no ejecutados.
+se afirma render visual de Mermaid. La auditoría externa no se ha ejecutado;
+la actualización siguiente registra los resultados reales de Actions.
+
+## Remediación de seguridad S02 — 2026-10-23
+
+R15: REMEDIADO LOCALMENTE mediante la derivada de ADR-0007, sin excepción.
+Imagen oficial sin corregir; derivada Debian rechazada por otros CVE. Alpine/Temurin
+con inputs fijados, inventario de ambos almacenes, scan final sin altos/críticos,
+176 tests Windows/Linux, PG fresco y recovery PASS. El autor mantiene parches y
+procedencia; debe revalidar cada cambio. No es certificación del proveedor para musl.
+
+R17 / alta: aceptación remota pendiente. CI de main f165a47 falló en PG fresco,
+omitiendo recovery/scan; diagnóstico reproducido y espera corregida localmente.
+La revisión corregida no tiene CI remota porque push no está autorizado. Dueño autor,
+gate T02-07/AC02-08: todos los jobs del mismo SHA deben pasar antes de GO S03.
+No aprobar checks omitidos ni sustituirlos por runs de Dependabot. Informe/evidencia:
+SESSION_02_SECURITY_REMEDIATION y artifacts/session-02/remediation.
 
 Decisiones de aislamiento/entrega/autorización están fijadas en ADR. IdP/proveedor/lab
 son elecciones provisionales con gates explícitos; no se necesita inventar requisitos

@@ -1,0 +1,26 @@
+{
+  "recorded_at_utc": "2026-10-23T01:27:40.551225+00:00",
+  "stop_exit_code": 0,
+  "timeout_seconds": 60,
+  "services": [
+    {
+      "service": "postgres",
+      "status": "exited",
+      "exit_code": 0
+    },
+    {
+      "service": "keycloak",
+      "status": "exited",
+      "exit_code": 143
+    },
+    {
+      "service": "api",
+      "status": "exited",
+      "exit_code": 0
+    }
+  ],
+  "persistent_volume": "opspilot-s02_pg_data",
+  "volume_preserved": true,
+  "raw_log": "artifacts/local/security-remediation/shutdown-final.log",
+  "raw_sha256": "e90fb2f7dc6fa3b41100b278de01413d36aabd490ff7bf73ef5019fa6b5db49b"
+}
