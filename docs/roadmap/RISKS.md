@@ -47,13 +47,29 @@ con inputs fijados, inventario de ambos almacenes, scan final sin altos/crítico
 176 tests Windows/Linux, PG fresco y recovery PASS. El autor mantiene parches y
 procedencia; debe revalidar cada cambio. No es certificación del proveedor para musl.
 
-R17 / alta: aceptación remota pendiente. CI de main f165a47 falló en PG fresco,
-omitiendo recovery/scan; diagnóstico reproducido y espera corregida localmente.
-La revisión corregida no tiene CI remota porque push no está autorizado. Dueño autor,
-gate T02-07/AC02-08: todos los jobs del mismo SHA deben pasar antes de GO S03.
-No aprobar checks omitidos ni sustituirlos por runs de Dependabot. Informe/evidencia:
-SESSION_02_SECURITY_REMEDIATION y artifacts/session-02/remediation.
+R17 / alta, ABIERTO: aceptación remota bloqueada. La corrección publicada b221037
+tiene CI 39888916474 FAIL: quality Windows/Ubuntu, 50 integraciones, PG fresco y
+recovery pasan; los tres scans son BLOCKED sin informe. Logs privados del scanner
+no incluidos en el artefacto; no se puede afirmar su causa remota exacta. Escritura
+denegada con UID 10001 y bind mounts POSIX 0755 reproducida localmente, causa
+plausible. Dueño autor, T02-07/AC02-08: corregir sin elevar privilegios ni rebajar scanner,
+conservar diagnóstico y aprobar todos los jobs/gates del mismo SHA antes de GO S03.
+R15 continúa remediado solo localmente, sin validación supply del build remoto.
+No aprobar scans incompletos ni reutilizar PASS anteriores del checkout.
+Informe/evidencia: SESSION_02_CLOSURE y artifacts/session-02/closure-b221037.
 
 Decisiones de aislamiento/entrega/autorización están fijadas en ADR. IdP/proveedor/lab
 son elecciones provisionales con gates explícitos; no se necesita inventar requisitos
 de cliente para completar S01. Validación de uso empresarial queda fuera de esta entrega.
+
+## Remediación local del scanner CI — 2026-10-23
+
+R17 ABIERTO. Defecto UID/mount POSIX reproducido, causa remota exacta aún incierta.
+Aislamiento y diagnóstico corregidos, probes y suites reales Windows/Linux; ver
+SESSION_02_SCANNER_REMEDIATION y acceptance/manifest en scanner-remediation.
+La CI anterior sigue FAIL y este árbol no está publicado. CI satisfactoria del
+nuevo commit, revisión humana y otra petición siguen siendo gates para S03.
+R15 continúa con mantenimiento a cargo del autor y límites de ADR-0007; no
+excepciones de CVE. Docker Desktop sintetiza permisos POSIX: su probe real es
+obligatorio, no se traslada un PASS Windows a Ubuntu. DB grandes requieren disco
+local y red; errores de descarga/runtime/timeout mantienen BLOCKED.

@@ -1,0 +1,28 @@
+{
+  "scope": "POSIX mount write probe only; not remote stderr or a CVE scan",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "--user",
+    "10001:10001",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--mount",
+    "type=bind,source=/tmp/opspilot-s02-closure-write-k7zcxtdd/scan,target=/scan",
+    "--mount",
+    "type=bind,source=/tmp/opspilot-s02-closure-write-k7zcxtdd/cache,target=/cache",
+    "--entrypoint",
+    "/bin/sh",
+    "ghcr.io/aquasecurity/trivy:0.76.1@sha256:790fd66d1697395d8693d1acaa1ea702406a20f109b6fc7bac8db623eca6c06c",
+    "-c",
+    "id; ls -ldn /scan /cache; touch /scan/probe.json; touch /cache/probe"
+  ],
+  "exit_code": 1,
+  "stdout": "uid=10001 gid=10001 groups=10001\ndrwxr-xr-x    2 1000     1000          4096 Oct 23 02:40 /cache\ndrwxr-xr-x    2 1000     1000          4096 Oct 23 02:40 /scan\n",
+  "stderr": "touch: /scan/probe.json: Permission denied\ntouch: /cache/probe: Permission denied\n"
+}

@@ -1,5 +1,6 @@
 """Prove non-root image initialization on a new anonymous volume, then remove only it."""
 
+import argparse
 import json
 import subprocess
 import time
@@ -11,6 +12,11 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--report", type=Path, default=ROOT / "artifacts/session-02/fresh-postgres.json"
+    )
+    args = parser.parse_args()
     name = "opspilot-s02-fresh-" + uuid4().hex[:12]
     credential_file = ROOT / "artifacts/local/pg_admin"
     report = {"checked_at_utc": datetime.now(UTC).isoformat(), "container": name, "verdict": "FAIL"}
@@ -89,7 +95,7 @@ def main() -> int:
     finally:
         if started:
             subprocess.run(["docker", "stop", name], check=True, capture_output=True)
-        destination = ROOT / "artifacts/session-02/fresh-postgres.json"
+        destination = args.report
         destination.parent.mkdir(parents=True, exist_ok=True)
         destination.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
 

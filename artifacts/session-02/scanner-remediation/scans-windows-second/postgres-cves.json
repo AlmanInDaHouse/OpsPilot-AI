@@ -1,0 +1,39 @@
+{
+  "image": "opspilot-postgres:18.6-s02",
+  "scanner": "ghcr.io/aquasecurity/trivy:0.76.1@sha256:790fd66d1697395d8693d1acaa1ea702406a20f109b6fc7bac8db623eca6c06c",
+  "exit_code": 1,
+  "checked_at_utc": "2026-10-23T03:07:27.101480+00:00",
+  "vulnerabilities": [],
+  "report_exists": false,
+  "report_valid": false,
+  "archive_config_matches": false,
+  "docker_image_id": "sha256:a88335c32e200cb4d4a9476632aea4bea9e881afd2f13cf7ab4883920bc2226c",
+  "archive_config_id": "sha256:4030d72fe5e55d7782a50108224e6d912baa4510881caa5a3fb9d69bf259a475",
+  "archive_source_matches": true,
+  "verdict": "BLOCKED",
+  "reason": "SCANNER_RUNTIME_ERROR",
+  "diagnostic": "Scanner or Docker runtime failed; inspect private log by hash",
+  "head": "b22103724837b3cacd10efba2cf37ac42a5c8dd2",
+  "input_sha256": "fffdcb7253140b0d47ff96c1673a4b1be710a15a6023f792c49360f3fe0eb070",
+  "preflight": {
+    "exit_code": 0,
+    "uid": 10001,
+    "gid": 10001,
+    "input_stat": "0:0:777",
+    "output_stat": "0:0:777",
+    "cache_stat": "0:0:777",
+    "input_readable": true,
+    "output_writable": true,
+    "cache_writable": true,
+    "input_readonly": true,
+    "lab_inaccessible": true
+  },
+  "host": {
+    "platform": "nt",
+    "uid": null,
+    "gid": null
+  },
+  "log": {
+    "raw_sha256": "fa20cdab0e81d1915eb3217b0a2533fd1a918c842d8f63d6facd72969df177f1"
+  }
+}

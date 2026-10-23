@@ -1,5 +1,12 @@
 # S02 — informe de remediación de seguridad
 
+Actualización local: [remediación del scanner](SESSION_02_SCANNER_REMEDIATION.md).
+La auditoría siguiente se conserva como snapshot histórico. NO-GO S03.
+
+Actualización publicada: [auditoría b221037](SESSION_02_CLOSURE.md).
+Actions 39888916474 FAIL por tres scans BLOCKED; **NO-GO S03**.
+Lo siguiente conserva el snapshot local anterior a esa publicación.
+
 2026-10-23, Europe/Madrid; evidencias UTC. **NO-GO para S03**: remediación local
 implementada y probada, CI remota satisfactoria de esta revisión pendiente.
 Sin S03, commit, push, merge, release o despliegue; sin excepciones de scanner.

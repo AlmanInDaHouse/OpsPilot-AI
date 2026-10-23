@@ -1,0 +1,25 @@
+{
+  "image": "opspilot-postgres:18.6-s02",
+  "scanner": "ghcr.io/aquasecurity/trivy:0.76.1@sha256:790fd66d1697395d8693d1acaa1ea702406a20f109b6fc7bac8db623eca6c06c",
+  "exit_code": null,
+  "checked_at_utc": "2026-10-23T03:04:17.929632+00:00",
+  "vulnerabilities": [],
+  "report_exists": false,
+  "report_valid": false,
+  "archive_config_matches": false,
+  "docker_image_id": "sha256:a88335c32e200cb4d4a9476632aea4bea9e881afd2f13cf7ab4883920bc2226c",
+  "verdict": "BLOCKED",
+  "reason": "IMAGE_ID_MISMATCH",
+  "diagnostic": "Inspect, archive config and report image identity differ",
+  "head": "b22103724837b3cacd10efba2cf37ac42a5c8dd2",
+  "input_sha256": "18965b576194727ac25bb117bd8a0a2b9f8f647fb1d33e0fe58888f4072c1175",
+  "preflight": {},
+  "host": {
+    "platform": "nt",
+    "uid": null,
+    "gid": null
+  },
+  "log": {
+    "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

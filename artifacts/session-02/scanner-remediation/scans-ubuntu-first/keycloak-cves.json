@@ -1,0 +1,41 @@
+{
+  "image": "opspilot-keycloak:26.8.1-s02",
+  "scanner": "ghcr.io/aquasecurity/trivy:0.76.1@sha256:790fd66d1697395d8693d1acaa1ea702406a20f109b6fc7bac8db623eca6c06c",
+  "exit_code": 0,
+  "checked_at_utc": "2026-10-23T03:18:09.315531+00:00",
+  "vulnerabilities": [],
+  "report_exists": true,
+  "report_valid": true,
+  "archive_config_matches": true,
+  "docker_image_id": "sha256:857a97da7f1286f6f5218253fb193dda7742e8ac5c96b06acaf54b581a444076",
+  "archive_config_id": "sha256:38292add2f0c1502ffecbdf7f3778622fc274f2ef0ba04f7c9f1ccc5ddafca48",
+  "archive_source_matches": true,
+  "raw_sha256": "a12d3e15e32fa46e24e9339e4b78c9f2fb7b2697c44feef75163bb7385dc6285",
+  "image_id": "sha256:38292add2f0c1502ffecbdf7f3778622fc274f2ef0ba04f7c9f1ccc5ddafca48",
+  "verdict": "PASS",
+  "reason": null,
+  "diagnostic": "Valid image report; no HIGH/CRITICAL findings",
+  "head": "b22103724837b3cacd10efba2cf37ac42a5c8dd2",
+  "input_sha256": "264fb3b488c3959493423f1783f2141e7be390e9791080cffd955bbba65b08b0",
+  "preflight": {
+    "exit_code": 0,
+    "uid": 1000,
+    "gid": 1000,
+    "input_stat": "1000:1000:600",
+    "output_stat": "1000:1000:700",
+    "cache_stat": "1000:1000:700",
+    "input_readable": true,
+    "output_writable": true,
+    "cache_writable": true,
+    "input_readonly": true,
+    "lab_inaccessible": true
+  },
+  "host": {
+    "platform": "posix",
+    "uid": 1000,
+    "gid": 1000
+  },
+  "log": {
+    "raw_sha256": "9c847025e03e9cc7db9dd906d01688ac101db5edea6f4781c2f2a9f5add0dd55"
+  }
+}

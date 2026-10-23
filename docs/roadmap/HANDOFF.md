@@ -1,6 +1,50 @@
 # Handoff versionado — plataforma S02 y futura S03
 
+## Publicación del scanner autorizada — 2026-10-23
+
+El autor autoriza commit y push a origin/main con «pushealo», después del cierre
+local del scanner. Los snapshots de scanner-remediation y closure-b221037 se
+conservan intactos: describen las evidencias y el SHA base previos a esta publicación.
+Consultar Git para el SHA publicado y Actions para los gates de ese mismo SHA.
+NO-GO S03 hasta CI remota satisfactoria; iniciar S03 requiere una nueva petición.
+Esta autorización no incluye merge, release, despliegue ni infraestructura externa.
+
+## Remediación local scanner CI — 2026-10-23
+
+Fuente actual: [informe](SESSION_02_SCANNER_REMEDIATION.md), spec
+specs/002-platform/scanner-remediation.md y artifacts/session-02/scanner-remediation.
+**NO-GO S03**: HEAD b221037, cambios sin commit/push, nueva CI pendiente.
+Defecto POSIX reproducido; causa exacta remota incierta por stderr ausente.
+Staging mínimo, UID/GID Linux efectivos no root, Windows 10001 con preflight real;
+logs privados y diagnóstico saneado, cadena OCI verificada. Sin cambio de imágenes.
+Suites finales 212 PASS Windows y Linux con 50 integraciones reales y 23 harness;
+PG fresco/recovery y seis scans finales PASS, 0 HIGH/CRITICAL. Calidad/secretos
+y dependencias Windows/Linux PASS; acceptance/manifest nuevos contienen hashes.
+R17 sigue abierto. No S03 ni publicación autorizadas. Cambios locales anteriores
+y snapshots preservados. El estado b221037 que sigue es histórico.
+
 ## Estado actual S02 — 2026-10-23 Europe/Madrid
+
+Fuente actual: [auditoría del cierre b221037](SESSION_02_CLOSURE.md) y
+[aceptación](../../artifacts/session-02/closure-b221037/acceptance.json).
+**NO-GO S03**: origin/main y HEAD b221037 verificados; Actions 39888916474 FAIL.
+Quality Windows/Ubuntu SUCCESS, 50 integraciones PASS, PG fresco PASS y recovery
+PASS; job integration FAIL porque los tres scans son BLOCKED sin informe bruto.
+Harness 39888916473 SUCCESS en el mismo SHA. Artefacto ligado al SHA y digest
+del ZIP contrastado. Los PASS locales anteriores no validan este build remoto.
+
+R17 ABIERTO: el stderr del scanner no se subió. Bind mounts POSIX 0755 frente
+a UID 10001 reproducen Permission denied localmente; causa remota plausible,
+no confirmada sin sus logs. R15 remediado solo localmente. Mantener todos los
+controles; corregir la escritura no privilegiada/diagnóstico y repetir gates.
+Ver informe para riesgos de musl/linux-amd64, IdP corporativo y límites de recovery.
+
+Git inicialmente limpio, HANDOFF sin cambios pendientes; esta auditoría deja
+registros locales sin commit/push. No S03 ni modificación de criterios, runtime
+o workflows. Los acceptance/manifests previos son históricos e intactos; fuente
+actual en closure-b221037. No publicar sin nueva instrucción explícita.
+
+### Snapshot de remediación previo a publicación, conservado
 
 Última actualización: [informe de remediación](SESSION_02_SECURITY_REMEDIATION.md),
 [ADR-0007](../decisions/0007-keycloak-maintained-runtime.md) y

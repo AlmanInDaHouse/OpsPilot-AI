@@ -1,0 +1,122 @@
+{
+  "recorded_at_utc": "2026-10-23T03:33:45.128034+00:00",
+  "head": "b22103724837b3cacd10efba2cf37ac42a5c8dd2",
+  "input_sha256": "71ece13a86c99ecb4ad4cfd7a4c5c6f6e2ec8ffc93c0ba38a76dfc2a8bbdd201",
+  "scope": "Local uncommitted scanner remediation; no new remote build exists",
+  "local_gates": "PASS",
+  "session_03": "NO-GO",
+  "remote_ci": "NOT_RUN_FOR_NEW_REVISION",
+  "published_baseline": {
+    "head": "b22103724837b3cacd10efba2cf37ac42a5c8dd2",
+    "run": "https://github.com/AlmanInDaHouse/OpsPilot-AI/actions/runs/39888916474",
+    "conclusion": "FAIL"
+  },
+  "root_cause": {
+    "confirmed": "POSIX UID 10001 cannot write host-owned 0755 output/cache",
+    "remote_limit": "Raw Trivy stderr absent; exact remote failure remains unconfirmed"
+  },
+  "tests": {
+    "windows": {
+      "tests": 212,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "integration_tests": 50
+    },
+    "linux": {
+      "tests": 212,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "integration_tests": 50
+    }
+  },
+  "harness": {
+    "tests": 23,
+    "exit_code": 0
+  },
+  "scanner_acceptance_tests": 49,
+  "quality": {
+    "windows": "PASS",
+    "linux": "PASS",
+    "dependencies": "PASS",
+    "source_scan_and_history": "PASS"
+  },
+  "scans": {
+    "windows": {
+      "postgres": {
+        "verdict": "PASS",
+        "exit_code": 0,
+        "report_valid": true,
+        "archive_source_matches": true,
+        "archive_config_matches": true,
+        "high_critical": 0
+      },
+      "keycloak": {
+        "verdict": "PASS",
+        "exit_code": 0,
+        "report_valid": true,
+        "archive_source_matches": true,
+        "archive_config_matches": true,
+        "high_critical": 0
+      },
+      "api": {
+        "verdict": "PASS",
+        "exit_code": 0,
+        "report_valid": true,
+        "archive_source_matches": true,
+        "archive_config_matches": true,
+        "high_critical": 0
+      }
+    },
+    "ubuntu": {
+      "postgres": {
+        "verdict": "PASS",
+        "exit_code": 0,
+        "report_valid": true,
+        "archive_source_matches": true,
+        "archive_config_matches": true,
+        "high_critical": 0
+      },
+      "keycloak": {
+        "verdict": "PASS",
+        "exit_code": 0,
+        "report_valid": true,
+        "archive_source_matches": true,
+        "archive_config_matches": true,
+        "high_critical": 0
+      },
+      "api": {
+        "verdict": "PASS",
+        "exit_code": 0,
+        "report_valid": true,
+        "archive_source_matches": true,
+        "archive_config_matches": true,
+        "high_critical": 0
+      }
+    }
+  },
+  "fresh_postgres": "PASS",
+  "recovery": "PASS",
+  "raw_reports_and_logs_hashes_verified": true,
+  "historical_snapshot_files_unchanged": 82,
+  "git": {
+    "branch": "main",
+    "commit_created": false,
+    "push_performed": false,
+    "initial_local_changes_preserved": true
+  },
+  "limits": [
+    "Local WSL/Docker Desktop is not the exact GitHub-hosted runner",
+    "New commit and successful remote CI still required",
+    "R15 maintenance/musl/JRE supply limitations remain",
+    "API/Keycloak shutdown exit 137, OOMKilled false; not claimed graceful",
+    "Linux pip-audit used image venv from the same frozen lock; warning recorded in environment-final.json"
+  ],
+  "previous_attempts": {
+    "scans-windows-first": "BLOCKED OCI representation mismatch before scan",
+    "scans-windows-second": "BLOCKED runtime no space in tmpfs",
+    "scans-windows-third": "PASS CLI earlier inputs",
+    "scans-ubuntu-first": "PASS CLI earlier inputs"
+  }
+}

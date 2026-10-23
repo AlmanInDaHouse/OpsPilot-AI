@@ -33,3 +33,13 @@ estados/approval/UNKNOWN por escenarios, sin sustituir con métrica de porcentaj
 Publicar resultados fallidos además de aprobados, redacted. CI no usa secretos de
 producción ni corre código de PR no confiable con credenciales. Dependabot/equivalente
 se añade cuando existan dependencias, revisando actualizaciones y ejecutando suites.
+
+## Scanner CI S02
+
+[Spec de remediación](../../specs/002-platform/scanner-remediation.md): preflight
+Docker real no privilegiado antes del lab, suite Linux completa, PG fresco,
+recovery y tres scans separados. Un scan fallido mantiene exit distinto de cero;
+manifest y upload always conservan únicamente evidencia saneada del run actual.
+Snapshots versionados anteriores no se suben como evidencia nueva. No publicar
+artifacts/local ni logs íntegros. HEAD y hash de inputs distinguen el árbol sin
+commit del build publicado. Una verificación local nunca concede GO para S03.

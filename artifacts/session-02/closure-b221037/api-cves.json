@@ -1,0 +1,11 @@
+{
+  "image": "opspilot-ai:0.2.0",
+  "scanner": "ghcr.io/aquasecurity/trivy:0.76.1@sha256:790fd66d1697395d8693d1acaa1ea702406a20f109b6fc7bac8db623eca6c06c",
+  "exit_code": 1,
+  "checked_at_utc": "2026-10-23T02:25:07.590793+00:00",
+  "vulnerabilities": [],
+  "verdict": "BLOCKED",
+  "reason": "Image archive/config mismatch or incomplete report",
+  "docker_image_id": "sha256:15c84661a2c7b808ed1ae880d3038ca72cf4e1c0d10f2966c3b8ce70b54f2fb1",
+  "archive_config_matches": false
+}

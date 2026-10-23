@@ -1,0 +1,59 @@
+{
+  "scope": "POSIX permissions diagnostic; deliberately absent input, network enabled; not a CVE scan",
+  "host_uid": 1000,
+  "root": "/tmp/opspilot-s02-closure-6hy2vlqp",
+  "mounts": [
+    {
+      "path": "/tmp/opspilot-s02-closure-6hy2vlqp/scan",
+      "uid": 1000,
+      "mode": "0o755"
+    },
+    {
+      "path": "/tmp/opspilot-s02-closure-6hy2vlqp/cache",
+      "uid": 1000,
+      "mode": "0o755"
+    }
+  ],
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--user",
+    "10001:10001",
+    "--cpus",
+    "1",
+    "--memory",
+    "768m",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--mount",
+    "type=bind,source=/tmp/opspilot-s02-closure-6hy2vlqp/scan,target=/scan",
+    "--mount",
+    "type=bind,source=/tmp/opspilot-s02-closure-6hy2vlqp/cache,target=/cache",
+    "ghcr.io/aquasecurity/trivy:0.76.1@sha256:790fd66d1697395d8693d1acaa1ea702406a20f109b6fc7bac8db623eca6c06c",
+    "image",
+    "--cache-dir",
+    "/cache",
+    "--no-progress",
+    "--timeout",
+    "30s",
+    "--scanners",
+    "vuln",
+    "--severity",
+    "HIGH,CRITICAL",
+    "--exit-code",
+    "1",
+    "--format",
+    "json",
+    "--output",
+    "/scan/probe.json",
+    "--input",
+    "/scan/diagnostic-nonexistent.tar"
+  ],
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "2026-10-23T02:39:57Z\tINFO\t[vulndb] Need to update DB\n2026-10-23T02:39:57Z\tINFO\t[vulndb] Downloading vulnerability DB...\n2026-10-23T02:39:57Z\tINFO\t[vulndb] Downloading artifact...\trepo=\"mirror.gcr.io/aquasec/trivy-db:2\"\n2026-10-23T02:40:27Z\tWARN\tProvide a higher timeout value, see https://trivy.dev/docs/v0.76/guide/references/troubleshooting#timeout\n2026-10-23T02:40:27Z\tFATAL\tFatal error\trun error: init error: DB error: failed to download vulnerability DB: OCI artifact error: failed to download vulnerability DB: failed to download artifact from mirror.gcr.io/aquasec/trivy-db:2: oci download error: copy error: context deadline exceeded\n",
+  "raw_report_exists": false
+}

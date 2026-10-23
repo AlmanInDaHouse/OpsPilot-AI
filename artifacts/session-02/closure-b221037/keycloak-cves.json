@@ -1,0 +1,11 @@
+{
+  "image": "opspilot-keycloak:26.8.1-s02",
+  "scanner": "ghcr.io/aquasecurity/trivy:0.76.1@sha256:790fd66d1697395d8693d1acaa1ea702406a20f109b6fc7bac8db623eca6c06c",
+  "exit_code": 1,
+  "checked_at_utc": "2026-10-23T02:25:03.578368+00:00",
+  "vulnerabilities": [],
+  "verdict": "BLOCKED",
+  "reason": "Image archive/config mismatch or incomplete report",
+  "docker_image_id": "sha256:43fd898ec54b8e369c8e9e37fb67a8ea51368dc9794466a280460c0aa3b8a78e",
+  "archive_config_matches": false
+}

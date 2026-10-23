@@ -1,0 +1,56 @@
+{
+  "recorded_at_utc": "2026-10-23T02:45:45.168308+00:00",
+  "head": "b22103724837b3cacd10efba2cf37ac42a5c8dd2",
+  "scope": "Local documentation/evidence audit, not a rerun or approval of published CI",
+  "runs": [
+    {
+      "command": [
+        "python",
+        "scripts/dev.py",
+        "check",
+        "--report",
+        "artifacts/session-02/closure-b221037/docs-check.json"
+      ],
+      "exit_code": 0,
+      "detail": "Full quality check PASS; pip-audit skips unpublished project itself, dependencies audited",
+      "raw_log": "artifacts/local/session-02-closure/check.log",
+      "raw_sha256": "cf209616181d5e24108895ce3924f9734ad1661951a2fe8574839a3771f8e5d1"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/dev.py",
+        "test",
+        "--suite",
+        "local"
+      ],
+      "exit_code": 0,
+      "detail": "126 passed, 50 integration tests explicitly deselected; known Starlette deprecation warning",
+      "raw_log": "artifacts/local/session-02-closure/tests-local.log",
+      "raw_sha256": "40b119f99ffefd2b1dfee5d0920b919be309570627f4413ebcdfbd911f9634c0"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/dev.py",
+        "test",
+        "--suite",
+        "harness"
+      ],
+      "exit_code": 0,
+      "detail": "23 passed",
+      "raw_log": "artifacts/local/session-02-closure/harness.log",
+      "raw_sha256": "917023e33c2ecad94b92324554b8bbfa3313ce327d0399e978b355e41d949149"
+    }
+  ],
+  "remote_integration": "50 passed in published CI; not rerun locally",
+  "historical_acceptance_and_manifests": "UNCHANGED",
+  "criteria_runtime_workflows_contracts_tests_scripts": "UNCHANGED",
+  "git_at_end": {
+    "branch": "main",
+    "head": "b22103724837b3cacd10efba2cf37ac42a5c8dd2",
+    "origin_main": "MATCH",
+    "pending": "Documentation/evidence edits including HANDOFF.md; no commit or push"
+  },
+  "session_03": "NO-GO"
+}

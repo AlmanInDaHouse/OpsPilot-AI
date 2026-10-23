@@ -1,7 +1,9 @@
 """Execute reproducible local gates and record sanitized provenance, never credentials."""
 
+import argparse
 import hashlib
 import importlib.metadata
+import importlib.util
 import json
 import platform
 import subprocess
@@ -9,6 +11,7 @@ import sys
 import time
 from datetime import UTC, datetime
 from pathlib import Path
+from uuid import uuid4
 
 import yaml
 
@@ -113,9 +116,43 @@ def metadata() -> dict:
     return images
 
 
-def verification_summary(runs: list, images: dict, image_results: dict) -> dict:
+def current_revision() -> dict:
+    spec = importlib.util.spec_from_file_location(
+        "scan_provenance", ROOT / "scripts/scan_images.py"
+    )
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module.provenance()
+
+
+def write_manifest() -> None:
+    files = [
+        {
+            "path": path.relative_to(EVIDENCE).as_posix(),
+            "hash": hashlib.sha256(path.read_bytes()).hexdigest(),
+            "bytes": path.stat().st_size,
+        }
+        for path in sorted(EVIDENCE.rglob("*"))
+        if path.is_file() and path.name != "manifest.json"
+    ]
+    json_file(
+        "manifest.json",
+        {
+            "recorded_at_utc": datetime.now(UTC).isoformat(),
+            **current_revision(),
+            "scope": "Actual executable/configuration inputs; HEAD alone does not identify uncommitted edits",
+            "session_03": "NO-GO",
+            "files": files,
+        },
+    )
+
+
+def verification_summary(
+    runs: list, images: dict, image_results: dict, revision: dict | None = None
+) -> dict:
     """Report local checks without granting acceptance to unverified global gates."""
     required_images = {"postgres", "keycloak", "api"}
+    revision = current_revision() if revision is None else revision
     passed = (
         bool(runs)
         and all(row["exit_code"] == 0 for row in runs)
@@ -125,11 +162,17 @@ def verification_summary(runs: list, images: dict, image_results: dict) -> dict:
             and row["exit_code"] == 0
             and row.get("archive_config_matches") is True
             and row.get("docker_image_id") == images[name]["id"]
+            and row.get("report_valid") is True
+            and row.get("archive_source_matches") is True
+            and row.get("image_id") == row.get("archive_config_id")
+            and row.get("head") == revision["head"]
+            and row.get("input_sha256") == revision["input_sha256"]
             for name, row in image_results.items()
         )
     )
     return {
         "recorded_at_utc": datetime.now(UTC).isoformat(),
+        **revision,
         "state": "COMPLETE",
         "runs": runs,
         "image_gates": {
@@ -152,7 +195,18 @@ def verification_summary(runs: list, images: dict, image_results: dict) -> dict:
 
 
 def main() -> int:
+    global EVIDENCE, LOCAL
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--evidence-dir", type=Path)
+    parser.add_argument("--manifest-only", action="store_true")
+    args = parser.parse_args()
+    run_id = uuid4().hex
+    EVIDENCE = args.evidence_dir or EVIDENCE / "scanner-remediation" / ("verification-" + run_id)
     EVIDENCE.mkdir(parents=True, exist_ok=True)
+    if args.manifest_only:
+        write_manifest()
+        return 0  # Integrity inventory only; never an acceptance gate.
+    LOCAL = LOCAL / run_id
     LOCAL.mkdir(parents=True, exist_ok=True)
     commands = [
         ("frozen", ["uv", "sync", "--frozen"]),
@@ -162,7 +216,7 @@ def main() -> int:
                 sys.executable,
                 "scripts/check_repository.py",
                 "--report",
-                "artifacts/session-02/docs-final.json",
+                str(EVIDENCE / "docs-final.json"),
             ],
         ),
         ("format", ["uv", "run", "--frozen", "ruff", "format", "--check", "."]),
@@ -195,8 +249,8 @@ def main() -> int:
                 "--frozen",
                 "pytest",
                 "--cov=opspilot",
-                "--cov-report=json:artifacts/session-02/coverage-windows.json",
-                "--junitxml=artifacts/session-02/tests-windows.xml",
+                "--cov-report=json:" + str(EVIDENCE / "coverage-windows.json"),
+                "--junitxml=" + str(EVIDENCE / "tests-windows.xml"),
                 "-q",
                 "--tb=short",
             ],
@@ -213,7 +267,7 @@ def main() -> int:
                 "-f",
                 "json",
                 "-o",
-                "artifacts/session-02/bandit.json",
+                str(EVIDENCE / "bandit.json"),
             ],
         ),
         (
@@ -226,7 +280,7 @@ def main() -> int:
                 "--format",
                 "json",
                 "--output",
-                "artifacts/session-02/pip-audit.json",
+                str(EVIDENCE / "pip-audit.json"),
             ],
         ),
         ("secrets", ["uv", "run", "--frozen", "python", "scripts/check_secrets.py"]),
@@ -255,12 +309,15 @@ def main() -> int:
         print(f"{name}: {row['verdict']}", flush=True)
         json_file("verification.json", {"state": "RUNNING", "runs": runs, "session_03": "NO-GO"})
     images = metadata()
-    image_results = {
-        name: json.loads((EVIDENCE / f"{name}-cves.json").read_text())
-        for name in ("postgres", "keycloak", "api")
-    }
+    image_results = {}
+    for name in ("postgres", "keycloak", "api"):
+        try:
+            image_results[name] = json.loads((EVIDENCE / "scans" / f"{name}-cves.json").read_text())
+        except (OSError, ValueError):
+            pass  # Missing or corrupt scans remain absent; summary fails closed.
     summary = verification_summary(runs, images, image_results)
     json_file("verification.json", summary)
+    write_manifest()
     return 0 if summary["local_gates"] == "PASS" else 1
 
 

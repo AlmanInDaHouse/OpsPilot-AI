@@ -60,3 +60,23 @@ Si falla un gate, no etiquetar PROBADO. Tests externos no ejecutados: PENDIENTE.
 
 La revisión S01 es autocrítica del mismo asistente, no auditoría independiente de
 tercero. El autor debe revisar las decisiones antes de validar para un piloto real.
+
+## Diagnóstico del scanner S02
+
+T02-07/08 y AC02-08: [spec acotada](../../specs/002-platform/scanner-remediation.md).
+`python scripts/verify_scanner_environment.py --report RUTA_NUEVA.json` ejecuta
+probes Docker reales con el scanner fijado, sin red, y comprueba UID/GID,
+owner/modo e I/O. Incluye salida/caché readonly y entrada inaccesible; en Linux
+agrega modos POSIX y reproduce UID 10001 contra owner 1000/0755. Docker Desktop
+presenta permisos POSIX sintéticos: sus negativos usan mounts readonly y entrada
+ausente; no se consideran una prueba de ACL POSIX.
+
+`python scripts/scan_images.py --evidence-dir DIRECTORIO_NUEVO` conserva snapshots.
+Los tests unitarios cubren JSON ausente/corrupto, código inesperado, timeout,
+CRITICAL, identidad errónea y cadena OCI alterada. Fakes solo en unit tests;
+probes, suites completas y scans usan servicios e imágenes reales.
+Los logs/raw privados permanecen en artifacts/local/image-scans. Solo se publican
+campos permitidos y hashes. CI sube artifacts/session-02/ci con resultados actuales.
+`verify_session02.py --manifest-only --evidence-dir DIRECTORIO` calcula inventario;
+exit 0 no significa aceptación. El verificador exige HEAD/hash de inputs y
+reportes/identidades coincidentes, y siempre mantiene NO-GO global para S03.

@@ -1,0 +1,38 @@
+{
+  "recorded_at_utc": "2026-10-23T03:24:17.663038+00:00",
+  "python": "Python 3.13.14",
+  "docker_server": "29.1.2",
+  "images": {
+    "postgres": {
+      "Id": "sha256:a88335c32e200cb4d4a9476632aea4bea9e881afd2f13cf7ab4883920bc2226c",
+      "Os": "linux",
+      "Architecture": "amd64",
+      "user": "postgres",
+      "reference": "opspilot-postgres:18.6-s02"
+    },
+    "keycloak": {
+      "Id": "sha256:857a97da7f1286f6f5218253fb193dda7742e8ac5c96b06acaf54b581a444076",
+      "Os": "linux",
+      "Architecture": "amd64",
+      "user": "1000:0",
+      "reference": "opspilot-keycloak:26.8.1-s02"
+    },
+    "api": {
+      "Id": "sha256:47f8b508dcf65b33f26da2ba7a700ccd4430d46c78b8d6271991c9b4adf5dda9",
+      "Os": "linux",
+      "Architecture": "amd64",
+      "user": "10001:10001",
+      "reference": "opspilot-ai:0.2.0"
+    }
+  },
+  "linux_suite": {
+    "image": "opspilot-tests:0.2.0",
+    "id": "sha256:691ac2e3bd2acc94c04eba7918556dc4abac67e1276365b4f78971c763b68fe2",
+    "user": "10001:10001",
+    "distribution": "Alpine 3.24",
+    "python": "3.13.14",
+    "scope": "Complete suite in Docker Linux on local Docker Desktop; scanner host additionally Ubuntu WSL2"
+  },
+  "linux_quality_limit": "Copied Linux venv uses the same frozen lock. pip-audit warned it audited /app/.venv instead of /tmp/quality-venv; both come from the same test image/lock.",
+  "lock_sha256": "ae0f7e79eabd24c7675308812a47bad5785911f7cf04b9d84d4ac5e5058537af"
+}

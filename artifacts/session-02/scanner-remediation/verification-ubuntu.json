@@ -1,0 +1,136 @@
+{
+  "recorded_at_utc": "2026-10-23T03:33:45.093841+00:00",
+  "head": "b22103724837b3cacd10efba2cf37ac42a5c8dd2",
+  "input_sha256": "71ece13a86c99ecb4ad4cfd7a4c5c6f6e2ec8ffc93c0ba38a76dfc2a8bbdd201",
+  "state": "COMPLETE",
+  "runs": [
+    {
+      "gate": "harness",
+      "command": [
+        "python",
+        "scripts/dev.py",
+        "test",
+        "--suite",
+        "harness"
+      ],
+      "started_at_utc": "2026-10-23T03:15:03.775733+00:00",
+      "duration_seconds": 2.37,
+      "exit_code": 0,
+      "raw_sha256": "e408ce6601f57c2fdeca0684e732b8cbea1884fa624a4488b08658a3329326ca"
+    },
+    {
+      "gate": "check-windows",
+      "command": [
+        "python",
+        "scripts/dev.py",
+        "check"
+      ],
+      "started_at_utc": "2026-10-23T03:15:06.157832+00:00",
+      "duration_seconds": 34.12,
+      "exit_code": 0,
+      "raw_sha256": "a25c7f06f88594fe790d4ff480a949958148d36ea0d73189dedbd10d095a5943"
+    },
+    {
+      "gate": "tests-windows",
+      "command": [
+        "uv",
+        "run",
+        "--frozen",
+        "pytest",
+        "--cov=opspilot",
+        "--cov-report=json:artifacts/session-02/scanner-remediation/coverage-windows.json",
+        "--junitxml=artifacts/session-02/scanner-remediation/tests-windows.xml",
+        "-q"
+      ],
+      "started_at_utc": "2026-10-23T03:15:40.297034+00:00",
+      "duration_seconds": 21.98,
+      "exit_code": 0,
+      "raw_sha256": "8ec9d1bd5a07147115f0ba1bbbb459b5ae98a9065ebd646c0213d4b542640a73"
+    },
+    {
+      "gate": "check-linux-final-2",
+      "exit_code": 0,
+      "raw_sha256": "fa59cc830f0908585304bac4bf6a0beb7a568cc1647fb8f18883e7de225fd092",
+      "command": [
+        "python",
+        "scripts/dev.py",
+        "check"
+      ],
+      "environment": "Dedicated POSIX snapshot in Linux test image, UID/GID 1000, writable XDG_CACHE_HOME; no Windows venv reuse"
+    },
+    {
+      "gate": "tests-linux-final",
+      "exit_code": 0,
+      "raw_sha256": "cdc2b6e4b9cb3abaf99a3921e558648ae1b0bf8cf118ef5125a3bf8aa8d63fb7",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "infra/compose.yaml",
+        "run",
+        "--rm",
+        "--no-deps",
+        "tests",
+        "/app/.venv/bin/python",
+        "-m",
+        "pytest",
+        "-o",
+        "cache_dir=/tmp/pytest-cache",
+        "--junitxml=/evidence/scanner-remediation/tests-linux.xml",
+        "-q"
+      ]
+    },
+    {
+      "gate": "fresh",
+      "exit_code": 0,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "command": [
+        "uv",
+        "run",
+        "--frozen",
+        "python",
+        "scripts/verify_fresh_postgres.py",
+        "--report",
+        "artifacts/session-02/scanner-remediation/fresh-postgres.json"
+      ]
+    },
+    {
+      "gate": "recovery",
+      "exit_code": 0,
+      "raw_sha256": "1365b755692e28f87269f10e74cad790cf0d2c3afe5cabcf0a978f6c883dbca8",
+      "command": [
+        "uv",
+        "run",
+        "--frozen",
+        "python",
+        "scripts/verify_recovery.py",
+        "--report",
+        "artifacts/session-02/scanner-remediation/recovery.json"
+      ]
+    }
+  ],
+  "image_gates": {
+    "postgres": {
+      "verdict": "PASS",
+      "exit_code": 0,
+      "image_id_matches": true,
+      "archive_config_matches": true
+    },
+    "keycloak": {
+      "verdict": "PASS",
+      "exit_code": 0,
+      "image_id_matches": true,
+      "archive_config_matches": true
+    },
+    "api": {
+      "verdict": "PASS",
+      "exit_code": 0,
+      "image_id_matches": true,
+      "archive_config_matches": true
+    }
+  },
+  "local_gates": "PASS",
+  "session_03": "NO-GO",
+  "acceptance_limit": "Local checks do not approve S03: matching recovery/fresh-PG evidence and successful remote CI of the final revision are required.",
+  "remote_ci": "NOT_RUN"
+}

@@ -8,7 +8,10 @@ no hay IA, VPN ni frontend implementados.
 
 [Remediación de seguridad](docs/roadmap/SESSION_02_SECURITY_REMEDIATION.md): IdP
 derivado con inputs fijados y gates locales aprobados. **NO-GO S03** hasta CI remota
-satisfactoria de la revisión corregida. Sin publicación ni inicio de S03 automático.
+satisfactoria de la revisión corregida. [Auditoría b221037](docs/roadmap/SESSION_02_CLOSURE.md):
+CI FAIL por tres scans BLOCKED. Sin publicación ni inicio de S03 automático.
+[Corrección local del scanner](docs/roadmap/SESSION_02_SCANNER_REMEDIATION.md):
+staging aislado, permisos y diagnóstico probados; NO-GO hasta nueva CI.
 
 OpsPilot investigará incidencias IT con documentación autorizada y evidencias,
 propondrá acciones y ejecutará un catálogo cerrado bajo políticas y supervisión.
@@ -21,7 +24,7 @@ Una ejecución técnica correcta no demuestra la resolución del ticket.
 |---|---|
 | Checkouts CopilotDrive vecinos | EXISTENTE, ajeno a OpsPilot; sin cambios |
 | Arquitectura, contratos y roadmap | Diseño versionado; S02 implementada, hitos posteriores propuestos |
-| Harness y CI | Actions S02 ejecutado: harness/calidad PASS, plataforma FAIL; revisión corregida pendiente de CI remota |
+| Harness y CI | b221037: harness/calidad PASS, integración funcional/PG fresco/reinicio PASS; plataforma FAIL por scans BLOCKED |
 | API/identidad/audit | IMPLEMENTADO y probado con PG/Keycloak reales; ver gates S02 |
 | LLM y VPN | PROPUESTO; fuera de S02, sin conexiones ni efectos IT |
 

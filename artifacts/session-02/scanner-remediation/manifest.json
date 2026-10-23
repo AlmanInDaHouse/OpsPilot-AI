@@ -1,0 +1,204 @@
+{
+  "recorded_at_utc": "2026-10-23T03:38:03.983175+00:00",
+  "head": "b22103724837b3cacd10efba2cf37ac42a5c8dd2",
+  "input_sha256": "71ece13a86c99ecb4ad4cfd7a4c5c6f6e2ec8ffc93c0ba38a76dfc2a8bbdd201",
+  "scope": "Actual executable/configuration inputs; HEAD alone does not identify uncommitted edits",
+  "session_03": "NO-GO",
+  "files": [
+    {
+      "path": "acceptance.json",
+      "hash": "bff484a6864cc54a8837629c47877641c0945c346edce5cd100bccfa48b7e017",
+      "bytes": 3690
+    },
+    {
+      "path": "coverage-windows.json",
+      "hash": "41e4b2c54434c3fcdb02572d8557297cdfde109f3571b480fd0d82d7ae54200c",
+      "bytes": 115473
+    },
+    {
+      "path": "docs-close.json",
+      "hash": "0a258ad3562422e1ad4b06ec0c354ee3c49d58e5b7cc52c7fd6435db167f016c",
+      "bytes": 811
+    },
+    {
+      "path": "docs-delivery.json",
+      "hash": "2dd626f0809b2d2f9ad69e78f574a52f99b8221b68654949958fa8f43095e82c",
+      "bytes": 811
+    },
+    {
+      "path": "docs-final.json",
+      "hash": "979380f12b0d4a18f71396e5c25d4d7eb4fde57a86d4f526ca1aae1a891d0e18",
+      "bytes": 811
+    },
+    {
+      "path": "environment-final.json",
+      "hash": "adc1ffb71216db6fb8b83460c32c6844e0623d7596b9f062c517bb55d55ff2d5",
+      "bytes": 1488
+    },
+    {
+      "path": "fresh-postgres.json",
+      "hash": "e67cf4fc54f7381351e8099f213a5678c2b0e69e9f2f787cfcb7e952059fd976",
+      "bytes": 303
+    },
+    {
+      "path": "permissions-ubuntu.json",
+      "hash": "c81f792aa4ed2c2676c3bf6adc4cff2c01b4da100b265488f4d50ad928bcb57f",
+      "bytes": 4365
+    },
+    {
+      "path": "permissions-windows.json",
+      "hash": "7e9781a72e9e4f46789b0c803060ff4face97835ca816db6af78397389fb42fc",
+      "bytes": 2363
+    },
+    {
+      "path": "recovery.json",
+      "hash": "440b6b59b3c1dd89c34bccab929d38a7a43ee15c9500542f979c350f769ef3a8",
+      "bytes": 1949
+    },
+    {
+      "path": "runs-other.json",
+      "hash": "2b0f076b8532e70edcb3e19e761a04e285cd857bfb86a8514ac9131a2bde578a",
+      "bytes": 2164
+    },
+    {
+      "path": "runs-windows.json",
+      "hash": "b62ef418a955d1e7bbc8dcd1ae45ecb8f0504e25f71170800c24b86cc495f0c7",
+      "bytes": 1213
+    },
+    {
+      "path": "scans-final-ubuntu/api-cves.json",
+      "hash": "c23f5ef840247b27d3d598de4e6f15c83ab659dc78112d5e656a061962b4f19c",
+      "bytes": 1484
+    },
+    {
+      "path": "scans-final-ubuntu/keycloak-cves.json",
+      "hash": "13557d8e26961c0f270147cd6e4812c5a2ec15550fe30f83f868c1be059b363d",
+      "bytes": 1495
+    },
+    {
+      "path": "scans-final-ubuntu/postgres-cves.json",
+      "hash": "43dabea532a6870c72c5ff1e05fa6e2e3db0bb61d4c9d4ba1803cb78ea537e3b",
+      "bytes": 1493
+    },
+    {
+      "path": "scans-final-windows/api-cves.json",
+      "hash": "cfe9d88bbdfaad503b4488ab653e4a449a922f7bc9f74160bdf2426fb6723a87",
+      "bytes": 1506
+    },
+    {
+      "path": "scans-final-windows/keycloak-cves.json",
+      "hash": "ad1079b2b7265d030f979b702934dd113a378709cc3834a127c34505a99d7a91",
+      "bytes": 1517
+    },
+    {
+      "path": "scans-final-windows/postgres-cves.json",
+      "hash": "ce93ead9224a04d0bc29838f9c4964256af69b8d4e45fdeece3c2f85f397f28a",
+      "bytes": 1515
+    },
+    {
+      "path": "scans-ubuntu-first/api-cves.json",
+      "hash": "45561c4a9091102c32dce77539d89f958dbeec71abe23a9f42ce99413a46c06c",
+      "bytes": 1484
+    },
+    {
+      "path": "scans-ubuntu-first/keycloak-cves.json",
+      "hash": "f8dc1637e414e513c8d1e0f6f3b1d12e5b6c06433528516f69eef005e3aa81a7",
+      "bytes": 1495
+    },
+    {
+      "path": "scans-ubuntu-first/postgres-cves.json",
+      "hash": "dacf7ce0093a8a48c064015cba8ba0e26750a614d8a347129fcf751c341ae648",
+      "bytes": 1493
+    },
+    {
+      "path": "scans-windows-first/api-cves.json",
+      "hash": "257cca9b0301b8a1d4e7e037d90e1bc0680478720e40b03a8f2ccbb363b6271f",
+      "bytes": 931
+    },
+    {
+      "path": "scans-windows-first/keycloak-cves.json",
+      "hash": "66365bb15b6cd9e082eaca6967654bc5bbec32d55659da3e000ed992857c5b7e",
+      "bytes": 942
+    },
+    {
+      "path": "scans-windows-first/postgres-cves.json",
+      "hash": "47aa555a7caf6a980d47a65b82cf81ad7b95d70a97ca654447397be915cd7e31",
+      "bytes": 940
+    },
+    {
+      "path": "scans-windows-second/api-cves.json",
+      "hash": "97f04813617d1442c1092e37054d31b9e3b60606d2b67f33294480e9a9b0930d",
+      "bytes": 1372
+    },
+    {
+      "path": "scans-windows-second/keycloak-cves.json",
+      "hash": "e1bd3d3649adc833ef0b69d5cfd9b69261d23839cb8f7c3d7820139942e11230",
+      "bytes": 1383
+    },
+    {
+      "path": "scans-windows-second/postgres-cves.json",
+      "hash": "d13bd5bbf8cf91646a4b934166f8594f77f4e36d38b5260593d27024ff89609c",
+      "bytes": 1381
+    },
+    {
+      "path": "scans-windows-third/api-cves.json",
+      "hash": "dafb46671e8a963191348b5d2dffbe308a362354fd616761d0968de6e2d55500",
+      "bytes": 1506
+    },
+    {
+      "path": "scans-windows-third/keycloak-cves.json",
+      "hash": "409b4751c2e0c3f5926237ee219066d82c9f825aa419720f28de5b0123dcfce3",
+      "bytes": 1517
+    },
+    {
+      "path": "scans-windows-third/postgres-cves.json",
+      "hash": "36430d95e478419ef3bd325abbcdb127fa0d2a86e9dd4f8663fda66ffdb53d07",
+      "bytes": 1515
+    },
+    {
+      "path": "secret-gate-attempt-2.json",
+      "hash": "ef18f0e6d441763028fd3888519551c61f2ef9275a3907b5ae1a3e1390ea2c60",
+      "bytes": 419
+    },
+    {
+      "path": "secret-gate-attempt.json",
+      "hash": "c90434895e47bf5a35e753574b27cf4a7d2cf3464070a386b2a74ac93277b032",
+      "bytes": 410
+    },
+    {
+      "path": "secrets-close.json",
+      "hash": "5215365d2ce3cc6b40e4147e8e7b816bbee6bbfe1f6244f94ee7fd6c16c8c406",
+      "bytes": 345
+    },
+    {
+      "path": "shutdown.json",
+      "hash": "5e000e5367b7947782e6513cdf6ac675b1a8b4d29ebd95b498c51109dda36b18",
+      "bytes": 761
+    },
+    {
+      "path": "tests-linux-first.xml",
+      "hash": "59ed7a18374d797cf5675f5567244d7fc50389147e3c92c1a0f510fbba09d45a",
+      "bytes": 26528
+    },
+    {
+      "path": "tests-linux.xml",
+      "hash": "975704aa7eeabaaaab29de2b242eb08978dc96ece5221d8bf47a7b3dfa1e80f9",
+      "bytes": 27479
+    },
+    {
+      "path": "tests-windows.xml",
+      "hash": "4cf895732ae11878d1e3c001c66d363c3a67831518fb1761440126eb0b10c0db",
+      "bytes": 27475
+    },
+    {
+      "path": "verification-ubuntu.json",
+      "hash": "4b04b3c984f3dfa8b9993d46dd6c039dc56b60416406e448a4b2bade9f2fd125",
+      "bytes": 3951
+    },
+    {
+      "path": "verification-windows.json",
+      "hash": "fc2b700527ac7fe8b905fc712c87f2f44d03a46a64c46ae5025987a7fa7b6e30",
+      "bytes": 3951
+    }
+  ]
+}

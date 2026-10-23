@@ -12,15 +12,23 @@ verification = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(verification)
 
 
-@pytest.mark.parametrize("fault", [None, "stale", "missing", "archive", "scanner", "checks"])
+@pytest.mark.parametrize(
+    "fault", [None, "stale", "missing", "archive", "scanner", "checks", "head", "tree", "invalid"]
+)
 def test_only_current_complete_local_evidence_passes_without_approving_s03(fault):
     images = {name: {"id": f"test-only-{name}"} for name in ("postgres", "keycloak", "api")}
+    revision = {"head": "test-only-head", "input_sha256": "test-only-input"}
     scans = {
         name: {
             "verdict": "PASS",
             "exit_code": 0,
             "archive_config_matches": True,
             "docker_image_id": image["id"],
+            "image_id": image["id"],
+            "archive_config_id": image["id"],
+            "archive_source_matches": True,
+            "report_valid": True,
+            **revision,
         }
         for name, image in images.items()
     }
@@ -35,7 +43,13 @@ def test_only_current_complete_local_evidence_passes_without_approving_s03(fault
         scans["keycloak"]["exit_code"] = 2
     elif fault == "checks":
         runs = []
-    report = verification.verification_summary(runs, images, scans)
+    elif fault == "head":
+        scans["api"]["head"] = "test-only-old-head"
+    elif fault == "tree":
+        scans["api"]["input_sha256"] = "test-only-old-input"
+    elif fault == "invalid":
+        scans["api"]["report_valid"] = False
+    report = verification.verification_summary(runs, images, scans, revision)
     assert report["local_gates"] == ("PASS" if fault is None else "FAIL")
     assert report["session_03"] == "NO-GO"
     assert report["remote_ci"] == "NOT_RUN"

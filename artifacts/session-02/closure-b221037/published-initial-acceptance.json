@@ -1,0 +1,126 @@
+{
+  "session_03": "NO-GO",
+  "criteria": [
+    {
+      "id": "AC02-01",
+      "verdict": "PASS",
+      "tests": [
+        "tests/contract/test_api.py",
+        "scripts/verify_recovery.py"
+      ],
+      "evidence": [
+        "artifacts/session-02/tests-windows.xml",
+        "artifacts/session-02/tests-linux.xml"
+      ]
+    },
+    {
+      "id": "AC02-02",
+      "verdict": "PASS",
+      "tests": [
+        "tests/unit/test_oidc.py",
+        "tests/integration/test_identity.py"
+      ],
+      "evidence": [
+        "artifacts/session-02/tests-windows.xml",
+        "artifacts/session-02/tests-linux.xml"
+      ]
+    },
+    {
+      "id": "AC02-03",
+      "verdict": "PASS",
+      "tests": [
+        "tests/integration/test_identity.py"
+      ],
+      "evidence": [
+        "artifacts/session-02/tests-windows.xml",
+        "artifacts/session-02/tests-linux.xml"
+      ]
+    },
+    {
+      "id": "AC02-04",
+      "verdict": "PASS",
+      "tests": [
+        "tests/integration/test_audit.py"
+      ],
+      "evidence": [
+        "artifacts/session-02/tests-windows.xml",
+        "artifacts/session-02/tests-linux.xml"
+      ]
+    },
+    {
+      "id": "AC02-05",
+      "verdict": "PASS",
+      "tests": [
+        "tests/integration/test_audit.py"
+      ],
+      "evidence": [
+        "artifacts/session-02/tests-windows.xml",
+        "artifacts/session-02/tests-linux.xml"
+      ]
+    },
+    {
+      "id": "AC02-06",
+      "verdict": "PASS",
+      "tests": [
+        "tests/integration/conftest.py",
+        "scripts/verify_fresh_postgres.py"
+      ],
+      "evidence": [
+        "artifacts/session-02/tests-windows.xml",
+        "artifacts/session-02/tests-linux.xml"
+      ]
+    },
+    {
+      "id": "AC02-07",
+      "verdict": "PASS",
+      "tests": [
+        "tests/architecture/test_layers.py"
+      ],
+      "evidence": [
+        "artifacts/session-02/tests-windows.xml",
+        "artifacts/session-02/tests-linux.xml"
+      ]
+    },
+    {
+      "id": "AC02-08",
+      "verdict": "FAIL",
+      "tests": [
+        "scripts/scan_images.py",
+        "scripts/verify_session02.py"
+      ],
+      "evidence": [
+        "artifacts/session-02/verification.json",
+        "artifacts/session-02/keycloak-cves.json"
+      ]
+    },
+    {
+      "id": "AC02-09",
+      "verdict": "PASS",
+      "tests": [
+        "tests/contract/test_api.py",
+        "tests/integration/test_identity.py"
+      ],
+      "evidence": [
+        "artifacts/session-02/tests-windows.xml",
+        "artifacts/session-02/tests-linux.xml"
+      ]
+    },
+    {
+      "id": "AC02-10",
+      "verdict": "PASS",
+      "tests": [
+        "tests/unit/test_oidc.py"
+      ],
+      "evidence": [
+        "artifacts/session-02/tests-windows.xml",
+        "artifacts/session-02/tests-linux.xml"
+      ]
+    }
+  ],
+  "blocking": [
+    "CVE-2026-114406",
+    "CVE-2026-91415"
+  ],
+  "remote_ci": "NOT_RUN",
+  "human_acceptance": "PENDING"
+}

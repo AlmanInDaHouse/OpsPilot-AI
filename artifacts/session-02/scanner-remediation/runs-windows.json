@@ -1,0 +1,45 @@
+[
+  {
+    "gate": "harness",
+    "command": [
+      "python",
+      "scripts/dev.py",
+      "test",
+      "--suite",
+      "harness"
+    ],
+    "started_at_utc": "2026-10-23T03:15:03.775733+00:00",
+    "duration_seconds": 2.37,
+    "exit_code": 0,
+    "raw_sha256": "e408ce6601f57c2fdeca0684e732b8cbea1884fa624a4488b08658a3329326ca"
+  },
+  {
+    "gate": "check-windows",
+    "command": [
+      "python",
+      "scripts/dev.py",
+      "check"
+    ],
+    "started_at_utc": "2026-10-23T03:15:06.157832+00:00",
+    "duration_seconds": 34.12,
+    "exit_code": 0,
+    "raw_sha256": "a25c7f06f88594fe790d4ff480a949958148d36ea0d73189dedbd10d095a5943"
+  },
+  {
+    "gate": "tests-windows",
+    "command": [
+      "uv",
+      "run",
+      "--frozen",
+      "pytest",
+      "--cov=opspilot",
+      "--cov-report=json:artifacts/session-02/scanner-remediation/coverage-windows.json",
+      "--junitxml=artifacts/session-02/scanner-remediation/tests-windows.xml",
+      "-q"
+    ],
+    "started_at_utc": "2026-10-23T03:15:40.297034+00:00",
+    "duration_seconds": 21.98,
+    "exit_code": 0,
+    "raw_sha256": "8ec9d1bd5a07147115f0ba1bbbb459b5ae98a9065ebd646c0213d4b542640a73"
+  }
+]

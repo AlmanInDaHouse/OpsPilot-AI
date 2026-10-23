@@ -1,5 +1,6 @@
 """Real lab outage/restart proof. Operates only the dedicated opspilot-s02 project."""
 
+import argparse
 import importlib.util
 import json
 import subprocess
@@ -44,6 +45,9 @@ def compose(*args) -> None:
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--report", type=Path, default=ROOT / "artifacts/session-02/recovery.json")
+    args = parser.parse_args()
     spec = importlib.util.spec_from_file_location(
         "recovery_pkce", ROOT / "tests/integration/conftest.py"
     )
@@ -105,7 +109,7 @@ def main() -> int:
         raise
     finally:
         engine.dispose()
-        destination = ROOT / "artifacts/session-02/recovery.json"
+        destination = args.report
         destination.parent.mkdir(parents=True, exist_ok=True)
         destination.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
 

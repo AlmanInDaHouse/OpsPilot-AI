@@ -169,3 +169,34 @@ ajenos. Logs de API contienen request_id, trace_id, actor, ruta de contrato, UTC
 resultado y duración, sin query/body/Authorization. No usar logs verbose HTTP con
 credenciales reales. Readiness 503 no debe repararse saltando OIDC o migraciones:
 comprobar primero servicios propios, revisión Alembic, JWKS configurado y permisos.
+
+## Scanner aislado y evidencia nueva
+
+Consultar [spec](../../specs/002-platform/scanner-remediation.md). Linux exige UID y
+GID efectivos distintos de cero; Trivy usa esos IDs. Staging temporal propio,
+fuera del lab, directorios 0700 y tar 0600. Windows usa 10001:10001 y exige I/O real
+en Docker Desktop; sus modos 0777 sintéticos no son chmod del host. Solo se montan
+el tar como archivo readonly, salida exclusiva y caché exclusiva. Rootfs readonly,
+cap_drop ALL, no-new-privileges y ausencia de socket/secretos se conservan.
+TMPDIR usa cache/tmp para descargar DB sin agotar el tmpfs de /tmp. La caché es
+compartida entre los tres scans de la invocación y se elimina al terminar.
+
+Usar destinos nuevos para conservar snapshots:
+
+```text
+python scripts/verify_scanner_environment.py --report artifacts/session-02/NUEVO/scanner-environment.json
+uv run python scripts/scan_images.py --evidence-dir artifacts/session-02/NUEVO/scans
+uv run python scripts/verify_fresh_postgres.py --report artifacts/session-02/NUEVO/fresh-postgres.json
+uv run python scripts/verify_recovery.py --report artifacts/session-02/NUEVO/recovery.json
+uv run python scripts/verify_session02.py --manifest-only --evidence-dir artifacts/session-02/NUEVO
+```
+
+BLOCKED distingue PERMISSION_DENIED, CACHE_UNWRITABLE, INPUT_UNREADABLE,
+SCANNER_RUNTIME_ERROR, SCAN_TIMEOUT, INVALID_REPORT e IMAGE_ID_MISMATCH.
+VULNERABILITIES_FOUND es FAIL. Un deadline anfitrión conserva exit_code null si
+no se observó la salida de Trivy; no inventa returncode 124. Los hashes identifican
+logs y JSON brutos privados. Nunca publicar stdout/stderr completos sin revisión.
+
+Docker clásico devuelve config ID; containerd puede devolver manifest/índice OCI.
+Se verifica cada blob SHA-256 desde inspect hasta config linux/amd64, y su igualdad
+con Metadata.ImageID de Trivy. Cualquier vínculo roto bloquea el gate.

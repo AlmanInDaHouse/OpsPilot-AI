@@ -35,17 +35,20 @@ jobs:
           python-version: '3.13.14'
       - run: python -m pip install uv==0.11.13
       - run: python scripts/dev.py install
+      - run: python scripts/verify_scanner_environment.py --report artifacts/session-02/ci/scanner-environment.json
       - run: python scripts/dev.py infra
       - run: python scripts/dev.py up
-      - run: uv run --frozen pytest tests/integration --junitxml=artifacts/session-02/integration-ci.xml
-      - run: uv run --frozen python scripts/verify_fresh_postgres.py
-      - run: uv run --frozen python scripts/verify_recovery.py
-      - run: uv run --frozen python scripts/scan_images.py
+      - run: uv run --frozen pytest --junitxml=artifacts/session-02/ci/tests-ci.xml
+      - run: uv run --frozen python scripts/verify_fresh_postgres.py --report artifacts/session-02/ci/fresh-postgres.json
+      - run: uv run --frozen python scripts/verify_recovery.py --report artifacts/session-02/ci/recovery.json
+      - run: uv run --frozen python scripts/scan_images.py --evidence-dir artifacts/session-02/ci/scans
+      - run: uv run --frozen python scripts/verify_session02.py --manifest-only --evidence-dir artifacts/session-02/ci
+        if: always()
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
           name: platform-s02-evidence
-          path: artifacts/session-02/
+          path: artifacts/session-02/ci/
           if-no-files-found: error
       - run: python scripts/dev.py stop
         if: always()

@@ -1,0 +1,120 @@
+{
+  "recorded_at_utc": "2026-10-23T02:45:45.188981+00:00",
+  "head": "b22103724837b3cacd10efba2cf37ac42a5c8dd2",
+  "scope": "Local unpublished closure audit; head denotes audited published revision, not a commit of these edits",
+  "session_03": "NO-GO",
+  "files": [
+    {
+      "path": "artifacts/session-02/closure-b221037/acceptance.json",
+      "hash": "4e54a9f0583272b90321fac474b3dce1f6027886185b83758c4ba10d6afc4a9b",
+      "bytes": 3286
+    },
+    {
+      "path": "artifacts/session-02/closure-b221037/api-cves.json",
+      "hash": "0c5f07ae47dee1ff0b0fcec62c464b4fc929dfd8a7ec36fa5bf549226a8dc943",
+      "bytes": 477
+    },
+    {
+      "path": "artifacts/session-02/closure-b221037/docs-check.json",
+      "hash": "574af7f4d236607cfa785f20cfc080df984fd37612f3868225b2e0fc54e29730",
+      "bytes": 811
+    },
+    {
+      "path": "artifacts/session-02/closure-b221037/fresh-postgres.json",
+      "hash": "dcf2a22c6185849631695a783c041a5c7a3df3a459ac9a0cb5a04d825c4bd6e5",
+      "bytes": 293
+    },
+    {
+      "path": "artifacts/session-02/closure-b221037/integration-ci.xml",
+      "hash": "1152565b63f4989e764047cf98cfb13bf16a06f55820a48eed0e3dde2dce39e2",
+      "bytes": 6909
+    },
+    {
+      "path": "artifacts/session-02/closure-b221037/keycloak-cves.json",
+      "hash": "8f79ae1669e8053260146f2466452b5a2d98e74c1723a21982e5999ac14273e3",
+      "bytes": 488
+    },
+    {
+      "path": "artifacts/session-02/closure-b221037/local-trivy-diagnostic.json",
+      "hash": "e80ac0480c1e6f0fbfcaa9595368d9bf3f8a3c30f916144e74fcf1aff095fce5",
+      "bytes": 2045
+    },
+    {
+      "path": "artifacts/session-02/closure-b221037/posix-write-diagnostic.json",
+      "hash": "cf61934c56defae9310d1821c14064d0f1f9cb26d7b592de284a2bdb21b133f6",
+      "bytes": 1030
+    },
+    {
+      "path": "artifacts/session-02/closure-b221037/postgres-cves.json",
+      "hash": "0a69d87a480edb484d202f88fc0a6020f01ce30a8889be94739d70b50e4d1ffa",
+      "bytes": 486
+    },
+    {
+      "path": "artifacts/session-02/closure-b221037/published-initial-acceptance.json",
+      "hash": "ebba75e4dc3f7429619de1077ae257a69c17b5c3211fc34bd2fbf5df75521051",
+      "bytes": 2896
+    },
+    {
+      "path": "artifacts/session-02/closure-b221037/published-remediation-acceptance.json",
+      "hash": "cfd174ff7ea493049bb8fa7b765e21fa17ca4ed29bffbc94778fd8cea34ee31d",
+      "bytes": 7393
+    },
+    {
+      "path": "artifacts/session-02/closure-b221037/recovery.json",
+      "hash": "75572c7ed78e52350216e5b96cf1ae6d2eddc1500476ee78e073e8283d071202",
+      "bytes": 1887
+    },
+    {
+      "path": "artifacts/session-02/closure-b221037/remote-audit.json",
+      "hash": "ea5fd425fdea68f8cbff2fb371c875c7bb36926b47f1fcfe80608d25ecf92868",
+      "bytes": 8895
+    },
+    {
+      "path": "artifacts/session-02/closure-b221037/verification.json",
+      "hash": "e10e9de25040fd450919eabf5a17eefd7873f61bcdf0a5fd896f7530e0d51c61",
+      "bytes": 1949
+    },
+    {
+      "path": "docs/roadmap/HANDOFF.md",
+      "hash": "950df4b50fc7ca16ee481e69ca81636d66e1c119364311af915d397e6eeb2a02",
+      "bytes": 8654
+    },
+    {
+      "path": "docs/roadmap/RISKS.md",
+      "hash": "75092df4b2dad8bc63c8938b7dcd1aeb022ad31fd360fbde3379618bcc1b6b5a",
+      "bytes": 5423
+    },
+    {
+      "path": "docs/roadmap/SESSION_02_CLOSURE.md",
+      "hash": "93fac953adcd54722bdb1b44811813a61ab4476e79fcf3c1ab6c7c50b21528ce",
+      "bytes": 6842
+    },
+    {
+      "path": "docs/roadmap/SESSION_02_REVIEW.md",
+      "hash": "a8451d7d071b188f12c623a2ad23b25ac02c2671d955b045c63a76a6e114fb1a",
+      "bytes": 16654
+    },
+    {
+      "path": "docs/roadmap/SESSION_02_SECURITY_REMEDIATION.md",
+      "hash": "74801b39aaef693ce1e0ceb9ed0ac34ead7658cf108b291bdc7c44c2edf5560d",
+      "bytes": 7723
+    },
+    {
+      "path": "docs/roadmap/SESSION_02_SPEC.md",
+      "hash": "f36d1fa8063f5ab5233ac3f90c93382813a680b63c7ffc27501deea0f9a60ffe",
+      "bytes": 9273
+    },
+    {
+      "path": "README.md",
+      "hash": "f08cf9c9b76a521ff2ef1dc40f82738b9307a2aa3858f1f0ba60bd376dc1e476",
+      "bytes": 5074
+    },
+    {
+      "path": "specs/002-platform/checklist.md",
+      "hash": "4b1c7a9a153773d87adc106ae52d5132fe2187abf8e27007c92e9389e464e986",
+      "bytes": 1210
+    }
+  ],
+  "self_excluded": "artifacts/session-02/closure-b221037/manifest.json",
+  "historical_manifests": "Preserved unchanged as snapshots; not current-tree attestations"
+}

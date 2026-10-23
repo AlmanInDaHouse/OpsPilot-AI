@@ -1,0 +1,75 @@
+[
+  {
+    "gate": "check-linux-final-2",
+    "exit_code": 0,
+    "raw_sha256": "fa59cc830f0908585304bac4bf6a0beb7a568cc1647fb8f18883e7de225fd092",
+    "command": [
+      "python",
+      "scripts/dev.py",
+      "check"
+    ],
+    "environment": "Dedicated POSIX snapshot in Linux test image, UID/GID 1000, writable XDG_CACHE_HOME; no Windows venv reuse"
+  },
+  {
+    "gate": "tests-linux-final",
+    "exit_code": 0,
+    "raw_sha256": "cdc2b6e4b9cb3abaf99a3921e558648ae1b0bf8cf118ef5125a3bf8aa8d63fb7",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "infra/compose.yaml",
+      "run",
+      "--rm",
+      "--no-deps",
+      "tests",
+      "/app/.venv/bin/python",
+      "-m",
+      "pytest",
+      "-o",
+      "cache_dir=/tmp/pytest-cache",
+      "--junitxml=/evidence/scanner-remediation/tests-linux.xml",
+      "-q"
+    ]
+  },
+  {
+    "gate": "fresh",
+    "exit_code": 0,
+    "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "command": [
+      "uv",
+      "run",
+      "--frozen",
+      "python",
+      "scripts/verify_fresh_postgres.py",
+      "--report",
+      "artifacts/session-02/scanner-remediation/fresh-postgres.json"
+    ]
+  },
+  {
+    "gate": "recovery",
+    "exit_code": 0,
+    "raw_sha256": "1365b755692e28f87269f10e74cad790cf0d2c3afe5cabcf0a978f6c883dbca8",
+    "command": [
+      "uv",
+      "run",
+      "--frozen",
+      "python",
+      "scripts/verify_recovery.py",
+      "--report",
+      "artifacts/session-02/scanner-remediation/recovery.json"
+    ]
+  },
+  {
+    "gate": "check-windows-first",
+    "exit_code": 1,
+    "raw_sha256": "1eb12ac2a31fee5c255c4faa6d92fa093b20df991fc88dda98670a4ddcbc1f87",
+    "failure": "Synthetic test sentinel named secret triggered secret-keyword heuristic; test variable renamed, no exception added"
+  },
+  {
+    "gate": "check-linux-final",
+    "exit_code": 1,
+    "raw_sha256": "1dc132b8029c8826e77dd0ca48d07e0193d685371f5df6adac835e5c24ce15f5",
+    "failure": "Validation container lacked writable XDG cache for pip-audit; corrected environment only, no product change"
+  }
+]

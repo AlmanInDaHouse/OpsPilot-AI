@@ -1,0 +1,62 @@
+{
+  "checked_at_utc": "2026-10-23T02:24:01.226417+00:00",
+  "verdict": "PASS",
+  "during_database_outage": {
+    "/health/live": 200,
+    "/health/ready": 503,
+    "/v1/me": 503
+  },
+  "before": {
+    "streams": [
+      {
+        "stream_id": "01ef938c-83ef-49f7-b989-00bf54620a72",
+        "seq": 2,
+        "hash": "e8c46ac50f15aa46ac59e7bbab9d78b33a68e72645836e069c75261eb1dfda00"
+      },
+      {
+        "stream_id": "07ba3fdf-cb14-4bd2-8a1b-e1b703e76690",
+        "seq": 2,
+        "hash": "a407125c0e3533f8fd8e132c3af1eaf409360793bf601063e20088dc4ef2f4f0"
+      },
+      {
+        "stream_id": "5ee51ae6-edbd-43a8-851e-8952b414f71c",
+        "seq": 2,
+        "hash": "024be93fa784021d5f4ac1ad62da4ac453668e58149ec46c3199076790be1c0e"
+      },
+      {
+        "stream_id": "92772985-76fa-490a-80a6-3d18eeca4643",
+        "seq": 2,
+        "hash": "ee2f769071b3f3007dc9a4e0227dc88021d72303c371fd395e005ce3b79a30ba"
+      }
+    ],
+    "events": 8
+  },
+  "after": {
+    "streams": [
+      {
+        "stream_id": "01ef938c-83ef-49f7-b989-00bf54620a72",
+        "seq": 2,
+        "hash": "e8c46ac50f15aa46ac59e7bbab9d78b33a68e72645836e069c75261eb1dfda00"
+      },
+      {
+        "stream_id": "07ba3fdf-cb14-4bd2-8a1b-e1b703e76690",
+        "seq": 2,
+        "hash": "a407125c0e3533f8fd8e132c3af1eaf409360793bf601063e20088dc4ef2f4f0"
+      },
+      {
+        "stream_id": "5ee51ae6-edbd-43a8-851e-8952b414f71c",
+        "seq": 2,
+        "hash": "024be93fa784021d5f4ac1ad62da4ac453668e58149ec46c3199076790be1c0e"
+      },
+      {
+        "stream_id": "92772985-76fa-490a-80a6-3d18eeca4643",
+        "seq": 2,
+        "hash": "ee2f769071b3f3007dc9a4e0227dc88021d72303c371fd395e005ce3b79a30ba"
+      }
+    ],
+    "events": 8
+  },
+  "idp_pkce_after_restart": "PASS",
+  "principal_persisted": true,
+  "limitation": "Restart persistence only; not backup/restore or S03 durable workflows"
+}

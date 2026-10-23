@@ -1,0 +1,27 @@
+{
+  "recorded_at_utc": "2026-10-23T03:25:26.160666+00:00",
+  "command_exit_code": 0,
+  "raw_sha256": "35b8b30ca8f308b08e0866ca95464d1a15f8d8c8413550f1814e978766255e45",
+  "volume_removed": false,
+  "containers": [
+    {
+      "name": "opspilot-s02-api-1",
+      "running": false,
+      "exit_code": 137,
+      "oom_killed": false
+    },
+    {
+      "name": "opspilot-s02-keycloak-1",
+      "running": false,
+      "exit_code": 137,
+      "oom_killed": false
+    },
+    {
+      "name": "opspilot-s02-postgres-1",
+      "running": false,
+      "exit_code": 0,
+      "oom_killed": false
+    }
+  ],
+  "limit": "Stop command succeeded; API/Keycloak exit 137, not claimed graceful; PostgreSQL exit 0. No runtime change in scanner scope."
+}

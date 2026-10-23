@@ -1,8 +1,12 @@
 # Sesión 02 — revisión de ingeniería y evidencias
 
+Actualización: [remediación del scanner](SESSION_02_SCANNER_REMEDIATION.md).
+Resultados anteriores conservados; nueva CI del commit corregido pendiente, NO-GO S03.
+
 Actualización posterior: [remediación de seguridad](SESSION_02_SECURITY_REMEDIATION.md)
 y artifacts/session-02/remediation describen la receta actual y los nuevos gates.
-Continúa **NO-GO S03 por CI remota pendiente de la revisión corregida**. Lo siguiente
+La [auditoría publicada b221037](SESSION_02_CLOSURE.md) mantiene **NO-GO S03**:
+CI remota FAIL por tres scans BLOCKED. Lo siguiente
 conserva el cierre inicial, anterior a la remediación, incluidos sus fallos y límites.
 
 Fecha de sesión: 2026-10-23, Europe/Madrid. Evidencias con timestamps UTC (la noche

@@ -1,0 +1,160 @@
+{
+  "scanner": "ghcr.io/aquasecurity/trivy:0.76.1@sha256:790fd66d1697395d8693d1acaa1ea702406a20f109b6fc7bac8db623eca6c06c",
+  "host_uid": 1000,
+  "host_gid": 1000,
+  "user": "1000:1000",
+  "scope": "Real pinned scanner I/O probes, not vulnerability scans; Windows denies via read-only mounts; Linux additionally tests POSIX modes",
+  "cases": [
+    {
+      "case": "valid",
+      "expected": null,
+      "reason": null,
+      "facts": {
+        "exit_code": 0,
+        "uid": 1000,
+        "gid": 1000,
+        "input_stat": "1000:1000:600",
+        "output_stat": "1000:1000:700",
+        "cache_stat": "1000:1000:700",
+        "input_readable": true,
+        "output_writable": true,
+        "cache_writable": true,
+        "input_readonly": true,
+        "lab_inaccessible": true
+      },
+      "verdict": "PASS"
+    },
+    {
+      "case": "output",
+      "expected": "PERMISSION_DENIED",
+      "reason": "PERMISSION_DENIED",
+      "facts": {
+        "exit_code": 0,
+        "uid": 1000,
+        "gid": 1000,
+        "input_stat": "1000:1000:600",
+        "output_stat": "1000:1000:700",
+        "cache_stat": "1000:1000:700",
+        "input_readable": true,
+        "output_writable": false,
+        "cache_writable": true,
+        "input_readonly": true,
+        "lab_inaccessible": true
+      },
+      "verdict": "PASS"
+    },
+    {
+      "case": "cache",
+      "expected": "CACHE_UNWRITABLE",
+      "reason": "CACHE_UNWRITABLE",
+      "facts": {
+        "exit_code": 0,
+        "uid": 1000,
+        "gid": 1000,
+        "input_stat": "1000:1000:600",
+        "output_stat": "1000:1000:700",
+        "cache_stat": "1000:1000:700",
+        "input_readable": true,
+        "output_writable": true,
+        "cache_writable": false,
+        "input_readonly": true,
+        "lab_inaccessible": true
+      },
+      "verdict": "PASS"
+    },
+    {
+      "case": "input",
+      "expected": "INPUT_UNREADABLE",
+      "reason": "INPUT_UNREADABLE",
+      "facts": {
+        "exit_code": 0,
+        "uid": 1000,
+        "gid": 1000,
+        "output_stat": "1000:1000:700",
+        "cache_stat": "1000:1000:700",
+        "input_readable": false,
+        "output_writable": true,
+        "cache_writable": true,
+        "input_readonly": true,
+        "lab_inaccessible": true
+      },
+      "verdict": "PASS"
+    },
+    {
+      "case": "posix-output",
+      "expected": "PERMISSION_DENIED",
+      "reason": "PERMISSION_DENIED",
+      "facts": {
+        "exit_code": 0,
+        "uid": 1000,
+        "gid": 1000,
+        "input_stat": "1000:1000:600",
+        "output_stat": "1000:1000:500",
+        "cache_stat": "1000:1000:700",
+        "input_readable": true,
+        "output_writable": false,
+        "cache_writable": true,
+        "input_readonly": true,
+        "lab_inaccessible": true
+      },
+      "verdict": "PASS"
+    },
+    {
+      "case": "posix-cache",
+      "expected": "CACHE_UNWRITABLE",
+      "reason": "CACHE_UNWRITABLE",
+      "facts": {
+        "exit_code": 0,
+        "uid": 1000,
+        "gid": 1000,
+        "input_stat": "1000:1000:600",
+        "output_stat": "1000:1000:700",
+        "cache_stat": "1000:1000:500",
+        "input_readable": true,
+        "output_writable": true,
+        "cache_writable": false,
+        "input_readonly": true,
+        "lab_inaccessible": true
+      },
+      "verdict": "PASS"
+    },
+    {
+      "case": "posix-input",
+      "expected": "INPUT_UNREADABLE",
+      "reason": "INPUT_UNREADABLE",
+      "facts": {
+        "exit_code": 0,
+        "uid": 1000,
+        "gid": 1000,
+        "output_stat": "1000:1000:700",
+        "cache_stat": "1000:1000:700",
+        "input_readable": false,
+        "output_writable": true,
+        "cache_writable": true,
+        "input_readonly": true,
+        "lab_inaccessible": true
+      },
+      "verdict": "PASS"
+    },
+    {
+      "case": "original-uid-mismatch",
+      "expected": "PERMISSION_DENIED",
+      "reason": "PERMISSION_DENIED",
+      "facts": {
+        "exit_code": 0,
+        "uid": 10001,
+        "gid": 10001,
+        "input_stat": "1000:1000:644",
+        "output_stat": "1000:1000:755",
+        "cache_stat": "1000:1000:755",
+        "input_readable": true,
+        "output_writable": false,
+        "cache_writable": false,
+        "input_readonly": true,
+        "lab_inaccessible": true
+      },
+      "verdict": "PASS"
+    }
+  ],
+  "verdict": "PASS"
+}
