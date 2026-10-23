@@ -1,6 +1,7 @@
 # Contratos y versionado
 
-Estado: PROPUESTO, no hay endpoints desplegados. Contrato máquina S02:
+Estado: endpoints S02 implementados y probados localmente; sin despliegue externo.
+Dominio futuro sigue PROPUESTO. Contrato máquina S02:
 [platform.openapi.json](../../contracts/platform.openapi.json). Dominio futuro abajo.
 Schemas JSON son contratos objetivo; comprobar JSON/refs no equivale a validación
 de instancias ni conformidad OpenAPI completa (gate con librería real S02).

@@ -1,0 +1,13 @@
+{
+  "image": "opspilot-ai:0.2.0",
+  "scanner": "ghcr.io/aquasecurity/trivy:0.76.1@sha256:790fd66d1697395d8693d1acaa1ea702406a20f109b6fc7bac8db623eca6c06c",
+  "exit_code": 0,
+  "checked_at_utc": "2026-10-22T23:55:21.735304+00:00",
+  "vulnerabilities": [],
+  "raw_sha256": "2fb59b1b5d2134348718582faedff294a8ca70ce6c610185d33e9c9f1c54a9c7",
+  "raw_report": "artifacts/local/image-scans/api.raw.json",
+  "image_id": "sha256:aa11fa44ee9c001eefb5e11bb01d3511e301e0f02098bd30d66b32d4eaad9e8e",
+  "verdict": "PASS",
+  "docker_image_id": "sha256:eae81cc15695ca7d177a3295795deb36ebba7eb0690408e9ec55adeee1a1a66a",
+  "archive_config_matches": true
+}

@@ -1,8 +1,10 @@
 # OpsPilot AI
 
-Enterprise Agentic AI Operations Platform. Base de arquitectura de la sesión **01/08**,
-22 de octubre de 2026. **No hay API, agente, frontend ni infraestructura del producto
-implementados.** El código presente pertenece exclusivamente al engineering harness.
+Enterprise Agentic AI Operations Platform. Fundación backend de la sesión **02/08**,
+23 de octubre de 2026. API FastAPI, OIDC, RBAC local, PostgreSQL 18, migraciones y
+auditoría transaccional implementados. Resultados y GO/NO-GO en
+[revisión S02](docs/roadmap/SESSION_02_REVIEW.md). Tickets/workflows se reservan a S03;
+no hay IA, VPN ni frontend implementados.
 
 OpsPilot investigará incidencias IT con documentación autorizada y evidencias,
 propondrá acciones y ejecutará un catálogo cerrado bajo políticas y supervisión.
@@ -14,10 +16,10 @@ Una ejecución técnica correcta no demuestra la resolución del ticket.
 | Elemento | Estado real |
 |---|---|
 | Checkouts CopilotDrive vecinos | EXISTENTE, ajeno a OpsPilot; sin cambios |
-| Arquitectura, contratos y roadmap | PROPUESTO, documentado para revisión |
-| Harness documental y CI de sesión 01 | IMPLEMENTADO; resultados en la revisión |
-| Producto y controles de runtime | PROPUESTO, no desplegado ni validado |
-| IdP, proveedor LLM y VPN de laboratorio | Selección provisional; gates antes de integración |
+| Arquitectura, contratos y roadmap | Diseño versionado; S02 implementada, hitos posteriores propuestos |
+| Harness y CI | Harness extendido y probado localmente; workflows sin ejecutar en GitHub |
+| API/identidad/audit | IMPLEMENTADO y probado con PG/Keycloak reales; ver gates S02 |
+| LLM y VPN | PROPUESTO; fuera de S02, sin conexiones ni efectos IT |
 
 Empieza por [alcance](docs/product/SCOPE.md), [arquitectura](docs/architecture/ARCHITECTURE.md),
 [roadmap](docs/roadmap/ROADMAP_8_SESSIONS.md) y [revisión con resultados](docs/roadmap/SESSION_01_REVIEW.md).
@@ -26,23 +28,34 @@ Las [fuentes](docs/engineering/SOURCES.md) separan investigación externa de evi
 
 ## Uso reproducible actual
 
-Requiere Python >=3.11 (probado aquí con 3.13.14) y Git. Sin dependencias Python externas.
-Desde esta carpeta, tanto PowerShell como WSL2/Linux:
+Requiere Python 3.13.14, Git, uv 0.11.13 y Docker Compose/Engine Linux para integración.
+Desde esta carpeta en PowerShell (Linux en checkout/venv separados):
 
 ```text
 python scripts/dev.py doctor
+python scripts/dev.py install
+python scripts/dev.py infra
+python scripts/dev.py up
 python scripts/dev.py check
 python scripts/dev.py test
+python scripts/dev.py stop
 ```
 
-En WSL/Linux usar `python3` si `python` no está disponible; el mismo harness se ha
-ejecutado aquí con Python 3.12.3 en Ubuntu/WSL2 y Python 3.13.14 en Windows.
+En WSL/Linux usar `python3` si hace falta; el producto se ejecuta con `uv`/Python 3.13.
+No compartir `.venv` entre Windows y WSL. Docker Desktop usa WSL2; la suite de
+integración también se ejecuta dentro de una imagen Linux de tests sin root.
 
-`doctor` es pasivo. `check` verifica documentación, trazabilidad, contratos y coherencia
-del modelo de estados; no acredita comportamiento distribuido. `test` ejecuta pruebas
-negativas del validador. Los comandos `install`, `infra`, `migrate`, `up`, `logs`, `eval`
-están reservados: hoy fallan explícitamente con código 2 y enlazan su hito, sin simular éxito.
-No iniciar Docker ni desplegar nada durante sesión 01.
+`doctor` es pasivo. `check` conserva el checker documental y añade lint, Markdown,
+tipos, arquitectura y scans. `test` requiere PG/IdP reales; ausencia es fallo, no skip.
+`test --suite local` sirve para trabajo sin infraestructura y anuncia su alcance.
+`infra` genera secretos aleatorios ignorados, construye PG sin root, migra y provisiona
+Keycloak local. `up` construye/arranca la API; `stop` conserva volúmenes. Solo `eval`
+sigue con código 2 NOT_IMPLEMENTED hasta S04. [Runbook](docs/engineering/PLATFORM_RUNBOOK.md).
+
+Endpoints: `GET /health/live`, `GET /health/ready`, `GET /v1/me`, `GET /v1/audit-events`.
+API loopback 59000; IdP 59080; PG 59432. API usa rol restringido y no migra al arrancar.
+El contrato [OpenAPI](contracts/platform.openapi.json) es independiente de los DTO y
+se verifica con HTTP. Compose es laboratorio sintético: no es un despliegue empresarial.
 
 ## Organización
 
@@ -56,9 +69,12 @@ docs/decisions/           decisiones ADR y alternativas
 docs/roadmap/             ocho hitos, revisión, siguiente especificación y handoff
 specs/                    plantilla, trazabilidad y paquete de sesión 02
 contracts/                OpenAPI, eventos, propuestas y estados objetivo
-scripts/                  comprobaciones del harness, sin lógica de negocio
+src/opspilot/             shared, identity, audit, adapters y entrypoints
+migrations/               Alembic + SQL de tablas, permisos y appender
+infra/                    Compose, imagen PG endurecida y realm sin secretos
+scripts/                  harness, provisión de lab y verificaciones operativas
 tests/harness/            pruebas del harness
-.github/workflows/        CI de sesión 01 (no ejecutada remotamente)
+.github/workflows/        harness preservado y gates S02 (sin ejecución remota)
 ```
 
 Este repositorio se creó dentro de un workspace que no era Git, sin importar ni

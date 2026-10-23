@@ -1,0 +1,13 @@
+{
+  "recorded_at_utc": "2026-10-23T00:46:11.449602+00:00",
+  "command": "python scripts/dev.py check",
+  "exit_code": 0,
+  "verdict": "PASS",
+  "raw_log": "artifacts/local/verification/closure-check.log",
+  "raw_sha256": "f9c87268b1ffd2d653f100548d88631dcbfecf6559eb0b79e8becee5d8f4a761",
+  "additional_check": {
+    "command": "git diff --check",
+    "exit_code": 0
+  },
+  "scope": "Post-shutdown documentary, frozen dependencies, formatting, lint, Markdown, typing, architecture, Bandit, source/history secrets and pip-audit. Does not replace real integration results or the FAIL image gate."
+}

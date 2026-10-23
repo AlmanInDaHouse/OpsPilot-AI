@@ -21,6 +21,23 @@ autorizan cambios externos ni reejecución de operaciones ambiguas.
 | R13 / media | Mermaid no renderizado y checks no prueban semántica | Revisión humana; render toolchain fijada S02; autor antes publicar diagramas |
 | R14 / alta | Worker antiguo puede ejecutar después de revoke/cancel tras envío | Revalidar bajo locks antes dispatch; efecto ya enviado se reconcilia, no se promete revocación física; autor S05 |
 
+## Actualización S02 — 2026-10-23
+
+R03 resuelto para el laboratorio: Docker responde, PG18/Keycloak reales y suites
+Windows/Linux ejecutadas. R04 resuelto en lab con PKCE, provisión y grants locales;
+IdP corporativo continúa pendiente. R05: paridad SQL/Python, permisos y tampering
+probados; administrador DB y truncado total requieren ancla externa S08.
+
+R15 / alta: CVE en imágenes/dependencias de runtime. Scanner de imágenes fijado,
+sin excepción para altos/críticos; imagen PG derivada sin gosu vulnerable y sin root.
+Gate supply FAIL: Keycloak tiene CVE-2026-114406 crítico y CVE-2026-91415 alto;
+PG y API finales pasan. No se ha validado una imagen de IdP reparada. Dueño autor T02-07;
+ver SESSION_02_REVIEW para veredicto efectivo. R16 / media: host compartido con
+memoria limitada; timeout de escritura corregido a 5 s manteniendo health 1 s y
+prueba de 20 appends. No es un benchmark de capacidad ni un SLO de producción.
+R13 sigue pendiente antes de publicar diagramas; no bloquea el runtime S02 y no
+se afirma render visual de Mermaid. Workflow GitHub y auditoría externa no ejecutados.
+
 Decisiones de aislamiento/entrega/autorización están fijadas en ADR. IdP/proveedor/lab
 son elecciones provisionales con gates explícitos; no se necesita inventar requisitos
 de cliente para completar S01. Validación de uso empresarial queda fuera de esta entrega.

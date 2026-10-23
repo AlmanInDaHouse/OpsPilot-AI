@@ -1,44 +1,95 @@
 """Bounded documentary fitness checks, not runtime or full schema validation."""
 
 import argparse
-from datetime import datetime, timezone
 import hashlib
 import json
-from pathlib import Path
 import re
 import sys
+from datetime import UTC, datetime
+from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 REQUIRED = (
-    "AGENTS.md", "README.md", "docs/product/PRD.md", "docs/product/SCOPE.md",
-    "docs/product/NFR_SLO.md", "docs/architecture/ARCHITECTURE.md",
-    "docs/architecture/C4.md", "docs/architecture/DATA_MODEL.md",
-    "docs/architecture/WORKFLOW_ENGINE.md", "docs/architecture/AGENT_RUNTIME.md",
-    "docs/architecture/API_CONTRACTS.md", "docs/security/THREAT_MODEL.md",
-    "docs/security/CONTROL_MATRIX.md", "docs/engineering/CONSTITUTION.md",
-    "docs/engineering/HARNESS.md", "docs/engineering/SDD.md",
-    "docs/engineering/QUALITY_GATES.md", "docs/engineering/TEST_STRATEGY.md",
-    "docs/engineering/SOURCES.md", "docs/decisions/README.md",
-    "docs/roadmap/ROADMAP_8_SESSIONS.md", "docs/roadmap/SESSION_01_REVIEW.md",
-    "docs/roadmap/SESSION_02_SPEC.md", "docs/roadmap/HANDOFF.md", "docs/roadmap/RISKS.md",
-    "specs/TEMPLATE.md", "specs/002-platform/spec.md", "specs/002-platform/plan.md",
-    "specs/002-platform/tasks.md", "specs/002-platform/checklist.md",
-    "specs/traceability.json", "contracts/workflow-v1.json",
-    "contracts/platform.openapi.json", "contracts/event-v1.schema.json",
-    "contracts/proposal-v1.schema.json", ".github/workflows/harness.yml",
+    "AGENTS.md",
+    "README.md",
+    "docs/product/PRD.md",
+    "docs/product/SCOPE.md",
+    "docs/product/NFR_SLO.md",
+    "docs/architecture/ARCHITECTURE.md",
+    "docs/architecture/C4.md",
+    "docs/architecture/DATA_MODEL.md",
+    "docs/architecture/WORKFLOW_ENGINE.md",
+    "docs/architecture/AGENT_RUNTIME.md",
+    "docs/architecture/API_CONTRACTS.md",
+    "docs/security/THREAT_MODEL.md",
+    "docs/security/CONTROL_MATRIX.md",
+    "docs/engineering/CONSTITUTION.md",
+    "docs/engineering/HARNESS.md",
+    "docs/engineering/SDD.md",
+    "docs/engineering/QUALITY_GATES.md",
+    "docs/engineering/TEST_STRATEGY.md",
+    "docs/engineering/SOURCES.md",
+    "docs/decisions/README.md",
+    "docs/roadmap/ROADMAP_8_SESSIONS.md",
+    "docs/roadmap/SESSION_01_REVIEW.md",
+    "docs/roadmap/SESSION_02_SPEC.md",
+    "docs/roadmap/HANDOFF.md",
+    "docs/roadmap/RISKS.md",
+    "specs/TEMPLATE.md",
+    "specs/002-platform/spec.md",
+    "specs/002-platform/plan.md",
+    "specs/002-platform/tasks.md",
+    "specs/002-platform/checklist.md",
+    "specs/traceability.json",
+    "contracts/workflow-v1.json",
+    "contracts/platform.openapi.json",
+    "contracts/event-v1.schema.json",
+    "contracts/proposal-v1.schema.json",
+    ".github/workflows/harness.yml",
 )
 ROADMAP_FIELDS = (
-    "Objetivo", "Alcance", "Especificaciones", "Dependencias", "Componentes", "Cambios",
-    "Tests", "Security gates", "Quality gates", "Evidencias", "Riesgos", "GO / NO-GO",
+    "Objetivo",
+    "Alcance",
+    "Especificaciones",
+    "Dependencias",
+    "Componentes",
+    "Cambios",
+    "Tests",
+    "Security gates",
+    "Quality gates",
+    "Evidencias",
+    "Riesgos",
+    "GO / NO-GO",
 )
-IGNORED = {".git", ".venv", "__pycache__", "node_modules", "artifacts"}
+IGNORED = {
+    ".git",
+    ".venv",
+    "__pycache__",
+    "node_modules",
+    "artifacts",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".mypy_cache",
+    "htmlcov",
+    ".env",
+    ".coverage",
+    "dist",
+    "build",
+}
 
 
 def files(root):
-    return sorted((p for p in root.rglob("*") if p.is_file()
-                   and not any(part in IGNORED for part in p.relative_to(root).parts)),
-                  key=lambda p: p.relative_to(root).as_posix())
+    return sorted(
+        (
+            p
+            for p in root.rglob("*")
+            if p.is_file()
+            and not p.name.startswith(".coverage")
+            and not any(part in IGNORED for part in p.relative_to(root).parts)
+        ),
+        key=lambda p: p.relative_to(root).as_posix(),
+    )
 
 
 def local_path(root, base, target):
@@ -78,7 +129,9 @@ def check_refs(root, path, data):
                 split = urlsplit(ref)
                 if not split.scheme:
                     try:
-                        source = path if not split.path else local_path(root, path.parent, split.path)
+                        source = (
+                            path if not split.path else local_path(root, path.parent, split.path)
+                        )
                         obj = json.loads(source.read_text(encoding="utf-8"))
                         if split.fragment:
                             if not split.fragment.startswith("/"):
@@ -123,8 +176,9 @@ def check_workflow(data, diagram):
         errors.append("workflow: unreachable states")
     can_finish = set(terminals)
     while True:
-        expanded = can_finish | {source for source, targets in transitions.items()
-                                 if set(targets) & can_finish}
+        expanded = can_finish | {
+            source for source, targets in transitions.items() if set(targets) & can_finish
+        }
         if expanded == can_finish:
             break
         can_finish = expanded
@@ -151,7 +205,7 @@ def check_roadmap(content):
     if parts[1::2] != [f"{number:02d}" for number in range(1, 9)]:
         return ["roadmap: expected exactly sessions 01..08"]
     errors = []
-    for number, body in zip(parts[1::2], parts[2::2]):
+    for number, body in zip(parts[1::2], parts[2::2], strict=True):
         for index, field in enumerate(ROADMAP_FIELDS, 1):
             if not re.search(rf"^{index}\. {re.escape(field)}:\s*\S", body, re.M):
                 errors.append(f"roadmap {number}: missing {field}")
@@ -201,9 +255,14 @@ def check_openapi(data):
                 errors.append(f"OpenAPI: unexpected method {method}")
                 continue
             operation_ids.append(operation.get("operationId"))
-            if path.startswith("/v1/") and operation.get("security", data.get("security")) != [{"bearerAuth": []}]:
+            if path.startswith("/v1/") and operation.get("security", data.get("security")) != [
+                {"bearerAuth": []}
+            ]:
                 errors.append(f"OpenAPI: unauthenticated protected route {path}")
-            if path.startswith("/v1/") and not {"401", "403", "503"} <= operation.get("responses", {}).keys():
+            if (
+                path.startswith("/v1/")
+                and not {"401", "403", "503"} <= operation.get("responses", {}).keys()
+            ):
                 errors.append(f"OpenAPI: missing protected errors {path}")
     if None in operation_ids or len(set(operation_ids)) != len(operation_ids):
         errors.append("OpenAPI: missing/duplicate operationId")
@@ -235,24 +294,38 @@ def validate(root):
             except (ValueError, OSError) as exc:
                 errors.append(f"JSON {path.name}: {exc}")
     try:
-        errors.extend(check_workflow(parsed["contracts/workflow-v1.json"],
-                                     (root / "docs/architecture/C4.md").read_text(encoding="utf-8")))
-        errors.extend(check_roadmap((root / "docs/roadmap/ROADMAP_8_SESSIONS.md").read_text(encoding="utf-8")))
+        errors.extend(
+            check_workflow(
+                parsed["contracts/workflow-v1.json"],
+                (root / "docs/architecture/C4.md").read_text(encoding="utf-8"),
+            )
+        )
+        errors.extend(
+            check_roadmap((root / "docs/roadmap/ROADMAP_8_SESSIONS.md").read_text(encoding="utf-8"))
+        )
         rows = parsed["specs/traceability.json"]
         errors.extend(check_traceability(root, rows))
-        product_ids = set(re.findall(r"\| (REQ-[A-Z]+-\d{2}) \|", (root / "docs/product/PRD.md").read_text(encoding="utf-8")))
+        product_ids = set(
+            re.findall(
+                r"\| (REQ-[A-Z]+-\d{2}) \|",
+                (root / "docs/product/PRD.md").read_text(encoding="utf-8"),
+            )
+        )
         if product_ids != {row["requirement"] for row in rows}:
             errors.append("trace: PRD/manifest requirement set differs")
         errors.extend(check_openapi(parsed["contracts/platform.openapi.json"]))
-        transition = parsed["contracts/event-v1.schema.json"]["properties"]["payload"]["properties"]["transition"]["properties"]
+        transition = parsed["contracts/event-v1.schema.json"]["properties"]["payload"][
+            "properties"
+        ]["transition"]["properties"]
         for endpoint in ("from", "to"):
-            if set(transition[endpoint]["enum"]) != set(parsed["contracts/workflow-v1.json"]["states"]):
+            if set(transition[endpoint]["enum"]) != set(
+                parsed["contracts/workflow-v1.json"]["states"]
+            ):
                 errors.append("events: transition state enum differs from workflow")
     except (KeyError, TypeError, OSError, ValueError) as exc:
         errors.append(f"structured input missing/invalid: {exc}")
-    # This gate must be deliberately retired when session 02 is authorized.
-    if (root / "src").exists() or (root / "infra").exists():
-        errors.append("scope: session 01 must not implement product src/infra")
+    # S02 authorized: replace the S01 src/infra guard with executable architecture
+    # tests in scripts/dev.py check; preserve this documentary checker and its negatives.
     return errors, inventory
 
 
@@ -270,14 +343,28 @@ def main():
             digest.update(relative.encode("utf-8") + b"\0" + path.read_bytes() + b"\0")
     result = {
         "verdict": "FAIL" if errors else "PASS",
-        "checked_at_utc": datetime.now(timezone.utc).isoformat(),
+        "checked_at_utc": datetime.now(UTC).isoformat(),
         "python": sys.version.split()[0],
         "files": len(inventory),
         "input_sha256": digest.hexdigest(),
-        "digest_excludes": [".git", "artifacts", "__pycache__", ".venv", "node_modules", *sorted(excluded)],
-        "checks": ["required documents", "whitespace and final newline", "Markdown links/fences", "JSON local refs",
-                   "workflow graph and Mermaid parity", "eight sessions/twelve fields",
-                   "traceability and PRD parity", "OpenAPI auth/scope", "session 01 scope"],
+        "digest_excludes": [
+            ".git",
+            "artifacts",
+            "__pycache__",
+            ".venv",
+            "node_modules",
+            *sorted(excluded),
+        ],
+        "checks": [
+            "required documents",
+            "whitespace and final newline",
+            "Markdown links/fences",
+            "JSON local refs",
+            "workflow graph and Mermaid parity",
+            "eight sessions/twelve fields",
+            "traceability and PRD parity",
+            "OpenAPI S02 auth/scope",
+        ],
         "errors": errors,
         "limitations": "Not runtime, full OpenAPI/JSON Schema, secret scanning or Mermaid rendering validation.",
     }

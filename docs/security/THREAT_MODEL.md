@@ -1,6 +1,7 @@
 # Threat model por componentes y límites
 
-Estado: PROPUESTO, controles NO implementados. Activos: secretos, credenciales de lab,
+Estado: amenazas de diseño; CT-01/02 y base CT-10 implementados en S02 y probados
+según su revisión. Otros controles siguen propuestos. Activos: secretos, credenciales de lab,
 documentos, integridad de acciones/aprobaciones, identidad, disponibilidad y audit.
 Adversarios: usuario autenticado malicioso, documento/tool comprometido, proveedor,
 dependencia maliciosa y administrador con privilegios DB/host. Límites en [C4](../architecture/C4.md).

@@ -1,6 +1,8 @@
 # Engineering Harness
 
-Estado: IMPLEMENTADO únicamente en comprobaciones documentales de sesión 01.
+Estado: checker documental de S01 preservado y extendido en S02 con gates reales.
+Los comandos de la tabla histórica de S01 se activaron según
+[runbook S02](PLATFORM_RUNBOOK.md), que es la referencia operacional actual.
 No confundir con [Agent Runtime Harness](../architecture/AGENT_RUNTIME.md).
 
 ## Ciclo de trabajo de Codex

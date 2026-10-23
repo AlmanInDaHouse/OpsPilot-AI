@@ -1,0 +1,13 @@
+{
+  "checked_objects": 59,
+  "platform": "Windows",
+  "unexpected_allow_rules": 0,
+  "checked_at_utc": "2026-10-23T00:22:58.1393902Z",
+  "permitted_categories": [
+    "current owner",
+    "SYSTEM",
+    "Administrators"
+  ],
+  "inheritance_disabled": true,
+  "verdict": "PASS"
+}

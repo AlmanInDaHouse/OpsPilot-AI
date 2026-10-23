@@ -1,6 +1,8 @@
 # Arquitectura objetivo
 
-Estado: PROPUESTO. Los scripts del harness son el único código implementado.
+Estado: arquitectura objetivo versionada. S02 implementa shared/identity/audit,
+adapters PG/OIDC y API; hitos posteriores siguen PROPUESTOS. Evidencia y límites
+en [revisión S02](../roadmap/SESSION_02_REVIEW.md); no hay validación empresarial.
 Decisiones: [ADR](../decisions/README.md). Requisitos: [PRD](../product/PRD.md).
 
 ## Selección crítica del stack

@@ -1,0 +1,246 @@
+{
+  "image": "upstream postgres:18.6-alpine",
+  "scanner": "ghcr.io/aquasecurity/trivy:0.76.1@sha256:790fd66d1697395d8693d1acaa1ea702406a20f109b6fc7bac8db623eca6c06c",
+  "exit_code": 1,
+  "checked_at_utc": "2026-10-22T23:20:26.426487+00:00",
+  "vulnerabilities": [
+    {
+      "VulnerabilityID": "CVE-2025-68121",
+      "PkgName": "stdlib",
+      "InstalledVersion": "v1.24.6",
+      "FixedVersion": "1.24.13, 1.25.7, 1.26.0-rc.3",
+      "Severity": "CRITICAL",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-68121",
+      "Status": "fixed"
+    },
+    {
+      "VulnerabilityID": "CVE-2025-61726",
+      "PkgName": "stdlib",
+      "InstalledVersion": "v1.24.6",
+      "FixedVersion": "1.24.12, 1.25.6",
+      "Severity": "HIGH",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-61726",
+      "Status": "fixed"
+    },
+    {
+      "VulnerabilityID": "CVE-2025-61729",
+      "PkgName": "stdlib",
+      "InstalledVersion": "v1.24.6",
+      "FixedVersion": "1.24.11, 1.25.5",
+      "Severity": "HIGH",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-61729",
+      "Status": "fixed"
+    },
+    {
+      "VulnerabilityID": "CVE-2026-111943",
+      "PkgName": "stdlib",
+      "InstalledVersion": "v1.24.6",
+      "FixedVersion": "1.26.10, 1.27.3",
+      "Severity": "HIGH",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-111943",
+      "Status": "fixed"
+    },
+    {
+      "VulnerabilityID": "CVE-2026-25679",
+      "PkgName": "stdlib",
+      "InstalledVersion": "v1.24.6",
+      "FixedVersion": "1.25.8, 1.26.1",
+      "Severity": "HIGH",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-25679",
+      "Status": "fixed"
+    },
+    {
+      "VulnerabilityID": "CVE-2026-27145",
+      "PkgName": "stdlib",
+      "InstalledVersion": "v1.24.6",
+      "FixedVersion": "1.25.11, 1.26.4",
+      "Severity": "HIGH",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-27145",
+      "Status": "fixed"
+    },
+    {
+      "VulnerabilityID": "CVE-2026-32280",
+      "PkgName": "stdlib",
+      "InstalledVersion": "v1.24.6",
+      "FixedVersion": "1.25.9, 1.26.2",
+      "Severity": "HIGH",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-32280",
+      "Status": "fixed"
+    },
+    {
+      "VulnerabilityID": "CVE-2026-32281",
+      "PkgName": "stdlib",
+      "InstalledVersion": "v1.24.6",
+      "FixedVersion": "1.25.9, 1.26.2",
+      "Severity": "HIGH",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-32281",
+      "Status": "fixed"
+    },
+    {
+      "VulnerabilityID": "CVE-2026-32283",
+      "PkgName": "stdlib",
+      "InstalledVersion": "v1.24.6",
+      "FixedVersion": "1.25.9, 1.26.2",
+      "Severity": "HIGH",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-32283",
+      "Status": "fixed"
+    },
+    {
+      "VulnerabilityID": "CVE-2026-33811",
+      "PkgName": "stdlib",
+      "InstalledVersion": "v1.24.6",
+      "FixedVersion": "1.25.10, 1.26.3",
+      "Severity": "HIGH",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-33811",
+      "Status": "fixed"
+    },
+    {
+      "VulnerabilityID": "CVE-2026-33814",
+      "PkgName": "stdlib",
+      "InstalledVersion": "v1.24.6",
+      "FixedVersion": "1.25.10, 1.26.3",
+      "Severity": "HIGH",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-33814",
+      "Status": "fixed"
+    },
+    {
+      "VulnerabilityID": "CVE-2026-33818",
+      "PkgName": "stdlib",
+      "InstalledVersion": "v1.24.6",
+      "FixedVersion": "1.25.13, 1.26.6, 1.27.0-rc.3",
+      "Severity": "HIGH",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-33818",
+      "Status": "fixed"
+    },
+    {
+      "VulnerabilityID": "CVE-2026-39820",
+      "PkgName": "stdlib",
+      "InstalledVersion": "v1.24.6",
+      "FixedVersion": "1.25.10, 1.26.3",
+      "Severity": "HIGH",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-39820",
+      "Status": "fixed"
+    },
+    {
+      "VulnerabilityID": "CVE-2026-39821",
+      "PkgName": "stdlib",
+      "InstalledVersion": "v1.24.6",
+      "FixedVersion": "1.25.13, 1.26.6, 1.27.0-rc.3",
+      "Severity": "HIGH",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-39821",
+      "Status": "fixed"
+    },
+    {
+      "VulnerabilityID": "CVE-2026-39822",
+      "PkgName": "stdlib",
+      "InstalledVersion": "v1.24.6",
+      "FixedVersion": "1.25.12, 1.26.5, 1.27.0-rc.2",
+      "Severity": "HIGH",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-39822",
+      "Status": "fixed"
+    },
+    {
+      "VulnerabilityID": "CVE-2026-39836",
+      "PkgName": "stdlib",
+      "InstalledVersion": "v1.24.6",
+      "FixedVersion": "1.25.10, 1.26.3",
+      "Severity": "HIGH",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-39836",
+      "Status": "fixed"
+    },
+    {
+      "VulnerabilityID": "CVE-2026-42499",
+      "PkgName": "stdlib",
+      "InstalledVersion": "v1.24.6",
+      "FixedVersion": "1.25.10, 1.26.3",
+      "Severity": "HIGH",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-42499",
+      "Status": "fixed"
+    },
+    {
+      "VulnerabilityID": "CVE-2026-42504",
+      "PkgName": "stdlib",
+      "InstalledVersion": "v1.24.6",
+      "FixedVersion": "1.25.11, 1.26.4",
+      "Severity": "HIGH",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-42504",
+      "Status": "fixed"
+    },
+    {
+      "VulnerabilityID": "CVE-2026-56853",
+      "PkgName": "stdlib",
+      "InstalledVersion": "v1.24.6",
+      "FixedVersion": "1.25.13, 1.26.6, 1.27.0-rc.3",
+      "Severity": "HIGH",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-56853",
+      "Status": "fixed"
+    },
+    {
+      "VulnerabilityID": "CVE-2026-56858",
+      "PkgName": "stdlib",
+      "InstalledVersion": "v1.24.6",
+      "FixedVersion": "1.25.13, 1.26.6, 1.27.0-rc.3",
+      "Severity": "HIGH",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-56858",
+      "Status": "fixed"
+    },
+    {
+      "VulnerabilityID": "CVE-2026-56859",
+      "PkgName": "stdlib",
+      "InstalledVersion": "v1.24.6",
+      "FixedVersion": "1.25.13, 1.26.6, 1.27.0-rc.3",
+      "Severity": "HIGH",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-56859",
+      "Status": "fixed"
+    },
+    {
+      "VulnerabilityID": "CVE-2026-56860",
+      "PkgName": "stdlib",
+      "InstalledVersion": "v1.24.6",
+      "FixedVersion": "1.25.13, 1.26.6, 1.27.0-rc.3",
+      "Severity": "HIGH",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-56860",
+      "Status": "fixed"
+    },
+    {
+      "VulnerabilityID": "CVE-2026-56862",
+      "PkgName": "stdlib",
+      "InstalledVersion": "v1.24.6",
+      "FixedVersion": "1.25.13, 1.26.6, 1.27.0-rc.3",
+      "Severity": "HIGH",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-56862",
+      "Status": "fixed"
+    },
+    {
+      "VulnerabilityID": "CVE-2026-78667",
+      "PkgName": "stdlib",
+      "InstalledVersion": "v1.24.6",
+      "FixedVersion": "1.26.9, 1.27.2",
+      "Severity": "HIGH",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-78667",
+      "Status": "fixed"
+    },
+    {
+      "VulnerabilityID": "CVE-2026-78669",
+      "PkgName": "stdlib",
+      "InstalledVersion": "v1.24.6",
+      "FixedVersion": "1.26.9, 1.27.2",
+      "Severity": "HIGH",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-78669",
+      "Status": "fixed"
+    },
+    {
+      "VulnerabilityID": "CVE-2026-97031",
+      "PkgName": "stdlib",
+      "InstalledVersion": "v1.24.6",
+      "FixedVersion": "1.26.9, 1.27.2",
+      "Severity": "HIGH",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-97031",
+      "Status": "fixed"
+    }
+  ],
+  "raw_sha256": "4d807a54808b79894eafb4c9a1b7e8526a71e6c3652a2e65c0d5e06f8bedab6e",
+  "raw_report": "artifacts/local/postgres-cves-upstream.raw.json",
+  "image_id": "sha256:57b23a0326ee442e83b3d3fa027c5a148be0a392d7c91d1ca4e1e70131ee859a",
+  "verdict": "FAIL"
+}

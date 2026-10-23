@@ -1,0 +1,37 @@
+{
+  "recorded_at_utc": "2026-10-23T00:45:35.975025+00:00",
+  "verdict": "STOPPED_DATA_RETAINED",
+  "services": [
+    {
+      "name": "opspilot-s02-api-1",
+      "state": "exited",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-23T00:42:11.334133481Z",
+      "image": "opspilot-ai:0.2.0",
+      "image_id": "sha256:eae81cc15695ca7d177a3295795deb36ebba7eb0690408e9ec55adeee1a1a66a",
+      "user": "10001:10001"
+    },
+    {
+      "name": "opspilot-s02-postgres-1",
+      "state": "exited",
+      "exit_code": 0,
+      "finished_at_utc": "2026-10-23T00:42:13.474661597Z",
+      "image": "opspilot-postgres:18.6-s02",
+      "image_id": "sha256:231c6dd2f8110071f83da8b0bbbdc172f838a500676d10a9c080bd13efcb249b",
+      "user": "postgres"
+    },
+    {
+      "name": "opspilot-s02-keycloak-1",
+      "state": "exited",
+      "exit_code": 137,
+      "finished_at_utc": "2026-10-23T00:42:12.935870787Z",
+      "image": "quay.io/keycloak/keycloak:26.8.1@sha256:79c623a22abacf3fe6c00a5fb30f5b7843d717b234033b80995891c06116d244",
+      "image_id": "sha256:79c623a22abacf3fe6c00a5fb30f5b7843d717b234033b80995891c06116d244",
+      "user": "1000"
+    }
+  ],
+  "postgres_volume": "opspilot-s02_pg_data",
+  "postgres_volume_exists": true,
+  "scope": "Only the three named OpsPilot lab services stopped; no volume removed.",
+  "keycloak_exit_137": "Compose stop timeout; final IdP stop is not claimed graceful. Recovery proof is the earlier recovery.json run."
+}

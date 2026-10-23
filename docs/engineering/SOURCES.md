@@ -23,3 +23,21 @@ inmutables cuando posible; páginas vivas se deben volver a revisar antes de fij
 La compatibilidad real local de Spec Kit no se ha validado: no hay CLI/skills instaladas,
 por lo que no se ejecutaron comandos `speckit-*`. No se presupone que documentación
 upstream equivalga a un entorno Codex configurado o una toolchain probada.
+
+## Fuentes y verificación S02 — 2026-10-23
+
+| Fuente primaria | Uso y límite |
+|---|---|
+| [PyPI JSON](https://pypi.org/pypi/fastapi/json) | Releases consultadas por paquete; versiones instaladas/licencia metadata y lock hash en artifacts/session-02/environment.json; no implica auditoría legal |
+| [Imagen oficial PostgreSQL](https://hub.docker.com/_/postgres) | PG18 monta /var/lib/postgresql; digest verificado por registry y ejecución real 18.6 |
+| [Keycloak 26.8.1](https://www.keycloak.org/2026/10/keycloak-2681-released) | Versión estable seleccionada; integración PKCE real no equivale a scan limpio de OS/JVM |
+| [Contenedores Keycloak](https://www.keycloak.org/server/containers) | Realm import, exec de entrypoint y separación de lab/producción |
+| [PyJWT API](https://pyjwt.readthedocs.io/en/latest/api.html) | API de verificación; política de cache/algoritmos/claims implementada explícitamente y probada |
+| [Trivy releases](https://github.com/aquasecurity/trivy/releases/tag/v0.76.1) | Scanner fijado por digest, sin socket ni credenciales montadas; DB y raw hash en evidencia |
+| [Alpine v3.24](https://pkgs.alpinelinux.org/packages?branch=v3.24) | apk policy verificó libcrypto3/libssl3 3.5.9-r0 y libuuid 2.42.3-r1; versión exacta en Dockerfile y rescan PASS |
+| [Red Hat CA](https://access.redhat.com/solutions/7149312) | Boletín primario de trust store; paquete afectado en Keycloak, no se declara mitigación implementada |
+| [Red Hat CVE-2026-91415](https://access.redhat.com/security/cve/CVE-2026-91415) | Referencia del proveedor JVM; acceso web automatizado limitado, hallazgo local Trivy conserva status affected sin FixedVersion |
+
+Scans locales y pruebas son evidencias separadas de estas referencias. Dependencias
+dev en venv, sin instalación global. Spec Kit continúa sin instalarse: SDD existente
+es suficiente y no se duplica. No se ejecutó código del proveedor de modelos ni VPN.

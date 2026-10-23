@@ -1,0 +1,25 @@
+{
+  "realm": "opspilot",
+  "enabled": true,
+  "sslRequired": "none",
+  "registrationAllowed": false,
+  "resetPasswordAllowed": false,
+  "rememberMe": false,
+  "accessTokenLifespan": 300,
+  "clients": [{
+    "clientId": "opspilot-lab-pkce",
+    "enabled": true,
+    "publicClient": true,
+    "standardFlowEnabled": true,
+    "directAccessGrantsEnabled": false,
+    "implicitFlowEnabled": false,
+    "serviceAccountsEnabled": false,
+    "redirectUris": ["http://127.0.0.1:59081/callback"],
+    "webOrigins": [],
+    "attributes": {"pkce.code.challenge.method": "S256"},
+    "protocolMappers": [{
+      "name": "api-audience", "protocol": "openid-connect", "protocolMapper": "oidc-audience-mapper",
+      "config": {"included.custom.audience": "opspilot-api", "access.token.claim": "true", "id.token.claim": "false"}
+    }]
+  }]
+}

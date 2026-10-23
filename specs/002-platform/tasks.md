@@ -1,6 +1,8 @@
 # 002-platform — tareas secuenciadas
 
-Estado de todas: PROPUESTO; ninguna se ejecuta en sesión 01.
+Estado S02: implementación y suites funcionales ejecutadas; T02-07 no aceptada por
+scan de Keycloak FAIL. No se declara una cadena completa aceptada mientras falle ese
+gate. Ver [revisión](../../docs/roadmap/SESSION_02_REVIEW.md) y ejecución abajo.
 
 | ID | Dependencia | Cambio acotado y archivos previstos | Tests/evidencia obligatoria |
 |---|---|---|---|
@@ -16,3 +18,20 @@ Estado de todas: PROPUESTO; ninguna se ejecuta en sesión 01.
 Cada tarea cambia solo componentes indicados. Si una decisión requiere nuevo ADR,
 actualizar spec antes de implementar. Código/test/evidencia se rellenan con rutas
 existentes al pasar a IMPLEMENTADO/PROBADO; no inventar reportes futuros.
+
+## Estado y trazabilidad de ejecución
+
+| Tarea | Estado real | Código/test/evidencia existente |
+|---|---|---|
+| T02-01 | IMPLEMENTADO, gate imagen IdP no aceptado | pyproject.toml, uv.lock, Dockerfile, infra/compose.yaml; scans de imágenes en artifacts/session-02 |
+| T02-02 | PROBADO | ADR-0006, contracts, audit/domain/envelope.py; tests/unit/test_canonical.py, tests/contract/test_api.py, integración SQL parity |
+| T02-03 | PROBADO | src/opspilot y scripts/check_architecture.py; tests/architecture/test_layers.py; tests-windows.xml |
+| T02-04 | PROBADO | migrations, adapters/postgres; tests/integration/test_audit.py; tests-windows.xml, integration-linux.xml, fresh-postgres.json, recovery.json |
+| T02-05 | PROBADO funcional, dependencia vulnerable | adapters/oidc, identity/application; tests/unit/test_oidc.py, test_identity/test_idp_security de integración; XML Windows/Linux |
+| T02-06 | PROBADO | entrypoints/api y DTO; tests/contract/test_api.py, test_entrypoints/test_identity reales; XML y recovery.json |
+| T02-07 | IMPLEMENTADO / NO-GO | workflows/harness+platform, scripts/dev.py/check_secrets.py/scan_images.py; Bandit/pip-audit y scans; keycloak-cves.json FAIL |
+| T02-08 | IMPLEMENTADO, cierre NO-GO | traceability.json, checklist, SESSION_02_REVIEW, HANDOFF; manifest/evidencia S02 |
+
+Rutas fuente abreviadas relativas a src/opspilot, tests o .github donde corresponde;
+las rutas máquina exactas están en traceability.json. No CI remota ni aprobación
+humana de riesgos declaradas. T02-07 debe repetirse tras corregir dependencia.

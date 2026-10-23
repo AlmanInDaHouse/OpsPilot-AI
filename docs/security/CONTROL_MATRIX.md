@@ -1,8 +1,10 @@
 # Matriz de controles y aplicabilidad
 
-Todos los controles técnicos de producto están PROPUESTOS. Evidencias futuras bajo
+CT-01 y parte S02 de CT-02/10 implementados; consultar resultados y límites en
+[revisión S02](../roadmap/SESSION_02_REVIEW.md). Resto PROPUESTO. Evidencias raw bajo
 `artifacts/local/`, con resumen redacted versionado y hash de resultados. Ninguna
-fila acredita compliance. Autor = responsable técnico hasta asignación empresarial.
+fila acredita compliance. Ancla externa CT-02 y controles de RC siguen S08.
+Autor = responsable técnico hasta asignación empresarial.
 
 | Control | Amenazas / requisito | Implementación prevista | Test/gate y evidencia | Dueño/hito |
 |---|---|---|---|---|

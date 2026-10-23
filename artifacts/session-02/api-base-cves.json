@@ -1,0 +1,93 @@
+{
+  "image": "opspilot-ai:0.2.0",
+  "scanner": "ghcr.io/aquasecurity/trivy:0.76.1@sha256:790fd66d1697395d8693d1acaa1ea702406a20f109b6fc7bac8db623eca6c06c",
+  "exit_code": 1,
+  "checked_at_utc": "2026-10-22T23:32:06.156082+00:00",
+  "vulnerabilities": [
+    {
+      "VulnerabilityID": "CVE-2026-14456",
+      "PkgName": "libcrypto3",
+      "InstalledVersion": "3.5.7-r0",
+      "FixedVersion": "3.5.8-r0",
+      "Severity": "HIGH",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-14456",
+      "Status": "fixed"
+    },
+    {
+      "VulnerabilityID": "CVE-2026-14456",
+      "PkgName": "libssl3",
+      "InstalledVersion": "3.5.7-r0",
+      "FixedVersion": "3.5.8-r0",
+      "Severity": "HIGH",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-14456",
+      "Status": "fixed"
+    },
+    {
+      "VulnerabilityID": "CVE-2026-53612",
+      "PkgName": "libuuid",
+      "InstalledVersion": "2.42-r0",
+      "FixedVersion": "2.42.3-r0",
+      "Severity": "HIGH",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-53612",
+      "Status": "fixed"
+    },
+    {
+      "VulnerabilityID": "CVE-2026-53613",
+      "PkgName": "libuuid",
+      "InstalledVersion": "2.42-r0",
+      "FixedVersion": "2.42.3-r0",
+      "Severity": "HIGH",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-53613",
+      "Status": "fixed"
+    },
+    {
+      "VulnerabilityID": "CVE-2026-53614",
+      "PkgName": "libuuid",
+      "InstalledVersion": "2.42-r0",
+      "FixedVersion": "2.42.3-r0",
+      "Severity": "HIGH",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-53614",
+      "Status": "fixed"
+    },
+    {
+      "VulnerabilityID": "CVE-2026-76642",
+      "PkgName": "libuuid",
+      "InstalledVersion": "2.42-r0",
+      "FixedVersion": "2.42.3-r0",
+      "Severity": "HIGH",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-76642",
+      "Status": "fixed"
+    },
+    {
+      "VulnerabilityID": "CVE-2026-78408",
+      "PkgName": "libuuid",
+      "InstalledVersion": "2.42-r0",
+      "FixedVersion": "2.42.3-r1",
+      "Severity": "HIGH",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-78408",
+      "Status": "fixed"
+    },
+    {
+      "VulnerabilityID": "CVE-2026-78409",
+      "PkgName": "libuuid",
+      "InstalledVersion": "2.42-r0",
+      "FixedVersion": "2.42.3-r0",
+      "Severity": "HIGH",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-78409",
+      "Status": "fixed"
+    },
+    {
+      "VulnerabilityID": "CVE-2026-78410",
+      "PkgName": "libuuid",
+      "InstalledVersion": "2.42-r0",
+      "FixedVersion": "2.42.3-r0",
+      "Severity": "HIGH",
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-78410",
+      "Status": "fixed"
+    }
+  ],
+  "raw_sha256": "1406693cc67ece8886d4c5a5c24ac259fe31f95e60d923a53d10b29de111b1d8",
+  "raw_report": "artifacts/local/api-base-cves.raw.json",
+  "image_id": "sha256:6fc23c4038b3cf77b831981afa9c282cf6a3deb4ebee881b71d8e964be879680",
+  "verdict": "FAIL"
+}

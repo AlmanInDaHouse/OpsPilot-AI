@@ -1,6 +1,7 @@
 # Puertas de calidad por fase
 
-Estado: mezcla explícita IMPLEMENTADO/PROPUESTO. Los gates futuros son obligatorios
+Estado: gates S02 implementados; evidencia y veredicto en SESSION_02_REVIEW.
+La columna S01 se conserva como historial. Los gates futuros son obligatorios
 en su fase; no son checks verdes ni skips equivalentes a éxito en sesión 01.
 
 | Gate | Disponible S01 | Obligatorio desde / ejecución prevista |

@@ -1,0 +1,737 @@
+{
+  "recorded_at_utc": "2026-10-23T00:51:02.680314+00:00",
+  "repository": "C:\\Users\\manul\\OneDrive\\Escritorio\\opspilot-ai",
+  "head": "43e1d28566b3e32a0d899b0c4a1f8eb0580cd34d",
+  "session_03": "NO-GO",
+  "blocking": [
+    "CVE-2026-114406",
+    "CVE-2026-91415"
+  ],
+  "product_git_mutations": "No Git mutation at implementation close. Subsequent user instruction authorizes commit and push to origin/main; no merge, release or deployment.",
+  "scope": "Canonical S02: four GET routes, identity/RBAC and durable audit. Tickets/workflows belong to S03.",
+  "tests": {
+    "windows": {
+      "tests": 170,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    "linux": {
+      "tests": 170,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    }
+  },
+  "tree_sha256": "54f9c79c38d15599dc5e14f364704ef4f5755521db15050683eb2bcf6b914182",
+  "source_tree_paths": [
+    ".dockerignore",
+    ".python-version",
+    "Dockerfile",
+    "alembic.ini",
+    "contracts/event-v1.schema.json",
+    "contracts/platform.openapi.json",
+    "contracts/proposal-v1.schema.json",
+    "contracts/workflow-v1.json",
+    "infra/compose.yaml",
+    "infra/postgres.Dockerfile",
+    "infra/realm.json",
+    "infra/start-keycloak.sh",
+    "migrations/env.py",
+    "migrations/script.py.mako",
+    "migrations/sql/0001_platform.sql",
+    "migrations/versions/0001_platform.py",
+    "pyproject.toml",
+    "scripts/check_architecture.py",
+    "scripts/check_repository.py",
+    "scripts/check_secrets.py",
+    "scripts/dev.py",
+    "scripts/lab.py",
+    "scripts/scan_images.py",
+    "scripts/verify_fresh_postgres.py",
+    "scripts/verify_recovery.py",
+    "scripts/verify_session02.py",
+    "src/opspilot/__init__.py",
+    "src/opspilot/adapters/__init__.py",
+    "src/opspilot/adapters/oidc/__init__.py",
+    "src/opspilot/adapters/oidc/verifier.py",
+    "src/opspilot/adapters/postgres/__init__.py",
+    "src/opspilot/adapters/postgres/audit.py",
+    "src/opspilot/adapters/postgres/database.py",
+    "src/opspilot/adapters/postgres/identity.py",
+    "src/opspilot/adapters/postgres/models.py",
+    "src/opspilot/audit/__init__.py",
+    "src/opspilot/audit/application/__init__.py",
+    "src/opspilot/audit/application/ports.py",
+    "src/opspilot/audit/domain/__init__.py",
+    "src/opspilot/audit/domain/envelope.py",
+    "src/opspilot/entrypoints/__init__.py",
+    "src/opspilot/entrypoints/api/__init__.py",
+    "src/opspilot/entrypoints/api/app.py",
+    "src/opspilot/entrypoints/api/dto.py",
+    "src/opspilot/entrypoints/provision.py",
+    "src/opspilot/entrypoints/settings.py",
+    "src/opspilot/identity/__init__.py",
+    "src/opspilot/identity/application/__init__.py",
+    "src/opspilot/identity/application/authenticate.py",
+    "src/opspilot/identity/application/provision.py",
+    "src/opspilot/identity/domain/__init__.py",
+    "src/opspilot/identity/domain/principal.py",
+    "src/opspilot/shared/__init__.py",
+    "src/opspilot/shared/errors.py",
+    "src/opspilot/shared/uow.py",
+    "tests/architecture/test_layers.py",
+    "tests/contract/test_api.py",
+    "tests/harness/test_checks.py",
+    "tests/integration/conftest.py",
+    "tests/integration/test_audit.py",
+    "tests/integration/test_entrypoints.py",
+    "tests/integration/test_identity.py",
+    "tests/integration/test_idp_security.py",
+    "tests/unit/test_canonical.py",
+    "tests/unit/test_configuration.py",
+    "tests/unit/test_identity.py",
+    "tests/unit/test_image_scan_gate.py",
+    "tests/unit/test_oidc.py",
+    "tests/unit/test_secret_scanner.py",
+    "uv.lock"
+  ],
+  "source_hash_method": "SHA256 of sorted path UTF8 + NUL + file bytes + NUL; only listed implementation, infrastructure, scripts, tests, contracts and dependency files.",
+  "changed_files": [
+    {
+      "status": "??",
+      "path": ".dockerignore",
+      "hash": "7bae3dab3d3597f578ed97fe8e77c58a4fc82104b9b405baa761035136350881"
+    },
+    {
+      "status": "??",
+      "path": ".env.example",
+      "hash": "33d59b9fa3807029186ea0fe833f34bf9cd1f5105d26398f110fe24b87927a99"
+    },
+    {
+      "status": "??",
+      "path": ".github/dependabot.yml",
+      "hash": "0292e1c0bdbcb9f71f2e8a7f53eb0efd5628b5d18ba99f7457471ca77c6ce8e0"
+    },
+    {
+      "status": " M",
+      "path": ".github/workflows/harness.yml",
+      "hash": "e8f2674e46168c561e083c13556d57c5f5708d68edc65350da2bf92703d50a02"
+    },
+    {
+      "status": "??",
+      "path": ".github/workflows/platform.yml",
+      "hash": "04703e32171e860b741650cba6de9f8f47ac849e48e5193a479475171ef175b4"
+    },
+    {
+      "status": " M",
+      "path": ".gitignore",
+      "hash": "ca16ad98763048c63b4f39b043702625491de02bef190f1bd131b79c9f525232"
+    },
+    {
+      "status": "??",
+      "path": ".pymarkdown.json",
+      "hash": "dad087a0b74c92a5f188a160b26a37d6748865e3a65e9f0be27ee1542dceb23b"
+    },
+    {
+      "status": "??",
+      "path": ".python-version",
+      "hash": "f8faecf2505680716c6279bf2cdec3d5a5ba2ba852f0d7df45d51ac1ce8d9ade"
+    },
+    {
+      "status": "??",
+      "path": ".secrets-allowlist.json",
+      "hash": "25b129ef4e77da5d35c07c3600fd5834795072a3f398c3a13e011749e27ee605"
+    },
+    {
+      "status": " M",
+      "path": "AGENTS.md",
+      "hash": "f630729805bf75a08a18b98ceb4587674d031598a122a371887a47b9cb9af612"
+    },
+    {
+      "status": "??",
+      "path": "Dockerfile",
+      "hash": "72d2b6956b6c79b99e13bf3fcd949b5dca41efacf8ea2519b1d816eb41fe5263"
+    },
+    {
+      "status": " M",
+      "path": "README.md",
+      "hash": "88b77aeac9423548f2dabde0a159276a2ef957e29b770e159543c7190b1d3d8d"
+    },
+    {
+      "status": "??",
+      "path": "alembic.ini",
+      "hash": "e7955a0ffb9c32a9c5067d7885ee9197328f17a4a12fb4a5bb556c2b85763aa2"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/session-02/acceptance.json",
+      "hash": "ca6a59fa2c01309e765efdd3fc49ab57bd9f26a57b4924d6a75ac1ad9280ac8b"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/session-02/api-base-cves.json",
+      "hash": "7c8fa4a195fe01576d4cfc13910ad4411f535f76a9d00cac04aef3cb97f59699"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/session-02/api-cves.json",
+      "hash": "0261d45e645c6c0746a6801bb72e309e75fa4f18e3887ae1021f43e2aa37d2df"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/session-02/bandit.json",
+      "hash": "4a68e51b3da9395d3e2a18f3b0df97aaf482711298425c3eba4a89845bdf6244"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/session-02/ci-structure.json",
+      "hash": "2d389cc34b5eb24f01fd0ed9d0c8519b421d2e23633744b8936929efa854bc8c"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/session-02/closure.json",
+      "hash": "5aeea392e447aea2fad1043ebc55f7ef1a724fc9d8c52e9ffb56dedc570113c6"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/session-02/coverage-windows.json",
+      "hash": "e4b5dcc2ae268526d6c32542c1c3dc51dfbd9df57273c68eb62f6df81b768add"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/session-02/docs-final.json",
+      "hash": "0bc11804014225df5f0a075d286b8767dc265f504e5c99bb86080ace160167ca"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/session-02/docs-initial.json",
+      "hash": "d15d00535c54f1259fa48bf24eff8de2af6a5c60d5d80809028fabe57c5cdc5c"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/session-02/docs-preclose.json",
+      "hash": "a60ec3ec66a3cf9962ee5b4b563fcca87f4ea48456f93870bb053af555f1d17e"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/session-02/environment.json",
+      "hash": "0e316408b9434be116831aabf41d6ed19ef40b47804d47c65d5723b27158905d"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/session-02/fresh-postgres.json",
+      "hash": "3fa7ebcb54dc38e08e38126b6538c64c90dae1ac78258d26ad674425e3631727"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/session-02/harness-final-linux.xml",
+      "hash": "2857c5cbb8fbcee148d6e6a35a2a89f699cbb284e6b37b86414fe756a99f7d51"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/session-02/integration-first.xml",
+      "hash": "b0815b131c372353a04d74afa1e80c0cab1aa8c7129987c7d3d411776305debd"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/session-02/integration-linux.xml",
+      "hash": "ba188366907087114c6606ff0bc9874579e8f0af370a159ee7c995cb1fb24532"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/session-02/integration-second.xml",
+      "hash": "f72b2c2e722c1aca8bb5839d07d3002fff61f5f1fe83a9b471bfd64e46ea7c47"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/session-02/keycloak-cves.json",
+      "hash": "6192dbda9779f28f0ef68a462fb87bbd00414c937f2f21d8223c0a5bbf91f5af"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/session-02/keycloak-timeout.json",
+      "hash": "e72ae67775352b27a17c8d99e6a71ec861bcc0781b52fdad815b8cda55b08dec"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/session-02/pip-audit.json",
+      "hash": "12347fac15759612b7fe8eae718d0f181aab3f4f8bd216cfa76e6bcd38b54261"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/session-02/postgres-cves.json",
+      "hash": "3a6f008a30bf2b5f707d30f19cce86af48fb5ba2fa1c38fb75c1cc102e858964"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/session-02/postgres-upstream-cves.json",
+      "hash": "48c3a1539937f5e7a215655eb46ace4e632b3ff821e9b9cb8c1ee7e44908910a"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/session-02/private-acl.json",
+      "hash": "b7dbfd28960153b9a125085fe2bbd034e68ab7380b1f6daf7bbe11af7dac7e7a"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/session-02/recovery.json",
+      "hash": "6c8260228c7bbde07edfdcb03ebbe21935045933e413a3331095be58cd51543a"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/session-02/shutdown.json",
+      "hash": "c4a90b5f491d324e29269dbef354f9b2983e9ccda44f3bac18f057f468e0e8e2"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/session-02/tests-linux.xml",
+      "hash": "f1a5dfb7d1c9de4157509f3c548d475c1d3efc9e71ed994a7e3f3845e57d4ead"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/session-02/tests-timeout-failure.xml",
+      "hash": "d8a21365dc4cc83376e9660a2e6eac5007358ec37ea7df02b003b778192f0f4b"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/session-02/tests-windows.xml",
+      "hash": "6eb951d7f6df705d331a6666a7c355b51e3c79458763c86b2eb847fe2eaa09de"
+    },
+    {
+      "status": "??",
+      "path": "artifacts/session-02/verification.json",
+      "hash": "7126a821c7580273ef5ab0807850a231c0ba353530958d948fd7ac1ddf653fe5"
+    },
+    {
+      "status": " M",
+      "path": "contracts/platform.openapi.json",
+      "hash": "5407bcf1d88afb736ca74bb61544a10ea82e3df4ecadf8fa3d05b8cb1b162078"
+    },
+    {
+      "status": " M",
+      "path": "docs/architecture/API_CONTRACTS.md",
+      "hash": "4df0d3925dae96dae00347a908c212abfdd2eb23ca70eea48b56f1d488fea8e2"
+    },
+    {
+      "status": " M",
+      "path": "docs/architecture/ARCHITECTURE.md",
+      "hash": "bba4b1e8e8de564c1ce597d7efd213ef4106855dd82287db5fac926ead3d3289"
+    },
+    {
+      "status": " M",
+      "path": "docs/architecture/DATA_MODEL.md",
+      "hash": "739a61007037df6b1e86b97e5d9860ea3827f44220e19c37ef4a4f2f211bb5c8"
+    },
+    {
+      "status": "??",
+      "path": "docs/decisions/0006-platform-boundaries.md",
+      "hash": "b6ca73fccc9ea5851bfd375f2e7e7944b632cf38b80e18fc01b4ef16b3eaf4a6"
+    },
+    {
+      "status": " M",
+      "path": "docs/decisions/README.md",
+      "hash": "d5efbee5c07c44609431d1dc5799df16a99524fba45ab2d5d21f72c70c73ccc6"
+    },
+    {
+      "status": " M",
+      "path": "docs/engineering/HARNESS.md",
+      "hash": "5461614ddbd8c35d2da7c2aefe064ea5fbea3de7605c8b144c534ca8789399b7"
+    },
+    {
+      "status": "??",
+      "path": "docs/engineering/PLATFORM_RUNBOOK.md",
+      "hash": "07b4232a60a19c982ea39787820089a89ca7358532ae6d25d748a330825736ae"
+    },
+    {
+      "status": " M",
+      "path": "docs/engineering/QUALITY_GATES.md",
+      "hash": "84495013e7becd8a87d52a07a1f3e72293c32431b76a33611402d604486d316a"
+    },
+    {
+      "status": " M",
+      "path": "docs/engineering/SOURCES.md",
+      "hash": "3292fc2211cfe1f1e7af04e3391657aa47f84d9e43faa7c1557960df49124985"
+    },
+    {
+      "status": " M",
+      "path": "docs/engineering/TEST_STRATEGY.md",
+      "hash": "9043268758bdf572ec87196be523f36af399a60ed72f37c6dea1a35612d5dfe7"
+    },
+    {
+      "status": " M",
+      "path": "docs/roadmap/HANDOFF.md",
+      "hash": "72ec5bc364ce4d159dc250b3b6887e2e7b0cc385117368a57a382337cc9c2273"
+    },
+    {
+      "status": " M",
+      "path": "docs/roadmap/RISKS.md",
+      "hash": "6c0f360d87410ddd3640ed3f4ee34fbe88264bf23e2e23807f5ebe632679ec3c"
+    },
+    {
+      "status": "??",
+      "path": "docs/roadmap/SESSION_02_REVIEW.md",
+      "hash": "83e88590ffa4611edb1026dcc23ef6de2d810e84f933bace97d1e190434c9143"
+    },
+    {
+      "status": " M",
+      "path": "docs/roadmap/SESSION_02_SPEC.md",
+      "hash": "bd2bd39f029c94f5d8c8880656cb904bf835684bfcba4ccc68908e53c69cab89"
+    },
+    {
+      "status": " M",
+      "path": "docs/security/CONTROL_MATRIX.md",
+      "hash": "b60dc2776b93cdcb14e9a89c604e0ba40848c3f9debca85a6d5370d1e4b5741e"
+    },
+    {
+      "status": " M",
+      "path": "docs/security/THREAT_MODEL.md",
+      "hash": "5e2315ad67a1c6ba5ee4cbd21488b8d0180c6a371ef1cf6b8cad704d14c71cfe"
+    },
+    {
+      "status": "??",
+      "path": "infra/compose.yaml",
+      "hash": "278e038f6303def370f583d6777b2f4ae1189592aeeebfd89ec165a4588aa657"
+    },
+    {
+      "status": "??",
+      "path": "infra/postgres.Dockerfile",
+      "hash": "f102861184a7e266f790df4bb9958d2e55178c3546cd673c58c374268cb5fc86"
+    },
+    {
+      "status": "??",
+      "path": "infra/realm.json",
+      "hash": "e8c055f78c247087b74d099c00e611d9ac9f4b2f2ac46b618c5c13315b4d0fdc"
+    },
+    {
+      "status": "??",
+      "path": "infra/start-keycloak.sh",
+      "hash": "8f76b3d220f58751f41a1001918080069c36a658c87d4177ffd8a342b9430549"
+    },
+    {
+      "status": "??",
+      "path": "migrations/env.py",
+      "hash": "32fdc4448b0fb889085ffec68cefee8c6d24dff7af2d2eb9cfbceed52b45826d"
+    },
+    {
+      "status": "??",
+      "path": "migrations/script.py.mako",
+      "hash": "a7219da51c81878ae9ff44b68989051404c0d1464413b780c7e79fd1a7356e83"
+    },
+    {
+      "status": "??",
+      "path": "migrations/sql/0001_platform.sql",
+      "hash": "a88af2dfb916c19d0709eab810491db0d426aace08eca41ab6bdf28ab7c25d07"
+    },
+    {
+      "status": "??",
+      "path": "migrations/versions/0001_platform.py",
+      "hash": "5d44217a3dda189ba7060c9ae6a2441bbf118437d0545a223fe9815c5cb5958e"
+    },
+    {
+      "status": "??",
+      "path": "pyproject.toml",
+      "hash": "91c0abe560fbd95a17ec8a201af5c64a99e4e63756b966d2f0656df6817b005a"
+    },
+    {
+      "status": "??",
+      "path": "scripts/check_architecture.py",
+      "hash": "102825575fd7c7dc8001c68fc8092a71e4f894e01284d36ebb68617887b20983"
+    },
+    {
+      "status": " M",
+      "path": "scripts/check_repository.py",
+      "hash": "08457d9a5bd77b68c1a2c1832abc75fbda02a3778c6f8a91057a87b2540152ae"
+    },
+    {
+      "status": "??",
+      "path": "scripts/check_secrets.py",
+      "hash": "6baadf79ac82e0b8a960923a7a8cad8d73b04ac43f2432181c78c7f034c1a655"
+    },
+    {
+      "status": " M",
+      "path": "scripts/dev.py",
+      "hash": "e2021d4420a780f37d3c8b71be201de55cd7d52e092b7af3d875e366ae06533e"
+    },
+    {
+      "status": "??",
+      "path": "scripts/lab.py",
+      "hash": "1a5e0bb9fb78f04d5c727523d184b39600c79ae4a0db812a19553a4d7005903c"
+    },
+    {
+      "status": "??",
+      "path": "scripts/scan_images.py",
+      "hash": "8cecafbb8a3a977a2c0b4356e209e70513f9610f506c4c2b1ec0dc45584f9f8d"
+    },
+    {
+      "status": "??",
+      "path": "scripts/verify_fresh_postgres.py",
+      "hash": "4d9746d42f963eb1a0c5e136e5ea8ff5f9b77d8b2615ea08d9b9bf6b39d85a45"
+    },
+    {
+      "status": "??",
+      "path": "scripts/verify_recovery.py",
+      "hash": "8a007ebe5a4aee7c27502323d450e4395e469599e507f35b22c7c1315a8a3d73"
+    },
+    {
+      "status": "??",
+      "path": "scripts/verify_session02.py",
+      "hash": "d9371f0368f9620cf23ed3c309a8329712fc94497dfdb2aaa9e77805a84fdf4e"
+    },
+    {
+      "status": " M",
+      "path": "specs/002-platform/checklist.md",
+      "hash": "34e90a434017b45d342a23eb2381c4ac440a064db958c701e2f3db48332e2f91"
+    },
+    {
+      "status": "??",
+      "path": "specs/002-platform/execution.md",
+      "hash": "13d4a154c7b1f52e884b040bedad5650891a61a11d9eb34e961c561a232cf4f5"
+    },
+    {
+      "status": " M",
+      "path": "specs/002-platform/plan.md",
+      "hash": "ff4098e4e722aeeabbf737484f894ec50aba06920324778e9425c9cd1e2d08d1"
+    },
+    {
+      "status": " M",
+      "path": "specs/002-platform/spec.md",
+      "hash": "285c28b5f3592b26f866546b3f710026ce2dcf02b0ec7dbcda309fae5d790daa"
+    },
+    {
+      "status": " M",
+      "path": "specs/002-platform/tasks.md",
+      "hash": "bc1002e05c20923d8cf0ca82f150981bd9dffb94299c93c24b8971e8387e436a"
+    },
+    {
+      "status": " M",
+      "path": "specs/traceability.json",
+      "hash": "73dbca6df8f1c551979a6b17a8a10c4a8f4e70e50064963f06d2b53e67e97bc2"
+    },
+    {
+      "status": "??",
+      "path": "src/opspilot/__init__.py",
+      "hash": "bf5d732099051d2dad348214e9baa615bc13e17dc1196c32f1cdce11f2854c3b"
+    },
+    {
+      "status": "??",
+      "path": "src/opspilot/adapters/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "status": "??",
+      "path": "src/opspilot/adapters/oidc/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "status": "??",
+      "path": "src/opspilot/adapters/oidc/verifier.py",
+      "hash": "634a61c6eb8ea13cf27d817d1745cb29653800727e073dbf1f0f1c5d54f080bf"
+    },
+    {
+      "status": "??",
+      "path": "src/opspilot/adapters/postgres/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "status": "??",
+      "path": "src/opspilot/adapters/postgres/audit.py",
+      "hash": "bf80248dfc0919a90cdc225001737d5ec8cc2add3b79bec3c847bdf44e497901"
+    },
+    {
+      "status": "??",
+      "path": "src/opspilot/adapters/postgres/database.py",
+      "hash": "b2f9c250c76f750dd975b419844a917b1b7ca763df80a2d6c5262a2db83e7bf6"
+    },
+    {
+      "status": "??",
+      "path": "src/opspilot/adapters/postgres/identity.py",
+      "hash": "3cb2d74a45a9cf874315c7062af91716ce9590dbaad852f61715eacc18955001"
+    },
+    {
+      "status": "??",
+      "path": "src/opspilot/adapters/postgres/models.py",
+      "hash": "c64e138aabf2ff400f9f3a13da89331b21b3254f82240dd7e102f910882b040a"
+    },
+    {
+      "status": "??",
+      "path": "src/opspilot/audit/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "status": "??",
+      "path": "src/opspilot/audit/application/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "status": "??",
+      "path": "src/opspilot/audit/application/ports.py",
+      "hash": "3439219a5e04a66db7133a4756e3c61d9c0a71ee68224dfc2eeccd2539074b84"
+    },
+    {
+      "status": "??",
+      "path": "src/opspilot/audit/domain/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "status": "??",
+      "path": "src/opspilot/audit/domain/envelope.py",
+      "hash": "e6a038d22c52d3eeebc08e8cbeb23aeb4d4173b6840cb137f469e45deaf8793a"
+    },
+    {
+      "status": "??",
+      "path": "src/opspilot/entrypoints/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "status": "??",
+      "path": "src/opspilot/entrypoints/api/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "status": "??",
+      "path": "src/opspilot/entrypoints/api/app.py",
+      "hash": "86b2c1ce7bc736f1a77a8ae3c18dfd2ba2077864975c05e3fc6e91a2a01b29f4"
+    },
+    {
+      "status": "??",
+      "path": "src/opspilot/entrypoints/api/dto.py",
+      "hash": "1bc87d94d2f45c9b9d45593750cc4ad7398496ca021ac3439b71cfbd3361dd5e"
+    },
+    {
+      "status": "??",
+      "path": "src/opspilot/entrypoints/provision.py",
+      "hash": "2d2b76ed68dda87c2db393bbc67fdc508379856aa576dd5bbfdf7bb979465bf3"
+    },
+    {
+      "status": "??",
+      "path": "src/opspilot/entrypoints/settings.py",
+      "hash": "1a359aa218906d5cb2e5c627e2242b764c6870357627086d3dda3d4fa4eae423"
+    },
+    {
+      "status": "??",
+      "path": "src/opspilot/identity/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "status": "??",
+      "path": "src/opspilot/identity/application/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "status": "??",
+      "path": "src/opspilot/identity/application/authenticate.py",
+      "hash": "d3f1c01df27a2c8a8b6e55391b36e2d676534f1097a0df41fc8b051a1be1ea2f"
+    },
+    {
+      "status": "??",
+      "path": "src/opspilot/identity/application/provision.py",
+      "hash": "0cf6d818b05223ad22167bf0d0fee1aa5d6644327f98150bcbb388d44e297c40"
+    },
+    {
+      "status": "??",
+      "path": "src/opspilot/identity/domain/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "status": "??",
+      "path": "src/opspilot/identity/domain/principal.py",
+      "hash": "a490d71314c2e535e0e6377b4be0ed279e3b4b073460da34a01052d21fa11cc3"
+    },
+    {
+      "status": "??",
+      "path": "src/opspilot/shared/__init__.py",
+      "hash": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "status": "??",
+      "path": "src/opspilot/shared/errors.py",
+      "hash": "dd18dcc15cf3dff07108db74c6a57c946bdacf350fb9e936452e545456d8da44"
+    },
+    {
+      "status": "??",
+      "path": "src/opspilot/shared/uow.py",
+      "hash": "f569a273c2da5cf9b821c028fa94aaab58ac31133e2a3237204e3ad76200116e"
+    },
+    {
+      "status": "??",
+      "path": "tests/architecture/test_layers.py",
+      "hash": "b10c30c8bb309facd7f277f1cf92105628a6b21e552bbb1a3fdc1ca9f0c4419d"
+    },
+    {
+      "status": "??",
+      "path": "tests/contract/test_api.py",
+      "hash": "d40e6e7efb14531935fd34ab4ecc9912411f08a7dc76c1bb1f7361d290ac8992"
+    },
+    {
+      "status": " M",
+      "path": "tests/harness/test_checks.py",
+      "hash": "2e8dcccc6044c9c472aa6a6c18120fb8770ef636bb88aed28f2c606b767e95a2"
+    },
+    {
+      "status": "??",
+      "path": "tests/integration/conftest.py",
+      "hash": "104acde0e28bde0f09463cb45557d129fc97b38f2182f6d1feb1ce6bb75e12a2"
+    },
+    {
+      "status": "??",
+      "path": "tests/integration/test_audit.py",
+      "hash": "563ec09a00f5d88a2c7e45d5fb90e300f6eabe6e5cf47465d5a5b6526a9dcf96"
+    },
+    {
+      "status": "??",
+      "path": "tests/integration/test_entrypoints.py",
+      "hash": "d76332199b58b83d3a3f69b0b4af1b009acb010a9d201e117dfc38dd696f379c"
+    },
+    {
+      "status": "??",
+      "path": "tests/integration/test_identity.py",
+      "hash": "73fa0f135978cc99b8477d208b0c3a0cf34c8fca4359e0625af8812e53dad131"
+    },
+    {
+      "status": "??",
+      "path": "tests/integration/test_idp_security.py",
+      "hash": "c432d2194ff8af40805488a9f7ffdcc671fb99c05816652a0ea6d7f247d39296"
+    },
+    {
+      "status": "??",
+      "path": "tests/unit/test_canonical.py",
+      "hash": "86a67cf195423f3774e0a8ab4f2a603d9d80494f865da06b15e1fe23ee7dbc56"
+    },
+    {
+      "status": "??",
+      "path": "tests/unit/test_configuration.py",
+      "hash": "e5cb3e853cb8bbf0ec8c631c5054235be83df09469a4395011217d3fad55e1d6"
+    },
+    {
+      "status": "??",
+      "path": "tests/unit/test_identity.py",
+      "hash": "4a888ce9bc60d51ca66f04d7e6e7414da2a996abc04ce48f48b9e15d3f3ccba6"
+    },
+    {
+      "status": "??",
+      "path": "tests/unit/test_image_scan_gate.py",
+      "hash": "4b746083d9f7c6e67829438139b4e73d90add0c8016939e43e3c154329908d23"
+    },
+    {
+      "status": "??",
+      "path": "tests/unit/test_oidc.py",
+      "hash": "93ee52beae1a782c7ee646249367b379792a132a93c666ff14777113b48d2ec7"
+    },
+    {
+      "status": "??",
+      "path": "tests/unit/test_secret_scanner.py",
+      "hash": "b0eb03c77b68a5b86ff7b8f1da534de4d56a86b9b774e39c984450546cb86b6c"
+    },
+    {
+      "status": "??",
+      "path": "uv.lock",
+      "hash": "ae0f7e79eabd24c7675308812a47bad5785911f7cf04b9d84d4ac5e5058537af"
+    }
+  ],
+  "manifest_self_hash": "Excluded to avoid recursive digest; all other changed files included.",
+  "lab_state": "STOPPED_DATA_RETAINED",
+  "remote_ci": "NOT_RUN",
+  "human_acceptance": "PENDING",
+  "publication_authorization": "User explicitly requested: pushealo. Remote CI fields in earlier evidence are pre-push snapshots."
+}

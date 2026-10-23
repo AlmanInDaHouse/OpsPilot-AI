@@ -1,4 +1,46 @@
-# Handoff versionado — próxima sesión 02
+# Handoff versionado — plataforma S02 y futura S03
+
+## Estado actual S02 — 2026-10-23 Europe/Madrid
+
+Repositorio verificado: `C:/Users/manul/OneDrive/Escritorio/opspilot-ai`. Sesión 02
+autorizada expresamente. Implementación real en src/opspilot, migrations, infra y
+tests; no tickets/workflows/IA. Fuente de cierre:
+[SESSION_02_REVIEW](SESSION_02_REVIEW.md) y artifacts/session-02. **NO-GO S03 por
+gate supply de Keycloak**; no iniciar S03 automáticamente, incluso tras GO.
+
+Último run completo: 170 tests PASS en Windows y 170 en Linux, sin skips, 95 % cobertura
+Windows; además se conserva el run Linux separado de 50 integraciones.
+Reinicio real y PG fresco UID 70 PASS. PG endurecido sin gosu y API con OpenSSL/libuuid
+corregidos: scans PASS. Keycloak real funciona, pero su scan final falla por
+CVE-2026-114406 (crítico, ca-certificates) y CVE-2026-91415 (alto, OpenJDK). No hay
+excepción ni se rebaja el gate. Corregir imagen/paquetes mantenidos o derivada revisada,
+fijar nuevos digests y repetir auth/RBAC/recovery/scan. CI remota no ejecutada.
+
+Leer ADR-0006, SESSION_02_SPEC, spec/tasks/checklist y
+[runbook](../engineering/PLATFORM_RUNBOOK.md). Comandos install/infra/migrate/up/logs/
+stop están activos; eval permanece NOT_IMPLEMENTED (S04). El harness documental de
+S01 se conserva, guard de src/infra retirado por autorización y sustituido por AST
+fitness tests con negativos. No secretos en Git; artifacts/local contiene credenciales
+y raw privados. No compartirlos ni limpiar volúmenes como solución a fallos.
+
+S03, solo bajo nueva petición y gate resuelto: definir contrato de intake/idempotency,
+migración de incidents/workflows/jobs/evidence, commit común con audit y respuesta,
+worker lineal con leases/fences y 100 jobs/crashes reales. Extender appender cerrado
+S02 antes de emitir eventos de workflows. Roles operator/approver/auditor/admin sin
+herencia. No framework multiagente, LLM, RAG, runner IT ni VPN en esa implementación.
+Sin push, commit, merge, release o despliegue automático. Revisión humana del diff
+y cierre de riesgos corporativos siguen pendientes; no hay validación empresarial.
+Permisos de artifacts/local endurecidos para propietario/SYSTEM/Administrators en
+Windows, sin elevación; init repetido y recovery con secretos protegidos PASS.
+Al cerrar se detiene solo el lab propio, conservando volumen y datos.
+
+Publicación S02: el autor autorizó expresamente commit y push con «pushealo» después
+del cierre local. Publicar en origin/main; consultar Git para SHA y estado efectivo.
+La autorización no acepta el gate de Keycloak, no inicia S03 y no incluye releases
+ni despliegues. Los artefactos CI NOT_RUN describen el snapshot anterior al push;
+las ejecuciones posteriores se consultan en GitHub Actions.
+
+## Historial S01 conservado
 
 Fecha: 2026-10-22, Europe/Madrid. Último hito terminado: S01, arquitectura y harness
 documental PROBADO en Windows y Ubuntu/WSL2. GO para empezar S02 bajo nueva petición;

@@ -1,43 +1,95 @@
 [
   {
     "requirement": "REQ-PLAT-01",
-    "status": "PROPUESTO",
+    "status": "IMPLEMENTADO",
     "spec": [
       "specs/002-platform/spec.md"
     ],
     "design": [
-      "docs/architecture/API_CONTRACTS.md"
+      "docs/architecture/API_CONTRACTS.md",
+      "docs/decisions/0006-platform-boundaries.md"
     ],
     "task": [
       "specs/002-platform/tasks.md"
     ],
     "code": [
-      "src/opspilot/identity/application/authenticate.py"
+      "src/opspilot/identity/application/authenticate.py",
+      "src/opspilot/identity/domain/principal.py",
+      "src/opspilot/adapters/oidc/verifier.py",
+      "src/opspilot/adapters/postgres/identity.py",
+      "src/opspilot/entrypoints/api/app.py",
+      "src/opspilot/entrypoints/settings.py"
     ],
     "test": [
-      "tests/integration/test_identity.py"
+      "tests/unit/test_oidc.py",
+      "tests/unit/test_configuration.py",
+      "tests/integration/test_identity.py",
+      "tests/integration/test_idp_security.py",
+      "tests/integration/test_entrypoints.py",
+      "tests/contract/test_api.py"
     ],
-    "evidence": []
+    "evidence": [
+      "artifacts/session-02/tests-windows.xml",
+      "artifacts/session-02/tests-linux.xml",
+      "artifacts/session-02/keycloak-cves.json",
+      "artifacts/session-02/verification.json"
+    ],
+    "acceptance": "NO-GO: CT-10 image scan Keycloak fails; functionality PROBADO",
+    "task_ids": [
+      "T02-01",
+      "T02-02",
+      "T02-03",
+      "T02-05",
+      "T02-06",
+      "T02-07",
+      "T02-08"
+    ]
   },
   {
     "requirement": "REQ-PLAT-02",
-    "status": "PROPUESTO",
+    "status": "IMPLEMENTADO",
     "spec": [
       "specs/002-platform/spec.md"
     ],
     "design": [
-      "docs/architecture/DATA_MODEL.md"
+      "docs/architecture/DATA_MODEL.md",
+      "docs/decisions/0006-platform-boundaries.md"
     ],
     "task": [
       "specs/002-platform/tasks.md"
     ],
     "code": [
-      "src/opspilot/adapters/postgres/audit.py"
+      "src/opspilot/adapters/postgres/audit.py",
+      "src/opspilot/adapters/postgres/database.py",
+      "src/opspilot/adapters/postgres/models.py",
+      "src/opspilot/audit/domain/envelope.py",
+      "src/opspilot/identity/application/provision.py",
+      "migrations/versions/0001_platform.py",
+      "migrations/sql/0001_platform.sql"
     ],
     "test": [
-      "tests/integration/test_audit.py"
+      "tests/unit/test_canonical.py",
+      "tests/integration/test_audit.py",
+      "tests/integration/test_entrypoints.py",
+      "tests/architecture/test_layers.py"
     ],
-    "evidence": []
+    "evidence": [
+      "artifacts/session-02/tests-windows.xml",
+      "artifacts/session-02/tests-linux.xml",
+      "artifacts/session-02/fresh-postgres.json",
+      "artifacts/session-02/recovery.json",
+      "artifacts/session-02/verification.json"
+    ],
+    "acceptance": "NO-GO for session acceptance: CT-10; PG/audit behavior PROBADO",
+    "task_ids": [
+      "T02-01",
+      "T02-02",
+      "T02-03",
+      "T02-04",
+      "T02-06",
+      "T02-07",
+      "T02-08"
+    ]
   },
   {
     "requirement": "REQ-WF-01",
@@ -292,16 +344,28 @@
       "docs/roadmap/ROADMAP_8_SESSIONS.md"
     ],
     "code": [
-      "scripts/check_repository.py"
+      "scripts/check_repository.py",
+      "scripts/dev.py",
+      "scripts/check_architecture.py",
+      "scripts/check_secrets.py",
+      "scripts/scan_images.py",
+      "scripts/verify_session02.py"
     ],
     "test": [
-      "tests/harness/test_checks.py"
+      "tests/harness/test_checks.py",
+      "tests/architecture/test_layers.py",
+      "tests/unit/test_secret_scanner.py",
+      "tests/unit/test_image_scan_gate.py"
     ],
     "evidence": [
       "artifacts/session-01/tests-windows.json",
       "artifacts/session-01/tests-linux.json",
       "artifacts/session-01/checks.json",
-      "artifacts/session-01/checks-linux.json"
-    ]
+      "artifacts/session-01/checks-linux.json",
+      "artifacts/session-02/tests-windows.xml",
+      "artifacts/session-02/tests-linux.xml",
+      "artifacts/session-02/verification.json"
+    ],
+    "acceptance": "Harness PROBADO: correctly returns NO-GO on supply findings; not a green S02 acceptance"
   }
 ]

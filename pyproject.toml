@@ -1,0 +1,50 @@
+[build-system]
+requires = ["hatchling==1.32.4"]
+build-backend = "hatchling.build"
+
+[project]
+name = "opspilot-ai"
+version = "0.2.0"
+description = "OpsPilot modular platform foundation"
+requires-python = ">=3.13,<3.14"
+dependencies = [
+  "fastapi==0.161.1", "uvicorn==0.54.0", "pydantic==2.14.1",
+  "pydantic-settings==2.16.1", "sqlalchemy==2.1.6", "psycopg[binary]==3.3.6",
+  "alembic==1.20.1", "pyjwt[crypto]==2.15.1", "httpx==0.28.1",
+]
+
+[dependency-groups]
+dev = [
+  "pytest==9.1.1", "pytest-cov==7.1.0", "ruff==0.17.2", "mypy==2.4.0",
+  "jsonschema==4.26.0", "openapi-spec-validator==0.9.0", "pip-audit==2.10.1",
+  "bandit==1.9.4", "detect-secrets==1.5.0", "pyyaml==6.0.3", "unidiff==1.0.1", "pymarkdownlnt==0.9.41",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/opspilot"]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+extend-exclude = ["artifacts"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.13"
+strict = true
+files = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers --import-mode=importlib"
+markers = ["integration: requires dedicated real PostgreSQL18 and Keycloak laboratory"]
+
+[tool.coverage.run]
+source = ["opspilot"]
+branch = true
+
+[tool.bandit]
+exclude_dirs = ["tests", ".venv", "artifacts"]

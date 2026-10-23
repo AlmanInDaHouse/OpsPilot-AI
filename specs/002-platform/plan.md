@@ -1,6 +1,7 @@
 # 002-platform — plan técnico
 
-Estado: PROPUESTO. Diseño rector: [arquitectura](../../docs/architecture/ARCHITECTURE.md),
+Estado: EJECUTADO; NO-GO S03 por CVE del IdP, no por ausencia de integración.
+Diseño rector: [arquitectura](../../docs/architecture/ARCHITECTURE.md),
 [ADR-0005](../../docs/decisions/0005-platform-stack.md) y [spec](spec.md).
 
 Secuencia: entorno/versiones→contratos→paquetes/CI→migraciones/roles/UoW→identidad→API→

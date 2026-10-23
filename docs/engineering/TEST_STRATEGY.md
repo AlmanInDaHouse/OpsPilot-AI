@@ -1,6 +1,7 @@
 # Estrategia de validación
 
-Estado: tests del harness disponibles; todos los tests de producto PROPUESTOS.
+Estado: harness preservado y tests TEST-02 implementados; resultados reales en
+SESSION_02_REVIEW. Tests posteriores siguen PROPUESTOS.
 Tests tienen IDs y trazabilidad. Fixtures/fakes solo en tests; integración no debe
 transformarse en fake para obtener verde. Clock/UUID inyectados en dominio.
 

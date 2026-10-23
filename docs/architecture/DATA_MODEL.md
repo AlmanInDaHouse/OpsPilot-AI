@@ -1,6 +1,6 @@
 # Modelo de datos objetivo
 
-Estado: PROPUESTO. UUID para entidades, UTC `timestamptz`, secuencias por agregado,
+Estado: tablas S02 implementadas mediante Alembic; resto PROPUESTO. UUID para entidades, UTC `timestamptz`, secuencias por agregado,
 JSONB solo para payloads validados/versionados. PK/FK/UNIQUE/CHECK en DB, no solo ORM.
 
 | Tabla / sesión | Campos e invariantes principales |
@@ -57,5 +57,5 @@ no afirmar derecho de borrado satisfecho manteniendo datos identificables en bac
 Backups caducan según misma política y acceso se audita. No almacenar razonamiento
 interno del modelo, solo decisión resumida, fuentes, versión y resultado estructurado.
 
-Migraciones iniciales S02 solo principals, role_grants y audit_events. Resto es diseño
+Migraciones iniciales S02 solo principals, role_grants, audit_streams y audit_events. Resto es diseño
 para hitos posteriores; no crear tablas vacías de negocio durante sesión 01/02.

@@ -1,0 +1,51 @@
+name: Platform S02 gates
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  quality:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.14'
+      - run: python -m pip install uv==0.11.13
+      - run: python scripts/dev.py install
+      - run: python scripts/dev.py check
+      - run: python scripts/dev.py test --suite local
+  integration:
+    needs: quality
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13.14'
+      - run: python -m pip install uv==0.11.13
+      - run: python scripts/dev.py install
+      - run: python scripts/dev.py infra
+      - run: python scripts/dev.py up
+      - run: uv run --frozen pytest tests/integration --junitxml=artifacts/session-02/integration-ci.xml
+      - run: uv run --frozen python scripts/verify_fresh_postgres.py
+      - run: uv run --frozen python scripts/verify_recovery.py
+      - run: uv run --frozen python scripts/scan_images.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: platform-s02-evidence
+          path: artifacts/session-02/
+          if-no-files-found: error
+      - run: python scripts/dev.py stop
+        if: always()

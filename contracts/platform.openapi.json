@@ -1,6 +1,6 @@
 {
   "openapi": "3.1.0",
-  "info": {"title": "OpsPilot platform target S02", "version": "0.1.0"},
+  "info": {"title": "OpsPilot platform S02", "version": "0.1.0"},
   "servers": [{"url": "https://opspilot.invalid"}],
   "security": [{"bearerAuth": []}],
   "paths": {

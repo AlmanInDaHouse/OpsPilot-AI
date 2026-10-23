@@ -5,3 +5,11 @@ __pycache__/
 !.env.example
 artifacts/local/
 node_modules/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage*
+htmlcov/
+*.egg-info/
+dist/
+build/

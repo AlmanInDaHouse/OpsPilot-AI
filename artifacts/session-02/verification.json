@@ -1,0 +1,252 @@
+{
+  "recorded_at_utc": "2026-10-23T00:40:20.929008+00:00",
+  "state": "COMPLETE",
+  "runs": [
+    {
+      "gate": "frozen",
+      "command": [
+        "uv",
+        "sync",
+        "--frozen"
+      ],
+      "started_at_utc": "2026-10-23T00:39:51.812416+00:00",
+      "duration_seconds": 0.06,
+      "exit_code": 0,
+      "verdict": "PASS",
+      "raw_log": "artifacts/local/verification/frozen.log",
+      "raw_sha256": "59f705f14861bc51b60781bba0b089644af500321b378de5d224f058875c702e"
+    },
+    {
+      "gate": "docs",
+      "command": [
+        "C:\\Users\\manul\\OneDrive\\Escritorio\\opspilot-ai\\.venv\\Scripts\\python.exe",
+        "scripts/check_repository.py",
+        "--report",
+        "artifacts/session-02/docs-final.json"
+      ],
+      "started_at_utc": "2026-10-23T00:39:51.882306+00:00",
+      "duration_seconds": 1.05,
+      "exit_code": 0,
+      "verdict": "PASS",
+      "raw_log": "artifacts/local/verification/docs.log",
+      "raw_sha256": "0bc11804014225df5f0a075d286b8767dc265f504e5c99bb86080ace160167ca"
+    },
+    {
+      "gate": "format",
+      "command": [
+        "uv",
+        "run",
+        "--frozen",
+        "ruff",
+        "format",
+        "--check",
+        "."
+      ],
+      "started_at_utc": "2026-10-23T00:39:52.940031+00:00",
+      "duration_seconds": 0.11,
+      "exit_code": 0,
+      "verdict": "PASS",
+      "raw_log": "artifacts/local/verification/format.log",
+      "raw_sha256": "b475fc29aee3dc5c262c478029ac7795c29dadad3668bc877eb3a0357103a4e3"
+    },
+    {
+      "gate": "lint",
+      "command": [
+        "uv",
+        "run",
+        "--frozen",
+        "ruff",
+        "check",
+        "."
+      ],
+      "started_at_utc": "2026-10-23T00:39:53.050711+00:00",
+      "duration_seconds": 0.09,
+      "exit_code": 0,
+      "verdict": "PASS",
+      "raw_log": "artifacts/local/verification/lint.log",
+      "raw_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "gate": "markdown",
+      "command": [
+        "uv",
+        "run",
+        "--frozen",
+        "pymarkdown",
+        "--config",
+        ".pymarkdown.json",
+        "--strict-config",
+        "scan",
+        "-r",
+        "AGENTS.md",
+        "README.md",
+        "docs",
+        "specs"
+      ],
+      "started_at_utc": "2026-10-23T00:39:53.144320+00:00",
+      "duration_seconds": 1.39,
+      "exit_code": 0,
+      "verdict": "PASS",
+      "raw_log": "artifacts/local/verification/markdown.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "gate": "types",
+      "command": [
+        "uv",
+        "run",
+        "--frozen",
+        "mypy",
+        "src"
+      ],
+      "started_at_utc": "2026-10-23T00:39:54.535022+00:00",
+      "duration_seconds": 0.62,
+      "exit_code": 0,
+      "verdict": "PASS",
+      "raw_log": "artifacts/local/verification/types.log",
+      "raw_sha256": "dda4c9b5d4afe91534d9c20ef74d9c9ce814b17a96dcddd45fc05d5dfadf304b"
+    },
+    {
+      "gate": "architecture",
+      "command": [
+        "uv",
+        "run",
+        "--frozen",
+        "python",
+        "scripts/check_architecture.py"
+      ],
+      "started_at_utc": "2026-10-23T00:39:55.159315+00:00",
+      "duration_seconds": 0.17,
+      "exit_code": 0,
+      "verdict": "PASS",
+      "raw_log": "artifacts/local/verification/architecture.log",
+      "raw_sha256": "82886fbdd9b31acad39a0522431bd428cdf1012bda4ef4e30023721d3ec46ea3"
+    },
+    {
+      "gate": "tests",
+      "command": [
+        "uv",
+        "run",
+        "--frozen",
+        "pytest",
+        "--cov=opspilot",
+        "--cov-report=json:artifacts/session-02/coverage-windows.json",
+        "--junitxml=artifacts/session-02/tests-windows.xml",
+        "-q",
+        "--tb=short"
+      ],
+      "started_at_utc": "2026-10-23T00:39:55.330351+00:00",
+      "duration_seconds": 17.05,
+      "exit_code": 0,
+      "verdict": "PASS",
+      "raw_log": "artifacts/local/verification/tests.log",
+      "raw_sha256": "85c3061c2aefbc10ece17a0dff9d3fac6532fb49a03b598798a971ab8c16af58"
+    },
+    {
+      "gate": "bandit",
+      "command": [
+        "uv",
+        "run",
+        "--frozen",
+        "bandit",
+        "-r",
+        "src",
+        "-f",
+        "json",
+        "-o",
+        "artifacts/session-02/bandit.json"
+      ],
+      "started_at_utc": "2026-10-23T00:40:12.390164+00:00",
+      "duration_seconds": 0.52,
+      "exit_code": 0,
+      "verdict": "PASS",
+      "raw_log": "artifacts/local/verification/bandit.log",
+      "raw_sha256": "4d3d26e47fd224c5c8753fa7e5c851ae8edb5b97ccd54b63e5dd443527c0e1db"
+    },
+    {
+      "gate": "dependencies",
+      "command": [
+        "uv",
+        "run",
+        "--frozen",
+        "pip-audit",
+        "--format",
+        "json",
+        "--output",
+        "artifacts/session-02/pip-audit.json"
+      ],
+      "started_at_utc": "2026-10-23T00:40:12.911047+00:00",
+      "duration_seconds": 2.56,
+      "exit_code": 0,
+      "verdict": "PASS",
+      "raw_log": "artifacts/local/verification/dependencies.log",
+      "raw_sha256": "4e4757ff226a44b5c448b1c4624619419c22d5272463dc19510b4754871a72f9"
+    },
+    {
+      "gate": "secrets",
+      "command": [
+        "uv",
+        "run",
+        "--frozen",
+        "python",
+        "scripts/check_secrets.py"
+      ],
+      "started_at_utc": "2026-10-23T00:40:15.473845+00:00",
+      "duration_seconds": 4.14,
+      "exit_code": 0,
+      "verdict": "PASS",
+      "raw_log": "artifacts/local/verification/secrets.log",
+      "raw_sha256": "4f4bd46f210792aeb7592b4176080a2d0c669929ac58cb4866c594019cb6a29a"
+    },
+    {
+      "gate": "compose",
+      "command": [
+        "docker",
+        "compose",
+        "-f",
+        "infra/compose.yaml",
+        "config",
+        "--quiet"
+      ],
+      "started_at_utc": "2026-10-23T00:40:19.619921+00:00",
+      "duration_seconds": 0.23,
+      "exit_code": 0,
+      "verdict": "PASS",
+      "raw_log": "artifacts/local/verification/compose.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "gate": "diff",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "started_at_utc": "2026-10-23T00:40:19.851704+00:00",
+      "duration_seconds": 0.08,
+      "exit_code": 0,
+      "verdict": "PASS",
+      "raw_log": "artifacts/local/verification/diff.log",
+      "raw_sha256": "f4930215501fbec27db698e6956351ba4b56fff2bc6f7963687c8442a4546766"
+    }
+  ],
+  "image_gates": {
+    "postgres": {
+      "verdict": "PASS",
+      "exit_code": 0,
+      "image_id_matches": true
+    },
+    "keycloak": {
+      "verdict": "FAIL",
+      "exit_code": 1,
+      "image_id_matches": true
+    },
+    "api": {
+      "verdict": "PASS",
+      "exit_code": 0,
+      "image_id_matches": true
+    }
+  },
+  "session_03": "NO-GO",
+  "remote_ci": "NOT_RUN"
+}

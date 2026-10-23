@@ -1,6 +1,11 @@
 # Sesión 02 — especificación ejecutable de plataforma
 
-Estado: PROPUESTO, no implementar durante sesión 01. Feature `002-platform`.
+Estado: IMPLEMENTADO y probado funcionalmente; aceptación NO-GO por scan del IdP.
+Feature `002-platform`; no se implementó durante S01. Criterios de aceptación intactos.
+Ejecución S02 autorizada el 2026-10-23. Cierre previo de decisiones y tareas:
+[ADR-0006](../decisions/0006-platform-boundaries.md). `nbf` se valida cuando existe;
+Keycloak no lo emite obligatoriamente. `exp`/`iat` y tipo access token sí obligatorios.
+Payloads S02 y roles exactos se cierran en ese ADR; no se añade intake en este hito.
 Fuente normativa de contratos: [OpenAPI](../../contracts/platform.openapi.json),
 [datos](../architecture/DATA_MODEL.md) y [seguridad](../architecture/API_CONTRACTS.md).
 Plan y tareas: [plan](../../specs/002-platform/plan.md), [tasks](../../specs/002-platform/tasks.md),
@@ -12,8 +17,8 @@ Como operador autenticado quiero conocer mi identidad/roles; como auditor quiero
 consultar eventos sin poder ejecutar operaciones. Base necesaria para que ningún
 workflow futuro opere anónimamente o pierda decisiones al fallar un proceso.
 Requiere S01 GO, revisión del autor, Python 3.13, uv/Git, Linux/Docker disponible
-y puertos locales libres. Docker daemon aquí está apagado: no sustituir integración
-por mocks. Resolver proveedor IdP para lab: recomendado Keycloak real con realm único.
+y puertos locales libres. Docker no respondía en S01; preflight S02 lo encontró
+disponible y ejecutó integración real, sin mocks. IdP de lab: Keycloak con realm único.
 No requiere proveedor LLM, VPN ni credenciales de producción.
 
 ## Alcance y exclusiones

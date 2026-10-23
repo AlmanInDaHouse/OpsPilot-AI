@@ -1,0 +1,19 @@
+{
+  "harness.yml": {
+    "jobs": [
+      "documentation-and-harness"
+    ],
+    "yaml_parsed": true,
+    "actions_pinned": true,
+    "remote_execution": "NOT_RUN"
+  },
+  "platform.yml": {
+    "jobs": [
+      "quality",
+      "integration"
+    ],
+    "yaml_parsed": true,
+    "actions_pinned": true,
+    "remote_execution": "NOT_RUN"
+  }
+}
