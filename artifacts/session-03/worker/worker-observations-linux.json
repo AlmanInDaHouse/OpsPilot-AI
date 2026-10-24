@@ -1,0 +1,2157 @@
+[
+  {
+    "test": "test_real_snapshot_and_atomic_result",
+    "observation": {
+      "job_id": "b3e6edcb-b6d2-4163-bb59-b1a46d538f33",
+      "fence_initial": 0,
+      "fence_final": 1,
+      "final": "NEEDS_OPERATOR",
+      "evidence": "c1a3de61-f824-4deb-8275-2e296c8ffe5b",
+      "hash": "d1d6d606352a4550891a8bc10b59cdc011331483a554e8fe063cc223764db563",
+      "events": 2
+    }
+  },
+  {
+    "test": "test_two_real_worker_processes_compete_without_loss[1]",
+    "observation": {
+      "jobs": 1,
+      "exit_codes": [
+        0,
+        0
+      ],
+      "per_worker": [
+        0,
+        1
+      ],
+      "claims": [
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "f2edf5c9-709a-49a9-ba5b-87265e69e9b0",
+          "occurred_at": "2026-10-24T01:40:47.944216+00:00",
+          "version": 1,
+          "worker_id": "fe4d1269-504d-4f68-a994-f20690350390",
+          "workflow_id": "8751528e-d675-4b68-8c96-c9d16ab18f65"
+        }
+      ],
+      "completed": [
+        {
+          "event": "job.completed",
+          "evidence_id": "9eead67c-8c5f-4fac-8e5d-988304efbba6",
+          "fence": 1,
+          "job_id": "f2edf5c9-709a-49a9-ba5b-87265e69e9b0",
+          "occurred_at": "2026-10-24T01:40:47.991335+00:00",
+          "trace_id": "1a86df3c6b784ab6955edc91a51865fc",
+          "version": 3,
+          "worker_id": "fe4d1269-504d-4f68-a994-f20690350390",
+          "workflow_id": "8751528e-d675-4b68-8c96-c9d16ab18f65"
+        }
+      ]
+    }
+  },
+  {
+    "test": "test_two_real_worker_processes_compete_without_loss[100]",
+    "observation": {
+      "jobs": 100,
+      "exit_codes": [
+        0,
+        0
+      ],
+      "per_worker": [
+        51,
+        49
+      ],
+      "claims": [
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "740f8d70-6149-4c00-aa0b-f74da4d85fe8",
+          "occurred_at": "2026-10-24T01:40:52.938090+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "9b84ce62-dc65-4a33-babf-59e1c40f393b"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "6c0b8a10-74e3-42f0-96fe-16b627438a87",
+          "occurred_at": "2026-10-24T01:40:52.987894+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "49c812c6-2150-4093-ae90-ee07ed92ebdc"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "6086a165-9bcf-4919-8b62-7b0df2085f82",
+          "occurred_at": "2026-10-24T01:40:53.013473+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "dd6561fb-9dc5-42c6-89ce-7f88cb15dd6a"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "7d5ab774-3448-4e2c-90f5-14bd0f9463e7",
+          "occurred_at": "2026-10-24T01:40:53.039654+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "d3678966-437b-40ae-aaed-6633d1604eee"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "63f06aca-10c1-40ed-b610-1c0056ef6792",
+          "occurred_at": "2026-10-24T01:40:53.064819+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "32b23b66-3d4e-4fe1-a9ca-4ebcfcf7a347"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "3c126a8f-d41d-4d5e-9f74-e7a713ba4ac8",
+          "occurred_at": "2026-10-24T01:40:53.090286+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "b11faaf8-2388-4223-a1d1-2170d77e691c"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "0d27f21b-14d2-4bdc-bf2c-45c14fdac033",
+          "occurred_at": "2026-10-24T01:40:53.113312+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "856a57b4-828c-453d-a1df-392277caefc4"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "1152bd14-5458-429b-a52d-f0fe905639af",
+          "occurred_at": "2026-10-24T01:40:53.135552+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "7e791bdb-9db6-4063-a7b1-f162d349947a"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "e4505aeb-4aea-4aa8-bd06-89aa3e10b8c6",
+          "occurred_at": "2026-10-24T01:40:53.159033+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "4b88f280-d2f1-4bf7-97a0-9fbc87830832"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "51c25bff-da0f-47ed-a54d-0f893163e307",
+          "occurred_at": "2026-10-24T01:40:53.193544+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "6e2ad863-3d8c-4576-9328-61dbfcfc637f"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "5db52de1-f9a7-4262-8ce3-c95f4551216d",
+          "occurred_at": "2026-10-24T01:40:53.224693+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "a3909a5f-3556-40a3-9f55-da57501862d3"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "2ece2de1-5077-46c4-ad79-7a719192eea5",
+          "occurred_at": "2026-10-24T01:40:53.250630+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "401269ac-3aa6-4bc2-a187-8bbe3dc02c06"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "5363e3b4-8a6e-4773-a080-6316cca96531",
+          "occurred_at": "2026-10-24T01:40:53.274693+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "55b4a03e-e537-4805-8c84-8542f3d8e7f9"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "8501ad9b-12af-411f-9130-b1d9e3bc3e9f",
+          "occurred_at": "2026-10-24T01:40:53.297849+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "02e27dd0-cc5b-4e67-adc5-8cfc62cfabfe"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "739648e0-0296-491f-a92f-3c46d5891f3f",
+          "occurred_at": "2026-10-24T01:40:53.317921+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "873d071c-1800-4832-afec-f566debf32fb"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "f2bedf9a-7a73-4884-b956-7b25ef57b8dc",
+          "occurred_at": "2026-10-24T01:40:53.347280+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "6b0e8979-2061-46ab-a833-a3dce44eb42f"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "69775e2b-8714-4c05-92b7-2afe14e098f0",
+          "occurred_at": "2026-10-24T01:40:53.376578+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "e1375d20-ee9e-4117-93b2-e7952e61eaaf"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "4b9f2c93-200e-45e1-a1d4-4647a6a15434",
+          "occurred_at": "2026-10-24T01:40:53.397704+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "b0257918-e4f8-454b-a51e-2f76a6f19bf2"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "bbf63654-6316-4d93-ac3a-f51df3093068",
+          "occurred_at": "2026-10-24T01:40:53.418930+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "ee32e41e-921b-4f1d-849c-e3369fcd3e9a"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "30afb372-74a5-4a08-a661-cbb68da28585",
+          "occurred_at": "2026-10-24T01:40:53.441849+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "31d08fc4-4f24-47df-b5f7-1f894c7f0014"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "b5cf457b-e9e9-4b65-98b4-1edbc9be0e5c",
+          "occurred_at": "2026-10-24T01:40:53.463130+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "a1f53c48-64ff-4c02-8f86-78e5ab8e8408"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "39299316-e4a6-4802-9e7f-bfb805965c0a",
+          "occurred_at": "2026-10-24T01:40:53.489540+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "bde87023-026e-4a91-bebb-a0ebc9c20138"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "7e05b56c-d11c-4193-a6b1-ab9f0895118a",
+          "occurred_at": "2026-10-24T01:40:53.510253+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "5c102939-f790-4f64-b8c1-d8781baea6ac"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "c5a3517a-b0e9-4e09-ae7f-eca52b821821",
+          "occurred_at": "2026-10-24T01:40:53.531251+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "75535db2-9941-4656-8495-7fb868ba0683"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "93bbfc13-e06b-4ce3-909e-8e474d4df155",
+          "occurred_at": "2026-10-24T01:40:53.559338+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "c8935cf2-3faf-4c1e-861d-ae08aaa2417b"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "986a5944-8924-4f0c-a135-a3d739c86c10",
+          "occurred_at": "2026-10-24T01:40:53.587759+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "7b0e13d7-1808-4108-a29f-bb4db9fa0f32"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "e01b44d9-e789-4b27-a733-3cad234068cf",
+          "occurred_at": "2026-10-24T01:40:53.608552+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "fc8598ac-9de9-425b-9e64-23062f2a6417"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "c5008916-822a-4954-814c-6d1b9e25f344",
+          "occurred_at": "2026-10-24T01:40:53.633701+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "6631ab80-896b-4838-893a-93b865f68ae6"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "fbab2ffe-f991-4cc6-a074-a1be703770f0",
+          "occurred_at": "2026-10-24T01:40:53.654897+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "9d9aebeb-7bc8-4fa2-918a-f30e6b9ff452"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "798aacf6-5840-4997-9c1a-9185a934eb9e",
+          "occurred_at": "2026-10-24T01:40:53.678980+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "884efa23-83f8-4370-babe-4dc7e912df17"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "ae9a84e4-5562-4cb0-8db6-099965f74bd5",
+          "occurred_at": "2026-10-24T01:40:53.702552+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "eadf252b-4334-48c5-9a87-ce754f30d286"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "7c4a03b7-5c50-40b5-83cc-3c165b9214a1",
+          "occurred_at": "2026-10-24T01:40:53.724291+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "0e804def-6b30-4767-bd6c-2aa4fc88e673"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "94dab79f-43a1-48c4-9ac0-72f7fce38783",
+          "occurred_at": "2026-10-24T01:40:53.743822+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "1bfa2901-6637-427d-be33-8a26f2ff99ee"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "8c7bc54a-d70c-4103-85ae-384753b3664c",
+          "occurred_at": "2026-10-24T01:40:53.765162+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "849c2d5f-5329-4feb-a496-fd3a0374654c"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "a5ae35cc-2962-426a-a5d9-f2efd10e283a",
+          "occurred_at": "2026-10-24T01:40:53.784954+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "5b42417c-3a8a-47b3-8636-5ba627886a24"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "d6c93902-e025-4c96-bf05-3964da8029c6",
+          "occurred_at": "2026-10-24T01:40:53.807687+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "6fd8c600-559b-4dd8-ac86-694fe0af1c56"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "7aa53369-ae3f-4f38-b361-30d6ce0e9458",
+          "occurred_at": "2026-10-24T01:40:53.829214+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "55433c49-04c2-42f4-87a9-7535254a0e12"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "e4bdfac9-8f1d-4e76-9e97-c02a5eb71ed1",
+          "occurred_at": "2026-10-24T01:40:53.854742+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "c714ae7f-cc41-40a2-9344-24bed83e1dbf"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "4b44281f-5870-47ef-93e7-b783439c708c",
+          "occurred_at": "2026-10-24T01:40:53.889783+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "3a449175-0cab-45f3-9d91-fb25561fa84e"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "2c6dcea1-6190-49a9-bc03-981b1591ec15",
+          "occurred_at": "2026-10-24T01:40:53.919164+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "770adcfc-d2eb-417a-8840-56ed0612b823"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "1e54883e-c5e4-4e04-9fdb-186447481249",
+          "occurred_at": "2026-10-24T01:40:53.948251+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "d5de8e32-bc56-4f47-bbe6-63d8d652a46a"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "4fb0b09d-afe6-4d84-a6ec-da12aed51cf5",
+          "occurred_at": "2026-10-24T01:40:53.977565+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "c5dc717f-b3dc-40dd-83c6-e482dc3f7533"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "66f7f3cb-5f03-462b-b84d-9e8aed7b3a03",
+          "occurred_at": "2026-10-24T01:40:54.006210+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "158e652a-a576-4f25-8a13-254d2c8dd11d"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "210a9601-3ef0-4e97-908f-e746d48e089c",
+          "occurred_at": "2026-10-24T01:40:54.035856+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "159b4683-05f2-4fc8-ac66-724a38c719bd"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "66fd4dbd-0062-4970-8bee-868b403edc45",
+          "occurred_at": "2026-10-24T01:40:54.063838+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "090f61e1-f511-45cc-a379-25cf716f1b32"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "ca1d2ca2-4094-402b-b23d-72a0cbe41f7f",
+          "occurred_at": "2026-10-24T01:40:54.094410+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "5e9523d4-c2ee-45e4-a16d-76909c1d70d6"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "211bea2e-09e3-479f-a0d7-db902e19e729",
+          "occurred_at": "2026-10-24T01:40:54.128524+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "4ad0988a-4f85-4aaf-9a93-ba5fe83979fa"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "f32f6fe7-18df-4b2d-a9d3-bfe04f557b25",
+          "occurred_at": "2026-10-24T01:40:54.156840+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "3ec60746-3d42-4574-988c-d6f03b0f1b3e"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "dd337134-be68-4d80-905c-9e45a4b25277",
+          "occurred_at": "2026-10-24T01:40:54.179535+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "cfaf8d7f-20d5-4493-aa6a-580c0c96080c"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "2b9a9b06-0860-4ecd-b5dc-c703dfc7af04",
+          "occurred_at": "2026-10-24T01:40:54.200678+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "3100d2b9-b5b1-4b20-9f28-349f768de03b"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "93226365-acb3-48b6-a32b-375d163403df",
+          "occurred_at": "2026-10-24T01:40:54.221076+00:00",
+          "version": 1,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "e0271c01-00d8-44ea-b860-1adf7f2a42b9"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "722eac8a-9fcb-4e6e-880c-0307d3f3e38e",
+          "occurred_at": "2026-10-24T01:40:52.938680+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "d009218a-2b5e-48e6-b647-2a9d0ee378e4"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "07f2ad97-8629-499f-bfa8-83f518f3e835",
+          "occurred_at": "2026-10-24T01:40:52.988620+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "ef0394bc-baee-4b55-88de-a3b416fbc0ec"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "ca1de88b-4221-46df-8b2f-8f1ddc5a760e",
+          "occurred_at": "2026-10-24T01:40:53.014365+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "1d32f231-cc9c-4fb3-90b3-7755b40a71a4"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "203c0e32-f719-439f-bebb-053f019d38a5",
+          "occurred_at": "2026-10-24T01:40:53.041156+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "9d70df0e-b51f-4d99-af4c-0016dd5ae09a"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "84cc74a1-d369-4e2a-b380-ab5303cfad25",
+          "occurred_at": "2026-10-24T01:40:53.065896+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "81b71c8c-da00-4cdf-9de2-ae6b5b5e21f7"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "e6f8ea3a-d55c-4fec-afa3-fc27c4cfaee5",
+          "occurred_at": "2026-10-24T01:40:53.091653+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "ba620703-9c48-4d9b-a267-5b290916d80e"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "948b4469-aa40-42d5-8823-939944155558",
+          "occurred_at": "2026-10-24T01:40:53.114591+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "070b8abc-c0d9-46f4-8a69-d6ab8df07558"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "58ee9e8f-5e68-41e6-941d-0f7ab79d09bb",
+          "occurred_at": "2026-10-24T01:40:53.136169+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "2a821a69-fc46-412c-83b8-c37ab46663a6"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "99b45f39-a56e-4eab-8407-32a443695e18",
+          "occurred_at": "2026-10-24T01:40:53.159559+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "f6dd8dda-7f80-407b-a6d3-768a9f58d571"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "f068b950-bb6b-48d0-bc84-1efd1df0d698",
+          "occurred_at": "2026-10-24T01:40:53.194367+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "42cb108d-dbca-4333-be06-3cd55e0b7a09"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "84f62be3-0ec3-4d7b-8b4b-aabc26a349f0",
+          "occurred_at": "2026-10-24T01:40:53.227319+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "4d7861cd-6cfb-46e1-a12e-1bfdbab5f485"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "e0495d1f-8061-4e81-8c3a-3cde54765997",
+          "occurred_at": "2026-10-24T01:40:53.256034+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "63b186ff-aa86-4305-bb4e-7684cb8dc77a"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "ab386e48-78b7-4e57-a3a7-44a7014bd0b5",
+          "occurred_at": "2026-10-24T01:40:53.282211+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "f70dc24d-3686-4354-83e3-adab444a0f11"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "108e1319-e9af-42a9-a8ff-d982b76f6d38",
+          "occurred_at": "2026-10-24T01:40:53.304992+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "da1db1aa-e4fb-40fc-8862-2741d40a07d2"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "95d12636-5ca4-496a-9723-bef70bbfd7e0",
+          "occurred_at": "2026-10-24T01:40:53.330173+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "1a41a75f-fd82-46f1-95f6-637c3b6c8e24"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "ade60d12-020b-4fd6-a646-faf06f998186",
+          "occurred_at": "2026-10-24T01:40:53.363182+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "57289403-c20b-4bef-98c2-94e02a3fed74"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "b335f713-be8e-4a39-9c43-7ae8e9628b1d",
+          "occurred_at": "2026-10-24T01:40:53.389531+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "ef17ff7f-b84d-4f0c-b009-6b73e933896e"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "dc35c0ec-9709-4ec5-b506-5abd7320c5c4",
+          "occurred_at": "2026-10-24T01:40:53.411594+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "d793006e-7a9f-4da3-aaf4-83ac5ead9c65"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "2b65b1b1-0c37-49d7-a023-fdad8b4d5872",
+          "occurred_at": "2026-10-24T01:40:53.434751+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "444b4152-fe9d-4400-a542-19ac0d9202ed"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "8be714b8-fbc4-44b8-98a3-de37433b3dac",
+          "occurred_at": "2026-10-24T01:40:53.456239+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "73c41c33-77b1-42ca-a7ee-7b664b9c3d14"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "d42ebec9-44e1-42a1-a08b-4994273f74d3",
+          "occurred_at": "2026-10-24T01:40:53.478702+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "059a779c-a85c-4c0d-95c4-65789ac0b310"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "ea537848-31cc-46c8-b7bc-2179f57bb8cc",
+          "occurred_at": "2026-10-24T01:40:53.503612+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "4af82d84-14f2-4019-82fb-8c94f8180ca6"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "d9dee6d7-905f-49cd-97b9-4f56081a78c0",
+          "occurred_at": "2026-10-24T01:40:53.524846+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "9e96a3fa-da74-41cb-9923-ea19fe20ef92"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "52a05f4a-9f13-49a1-b194-50f2d53309ac",
+          "occurred_at": "2026-10-24T01:40:53.550447+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "eb00d972-84da-4249-bf18-503652f50c55"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "39d8760c-2e03-4a70-809f-2802eeee54f6",
+          "occurred_at": "2026-10-24T01:40:53.581728+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "37be96f8-e1d3-47c8-9cba-18e519ec1607"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "e56d64dc-af4f-4bd4-a295-b7bc6bb7d34c",
+          "occurred_at": "2026-10-24T01:40:53.604321+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "a4efc54c-7945-4f35-b347-36207f9e0f4d"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "58105e2d-ef26-4b96-ad7f-c666147b05be",
+          "occurred_at": "2026-10-24T01:40:53.628848+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "9a7b774c-3628-47b0-811e-ce070466997c"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "7ce6b5aa-5c37-4421-ab68-36004781f89d",
+          "occurred_at": "2026-10-24T01:40:53.651008+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "15f7d2f0-9df7-4481-88d9-fa8415ec6d9d"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "25b867f6-e8a0-45f1-8202-9c5228376871",
+          "occurred_at": "2026-10-24T01:40:53.672781+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "7123da87-615c-4a51-a196-680e96ba6f25"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "10f5ba36-ffed-461a-83fe-0554b314ca8b",
+          "occurred_at": "2026-10-24T01:40:53.698669+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "616e75f5-23f3-4069-9d65-32fff37c99fb"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "10abd2f3-9ec2-4780-b279-e063144af6f9",
+          "occurred_at": "2026-10-24T01:40:53.720832+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "184a9d47-2976-4bf2-9d95-ce579ed8f12e"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "651d1c29-660d-4a7b-b053-4dd04ad52916",
+          "occurred_at": "2026-10-24T01:40:53.741926+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "5fee2f3d-0d02-4d89-9f7b-fbc03c7ff3fd"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "9df292b8-cc21-492a-a42b-98ca2b3663ba",
+          "occurred_at": "2026-10-24T01:40:53.764137+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "81954d0a-1589-41ff-aa5f-9656ef887484"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "6bd71dfe-281b-4a04-bec0-e15999adacbd",
+          "occurred_at": "2026-10-24T01:40:53.784455+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "12b82af0-c34a-4ae2-9b2c-8165fb092496"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "7b8f49bc-6f62-4de2-b0dc-913136b48716",
+          "occurred_at": "2026-10-24T01:40:53.807696+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "afc5b738-7902-4a4d-85e4-7ad5aea7b107"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "f2e0eb6d-dc5b-443d-886f-e8e80b1b4e95",
+          "occurred_at": "2026-10-24T01:40:53.830315+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "f5b4b14c-fb49-47fc-b93e-4122bf4d7765"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "35f8d2fd-095a-4389-bbb5-5522a8eb0d5d",
+          "occurred_at": "2026-10-24T01:40:53.855985+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "31e0b11f-9363-47e5-b78b-948e28657e3e"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "9c6489fa-5019-4eed-b792-19bf9b01aaf3",
+          "occurred_at": "2026-10-24T01:40:53.895990+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "23817022-2d9e-4e9b-b373-088fe6081b38"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "4a0f36d5-c96f-49c5-9738-6118b3d889f2",
+          "occurred_at": "2026-10-24T01:40:53.924621+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "48f0f867-4057-4e49-93d5-00fc02daa808"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "90633dc1-02d7-47e7-88af-7f58bad03679",
+          "occurred_at": "2026-10-24T01:40:53.954811+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "8c9ca62c-44ef-4fb4-b675-c9c6d40ceece"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "5132da59-bf6f-47dc-8253-77b520a73fcf",
+          "occurred_at": "2026-10-24T01:40:53.983423+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "c45ba0c2-928b-4d0c-9c77-8004670b08f9"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "f1054757-f9f7-4aa6-84da-b463dedde76c",
+          "occurred_at": "2026-10-24T01:40:54.014182+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "7d702e65-95a0-45a7-a1db-94f806940626"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "eb168768-54f9-47e8-892a-1e42cd5810e0",
+          "occurred_at": "2026-10-24T01:40:54.044941+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "bed8c34c-f966-45d2-8bb6-4dccc27cfa00"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "4dac2def-0aa0-422a-a209-06bf5bf7814e",
+          "occurred_at": "2026-10-24T01:40:54.074323+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "9034a5ae-b13a-46f7-ad98-26e86a580bdd"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "576a333d-3bef-44e8-bf1e-52ce14a10282",
+          "occurred_at": "2026-10-24T01:40:54.107953+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "9b3d205d-3d2b-4b90-a266-2a2c4c2b494f"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "8de5bca3-2f17-4591-841b-615cc9b3c9be",
+          "occurred_at": "2026-10-24T01:40:54.140562+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "cab3b7e1-9396-4ca6-96f8-324d1b4727fd"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "ab229496-fde8-42be-aca9-d88e949bf5ae",
+          "occurred_at": "2026-10-24T01:40:54.167662+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "cdf090d4-cd6b-49dd-acf2-e09f6f093a81"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "d1066b70-5982-4bdb-aa4d-5c86c8e3d23a",
+          "occurred_at": "2026-10-24T01:40:54.190268+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "95fc2b3f-f48b-49d9-971c-13a01cb8c0b9"
+        },
+        {
+          "event": "job.claimed",
+          "fence": 1,
+          "job_id": "a3ec7675-4a7d-46e9-97f9-c298c3f363dc",
+          "occurred_at": "2026-10-24T01:40:54.211181+00:00",
+          "version": 1,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "3af71fb7-139c-438c-ab91-d65d5606e558"
+        }
+      ],
+      "completed": [
+        {
+          "event": "job.completed",
+          "evidence_id": "d5500a17-b26a-445b-b686-adf15279766f",
+          "fence": 1,
+          "job_id": "740f8d70-6149-4c00-aa0b-f74da4d85fe8",
+          "occurred_at": "2026-10-24T01:40:52.984536+00:00",
+          "trace_id": "1eacf30a50b84659a65aec079e2448ca",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "9b84ce62-dc65-4a33-babf-59e1c40f393b"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "3694fab4-f915-48f8-b291-9ad9b8ff043e",
+          "fence": 1,
+          "job_id": "6c0b8a10-74e3-42f0-96fe-16b627438a87",
+          "occurred_at": "2026-10-24T01:40:53.009952+00:00",
+          "trace_id": "dfa7c6c5fdba4505a8b663e8a1fc2fe3",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "49c812c6-2150-4093-ae90-ee07ed92ebdc"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "f11a3af4-0fe9-4d74-b2c6-a5f6cd00e639",
+          "fence": 1,
+          "job_id": "6086a165-9bcf-4919-8b62-7b0df2085f82",
+          "occurred_at": "2026-10-24T01:40:53.036481+00:00",
+          "trace_id": "f23bde5987e848729275516796777dd4",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "dd6561fb-9dc5-42c6-89ce-7f88cb15dd6a"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "307ac01a-bd12-40fd-8341-53f1666290d6",
+          "fence": 1,
+          "job_id": "7d5ab774-3448-4e2c-90f5-14bd0f9463e7",
+          "occurred_at": "2026-10-24T01:40:53.061213+00:00",
+          "trace_id": "f65af303c9f6453da3a553f3859a5bae",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "d3678966-437b-40ae-aaed-6633d1604eee"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "352c2b98-8555-4ed5-80fb-2a466ecb7b76",
+          "fence": 1,
+          "job_id": "63f06aca-10c1-40ed-b610-1c0056ef6792",
+          "occurred_at": "2026-10-24T01:40:53.086689+00:00",
+          "trace_id": "10b35d25314b4758b2f0f9052eab4caa",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "32b23b66-3d4e-4fe1-a9ca-4ebcfcf7a347"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "88f15877-e904-4054-bfff-1fe4dcb6bad8",
+          "fence": 1,
+          "job_id": "3c126a8f-d41d-4d5e-9f74-e7a713ba4ac8",
+          "occurred_at": "2026-10-24T01:40:53.110525+00:00",
+          "trace_id": "e612af8306574a08a8199de7bc8593d6",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "b11faaf8-2388-4223-a1d1-2170d77e691c"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "7eb293ac-3c56-4f77-aadf-74fec7173a6b",
+          "fence": 1,
+          "job_id": "0d27f21b-14d2-4bdc-bf2c-45c14fdac033",
+          "occurred_at": "2026-10-24T01:40:53.132701+00:00",
+          "trace_id": "e1cf89b97be74edc9347b0bf49f7d67c",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "856a57b4-828c-453d-a1df-392277caefc4"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "7a58411d-0823-49bc-9278-7db4375f5f59",
+          "fence": 1,
+          "job_id": "1152bd14-5458-429b-a52d-f0fe905639af",
+          "occurred_at": "2026-10-24T01:40:53.155589+00:00",
+          "trace_id": "dc8626c970544e0e950e16f47532251b",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "7e791bdb-9db6-4063-a7b1-f162d349947a"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "258e0e6b-6682-47d6-ad90-c2a453082a62",
+          "fence": 1,
+          "job_id": "e4505aeb-4aea-4aa8-bd06-89aa3e10b8c6",
+          "occurred_at": "2026-10-24T01:40:53.188776+00:00",
+          "trace_id": "df6a67b6be974c8c86dbda3095809fc7",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "4b88f280-d2f1-4bf7-97a0-9fbc87830832"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "3e16f89d-d8e4-4980-bb35-842b2048aec2",
+          "fence": 1,
+          "job_id": "51c25bff-da0f-47ed-a54d-0f893163e307",
+          "occurred_at": "2026-10-24T01:40:53.221166+00:00",
+          "trace_id": "8d39ca1a311a4a33986c8f226eec276b",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "6e2ad863-3d8c-4576-9328-61dbfcfc637f"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "0f97aaae-f301-45c3-8a34-321ba0827436",
+          "fence": 1,
+          "job_id": "5db52de1-f9a7-4262-8ce3-c95f4551216d",
+          "occurred_at": "2026-10-24T01:40:53.246420+00:00",
+          "trace_id": "27bf7614c78a41ac968a178728edd4a9",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "a3909a5f-3556-40a3-9f55-da57501862d3"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "61579595-cc06-4700-ba09-5b41e8aa0985",
+          "fence": 1,
+          "job_id": "2ece2de1-5077-46c4-ad79-7a719192eea5",
+          "occurred_at": "2026-10-24T01:40:53.270626+00:00",
+          "trace_id": "1da966d27c6d4946a675a336827af9f7",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "401269ac-3aa6-4bc2-a187-8bbe3dc02c06"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "b0d79e5d-a16b-41cf-8b06-0786de09b40e",
+          "fence": 1,
+          "job_id": "5363e3b4-8a6e-4773-a080-6316cca96531",
+          "occurred_at": "2026-10-24T01:40:53.295097+00:00",
+          "trace_id": "5ed052b1b47649639db0e6243a275749",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "55b4a03e-e537-4805-8c84-8542f3d8e7f9"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "f7d945b0-6c51-4dcd-96a3-7cad34b67f24",
+          "fence": 1,
+          "job_id": "8501ad9b-12af-411f-9130-b1d9e3bc3e9f",
+          "occurred_at": "2026-10-24T01:40:53.315072+00:00",
+          "trace_id": "7529cecb75384c2aa6da4539a044d7f2",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "02e27dd0-cc5b-4e67-adc5-8cfc62cfabfe"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "b59933ff-e901-482c-a31d-e54d271f0103",
+          "fence": 1,
+          "job_id": "739648e0-0296-491f-a92f-3c46d5891f3f",
+          "occurred_at": "2026-10-24T01:40:53.342442+00:00",
+          "trace_id": "06ec05ed9c314cfc94747e52b02e569a",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "873d071c-1800-4832-afec-f566debf32fb"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "630eba88-fe1f-4743-b465-e21e96581a5c",
+          "fence": 1,
+          "job_id": "f2bedf9a-7a73-4884-b956-7b25ef57b8dc",
+          "occurred_at": "2026-10-24T01:40:53.372134+00:00",
+          "trace_id": "da97a079bfc2436f903936ef6fd24fe4",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "6b0e8979-2061-46ab-a833-a3dce44eb42f"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "c4b34791-f58d-46a9-8160-e3876aecfffa",
+          "fence": 1,
+          "job_id": "69775e2b-8714-4c05-92b7-2afe14e098f0",
+          "occurred_at": "2026-10-24T01:40:53.394852+00:00",
+          "trace_id": "434f3e8e096d4ecda1b0c7139389e0e6",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "e1375d20-ee9e-4117-93b2-e7952e61eaaf"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "4ec7f25a-718b-46ca-a198-862736701ba9",
+          "fence": 1,
+          "job_id": "4b9f2c93-200e-45e1-a1d4-4647a6a15434",
+          "occurred_at": "2026-10-24T01:40:53.416092+00:00",
+          "trace_id": "5a11ab5f134642c5bf894faef72364c0",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "b0257918-e4f8-454b-a51e-2f76a6f19bf2"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "68878804-f8d8-471b-aaa5-b08921bca2b0",
+          "fence": 1,
+          "job_id": "bbf63654-6316-4d93-ac3a-f51df3093068",
+          "occurred_at": "2026-10-24T01:40:53.438710+00:00",
+          "trace_id": "abbd52483ff942e2a119ee7e5eb23be6",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "ee32e41e-921b-4f1d-849c-e3369fcd3e9a"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "6ef107a2-78d9-4028-a8ec-0ade11b5179d",
+          "fence": 1,
+          "job_id": "30afb372-74a5-4a08-a661-cbb68da28585",
+          "occurred_at": "2026-10-24T01:40:53.460325+00:00",
+          "trace_id": "15bd4e1cbc9e4997944f70680f2fb4f8",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "31d08fc4-4f24-47df-b5f7-1f894c7f0014"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "c4be4718-5df3-435a-b54a-517dee3bc9c2",
+          "fence": 1,
+          "job_id": "b5cf457b-e9e9-4b65-98b4-1edbc9be0e5c",
+          "occurred_at": "2026-10-24T01:40:53.486935+00:00",
+          "trace_id": "ae53f56b018549318e322f617e0b9a3a",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "a1f53c48-64ff-4c02-8f86-78e5ab8e8408"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "43e0d2cc-e440-4742-9dc4-0bf97f498ef4",
+          "fence": 1,
+          "job_id": "39299316-e4a6-4802-9e7f-bfb805965c0a",
+          "occurred_at": "2026-10-24T01:40:53.507386+00:00",
+          "trace_id": "566e37b5cba643d288e96164ab08f57c",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "bde87023-026e-4a91-bebb-a0ebc9c20138"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "f15c1611-1197-412d-b9a8-1b23137e2e59",
+          "fence": 1,
+          "job_id": "7e05b56c-d11c-4193-a6b1-ab9f0895118a",
+          "occurred_at": "2026-10-24T01:40:53.528292+00:00",
+          "trace_id": "6207ea1fffb0478592556789835cc809",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "5c102939-f790-4f64-b8c1-d8781baea6ac"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "b9564d81-5a3b-4e5d-801c-6133ba7016c4",
+          "fence": 1,
+          "job_id": "c5a3517a-b0e9-4e09-ae7f-eca52b821821",
+          "occurred_at": "2026-10-24T01:40:53.555216+00:00",
+          "trace_id": "af8be32bf05c4e319e261460a5935685",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "75535db2-9941-4656-8495-7fb868ba0683"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "dcb74ce8-89a8-4972-b9d5-55cee28e83e5",
+          "fence": 1,
+          "job_id": "93bbfc13-e06b-4ce3-909e-8e474d4df155",
+          "occurred_at": "2026-10-24T01:40:53.584698+00:00",
+          "trace_id": "09b239643319462fa2abaf96924041a9",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "c8935cf2-3faf-4c1e-861d-ae08aaa2417b"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "97a1f624-563e-4c6f-8a9e-75053f69e4fb",
+          "fence": 1,
+          "job_id": "986a5944-8924-4f0c-a135-a3d739c86c10",
+          "occurred_at": "2026-10-24T01:40:53.605811+00:00",
+          "trace_id": "cc995b7fcc704f2e8d005963fbb04c89",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "7b0e13d7-1808-4108-a29f-bb4db9fa0f32"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "87678de0-b941-40c7-b519-94acceb825e8",
+          "fence": 1,
+          "job_id": "e01b44d9-e789-4b27-a733-3cad234068cf",
+          "occurred_at": "2026-10-24T01:40:53.630493+00:00",
+          "trace_id": "70fe093fc7ce4394a39841cc22c229c2",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "fc8598ac-9de9-425b-9e64-23062f2a6417"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "3742b2f9-04f1-419a-8ad9-af313fee5099",
+          "fence": 1,
+          "job_id": "c5008916-822a-4954-814c-6d1b9e25f344",
+          "occurred_at": "2026-10-24T01:40:53.651775+00:00",
+          "trace_id": "aa3dcd496658409d8f4e1208aed0be9b",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "6631ab80-896b-4838-893a-93b865f68ae6"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "ea73144d-95b7-4038-afa2-198a92188cd2",
+          "fence": 1,
+          "job_id": "fbab2ffe-f991-4cc6-a074-a1be703770f0",
+          "occurred_at": "2026-10-24T01:40:53.675204+00:00",
+          "trace_id": "4f2d6d52555540b9bbb2c2131368923b",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "9d9aebeb-7bc8-4fa2-918a-f30e6b9ff452"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "2e619c94-f553-47b0-bf93-c1cda93108fd",
+          "fence": 1,
+          "job_id": "798aacf6-5840-4997-9c1a-9185a934eb9e",
+          "occurred_at": "2026-10-24T01:40:53.699360+00:00",
+          "trace_id": "e0da25e77ad24b38a80af5a41f2eb2d3",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "884efa23-83f8-4370-babe-4dc7e912df17"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "7f09fb1a-0386-47e3-9085-99c3b913501d",
+          "fence": 1,
+          "job_id": "ae9a84e4-5562-4cb0-8db6-099965f74bd5",
+          "occurred_at": "2026-10-24T01:40:53.721485+00:00",
+          "trace_id": "29e845671e454ebe8a5d09ad618d65b4",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "eadf252b-4334-48c5-9a87-ce754f30d286"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "fc12426d-e899-4ea9-ab11-36fcb9eafac7",
+          "fence": 1,
+          "job_id": "7c4a03b7-5c50-40b5-83cc-3c165b9214a1",
+          "occurred_at": "2026-10-24T01:40:53.741059+00:00",
+          "trace_id": "9ba1b009acaa48bba3a34d7180767ac5",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "0e804def-6b30-4767-bd6c-2aa4fc88e673"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "d297915c-3f13-4a67-ae54-c1e5214b70e8",
+          "fence": 1,
+          "job_id": "94dab79f-43a1-48c4-9ac0-72f7fce38783",
+          "occurred_at": "2026-10-24T01:40:53.762666+00:00",
+          "trace_id": "7347f9f3a3ba48269dec297bf50da713",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "1bfa2901-6637-427d-be33-8a26f2ff99ee"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "5629ad6f-cf7e-485b-aace-8f763f00fad1",
+          "fence": 1,
+          "job_id": "8c7bc54a-d70c-4103-85ae-384753b3664c",
+          "occurred_at": "2026-10-24T01:40:53.782394+00:00",
+          "trace_id": "b26e135e57754060973df9e09c92d8eb",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "849c2d5f-5329-4feb-a496-fd3a0374654c"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "4c36b1f6-fb62-49eb-b67c-ef611c2316a6",
+          "fence": 1,
+          "job_id": "a5ae35cc-2962-426a-a5d9-f2efd10e283a",
+          "occurred_at": "2026-10-24T01:40:53.804193+00:00",
+          "trace_id": "0517487bb0c74350b0b669073011efea",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "5b42417c-3a8a-47b3-8636-5ba627886a24"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "258ea707-3796-4835-9de8-2c262771c4d2",
+          "fence": 1,
+          "job_id": "d6c93902-e025-4c96-bf05-3964da8029c6",
+          "occurred_at": "2026-10-24T01:40:53.826602+00:00",
+          "trace_id": "a007a53e6c644ec4883f51c1414e35d3",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "6fd8c600-559b-4dd8-ac86-694fe0af1c56"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "97ca4c72-7977-4592-8367-481a84d2bbf6",
+          "fence": 1,
+          "job_id": "7aa53369-ae3f-4f38-b361-30d6ce0e9458",
+          "occurred_at": "2026-10-24T01:40:53.849841+00:00",
+          "trace_id": "1d8bb228e5874523a87f531004d34034",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "55433c49-04c2-42f4-87a9-7535254a0e12"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "25a8af8e-7720-4d0e-8c51-0f966a7d90a4",
+          "fence": 1,
+          "job_id": "e4bdfac9-8f1d-4e76-9e97-c02a5eb71ed1",
+          "occurred_at": "2026-10-24T01:40:53.885490+00:00",
+          "trace_id": "5732e4beea5d4ef5a6ec30c4d9ceac9a",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "c714ae7f-cc41-40a2-9344-24bed83e1dbf"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "7aa2b8dd-d319-4a47-92ae-4cedb9c10a43",
+          "fence": 1,
+          "job_id": "4b44281f-5870-47ef-93e7-b783439c708c",
+          "occurred_at": "2026-10-24T01:40:53.915652+00:00",
+          "trace_id": "f3d640723fde4c31816a7e7688a80ca8",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "3a449175-0cab-45f3-9d91-fb25561fa84e"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "3e375552-7e2c-466f-86dd-d73f4afa8dbc",
+          "fence": 1,
+          "job_id": "2c6dcea1-6190-49a9-bc03-981b1591ec15",
+          "occurred_at": "2026-10-24T01:40:53.944621+00:00",
+          "trace_id": "214e2eec674c4a65b4bfedc1f6c1b164",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "770adcfc-d2eb-417a-8840-56ed0612b823"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "1c32a3fb-9b5d-4542-a2c7-a5f72425bdac",
+          "fence": 1,
+          "job_id": "1e54883e-c5e4-4e04-9fdb-186447481249",
+          "occurred_at": "2026-10-24T01:40:53.973338+00:00",
+          "trace_id": "cc4167be524c43919829f8f182fc4dbd",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "d5de8e32-bc56-4f47-bbe6-63d8d652a46a"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "3cc9f001-0a0a-4708-b098-5f83cbc3d674",
+          "fence": 1,
+          "job_id": "4fb0b09d-afe6-4d84-a6ec-da12aed51cf5",
+          "occurred_at": "2026-10-24T01:40:54.002358+00:00",
+          "trace_id": "7cb12ae6e12545a08a09adf6bf0c0e53",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "c5dc717f-b3dc-40dd-83c6-e482dc3f7533"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "02060b7a-7eca-4b8d-a74a-a769f8016978",
+          "fence": 1,
+          "job_id": "66f7f3cb-5f03-462b-b84d-9e8aed7b3a03",
+          "occurred_at": "2026-10-24T01:40:54.031935+00:00",
+          "trace_id": "0ef0deb57eb54981a9c2d5e388c9f142",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "158e652a-a576-4f25-8a13-254d2c8dd11d"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "5bd53230-b250-459f-9097-ab6a964a5eb9",
+          "fence": 1,
+          "job_id": "210a9601-3ef0-4e97-908f-e746d48e089c",
+          "occurred_at": "2026-10-24T01:40:54.060371+00:00",
+          "trace_id": "e77fe3e64f2648a385bed5092e546b7b",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "159b4683-05f2-4fc8-ac66-724a38c719bd"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "357a6cdf-df08-40ef-9f5e-3495ddd6af32",
+          "fence": 1,
+          "job_id": "66fd4dbd-0062-4970-8bee-868b403edc45",
+          "occurred_at": "2026-10-24T01:40:54.090799+00:00",
+          "trace_id": "b462ae36f4844918bccc1b35e5e69e6e",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "090f61e1-f511-45cc-a379-25cf716f1b32"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "4c3f9068-1a26-4f70-9ab7-1dd9242dd078",
+          "fence": 1,
+          "job_id": "ca1d2ca2-4094-402b-b23d-72a0cbe41f7f",
+          "occurred_at": "2026-10-24T01:40:54.124140+00:00",
+          "trace_id": "6bff26bf21f340558e53a44b3e987454",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "5e9523d4-c2ee-45e4-a16d-76909c1d70d6"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "e8639330-9391-4d9c-98c0-a484de0870a4",
+          "fence": 1,
+          "job_id": "211bea2e-09e3-479f-a0d7-db902e19e729",
+          "occurred_at": "2026-10-24T01:40:54.153901+00:00",
+          "trace_id": "7944630f7b2a4ff5b643d1ba5f05a5b8",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "4ad0988a-4f85-4aaf-9a93-ba5fe83979fa"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "8071b7b9-5150-4d6c-871f-081ee210bbff",
+          "fence": 1,
+          "job_id": "f32f6fe7-18df-4b2d-a9d3-bfe04f557b25",
+          "occurred_at": "2026-10-24T01:40:54.176270+00:00",
+          "trace_id": "518eeca5ba0447f68b7b12f0b645efa5",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "3ec60746-3d42-4574-988c-d6f03b0f1b3e"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "2277b0c1-0e2c-4e37-8468-006a64c476e7",
+          "fence": 1,
+          "job_id": "dd337134-be68-4d80-905c-9e45a4b25277",
+          "occurred_at": "2026-10-24T01:40:54.197738+00:00",
+          "trace_id": "fccada4a103b4c859e3df844d6afcc85",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "cfaf8d7f-20d5-4493-aa6a-580c0c96080c"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "522f89ee-7f4f-48e2-b046-3295ad5fa360",
+          "fence": 1,
+          "job_id": "2b9a9b06-0860-4ecd-b5dc-c703dfc7af04",
+          "occurred_at": "2026-10-24T01:40:54.218323+00:00",
+          "trace_id": "ac3c8672765340308a3eb1d9b2b3317b",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "3100d2b9-b5b1-4b20-9f28-349f768de03b"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "07a2db0b-a426-4d2e-8cde-fea3510b2356",
+          "fence": 1,
+          "job_id": "93226365-acb3-48b6-a32b-375d163403df",
+          "occurred_at": "2026-10-24T01:40:54.247073+00:00",
+          "trace_id": "762a1b03bae2482391dbdbf63b75163a",
+          "version": 3,
+          "worker_id": "4b14c8dc-fd84-4d3c-871b-b2cd426de211",
+          "workflow_id": "e0271c01-00d8-44ea-b860-1adf7f2a42b9"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "5371a65c-b8e2-4ff8-bdb5-83b48bb172d4",
+          "fence": 1,
+          "job_id": "722eac8a-9fcb-4e6e-880c-0307d3f3e38e",
+          "occurred_at": "2026-10-24T01:40:52.985177+00:00",
+          "trace_id": "68e3e74b652d42a0b3da1a290098a059",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "d009218a-2b5e-48e6-b647-2a9d0ee378e4"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "dff075e3-b10d-4edd-8de2-cd5e5e1c71e4",
+          "fence": 1,
+          "job_id": "07f2ad97-8629-499f-bfa8-83f518f3e835",
+          "occurred_at": "2026-10-24T01:40:53.011146+00:00",
+          "trace_id": "152b5c02f0a44e9d9575713f91529906",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "ef0394bc-baee-4b55-88de-a3b416fbc0ec"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "7939510d-b7fc-4da8-89c7-b085fb031dc1",
+          "fence": 1,
+          "job_id": "ca1de88b-4221-46df-8b2f-8f1ddc5a760e",
+          "occurred_at": "2026-10-24T01:40:53.037911+00:00",
+          "trace_id": "b6325dc996114acd90b96271a9c40311",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "1d32f231-cc9c-4fb3-90b3-7755b40a71a4"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "b296fc38-ce1c-4048-bec5-34c99a825490",
+          "fence": 1,
+          "job_id": "203c0e32-f719-439f-bebb-053f019d38a5",
+          "occurred_at": "2026-10-24T01:40:53.061803+00:00",
+          "trace_id": "f058ebdccad34e658ed49c8649bcbfe0",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "9d70df0e-b51f-4d99-af4c-0016dd5ae09a"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "d35ee999-94c6-4c8d-828d-e4c66025be68",
+          "fence": 1,
+          "job_id": "84cc74a1-d369-4e2a-b380-ab5303cfad25",
+          "occurred_at": "2026-10-24T01:40:53.087928+00:00",
+          "trace_id": "4c9df883884c4f27b1e3d37b9807190e",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "81b71c8c-da00-4cdf-9de2-ae6b5b5e21f7"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "c428e66a-a5d0-4f76-a429-5a9ba75fbfad",
+          "fence": 1,
+          "job_id": "e6f8ea3a-d55c-4fec-afa3-fc27c4cfaee5",
+          "occurred_at": "2026-10-24T01:40:53.111805+00:00",
+          "trace_id": "af0a180f4b3c4dd1baefd4f16484e0b1",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "ba620703-9c48-4d9b-a267-5b290916d80e"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "0d963b5e-137f-401f-949c-15da943d4706",
+          "fence": 1,
+          "job_id": "948b4469-aa40-42d5-8823-939944155558",
+          "occurred_at": "2026-10-24T01:40:53.133275+00:00",
+          "trace_id": "3c56bf93cd91403ebe8ecb7bbd4f47fb",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "070b8abc-c0d9-46f4-8a69-d6ab8df07558"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "8c1af8aa-dcc6-4725-8ce4-3321b511285d",
+          "fence": 1,
+          "job_id": "58ee9e8f-5e68-41e6-941d-0f7ab79d09bb",
+          "occurred_at": "2026-10-24T01:40:53.156224+00:00",
+          "trace_id": "c0c91a20e7e74ffd9292383c7d073cd7",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "2a821a69-fc46-412c-83b8-c37ab46663a6"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "446f3143-e5a4-4b64-995b-58c4771e3c1f",
+          "fence": 1,
+          "job_id": "99b45f39-a56e-4eab-8407-32a443695e18",
+          "occurred_at": "2026-10-24T01:40:53.189907+00:00",
+          "trace_id": "9697c4ee71414bbc9adcd00ea53846a4",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "f6dd8dda-7f80-407b-a6d3-768a9f58d571"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "544141f9-472c-4b76-bba6-5854c0911bfb",
+          "fence": 1,
+          "job_id": "f068b950-bb6b-48d0-bc84-1efd1df0d698",
+          "occurred_at": "2026-10-24T01:40:53.223888+00:00",
+          "trace_id": "91b775aa0cb3474792e942ea25c6d4fc",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "42cb108d-dbca-4333-be06-3cd55e0b7a09"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "249bf6e3-f346-41dc-a88e-790100a8fac5",
+          "fence": 1,
+          "job_id": "84f62be3-0ec3-4d7b-8b4b-aabc26a349f0",
+          "occurred_at": "2026-10-24T01:40:53.251371+00:00",
+          "trace_id": "53bbae17533443b3a45cf4cbe1f8c762",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "4d7861cd-6cfb-46e1-a12e-1bfdbab5f485"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "d2ee5739-1838-4c87-93c6-5582aca224a2",
+          "fence": 1,
+          "job_id": "e0495d1f-8061-4e81-8c3a-3cde54765997",
+          "occurred_at": "2026-10-24T01:40:53.278832+00:00",
+          "trace_id": "427ad080af634be7b35641225cfa259f",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "63b186ff-aa86-4305-bb4e-7684cb8dc77a"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "b01aecd8-fcda-4a81-8d40-1edab82e4c62",
+          "fence": 1,
+          "job_id": "ab386e48-78b7-4e57-a3a7-44a7014bd0b5",
+          "occurred_at": "2026-10-24T01:40:53.301946+00:00",
+          "trace_id": "7647b264e211445f9bc6f41f3db92d9c",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "f70dc24d-3686-4354-83e3-adab444a0f11"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "afe55000-d764-475e-8d24-57795de192e9",
+          "fence": 1,
+          "job_id": "108e1319-e9af-42a9-a8ff-d982b76f6d38",
+          "occurred_at": "2026-10-24T01:40:53.323808+00:00",
+          "trace_id": "c0c9d00e7daa4416a50b704dbbda1fa0",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "da1db1aa-e4fb-40fc-8862-2741d40a07d2"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "47a70354-4554-44ce-a005-23817a3d0383",
+          "fence": 1,
+          "job_id": "95d12636-5ca4-496a-9723-bef70bbfd7e0",
+          "occurred_at": "2026-10-24T01:40:53.359916+00:00",
+          "trace_id": "71fa9a9db6254e00be8ce7c51425ee44",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "1a41a75f-fd82-46f1-95f6-637c3b6c8e24"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "fd03c15a-39a5-4758-8dc1-2a2e84ae35c6",
+          "fence": 1,
+          "job_id": "ade60d12-020b-4fd6-a646-faf06f998186",
+          "occurred_at": "2026-10-24T01:40:53.386565+00:00",
+          "trace_id": "b188d5a5b57b46049378b355536407f0",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "57289403-c20b-4bef-98c2-94e02a3fed74"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "72c0cd60-c5fc-495c-a9d8-b27ea774f712",
+          "fence": 1,
+          "job_id": "b335f713-be8e-4a39-9c43-7ae8e9628b1d",
+          "occurred_at": "2026-10-24T01:40:53.408489+00:00",
+          "trace_id": "d3d52d2308be4901a6fdbf8ae48239b4",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "ef17ff7f-b84d-4f0c-b009-6b73e933896e"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "9a685d38-f8c5-499e-b736-c1635d29ae61",
+          "fence": 1,
+          "job_id": "dc35c0ec-9709-4ec5-b506-5abd7320c5c4",
+          "occurred_at": "2026-10-24T01:40:53.431391+00:00",
+          "trace_id": "208cb28e9b0f43458101cd695df1b7d7",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "d793006e-7a9f-4da3-aaf4-83ac5ead9c65"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "cdd7eeec-4de9-40e6-b969-c08cd61acbdd",
+          "fence": 1,
+          "job_id": "2b65b1b1-0c37-49d7-a023-fdad8b4d5872",
+          "occurred_at": "2026-10-24T01:40:53.453270+00:00",
+          "trace_id": "4231169c03b942ab9d0f23719a2c93cb",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "444b4152-fe9d-4400-a542-19ac0d9202ed"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "79c8d3fc-5131-448f-8e1c-93dc8b6afa7a",
+          "fence": 1,
+          "job_id": "8be714b8-fbc4-44b8-98a3-de37433b3dac",
+          "occurred_at": "2026-10-24T01:40:53.474776+00:00",
+          "trace_id": "a3b1d77d3cea425e9019232e051a144e",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "73c41c33-77b1-42ca-a7ee-7b664b9c3d14"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "6b5a1ff9-1c0e-4cd9-a2e2-0d27d0cee566",
+          "fence": 1,
+          "job_id": "d42ebec9-44e1-42a1-a08b-4994273f74d3",
+          "occurred_at": "2026-10-24T01:40:53.500846+00:00",
+          "trace_id": "19e5305d82994db19e3d25f2cd3471f6",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "059a779c-a85c-4c0d-95c4-65789ac0b310"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "cfabd116-16d0-4f44-b2a0-99bd883e398a",
+          "fence": 1,
+          "job_id": "ea537848-31cc-46c8-b7bc-2179f57bb8cc",
+          "occurred_at": "2026-10-24T01:40:53.521915+00:00",
+          "trace_id": "4514443a687f43df92bcf2e255da678d",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "4af82d84-14f2-4019-82fb-8c94f8180ca6"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "f1c7ba17-15bf-4b90-911e-1f642c0f3d60",
+          "fence": 1,
+          "job_id": "d9dee6d7-905f-49cd-97b9-4f56081a78c0",
+          "occurred_at": "2026-10-24T01:40:53.546264+00:00",
+          "trace_id": "f21f516694974df0b3667297222a4e9d",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "9e96a3fa-da74-41cb-9923-ea19fe20ef92"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "423cd630-268d-4460-ac25-727e0f7edf85",
+          "fence": 1,
+          "job_id": "52a05f4a-9f13-49a1-b194-50f2d53309ac",
+          "occurred_at": "2026-10-24T01:40:53.578175+00:00",
+          "trace_id": "b5431d9061ef40a0aebd604c664232d3",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "eb00d972-84da-4249-bf18-503652f50c55"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "3b6429de-7e21-4cf5-9f63-6290f3f9ca44",
+          "fence": 1,
+          "job_id": "39d8760c-2e03-4a70-809f-2802eeee54f6",
+          "occurred_at": "2026-10-24T01:40:53.601278+00:00",
+          "trace_id": "da04783066014d44b95d16c9ba89fedc",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "37be96f8-e1d3-47c8-9cba-18e519ec1607"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "360740bb-d292-4496-9949-c4b95ae401d0",
+          "fence": 1,
+          "job_id": "e56d64dc-af4f-4bd4-a295-b7bc6bb7d34c",
+          "occurred_at": "2026-10-24T01:40:53.624640+00:00",
+          "trace_id": "accef836d9a7437ab464003959b9246c",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "a4efc54c-7945-4f35-b347-36207f9e0f4d"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "f66bb6b4-291b-417f-8ca2-34fbba23dbb6",
+          "fence": 1,
+          "job_id": "58105e2d-ef26-4b96-ad7f-c666147b05be",
+          "occurred_at": "2026-10-24T01:40:53.648238+00:00",
+          "trace_id": "2b0c80d1f0154799b503a46e32be97ab",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "9a7b774c-3628-47b0-811e-ce070466997c"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "3f18107a-bf8a-47d2-ae55-b422baef7c61",
+          "fence": 1,
+          "job_id": "7ce6b5aa-5c37-4421-ab68-36004781f89d",
+          "occurred_at": "2026-10-24T01:40:53.669714+00:00",
+          "trace_id": "165bc730589a4a7698dd2a406a7c9c10",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "15f7d2f0-9df7-4481-88d9-fa8415ec6d9d"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "430bfa62-edea-4e03-aa4f-15dee52d8a1b",
+          "fence": 1,
+          "job_id": "25b867f6-e8a0-45f1-8202-9c5228376871",
+          "occurred_at": "2026-10-24T01:40:53.694783+00:00",
+          "trace_id": "ed17b9834a3c44058f1f8d968639d4d8",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "7123da87-615c-4a51-a196-680e96ba6f25"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "edcb8be0-340f-4f83-86d9-8859efb0c94b",
+          "fence": 1,
+          "job_id": "10f5ba36-ffed-461a-83fe-0554b314ca8b",
+          "occurred_at": "2026-10-24T01:40:53.718066+00:00",
+          "trace_id": "1f25f16a6b8b47af864158831d9de7af",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "616e75f5-23f3-4069-9d65-32fff37c99fb"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "e461864e-b44f-43cf-a497-02fa60cf4ac3",
+          "fence": 1,
+          "job_id": "10abd2f3-9ec2-4780-b279-e063144af6f9",
+          "occurred_at": "2026-10-24T01:40:53.739259+00:00",
+          "trace_id": "82c6d6cb98e4451bacb42fd08d9114b6",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "184a9d47-2976-4bf2-9d95-ce579ed8f12e"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "1801f209-6435-4460-8fbb-f669dbcac5ca",
+          "fence": 1,
+          "job_id": "651d1c29-660d-4a7b-b053-4dd04ad52916",
+          "occurred_at": "2026-10-24T01:40:53.761480+00:00",
+          "trace_id": "86e9cb32cd0a4cbf93fa4d31c293a1f3",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "5fee2f3d-0d02-4d89-9f7b-fbc03c7ff3fd"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "6e0c9451-573f-4dea-a13b-d6acb92b4b3e",
+          "fence": 1,
+          "job_id": "9df292b8-cc21-492a-a42b-98ca2b3663ba",
+          "occurred_at": "2026-10-24T01:40:53.781889+00:00",
+          "trace_id": "e6c7d3305af545ed9ca6570c573b4222",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "81954d0a-1589-41ff-aa5f-9656ef887484"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "9bf8a5e7-badd-4752-92ef-5fe9177b0436",
+          "fence": 1,
+          "job_id": "6bd71dfe-281b-4a04-bec0-e15999adacbd",
+          "occurred_at": "2026-10-24T01:40:53.804192+00:00",
+          "trace_id": "031d8220d5cc4032bd58ad6f2a2119f2",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "12b82af0-c34a-4ae2-9b2c-8165fb092496"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "a29cc185-d264-429c-98e0-a05aac319b77",
+          "fence": 1,
+          "job_id": "7b8f49bc-6f62-4de2-b0dc-913136b48716",
+          "occurred_at": "2026-10-24T01:40:53.827619+00:00",
+          "trace_id": "f8329424480c44458d135d7cacbb1b67",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "afc5b738-7902-4a4d-85e4-7ad5aea7b107"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "0ad5678a-8936-43a7-8cb4-af60ab596ac9",
+          "fence": 1,
+          "job_id": "f2e0eb6d-dc5b-443d-886f-e8e80b1b4e95",
+          "occurred_at": "2026-10-24T01:40:53.850706+00:00",
+          "trace_id": "cfdf1756ca4a4b6da7a85bf7e3fc3e33",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "f5b4b14c-fb49-47fc-b93e-4122bf4d7765"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "5a80f476-a3be-4896-a853-b86d6487f9fc",
+          "fence": 1,
+          "job_id": "35f8d2fd-095a-4389-bbb5-5522a8eb0d5d",
+          "occurred_at": "2026-10-24T01:40:53.891992+00:00",
+          "trace_id": "3470c8b486cf41c4b04876fcc8c1d1d7",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "31e0b11f-9363-47e5-b78b-948e28657e3e"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "b97d8ee7-4417-431f-b59f-f3fe99484553",
+          "fence": 1,
+          "job_id": "9c6489fa-5019-4eed-b792-19bf9b01aaf3",
+          "occurred_at": "2026-10-24T01:40:53.920569+00:00",
+          "trace_id": "4340715d54914627b001205125fa8613",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "23817022-2d9e-4e9b-b373-088fe6081b38"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "33defb3e-3fd7-4356-b561-c5758bca1e17",
+          "fence": 1,
+          "job_id": "4a0f36d5-c96f-49c5-9738-6118b3d889f2",
+          "occurred_at": "2026-10-24T01:40:53.951164+00:00",
+          "trace_id": "c9bab93b02734b1ea4a61f5985b1af36",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "48f0f867-4057-4e49-93d5-00fc02daa808"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "8dfa6da4-ec9c-4d41-bea6-8865deaece80",
+          "fence": 1,
+          "job_id": "90633dc1-02d7-47e7-88af-7f58bad03679",
+          "occurred_at": "2026-10-24T01:40:53.979445+00:00",
+          "trace_id": "48afb3d762b94e1fb174220be28af015",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "8c9ca62c-44ef-4fb4-b675-c9c6d40ceece"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "2923c27d-c2bf-459a-b3ef-5a663577c357",
+          "fence": 1,
+          "job_id": "5132da59-bf6f-47dc-8253-77b520a73fcf",
+          "occurred_at": "2026-10-24T01:40:54.010110+00:00",
+          "trace_id": "357c4f4baddb460cba60df4cc88faf69",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "c45ba0c2-928b-4d0c-9c77-8004670b08f9"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "83da79f1-f5cf-415f-b225-a123458508cc",
+          "fence": 1,
+          "job_id": "f1054757-f9f7-4aa6-84da-b463dedde76c",
+          "occurred_at": "2026-10-24T01:40:54.040862+00:00",
+          "trace_id": "61e6997be5d14dfa93ee7dc6482c7ea9",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "7d702e65-95a0-45a7-a1db-94f806940626"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "1d5d54e2-923c-4b5b-a93b-17e66da1e62b",
+          "fence": 1,
+          "job_id": "eb168768-54f9-47e8-892a-1e42cd5810e0",
+          "occurred_at": "2026-10-24T01:40:54.070104+00:00",
+          "trace_id": "cd653cd642de4333a50da62fc559ab11",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "bed8c34c-f966-45d2-8bb6-4dccc27cfa00"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "f81c4ded-9526-4799-82fb-6e9829a3ef09",
+          "fence": 1,
+          "job_id": "4dac2def-0aa0-422a-a209-06bf5bf7814e",
+          "occurred_at": "2026-10-24T01:40:54.102956+00:00",
+          "trace_id": "26d03576ad434a539597e8f1b6f7a50a",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "9034a5ae-b13a-46f7-ad98-26e86a580bdd"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "1476ba6f-17a0-44ba-b1f2-8f79aa9592b1",
+          "fence": 1,
+          "job_id": "576a333d-3bef-44e8-bf1e-52ce14a10282",
+          "occurred_at": "2026-10-24T01:40:54.136158+00:00",
+          "trace_id": "1360115a081f400991298dfd564d11b7",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "9b3d205d-3d2b-4b90-a266-2a2c4c2b494f"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "dc6c0fbd-6819-42ab-8b0a-601520092b93",
+          "fence": 1,
+          "job_id": "8de5bca3-2f17-4591-841b-615cc9b3c9be",
+          "occurred_at": "2026-10-24T01:40:54.164432+00:00",
+          "trace_id": "d36dace1b1ac44b2838b5957eeaa27a9",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "cab3b7e1-9396-4ca6-96f8-324d1b4727fd"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "416903c9-8014-486b-be0c-29edb908cbf3",
+          "fence": 1,
+          "job_id": "ab229496-fde8-42be-aca9-d88e949bf5ae",
+          "occurred_at": "2026-10-24T01:40:54.187425+00:00",
+          "trace_id": "5399d3c43fa04f79889400db35068a06",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "cdf090d4-cd6b-49dd-acf2-e09f6f093a81"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "027dfc0a-11b5-4d04-a6e2-c194974c0b06",
+          "fence": 1,
+          "job_id": "d1066b70-5982-4bdb-aa4d-5c86c8e3d23a",
+          "occurred_at": "2026-10-24T01:40:54.208279+00:00",
+          "trace_id": "9d5bfe9007b54cdab4fb13084dc73892",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "95fc2b3f-f48b-49d9-971c-13a01cb8c0b9"
+        },
+        {
+          "event": "job.completed",
+          "evidence_id": "ec6be2e5-96c3-4a1d-8114-dd72a0311468",
+          "fence": 1,
+          "job_id": "a3ec7675-4a7d-46e9-97f9-c298c3f363dc",
+          "occurred_at": "2026-10-24T01:40:54.230398+00:00",
+          "trace_id": "52939de904624d13b9dbd57c94eef439",
+          "version": 3,
+          "worker_id": "b19637ed-c674-4869-88d2-372b1cf14614",
+          "workflow_id": "3af71fb7-139c-438c-ab91-d65d5606e558"
+        }
+      ]
+    }
+  },
+  {
+    "test": "test_cancel_respects_real_process_boundaries[after_claim-1]",
+    "observation": {
+      "point": "after_claim",
+      "version": 2,
+      "fence": 2,
+      "evidence": 0,
+      "events": 1,
+      "exit_code": 0
+    }
+  },
+  {
+    "test": "test_cancel_respects_real_process_boundaries[after_start-2]",
+    "observation": {
+      "point": "after_start",
+      "version": 3,
+      "fence": 2,
+      "evidence": 0,
+      "events": 2,
+      "exit_code": 0
+    }
+  },
+  {
+    "test": "test_cancel_respects_real_process_boundaries[before_result-2]",
+    "observation": {
+      "point": "before_result",
+      "version": 3,
+      "fence": 2,
+      "evidence": 0,
+      "events": 2,
+      "exit_code": 0
+    }
+  },
+  {
+    "test": "test_cancel_respects_real_process_boundaries[after_result-3]",
+    "observation": {
+      "point": "after_result",
+      "version": 4,
+      "fence": 1,
+      "evidence": 1,
+      "events": 3,
+      "exit_code": 0
+    }
+  },
+  {
+    "test": "test_new_generation_rejects_old_owner_and_commits_one_result",
+    "observation": {
+      "job_id": "33e8f968-dd11-46ac-93a5-317f550df04d",
+      "old_fence": 1,
+      "new_fence": 2,
+      "committed_evidence": 1,
+      "reclaim": "ADMIN_FIXTURE_ONLY"
+    }
+  },
+  {
+    "test": "test_worker_kill_and_restart_retains_rows_without_speculative_reclaim[after_claim-False]",
+    "observation": {
+      "point": "after_claim",
+      "killed_exit_code": -9,
+      "restart_exit_code": 0,
+      "state": "LEASED",
+      "fence": 1,
+      "reclaim": "T03-06_PENDING"
+    }
+  },
+  {
+    "test": "test_worker_kill_and_restart_retains_rows_without_speculative_reclaim[before_result-False]",
+    "observation": {
+      "point": "before_result",
+      "killed_exit_code": -9,
+      "restart_exit_code": 0,
+      "state": "LEASED",
+      "fence": 1,
+      "reclaim": "T03-06_PENDING"
+    }
+  },
+  {
+    "test": "test_worker_kill_and_restart_retains_rows_without_speculative_reclaim[after_result-True]",
+    "observation": {
+      "point": "after_result",
+      "killed_exit_code": -9,
+      "restart_exit_code": 0,
+      "state": "DONE",
+      "fence": 1,
+      "reclaim": "T03-06_PENDING"
+    }
+  }
+]

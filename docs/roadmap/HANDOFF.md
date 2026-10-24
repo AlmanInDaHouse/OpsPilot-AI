@@ -1,5 +1,51 @@
 # Handoff versionado — plataforma S02 y arranque S03
 
+## Publicación T03-05 autorizada — 2026-10-24
+
+Tras la entrega local, el autor autoriza commit y push con «pushealo». Se publica
+T03-05 con código, tests, documentación y evidencias. Antes de editar este handoff:
+HEAD/origin/main 6a873ec iguales tras fetch, índice vacío y manifest worker sin drift.
+715 PASS Windows/Linux, 252 integraciones/OS, dos procesos/100 jobs, checks/harness,
+tres scans, PG fresco y recovery PASS según la evidencia entregada.
+
+Solo esta entrada se añade después de las verificaciones: los snapshots y su
+manifest conservan el árbol previo a publicación, incluidos sus estados sin push
+y el hash anterior de este handoff. Consultar Git para el SHA publicado y Actions
+para CI del mismo SHA; los PASS locales no acreditan CI remota ni cierre global S03.
+T03-06 no se inicia; AC03-04/05/06 siguen parciales. Sin merge, release, despliegue
+ni GO S04/producción. Lab detenido, volumen y credenciales conservados.
+
+## T03-05 — worker durable local, 2026-10-24
+
+Petición explícita autoriza exclusivamente T03-05 sin commit/push. Base main limpia,
+HEAD/origin/main 6a873ec. Baseline real 666 PASS Windows/Linux y check Windows PASS.
+[Spec](../../specs/003-workflows/worker.md), [revisión](SESSION_03_WORKER_REVIEW.md)
+y [evidencia actual](../../artifacts/session-03/worker/verification.json).
+
+Worker independiente con credencial opspilot_worker, Jobs/PostgresJobUow existentes,
+claim SKIP LOCKED de job con commit anterior al lock workflow; orden conjunto
+workflow → job → step → audit. Owner aleatorio/fence/lease PG 60 s, heartbeat 15 s,
+poll 2 s+jitter. Snapshot real de incidents fuera de locks. Resultado exige
+owner/fence/lease/version/cancel/definición y última guarda posterior a audit;
+evidence/step/workflow NEEDS_OPERATOR/job DONE/audit v2 en un commit. Incidente OPEN.
+Sin migraciones, grants, contratos, endpoints, dependencias ni imágenes base nuevos.
+
+Unknown definition usa bloqueo auditado existente; error permanente del snapshot
+usa NEEDS_OPERATOR/PERMANENT_LOCAL_FAILURE. No retry/reclaim especulativo. Tras kill,
+DONE no se reejecuta; LEASED permanece retenido para T03-06. Heartbeat se une antes
+del resultado para que su fallo no compita con confirmación. AC03-04/05/06 siguen
+parciales: reclaim/retry/deadline completo y kill points adversariales pendientes.
+Consultar verification para resultados finales/GO local, scans y estado del lab;
+no heredar gates históricos. T03-06 requiere nueva petición, sin GO S04/producción.
+Resultado: 715 PASS Windows y Linux, 252 integraciones/OS (38 nuevas de worker),
+harness 23/OS; checks/dependencias y tres scans nuevos PASS, cero HIGH/CRITICAL.
+PG fresco y recovery de resultado worker confirmado PASS; once tablas del lab sin
+drift. Dos procesos/100 jobs: 50/50 Windows y 51/49 Linux, exit 0/0. Sin reclaim
+automático; AC03-04/05/06 parciales. Fallos intermedios y límite COMMIT_UNCERTAIN
+conservados en revisión/evidencia; no causa confirmada del fallo antiguo de intake
+en la primera suite Linux. Repetición completa nativa pasó, sin modificar esos tests.
+Las secciones siguientes conservan snapshots históricos sin reescribirlos.
+
 ## Publicación T03-04 y hotfix PostgreSQL autorizada — 2026-10-24
 
 Tras la entrega del hotfix, el autor autoriza commit y push a origin/main con

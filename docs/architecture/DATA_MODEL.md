@@ -1,7 +1,8 @@
 # Modelo de datos objetivo
 
-Estado: tablas S02 y seis tablas S03 implementadas mediante Alembic 0002; motor y
-campos de cierre/acciones futuras siguen PROPUESTOS. [Detalle T03-02](../../specs/003-workflows/persistence.md).
+Estado: tablas S02 y seis tablas S03 implementadas mediante Alembic 0002; worker
+local T03-05 utiliza el esquema existente. Reclaim/retry integral T03-06 y campos
+de cierre/acciones futuras siguen PROPUESTOS. [Detalle T03-02](../../specs/003-workflows/persistence.md).
 UUID para entidades, UTC `timestamptz`, secuencias por agregado,
 JSONB solo para payloads validados/versionados. PK/FK/UNIQUE/CHECK en DB, no solo ORM.
 

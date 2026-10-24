@@ -1,0 +1,81 @@
+[
+  {
+    "run": "first-tests.log",
+    "result": "4 failed / 4 passed; state parameter typing and invalid immutable-date fixture",
+    "exit_code": null,
+    "exit_code_note": "Intermediate pytest exit not separately persisted by original shell wrapper; summary/log hash retained",
+    "raw_sha256": "d2de041b27a87352c00e414bc2672cc64eb553f2e93bd2d16f93aba47fd94b64"
+  },
+  {
+    "run": "third-tests.log",
+    "result": "3 failed / 22 passed; test helper misuse, corrected without historical test changes",
+    "exit_code": null,
+    "exit_code_note": "Intermediate pytest exit not separately persisted by original shell wrapper; summary/log hash retained",
+    "raw_sha256": "644c4ad697257ddcbcf6346d6ff6b2b044007e9ec608460d5ca7fc08d3d300a4"
+  },
+  {
+    "run": "tests-windows.log",
+    "result": "713 passed / 1 failed; in-flight old CLI diagnostic expectation during final correction",
+    "exit_code": null,
+    "exit_code_note": "Intermediate pytest exit not separately persisted by original shell wrapper; summary/log hash retained",
+    "raw_sha256": "03c6b7b5b7af88e94483c8d1229651a942e11729487549784a1c211ee4ed94c2"
+  },
+  {
+    "run": "second-tests.log",
+    "result": "8 passed",
+    "exit_code": null,
+    "exit_code_note": "Intermediate pytest exit not separately persisted by original shell wrapper; summary/log hash retained",
+    "raw_sha256": "aa906d330b1c454c6b0773d80e1e62f795a73dd39da132b3404123fe5430ee65"
+  },
+  {
+    "run": "focused.log",
+    "result": "44 passed",
+    "exit_code": null,
+    "exit_code_note": "Intermediate pytest exit not separately persisted by original shell wrapper; summary/log hash retained",
+    "raw_sha256": "9828f59c0ca7c799227bfd938a8d09f423dc13b3f390d69d38c43b2f317496f8"
+  },
+  {
+    "run": "focused-final.log",
+    "result": "35 passed",
+    "exit_code": null,
+    "exit_code_note": "Intermediate pytest exit not separately persisted by original shell wrapper; summary/log hash retained",
+    "raw_sha256": "e0d1c1bc7092407b3eb935c6863fe9640272013f8f561ad34522be5c83a42ff3"
+  },
+  {
+    "run": "permanent.log",
+    "result": "2 passed",
+    "exit_code": null,
+    "exit_code_note": "Intermediate pytest exit not separately persisted by original shell wrapper; summary/log hash retained",
+    "raw_sha256": "746c9d792576653700f935391149cbf1dddbfcd3d9d6735e0d818abc982c5796"
+  },
+  {
+    "run": "tests-linux.log",
+    "exit_code": 1,
+    "result": "714 passed, 1 failed in historical two-API intake test; original fixture-bearing output remains private",
+    "raw_sha256": "5ae056b08e8285286e2ba1243ca0801b95f842a4491c610b3441a21bebffd672"
+  },
+  {
+    "run": "linux-intake-probe.log",
+    "exit_code": 1,
+    "result": "Isolated historical intake test failed API readiness",
+    "raw_sha256": "5b8d74c2d8e8f9d3f55ced78d51effe499365246d7c29343209ddefdd7a2c004"
+  },
+  {
+    "run": "linux-intake-probe-2.log",
+    "exit_code": 0,
+    "result": "Isolated observed real intake passed: 20 HTTP 202 plus exact replay",
+    "raw_sha256": "45dd0edb49e024de8f735e1c6676dcaa2e00261eb5ec34aa6c354adde16e0e6e"
+  },
+  {
+    "run": "tests-linux-wrapper-failure.log",
+    "exit_code": 2,
+    "result": "uv attempted editable resync in non-root image; failed before pytest; reuse frozen built environment with UV_NO_SYNC=1",
+    "raw_sha256": "b8e06518f5ac8ec1bc742266e9ae3417663321461c5975f967abc84d84df5e2c"
+  },
+  {
+    "run": "tests-linux-initial.xml",
+    "exit_code": 1,
+    "result": "Private only: failed pytest fixture repr may include identity tokens; sanitized aggregate published, no raw fixture values",
+    "raw_sha256": "6543c93d40f4e508e903ab7faa6754d4f305149f34b455c1c87ed0aac7218c18"
+  }
+]

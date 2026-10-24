@@ -1,0 +1,15 @@
+{
+  "verdict": "PASS",
+  "scope": "Real PG restart of confirmed local worker result; not reclaim/retry/backup restore",
+  "recovery_exit_code": 0,
+  "job_id": "972eca64-ec2e-4155-ac8b-09959f468797",
+  "workflow_id": "a05e7922-d6b0-4c6d-a888-c7e231bf45ea",
+  "evidence_id": "fb324e73-b490-4e3d-b91e-4429a8cd1293",
+  "fence": 1,
+  "workflow_state": "NEEDS_OPERATOR",
+  "incident_status": "OPEN",
+  "events": 2,
+  "evidence": 1,
+  "rows_identical": true,
+  "hash": "13da354a680bbaa088a7d151492474f6584df58e30c6c252ba4abf493d383c74"
+}

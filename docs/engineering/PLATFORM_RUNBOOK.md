@@ -1,5 +1,42 @@
 # Runbook de plataforma S02
 
+## Worker local T03-05
+
+[Spec y límites](../../specs/003-workflows/worker.md),
+[resultados actuales](../roadmap/SESSION_03_WORKER_REVIEW.md).
+Proceso independiente; el arranque normal de FastAPI no ejecuta jobs.
+Arrancar explícitamente solo sobre datos sintéticos del lab propio:
+
+```text
+uv run --frozen python -m opspilot.entrypoints.worker --dsn-file artifacts/local/worker.dsn
+uv run --frozen python -m opspilot.entrypoints.worker --dsn-file artifacts/local/worker.dsn --max-polls 1
+uv run --frozen python -m opspilot.entrypoints.worker --dsn-file artifacts/local/worker.dsn --drain
+```
+
+El primer comando continúa hasta SIGINT/SIGTERM; los otros acotan polling o paran
+al primer claim vacío. Nunca poner el contenido del DSN en argumentos. Solo rol
+worker efectivo, sin herencia/membresías privilegiadas, migración/admin/API ni OIDC.
+Production requiere --environment production y TLS verify-full; no aprovisiona
+seguridad empresarial. Owner/identidad UUID nuevos; logs cerrados sin texto/secretos.
+
+Ctrl+C/SIGTERM detiene nuevos claims y deja terminar el paso local acotado en curso;
+la espera de heartbeat/poll se cancela. Muerte abrupta puede dejar LEASED; no tocar
+manualmente READY/fence en el volumen real para simular recuperación. T03-06 debe
+implementar reclaim y reintentos. DONE no se ejecuta de nuevo. No prometer drenado
+global con --drain si otros procesos aún poseen jobs.
+
+Ante OWNERSHIP_LOST/LEASE_EXPIRED/VERSION_CONFLICT/WORKFLOW_CANCELLED, releer PG con
+acceso autorizado y no confirmar resultados antiguos. POSTGRES_TRANSIENT/FAILED,
+AUDIT_FAILED o COMMIT_FAILED/UNCERTAIN detienen el proceso; comprobar estado antes
+de decidir recuperación, sin retry automático. Unknown definition retiene estado y
+job DEAD con audit; requiere decisión humana, sin upgrade/reanudación implícita.
+Snapshot permanente fallido pausa NEEDS_OPERATOR con código cerrado y sin evidencia.
+
+Nominal: workflow NEEDS_OPERATOR, incident OPEN, step/job DONE, una evidencia local;
+no resolución ni reparación. Integración usa DBs efímeras propias y helper de pausas
+solo en tests. Al finalizar parar únicamente procesos/Compose propios; conservar
+volumen/credenciales. No hay servicio worker añadido ni arranque automático en Compose.
+
 ## Hotfix PostgreSQL / Brotli S03
 
 [Revisión y resultados actuales](../roadmap/SESSION_03_POSTGRES_SECURITY_REVIEW.md).

@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-24 Europe/Madrid",
+  "head": "6a873ec0a7b5450cd23109efa71618fda36b7bb7",
+  "branch": "main",
+  "origin_main_matches": true,
+  "initial_worktree": "CLEAN",
+  "check_windows": {
+    "exit_code": 0,
+    "raw_sha256": "5cbb2050d26f869751113d0746c6d129d7a1285f7d7da094f1ac5bd07fb0f3e8"
+  },
+  "windows": {
+    "tests": 666,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "integrations": 214,
+    "exit_code": 0,
+    "raw_sha256": "63384d35a2b6856789f20254789c19dc8eeb5d75e12accd718ad9efe1588f4e5"
+  },
+  "linux": {
+    "tests": 666,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "integrations": 214,
+    "exit_code": 0,
+    "raw_sha256": "3cf60f9f4921959901ba40bfdd124ee404c8835fd2485690ad6bdb117c4effbc"
+  },
+  "limitation": "Baseline integrations partly overlapped; both passed. Final regression is sequential.",
+  "lab_before": "STOPPED; existing pg_data and credentials preserved"
+}

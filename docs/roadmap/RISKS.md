@@ -1,5 +1,22 @@
 # Registro de riesgos y decisiones abiertas
 
+## T03-05 — 2026-10-24
+
+R01 sigue ABIERTO: worker PG real con dos procesos/100 jobs, leases/fences/CAS,
+cancelación y commit atómico; [revisión y gates](SESSION_03_WORKER_REVIEW.md).
+No reclaim/retry integral ni recuperación adversarial completa hasta T03-06.
+Tras crash, LEASED retenido evita ejecución especulativa pero requiere recuperación
+posterior: no se acredita eventual progreso de todos los jobs. Deadline/presupuesto
+solo guardas mínimas. DB/commit incierto exige inspección durable antes de recuperación.
+Dueño autor, gate S03; sin GO S04. R02/R14 externos, R11/privacidad y R15/mantenimiento
+musl/linux-amd64 continúan. Audit no es WORM ni estas pruebas auditoría independiente.
+Regresión final 715 PASS/OS y nuevos checks/scans/fresh/recovery PASS. R16 conserva
+sensibilidad del lab compartido: primer run Linux falló en intake antiguo, sin causa
+confirmada; diagnóstico aislado y repetición nativa completa pasaron sin tocar tests
+antiguos/timeouts. Rama COMMIT_UNCERTAIN implementada, pérdida de transporte justo
+durante COMMIT worker todavía no ejercitada; campaña completa T03-06.
+Snapshots inferiores conservan decisiones y findings históricos.
+
 Estado: evaluación de diseño, no incidentes de producción. Autor = responsable técnico.
 Prioridad crítica implica NO-GO en hito indicado si no se resuelve. Alternativas no
 autorizan cambios externos ni reejecución de operaciones ambiguas.

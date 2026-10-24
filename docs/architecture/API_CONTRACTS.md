@@ -1,7 +1,8 @@
 # Contratos y versionado
 
 Estado: endpoints S02 implementados y probados localmente; sin despliegue externo.
-Intake T03-03 y lecturas/cancelación T03-04 implementados; worker sigue PROPUESTO.
+Intake T03-03, lecturas/cancelación T03-04 y worker local T03-05 implementados.
+Worker sin endpoints públicos; recovery/retry integral pendiente T03-06.
 T03-02 añade persistencia y lectura audit v1/v2.
 Contrato máquina de plataforma:
 [platform.openapi.json](../../contracts/platform.openapi.json). Dominio futuro abajo.

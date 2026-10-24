@@ -13,12 +13,15 @@ El autor aprobó tras revisión el cierre/riesgos S02 y los contratos T03-01/ADR
 sin validación empresarial ni readiness de producción. [S03 en curso](docs/roadmap/SESSION_03_SPEC.md):
 [T03-02](docs/roadmap/SESSION_03_PERSISTENCE_REVIEW.md) implementa esquema durable,
 rol worker y auditoría v2 con lectura mixta. [T03-03](docs/roadmap/SESSION_03_INTAKE_REVIEW.md)
-implementa intake atómico/idempotente; worker ejecutable pendiente.
+implementa intake atómico/idempotente.
 T03-04 añade [lecturas autorizadas y cancelación CAS](docs/roadmap/SESSION_03_ACCESS_CANCEL_REVIEW.md),
-sin worker ni cierre automático del incidente.
-Regresión local 666 PASS/OS. [Hotfix PostgreSQL/Brotli](docs/roadmap/SESSION_03_POSTGRES_SECURITY_REVIEW.md)
-instalado: tres scans finales PASS, datos/recovery/checks PASS. GO técnico LOCAL para
-preparar T03-05 bajo nueva petición; sin GO S03 completa/S04/producción ni CI nueva.
+sin cierre automático del incidente. [T03-05](docs/roadmap/SESSION_03_WORKER_REVIEW.md)
+añade worker independiente, Job Store PG, leases/fences, snapshot local y resultado
+auditado atómico NEEDS_OPERATOR; incidente OPEN. Reclaim/retry integral pendiente T03-06.
+T03-05: 715 PASS/OS, 252 integraciones reales/OS, dos procesos/100 jobs;
+[Hotfix PostgreSQL/Brotli](docs/roadmap/SESSION_03_POSTGRES_SECURITY_REVIEW.md)
+preservado. Checks/scans/fresh/recovery nuevos en artifacts/session-03/worker/verification.json.
+Sin GO S03 completa/S04/producción ni CI remota del árbol local.
 Las evidencias históricas conservan sus NO-GO y aceptaciones pendientes originales.
 
 OpsPilot investigará incidencias IT con documentación autorizada y evidencias,
@@ -34,7 +37,7 @@ Una ejecución técnica correcta no demuestra la resolución del ticket.
 | Arquitectura, contratos y roadmap | Diseño versionado; S02 implementada, hitos posteriores propuestos |
 | Harness y CI | 660f7d3: CI plataforma/harness SUCCESS; cierre/riesgos aceptados por autor. Árbol S03 con pruebas locales, CI nueva pendiente |
 | API/identidad/audit | S02 y lectura mixta audit v1/v2 implementados y probados con PG/Keycloak reales |
-| Persistencia/intake S03 | 0002 y appender v2 probados; POST atómico/idempotente T03-03 implementado; worker pendiente |
+| Persistencia/intake/worker S03 | 0002, intake y cancelación conservados; T03-05 worker local implementado, recovery/retry completo pendiente T03-06 |
 | LLM y VPN | PROPUESTO; fuera de S02, sin conexiones ni efectos IT |
 
 Empieza por [alcance](docs/product/SCOPE.md), [arquitectura](docs/architecture/ARCHITECTURE.md),

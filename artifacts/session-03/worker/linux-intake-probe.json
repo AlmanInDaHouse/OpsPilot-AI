@@ -1,0 +1,125 @@
+{
+  "scope": "Test-only observation; HTTP responses not modified",
+  "observations": [
+    {
+      "phase": "ready",
+      "status": 200,
+      "elapsed_seconds": 0.085
+    },
+    {
+      "phase": "ready",
+      "status": 200,
+      "elapsed_seconds": 0.068
+    },
+    {
+      "status": 202,
+      "code": null,
+      "elapsed_seconds": 0.711
+    },
+    {
+      "status": 202,
+      "code": null,
+      "elapsed_seconds": 0.725
+    },
+    {
+      "status": 202,
+      "code": null,
+      "elapsed_seconds": 0.714
+    },
+    {
+      "status": 202,
+      "code": null,
+      "elapsed_seconds": 0.735
+    },
+    {
+      "status": 202,
+      "code": null,
+      "elapsed_seconds": 0.737
+    },
+    {
+      "status": 202,
+      "code": null,
+      "elapsed_seconds": 0.818
+    },
+    {
+      "status": 202,
+      "code": null,
+      "elapsed_seconds": 0.912
+    },
+    {
+      "status": 202,
+      "code": null,
+      "elapsed_seconds": 0.815
+    },
+    {
+      "status": 202,
+      "code": null,
+      "elapsed_seconds": 0.909
+    },
+    {
+      "status": 202,
+      "code": null,
+      "elapsed_seconds": 0.828
+    },
+    {
+      "status": 202,
+      "code": null,
+      "elapsed_seconds": 1.023
+    },
+    {
+      "status": 202,
+      "code": null,
+      "elapsed_seconds": 1.017
+    },
+    {
+      "status": 202,
+      "code": null,
+      "elapsed_seconds": 0.84
+    },
+    {
+      "status": 202,
+      "code": null,
+      "elapsed_seconds": 0.923
+    },
+    {
+      "status": 202,
+      "code": null,
+      "elapsed_seconds": 0.924
+    },
+    {
+      "status": 202,
+      "code": null,
+      "elapsed_seconds": 1.015
+    },
+    {
+      "status": 202,
+      "code": null,
+      "elapsed_seconds": 0.927
+    },
+    {
+      "status": 202,
+      "code": null,
+      "elapsed_seconds": 0.928
+    },
+    {
+      "status": 202,
+      "code": null,
+      "elapsed_seconds": 0.929
+    },
+    {
+      "status": 202,
+      "code": null,
+      "elapsed_seconds": 1.009
+    },
+    {
+      "phase": "ready",
+      "status": 200,
+      "elapsed_seconds": 0.062
+    },
+    {
+      "status": 202,
+      "code": null,
+      "elapsed_seconds": 0.034
+    }
+  ]
+}

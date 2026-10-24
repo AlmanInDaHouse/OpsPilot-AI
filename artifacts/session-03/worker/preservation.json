@@ -1,0 +1,8 @@
+{
+  "historical_inputs_changed": [],
+  "previous_product_and_tests_changed": [],
+  "all_preserved": true,
+  "new_product_files": 4,
+  "no_new_migration_grant_dependency_or_public_endpoint": true,
+  "git_head_unchanged": true
+}

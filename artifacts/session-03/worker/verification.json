@@ -1,0 +1,158 @@
+{
+  "date": "2026-10-24 Europe/Madrid",
+  "head": "6a873ec0a7b5450cd23109efa71618fda36b7bb7",
+  "input_sha256": "c39756cf963af25526ea7c0bb6502e0e4203d54eacd006317e7902fcf5e29a2b",
+  "state": "IMPLEMENTADO_Y_PROBADO_LOCAL_T03_05",
+  "baseline": "baseline.json",
+  "final_suites": {
+    "windows": {
+      "tests": 715,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "real_integrations": 252,
+      "worker_integrations": 38,
+      "raw_sha256": "fca9d47a32ca89bda8f1557595d115c73a93884f81d1cb9cc2173f9905099732"
+    },
+    "linux": {
+      "tests": 715,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "real_integrations": 252,
+      "worker_integrations": 38,
+      "raw_sha256": "55dbbab612ca27a6055651dd2f1bae2cc7a74f83968d3c027925ba09bebeed80"
+    }
+  },
+  "go_local_t03_06": "GO_TECHNICAL_LOCAL_FOR_PREPARATION_ONLY; NEW_USER_REQUEST_REQUIRED_TO_IMPLEMENT",
+  "AC03_04_05_06": "PARTIAL; reclaim/retry/deadline policy and adversarial kill points remain T03-06",
+  "remote_ci": "NOT_RUN; unpublished local worktree",
+  "source_tests_preserved": true,
+  "historical_snapshots_preserved": true,
+  "limits": [
+    "No generalized reclaim or retry/backoff",
+    "No complete deadline/active-budget policy",
+    "No automatic definition compatibility or resumption",
+    "Admin generation handoff in tests is not production reclaim",
+    "No external IT action or incident resolution",
+    "No S04/production GO; no independent audit"
+  ],
+  "commands": {
+    "windows_all": {
+      "command": "python scripts/dev.py test --suite all",
+      "exit_code": 0,
+      "raw_sha256": "ef3d2c33ec0b3a8b34d4c282b55be92b49c2e7b84ae2304ae38c39d108d097aa"
+    },
+    "linux_all": {
+      "command": "python scripts/dev.py test --suite all (native non-root image, UV_NO_SYNC=1, frozen existing environment)",
+      "exit_code": 0,
+      "raw_sha256": "8d4552d249c23f649182548adf560eeadedc359d8f190335ff19192a3a781dfd"
+    },
+    "windows_check": {
+      "command": "python scripts/dev.py check",
+      "exit_code": 0,
+      "raw_sha256": "8d38c20b7e87b96950fb947b601b01b67a0aef08e2fee126583882557b4743e0"
+    },
+    "linux_check": {
+      "command": "python scripts/dev.py check (native non-root image with readonly current docs, refs and public evidence)",
+      "exit_code": 0,
+      "raw_sha256": "81f934cfdae34b684a6a8d7cf02557a9cf7fcdb401cadba6cf0f0f4e6151c390"
+    },
+    "windows_harness": {
+      "command": "python scripts/dev.py test --suite harness",
+      "exit_code": 0,
+      "tests": 23,
+      "raw_sha256": "0995f889feb662a36c6fb373f9e297c25beab236f703c88f0dcd8d95e9280473"
+    },
+    "linux_harness": {
+      "command": "python scripts/dev.py test --suite harness",
+      "exit_code": 0,
+      "tests": 23,
+      "raw_sha256": "85b4c3bb42ebf7d9c4a416e06abd00b2366816128e36669faa315be7a3af43d9"
+    },
+    "build_final": {
+      "command": "docker compose -f infra/compose.yaml build api tests",
+      "exit_code": 0,
+      "raw_sha256": "04ed820e1b7110414fdfa0fc9bad3210d0fb6b15b414dcf43fcee1bdb58609c5"
+    },
+    "fresh_postgres": {
+      "exit_code": 0,
+      "evidence": "fresh-postgres.json"
+    },
+    "recovery": {
+      "exit_code": 0,
+      "evidence": "recovery.json"
+    },
+    "worker_recovery": {
+      "exit_code": 0,
+      "evidence": "worker-recovery.json"
+    },
+    "three_scans": {
+      "command": "uv run --frozen python scripts/scan_images.py --evidence-dir artifacts/session-03/worker/scans",
+      "exit_code": 0,
+      "raw_sha256": "2e1cfcaf8dd2929053f1948d2e271feb60f944cbbaa4a3d9cda17af3a0d93975"
+    },
+    "stop": {
+      "command": "docker compose -f infra/compose.yaml stop api keycloak postgres",
+      "exit_code": 0,
+      "raw_sha256": "bbf1fa890838e6027c93b360ea17ee5a74dc349b342114fa0197d632fbeee1d8"
+    },
+    "final_metadata_secret_scan": {
+      "command": "uv run --frozen python scripts/check_secrets.py",
+      "exit_code": 0,
+      "raw_sha256": "1c8cffb891feebf2269dbe4028bad49b62b3a7bf5745a8d908ec045a06095ee0"
+    },
+    "final_document_check": {
+      "exit_code": 0,
+      "evidence": "document-check.json"
+    },
+    "final_markdown": {
+      "exit_code": 0,
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "two_processes_100_jobs": {
+    "windows": [
+      50,
+      50
+    ],
+    "linux": [
+      51,
+      49
+    ],
+    "nominal_process_exit_codes": [
+      0,
+      0
+    ],
+    "per_os": {
+      "jobs_done": 100,
+      "workflows_needs_operator": 100,
+      "incidents_open": 100,
+      "evidence": 100,
+      "workflow_audit_events": 200,
+      "initial_fence": 0,
+      "final_fence": 1
+    },
+    "observations": [
+      "worker-observations-windows.json",
+      "worker-observations-linux.json"
+    ]
+  },
+  "local_go_scope": "T03-05 local invariants and regression only; not global AC03-04/05/06 acceptance, S03 closure, S04 or production",
+  "worker_result": "NEEDS_OPERATOR; incident OPEN; no IT repair or independent verification",
+  "commit_uncertain": "Conservative handling implemented; transport loss exactly during worker COMMIT not exercised (T03-06)",
+  "known_regression_limitation": "Earlier Linux historical intake failure and isolated readiness failure, cause unconfirmed. Final full native suite passed without changing historical tests/timeouts. Originals private, hashes in run-history.json.",
+  "lab_final_state": "STOPPED_WITH_VOLUME_AND_CREDENTIALS_PRESERVED",
+  "lab_tables_identical": 11,
+  "actual_images_match_scan_reports": true,
+  "no_commit_push_merge_release_deploy": true,
+  "t03_06": "NOT_IMPLEMENTED",
+  "acceptance": "PROBADO local; not independent audit or human VALIDADO",
+  "git_final": {
+    "branch": "main",
+    "head_and_origin_main_unchanged_and_equal": true,
+    "worktree": "LOCAL_UNCOMMITTED_T03_05",
+    "commit_push_merge_release_deploy": false
+  },
+  "temporary_worker_dsn_files_remaining": 0
+}

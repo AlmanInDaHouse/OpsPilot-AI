@@ -1,0 +1,42 @@
+{
+  "state": "STOPPED_WITH_VOLUME_AND_CREDENTIALS_PRESERVED",
+  "services": [
+    {
+      "service": "api",
+      "state": "exited",
+      "exit_code": 0,
+      "image": "opspilot-ai:0.2.0"
+    },
+    {
+      "service": "keycloak",
+      "state": "exited",
+      "exit_code": 137,
+      "image": "opspilot-keycloak:26.8.1-s02"
+    },
+    {
+      "service": "postgres",
+      "state": "exited",
+      "exit_code": 0,
+      "image": "opspilot-postgres:18.6-s02"
+    }
+  ],
+  "stop_exit_code": 0,
+  "volume": "opspilot-s02_pg_data",
+  "eleven_tables_identical": true,
+  "counts": {
+    "principals": 4,
+    "role_grants": 4,
+    "audit_streams": 7,
+    "audit_events": 11,
+    "incidents": 2,
+    "workflows": 2,
+    "workflow_steps": 2,
+    "jobs": 2,
+    "evidence": 0,
+    "api_idempotency": 2,
+    "alembic_version": 1
+  },
+  "keycloak_shutdown_note": "exit 137 after explicit stop; OOMKilled=false; not claimed as clean JVM exit",
+  "temporary_worker_processes": "Stopped by their test contexts; nominal exits 0, intentional kill codes in worker observations",
+  "temporary_databases": "Fixture-owned databases dropped; main lab data preserved"
+}

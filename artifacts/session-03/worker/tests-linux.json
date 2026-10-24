@@ -1,0 +1,9 @@
+{
+  "tests": 715,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "real_integrations": 252,
+  "worker_integrations": 38,
+  "raw_sha256": "55dbbab612ca27a6055651dd2f1bae2cc7a74f83968d3c027925ba09bebeed80"
+}

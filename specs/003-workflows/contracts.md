@@ -4,7 +4,8 @@ Estado: APROBADO PARA IMPLEMENTACIÓN por el autor el 2026-10-23 tras revisión 
 cierre/riesgos S02 y ADR-0008: «Apruebo tras revisión; continuar T03-02».
 [Arranque histórico](start.md) y [alcance de persistencia](persistence.md).
 T03-02 implementa esquema/appender/lector; [T03-03](intake.md) implementa intake.
-T03-04 implementa [lecturas/cancelación](access-cancel.md); worker pendiente.
+T03-04 implementa [lecturas/cancelación](access-cancel.md); T03-05 implementa
+[worker local](worker.md). Recovery/retry integral pendiente T03-06.
 
 ## API y orden de validación
 

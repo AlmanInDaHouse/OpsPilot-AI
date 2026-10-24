@@ -132,7 +132,8 @@
       "specs/003-workflows/spec.md",
       "specs/003-workflows/persistence.md",
       "specs/003-workflows/intake.md",
-      "specs/003-workflows/access-cancel.md"
+      "specs/003-workflows/access-cancel.md",
+      "specs/003-workflows/worker.md"
     ],
     "design": [
       "docs/architecture/WORKFLOW_ENGINE.md",
@@ -159,7 +160,11 @@
       "src/opspilot/workflows/domain/access.py",
       "src/opspilot/workflows/application/access.py",
       "src/opspilot/adapters/postgres/workflows.py",
-      "src/opspilot/entrypoints/api/access.py"
+      "src/opspilot/entrypoints/api/access.py",
+      "src/opspilot/workflows/domain/jobs.py",
+      "src/opspilot/workflows/application/jobs.py",
+      "src/opspilot/adapters/postgres/jobs.py",
+      "src/opspilot/entrypoints/worker.py"
     ],
     "test": [
       "tests/contract/test_workflow_design.py",
@@ -171,7 +176,11 @@
       "tests/unit/test_access_cancel.py",
       "tests/contract/test_access_cancel_api.py",
       "tests/integration/test_access_cancel.py",
-      "tests/integration/cancel_process.py"
+      "tests/integration/cancel_process.py",
+      "tests/integration/test_worker.py",
+      "tests/unit/test_worker.py",
+      "tests/contract/test_worker.py",
+      "tests/architecture/test_worker.py"
     ],
     "evidence": [
       "artifacts/session-03/start/verification.json",
@@ -185,16 +194,20 @@
       "artifacts/session-03/access-cancel/tests-linux.json",
       "artifacts/session-03/postgres-security/verification.json",
       "artifacts/session-03/postgres-security/tests-windows-final.json",
-      "artifacts/session-03/postgres-security/tests-linux.json"
+      "artifacts/session-03/postgres-security/tests-linux.json",
+      "artifacts/session-03/worker/verification.json"
     ],
-    "acceptance": "T03-02/03 preserved. T03-04 authorized reads and durable CAS cancellation implemented and tested locally: AC03-03/09 in scope, AC03-06 API/SQL only. Worker claim/completion, 100 jobs and stale completion handler remain T03-05/06; requirement stays PROPOSED until full acceptance. No remote CI for local changes, no S04 or production GO. See access-cancel/verification.json for actual gates.",
+    "acceptance": "T03-02/03/04 preserved. T03-05 implements real local PG worker, claim/lease/heartbeat/fencing/CAS, intake snapshot and atomic evidence/step/workflow/job/audit v2, with two real processes and 100 jobs. Actual local regression/security gates are in worker/verification.json. AC03-04/05/06 remain partial pending T03-06 reclaim/retry/deadline/adversarial recovery; external UNKNOWN/reconciliation remains future work. Requirement stays PROPOSED until full acceptance. No remote CI for unpublished changes or global S03/S04/production GO.",
     "task_ids": [
-      "T03-04"
+      "T03-04",
+      "T03-05"
     ],
     "acceptance_ids": [
       "AC03-03",
       "AC03-06",
-      "AC03-09"
+      "AC03-09",
+      "AC03-04",
+      "AC03-05"
     ]
   },
   {
@@ -206,7 +219,8 @@
       "specs/003-workflows/spec.md",
       "specs/003-workflows/persistence.md",
       "specs/003-workflows/intake.md",
-      "specs/003-workflows/access-cancel.md"
+      "specs/003-workflows/access-cancel.md",
+      "specs/003-workflows/worker.md"
     ],
     "design": [
       "docs/architecture/WORKFLOW_ENGINE.md",
@@ -234,7 +248,11 @@
       "src/opspilot/workflows/domain/access.py",
       "src/opspilot/workflows/application/access.py",
       "src/opspilot/adapters/postgres/workflows.py",
-      "src/opspilot/entrypoints/api/access.py"
+      "src/opspilot/entrypoints/api/access.py",
+      "src/opspilot/workflows/domain/jobs.py",
+      "src/opspilot/workflows/application/jobs.py",
+      "src/opspilot/adapters/postgres/jobs.py",
+      "src/opspilot/entrypoints/worker.py"
     ],
     "test": [
       "tests/integration/test_workflow_crash.py",
@@ -247,7 +265,11 @@
       "tests/unit/test_access_cancel.py",
       "tests/contract/test_access_cancel_api.py",
       "tests/integration/test_access_cancel.py",
-      "tests/integration/cancel_process.py"
+      "tests/integration/cancel_process.py",
+      "tests/integration/test_worker.py",
+      "tests/unit/test_worker.py",
+      "tests/contract/test_worker.py",
+      "tests/architecture/test_worker.py"
     ],
     "evidence": [
       "artifacts/session-03/start/verification.json",
@@ -261,16 +283,20 @@
       "artifacts/session-03/access-cancel/tests-linux.json",
       "artifacts/session-03/postgres-security/verification.json",
       "artifacts/session-03/postgres-security/tests-windows-final.json",
-      "artifacts/session-03/postgres-security/tests-linux.json"
+      "artifacts/session-03/postgres-security/tests-linux.json",
+      "artifacts/session-03/worker/verification.json"
     ],
-    "acceptance": "T03-02/03 preserved. T03-04 authorized reads and durable CAS cancellation implemented and tested locally: AC03-03/09 in scope, AC03-06 API/SQL only. Worker claim/completion, 100 jobs and stale completion handler remain T03-05/06; requirement stays PROPOSED until full acceptance. No remote CI for local changes, no S04 or production GO. See access-cancel/verification.json for actual gates.",
+    "acceptance": "T03-02/03/04 preserved. T03-05 implements real local PG worker, claim/lease/heartbeat/fencing/CAS, intake snapshot and atomic evidence/step/workflow/job/audit v2, with two real processes and 100 jobs. Actual local regression/security gates are in worker/verification.json. AC03-04/05/06 remain partial pending T03-06 reclaim/retry/deadline/adversarial recovery; external UNKNOWN/reconciliation remains future work. Requirement stays PROPOSED until full acceptance. No remote CI for unpublished changes or global S03/S04/production GO.",
     "task_ids": [
-      "T03-04"
+      "T03-04",
+      "T03-05"
     ],
     "acceptance_ids": [
       "AC03-03",
       "AC03-06",
-      "AC03-09"
+      "AC03-09",
+      "AC03-04",
+      "AC03-05"
     ]
   },
   {
@@ -281,7 +307,8 @@
       "docs/roadmap/SESSION_03_SPEC.md",
       "specs/003-workflows/spec.md",
       "specs/003-workflows/persistence.md",
-      "specs/003-workflows/access-cancel.md"
+      "specs/003-workflows/access-cancel.md",
+      "specs/003-workflows/worker.md"
     ],
     "design": [
       "docs/architecture/WORKFLOW_ENGINE.md",
@@ -304,7 +331,11 @@
       "src/opspilot/workflows/domain/access.py",
       "src/opspilot/workflows/application/access.py",
       "src/opspilot/adapters/postgres/workflows.py",
-      "src/opspilot/entrypoints/api/access.py"
+      "src/opspilot/entrypoints/api/access.py",
+      "src/opspilot/workflows/domain/jobs.py",
+      "src/opspilot/workflows/application/jobs.py",
+      "src/opspilot/adapters/postgres/jobs.py",
+      "src/opspilot/entrypoints/worker.py"
     ],
     "test": [
       "tests/integration/test_unknown_outcome.py",
@@ -313,7 +344,11 @@
       "tests/unit/test_access_cancel.py",
       "tests/contract/test_access_cancel_api.py",
       "tests/integration/test_access_cancel.py",
-      "tests/integration/cancel_process.py"
+      "tests/integration/cancel_process.py",
+      "tests/integration/test_worker.py",
+      "tests/unit/test_worker.py",
+      "tests/contract/test_worker.py",
+      "tests/architecture/test_worker.py"
     ],
     "evidence": [
       "artifacts/session-03/start/verification.json",
@@ -324,16 +359,20 @@
       "artifacts/session-03/access-cancel/tests-linux.json",
       "artifacts/session-03/postgres-security/verification.json",
       "artifacts/session-03/postgres-security/tests-windows-final.json",
-      "artifacts/session-03/postgres-security/tests-linux.json"
+      "artifacts/session-03/postgres-security/tests-linux.json",
+      "artifacts/session-03/worker/verification.json"
     ],
-    "acceptance": "T03-02/03 preserved. T03-04 authorized reads and durable CAS cancellation implemented and tested locally: AC03-03/09 in scope, AC03-06 API/SQL only. Worker claim/completion, 100 jobs and stale completion handler remain T03-05/06; requirement stays PROPOSED until full acceptance. No remote CI for local changes, no S04 or production GO. See access-cancel/verification.json for actual gates.",
+    "acceptance": "T03-02/03/04 preserved. T03-05 implements real local PG worker, claim/lease/heartbeat/fencing/CAS, intake snapshot and atomic evidence/step/workflow/job/audit v2, with two real processes and 100 jobs. Actual local regression/security gates are in worker/verification.json. AC03-04/05/06 remain partial pending T03-06 reclaim/retry/deadline/adversarial recovery; external UNKNOWN/reconciliation remains future work. Requirement stays PROPOSED until full acceptance. No remote CI for unpublished changes or global S03/S04/production GO.",
     "task_ids": [
-      "T03-04"
+      "T03-04",
+      "T03-05"
     ],
     "acceptance_ids": [
       "AC03-03",
       "AC03-06",
-      "AC03-09"
+      "AC03-09",
+      "AC03-04",
+      "AC03-05"
     ]
   },
   {

@@ -2,10 +2,24 @@
 
 Estado: ejecución de motor PROPUESTA; T03-02 implementa almacenamiento, constraints
 y appender/lectura v2; T03-03 añade intake/UoW/idempotencia y T03-04 lecturas/cancel CAS.
-Sin worker. [Revisión de cancelación](../roadmap/SESSION_03_ACCESS_CANCEL_REVIEW.md).
+T03-05 implementa worker local independiente y Job Store PG; [revisión actual](../roadmap/SESSION_03_WORKER_REVIEW.md).
+Reclaim/retry/crash suite integral continúan T03-06. [Revisión de cancelación](../roadmap/SESSION_03_ACCESS_CANCEL_REVIEW.md).
 REQ-WF-01/02/03. Fuente de estados/transiciones:
 [workflow-v1.json](../../contracts/workflow-v1.json); diagrama derivado en [C4](C4.md).
 Workflow, ticket y ejecución externa tienen estados independientes.
+
+## Implementación local T03-05
+
+Jobs coordina PostgresJobUow. Claim confirma SKIP LOCKED solo job; inicio, heartbeat
+y resultado toman workflow → job → step cuando aplica → audit. Snapshot de intake
+fuera de locks, título/descripción solo como hashes. Heartbeat 15 s/lease PG 60 s;
+se detiene y se espera antes de complete, que repite owner/fence/lease/CAS/cancel y
+la guarda temporal después del appender. Evidence/step DONE/workflow NEEDS_OPERATOR/
+job DONE/audit v2 se confirman juntos. La incidencia sigue OPEN.
+Unknown definition bloquea sin ejecutar v1; permanente pausa sin retry. Deadline
+solo tiene guardas mínimas: no presupuesto acumulado/reclaim/backoff automático.
+Tras muerte, filas LEASED retenidas hasta política T03-06. Los apartados siguientes
+describen también mecanismos objetivo posteriores; no todos están implementados.
 
 ## Estados y guardas
 
