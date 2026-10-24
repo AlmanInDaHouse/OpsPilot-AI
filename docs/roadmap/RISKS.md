@@ -4,6 +4,40 @@ Estado: evaluación de diseño, no incidentes de producción. Autor = responsabl
 Prioridad crítica implica NO-GO en hito indicado si no se resuelve. Alternativas no
 autorizan cambios externos ni reejecución de operaciones ambiguas.
 
+## Hotfix PG / R15 — 2026-10-24
+
+R15: brotli-libs 1.2.0-r1/CVE-2026-111497 HIGH confirmado en la imagen PG local.
+Hotfix instala 1.2.1-r0 oficial firmado de la misma rama Alpine 3.24, sin retirar
+dependencias, cambiar distribución ni exceptuar CVE. Solo ese paquete cambia.
+PG final scan PASS, suites 666 PASS/OS, 214 integraciones/OS, checks, PG fresco,
+recovery y hashes de datos PASS. Tres scans finales PASS, cero HIGH/CRITICAL,
+identidad/procedencia verificadas: R15 REMEDIADO LOCALMENTE para este build;
+GO técnico LOCAL para preparar T03-05, sin inicio automático ni cierre global S03.
+Fuente actual: [revisión](SESSION_03_POSTGRES_SECURITY_REVIEW.md).
+
+Dueño autor: mantener base/pin y repetir todos los scans por build; disponibilidad
+del APK histórico no garantizada. Sin GO remoto/empresarial. Persisten ADR-0007
+musl/linux-amd64, R01/AC03-06 parcial, R02/R14, privacidad y ausencia de backup/restore
+probado. Después de recrear PG, Keycloak puede conservar conexiones JDBC cerradas:
+reiniciar dependientes y comprobar PKCE real; health verde fue insuficiente.
+Se conservan a continuación los estados históricos del build anterior.
+
+## T03-04 — alcance local, 2026-10-23
+
+R01 continúa ABIERTO: cancelación CAS, carreras API/SQL, audit/rollback y procesos
+HTTP probados con PG/Keycloak; no worker ni 100 jobs. AC03-06 solo parcial hasta
+claim/completion real T03-05/06. API invalida jobs/ownership/fence; el handler futuro
+debe validar además versión, lease e intención, sin espera workflow bajo job lock.
+Revocación concurrente se decide en el último punto de autorización; no es
+retroactiva ni serializa todos los cambios de grants. Aplicación confiable, sin RLS.
+R02/R14 siguen pendientes: cancelar no deshace efectos remotos ni libera UNKNOWN.
+R11/privacidad y R15/musl/linux-amd64 vigentes; sin GO S04/producción ni CI nueva.
+Autocrítica y resultados actuales en SESSION_03_ACCESS_CANCEL_REVIEW.md.
+R15 / gate de imágenes del árbol T03-04: PostgreSQL FAIL por
+CVE-2026-111497/HIGH, brotli-libs 1.2.0-r1, corrección 1.2.1-r0 según Trivy.
+Imagen PG preservada desde baseline; no se hereda el scan PASS histórico.
+Dueño autor; NO-GO T03-05 hasta remediación de imagen y revalidación del build.
+
 ## Arranque S03 — T03-01, 2026-10-23
 
 Actualización T03-02: el autor aprueba cierre/riesgos S02 y T03-01/ADR-0008 tras

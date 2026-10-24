@@ -1,0 +1,368 @@
+[
+  {
+    "name": "windows",
+    "command": [
+      "C:\\Users\\manul\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+      "scripts/dev.py",
+      "test"
+    ],
+    "started_at_utc": "2026-10-23T21:09:27.944739+00:00",
+    "finished_at_utc": "2026-10-23T21:11:27.669430+00:00",
+    "exit_code": 1,
+    "raw_sha256": "4aea0c5312c8f798a3b6470b54ddee38855d70592ecad4fc13bc31aa9be8d675"
+  },
+  {
+    "name": "build-tests",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "infra/compose.yaml",
+      "build",
+      "tests"
+    ],
+    "started_at_utc": "2026-10-23T21:14:59.413654+00:00",
+    "finished_at_utc": "2026-10-23T21:15:09.984361+00:00",
+    "exit_code": 0,
+    "raw_sha256": "dda90e185066ca2ba80a98b87ebed6b9c45725e229e18d047546af21dd2c2b17"
+  },
+  {
+    "name": "build-api",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "infra/compose.yaml",
+      "build",
+      "api"
+    ],
+    "started_at_utc": "2026-10-23T21:15:38.754076+00:00",
+    "finished_at_utc": "2026-10-23T21:16:02.070231+00:00",
+    "exit_code": 0,
+    "raw_sha256": "24a2a437a21df97c3d4ed44b794701151ac71d8b7be05aa848a75d0f9f223459"
+  },
+  {
+    "name": "up",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "infra/compose.yaml",
+      "up",
+      "-d",
+      "--no-deps",
+      "--wait",
+      "api"
+    ],
+    "started_at_utc": "2026-10-23T21:16:38.605161+00:00",
+    "finished_at_utc": "2026-10-23T21:16:54.722371+00:00",
+    "exit_code": 0,
+    "raw_sha256": "a0364a14edc5fe998fab70585df5a76387897ec96e88caebde854b13c35f2e7f"
+  },
+  {
+    "name": "windows-final2",
+    "command": [
+      "C:\\Users\\manul\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+      "scripts/dev.py",
+      "test"
+    ],
+    "started_at_utc": "2026-10-23T21:14:43.306889+00:00",
+    "finished_at_utc": "2026-10-23T21:17:21.289526+00:00",
+    "exit_code": 1,
+    "raw_sha256": "c62c45e18fbca7eeae3a541e44e8d764c660f781ed84c1b9c0883782be709695"
+  },
+  {
+    "name": "build-tests-final",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "infra/compose.yaml",
+      "build",
+      "tests"
+    ],
+    "started_at_utc": "2026-10-23T21:18:04.202031+00:00",
+    "finished_at_utc": "2026-10-23T21:18:11.817800+00:00",
+    "exit_code": 0,
+    "raw_sha256": "224010f2895ff76ccbea849a0d1b8b8006a73b08f75937ebe9a5699fedb47c8f"
+  },
+  {
+    "name": "fresh",
+    "command": [
+      "uv",
+      "run",
+      "--frozen",
+      "python",
+      "scripts/verify_fresh_postgres.py",
+      "--report",
+      "artifacts/session-03/access-cancel/fresh-postgres.json"
+    ],
+    "started_at_utc": "2026-10-23T21:18:58.307117+00:00",
+    "finished_at_utc": "2026-10-23T21:19:03.964974+00:00",
+    "exit_code": 0,
+    "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "check-first",
+    "command": [
+      "C:\\Users\\manul\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+      "scripts/dev.py",
+      "check"
+    ],
+    "started_at_utc": "2026-10-23T21:19:14.023244+00:00",
+    "finished_at_utc": "2026-10-23T21:19:25.185193+00:00",
+    "exit_code": 1,
+    "raw_sha256": "3b5e6cf63c7b4da9708eea738cce7f4cd3236f4025ded97a95227c6c0b8d3d26"
+  },
+  {
+    "name": "windows-final3",
+    "command": [
+      "C:\\Users\\manul\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+      "scripts/dev.py",
+      "test"
+    ],
+    "started_at_utc": "2026-10-23T21:17:58.811383+00:00",
+    "finished_at_utc": "2026-10-23T21:20:37.870130+00:00",
+    "exit_code": 0,
+    "raw_sha256": "59ad413cbfc197602e19d4369b6b8950d3002422c53e3651c795b54d5cae1527"
+  },
+  {
+    "name": "build-tests-static",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "infra/compose.yaml",
+      "build",
+      "tests"
+    ],
+    "started_at_utc": "2026-10-23T21:21:27.922838+00:00",
+    "finished_at_utc": "2026-10-23T21:21:38.629812+00:00",
+    "exit_code": 0,
+    "raw_sha256": "45976bcefccecb8b51a6ef9d3fc7b6eb73f791710059f5d9defcee888beeadef"
+  },
+  {
+    "name": "build-api-static",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "infra/compose.yaml",
+      "build",
+      "api"
+    ],
+    "started_at_utc": "2026-10-23T21:21:38.896018+00:00",
+    "finished_at_utc": "2026-10-23T21:21:57.578313+00:00",
+    "exit_code": 0,
+    "raw_sha256": "3b0a4e1aaf591ef90df7561029a53f297e00fc857e9fb15ebdb176b67750a04a"
+  },
+  {
+    "name": "up-static",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "infra/compose.yaml",
+      "up",
+      "-d",
+      "--no-deps",
+      "--wait",
+      "api"
+    ],
+    "started_at_utc": "2026-10-23T21:22:47.763026+00:00",
+    "finished_at_utc": "2026-10-23T21:23:02.378991+00:00",
+    "exit_code": 0,
+    "raw_sha256": "a0364a14edc5fe998fab70585df5a76387897ec96e88caebde854b13c35f2e7f"
+  },
+  {
+    "name": "linux-environment",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "infra/compose.yaml",
+      "run",
+      "--rm",
+      "--no-deps",
+      "tests",
+      "/app/.venv/bin/python",
+      "-c",
+      "import json,os,platform; print(json.dumps({'os':platform.system(),'python':platform.python_version(),'uid':os.getuid(),'gid':os.getgid(),'machine':platform.machine()}))"
+    ],
+    "started_at_utc": "2026-10-23T21:23:02.607038+00:00",
+    "finished_at_utc": "2026-10-23T21:23:07.049517+00:00",
+    "exit_code": 0,
+    "raw_sha256": "fdab1c618be007ae7ac01ff0521852fc17912606e8e6b67cc06f18726f12b1d2"
+  },
+  {
+    "name": "linux-quality",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "infra/compose.yaml",
+      "run",
+      "--rm",
+      "--no-deps",
+      "tests",
+      "/app/.venv/bin/pip-audit"
+    ],
+    "started_at_utc": "2026-10-23T21:23:07.332801+00:00",
+    "finished_at_utc": "2026-10-23T21:23:13.123065+00:00",
+    "exit_code": 1,
+    "raw_sha256": "1b9c653812b579ba62a65e9ed17d23fa1bf92afb28412bd40cbe720c5b123ebc"
+  },
+  {
+    "name": "check-static",
+    "command": [
+      "C:\\Users\\manul\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+      "scripts/dev.py",
+      "check"
+    ],
+    "started_at_utc": "2026-10-23T21:22:37.526956+00:00",
+    "finished_at_utc": "2026-10-23T21:23:28.216981+00:00",
+    "exit_code": 0,
+    "raw_sha256": "948dc4b21fab3bda73e3da8b3485e6cf5b841a1a3658f5167fbd0032d3f869d1"
+  },
+  {
+    "name": "windows-final4",
+    "command": [
+      "C:\\Users\\manul\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+      "scripts/dev.py",
+      "test"
+    ],
+    "started_at_utc": "2026-10-23T21:21:22.528384+00:00",
+    "finished_at_utc": "2026-10-23T21:23:49.603789+00:00",
+    "exit_code": 0,
+    "raw_sha256": "a0cd825b82db3418956237c17e7e893c20ce860a2ac7a3fccaa5f0433d9626a6"
+  },
+  {
+    "name": "linux-final",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "infra/compose.yaml",
+      "run",
+      "--rm",
+      "--no-deps",
+      "tests",
+      "/app/.venv/bin/python",
+      "-m",
+      "pytest",
+      "-q",
+      "--tb=short",
+      "-o",
+      "cache_dir=/tmp/pytest-cache",
+      "-o",
+      "junit_family=xunit1",
+      "--junitxml=/lab/t03-04/linux-final.xml"
+    ],
+    "started_at_utc": "2026-10-23T21:24:02.784442+00:00",
+    "finished_at_utc": "2026-10-23T21:26:03.561857+00:00",
+    "exit_code": 0,
+    "raw_sha256": "13bdcd596883b55fba40c7b308fc2b5a07a94d3a518f9cce6ac9edfaac688ae4"
+  },
+  {
+    "name": "recovery",
+    "command": [
+      "uv",
+      "run",
+      "--frozen",
+      "python",
+      "scripts/verify_recovery.py",
+      "--report",
+      "artifacts/session-03/access-cancel/recovery.json"
+    ],
+    "started_at_utc": "2026-10-23T21:26:45.902966+00:00",
+    "finished_at_utc": "2026-10-23T21:28:01.374629+00:00",
+    "exit_code": 0,
+    "raw_sha256": "edcbdea43bf9e91c057e532a1da67cd2030fff0e2169015f18665ba9382bd3b6"
+  },
+  {
+    "name": "stop",
+    "command": [
+      "C:\\Users\\manul\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+      "scripts/dev.py",
+      "stop"
+    ],
+    "started_at_utc": "2026-10-23T21:28:05.382173+00:00",
+    "finished_at_utc": "2026-10-23T21:28:10.051386+00:00",
+    "exit_code": 0,
+    "raw_sha256": "4d4360785ea8e4bccb5a0699465d7a0e41d234630cf5f2c0b450e5606dc28e00"
+  },
+  {
+    "name": "linux-quality-retry",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "infra/compose.yaml",
+      "run",
+      "--rm",
+      "--no-deps",
+      "-e",
+      "XDG_CACHE_HOME=/tmp/pip-audit-cache",
+      "tests",
+      "/app/.venv/bin/pip-audit"
+    ],
+    "exit_code": 0,
+    "raw_sha256": "8ca81003ae7f8323b92864d7134514d853fdc26cdfa1c8988003f3ca4f5e7307",
+    "observation": "Actual shell exit observed as 0; no known vulnerabilities, own unpublished project not in PyPI"
+  },
+  {
+    "name": "check-final",
+    "command": [
+      "C:\\Users\\manul\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+      "scripts/dev.py",
+      "check"
+    ],
+    "started_at_utc": "2026-10-23T21:33:45.809655+00:00",
+    "finished_at_utc": "2026-10-23T21:34:28.460379+00:00",
+    "exit_code": 0,
+    "raw_sha256": "d76505cfc5f2627a8478fcbe2cb96e187902665f8ebefe1f1ca404a02db36b0c"
+  },
+  {
+    "name": "scans",
+    "command": [
+      "uv",
+      "run",
+      "--frozen",
+      "python",
+      "scripts/scan_images.py",
+      "--evidence-dir",
+      "artifacts/session-03/access-cancel/scans"
+    ],
+    "started_at_utc": "2026-10-23T21:19:04.170315+00:00",
+    "finished_at_utc": "2026-10-23T21:35:02.706099+00:00",
+    "exit_code": 1,
+    "raw_sha256": "be357ef05101a11ec8a5b800bdca1cf1208a2a272e92371686ec7917400abcc3"
+  },
+  {
+    "name": "check-closure",
+    "command": [
+      "C:\\Users\\manul\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+      "scripts/dev.py",
+      "check"
+    ],
+    "started_at_utc": "2026-10-23T21:35:43.658552+00:00",
+    "finished_at_utc": "2026-10-23T21:36:14.479464+00:00",
+    "exit_code": 0,
+    "raw_sha256": "35ffa0f57694c60bb9b7ef79d9c139af592e44da7b1c0a46213a61f65616ea7e"
+  },
+  {
+    "name": "final-metadata-secrets",
+    "command": [
+      "uv",
+      "run",
+      "--frozen",
+      "python",
+      "scripts/check_secrets.py"
+    ],
+    "exit_code": 0,
+    "raw_sha256": "2c134f65074d738d929dde5679dbba560163777d3496f0cb5b74a153a9c469d4",
+    "unreviewed_tree": 0,
+    "unreviewed_history": 0,
+    "observation": "Actual shell exit observed as 0 after final evidence generation"
+  }
+]

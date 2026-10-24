@@ -1,0 +1,186 @@
+{
+  "status": "IMPLEMENTED_TESTED_LOCAL_GO_T03_05",
+  "captured_at_utc": "2026-10-23T23:33:12.716766+00:00",
+  "head": "e116767635c2f723456dd27cb7d52ce267e147ac",
+  "branch": "main",
+  "scope": "PostgreSQL Brotli hotfix only; no worker implementation",
+  "versions": {
+    "postgres": "18.6",
+    "alpine": "3.24.3",
+    "brotli_before": "1.2.0-r1",
+    "brotli_after": "1.2.1-r0"
+  },
+  "command_exit_codes": {
+    "check_windows": 0,
+    "check_linux": 0,
+    "windows": 0,
+    "linux": 0,
+    "fresh_postgres": 0,
+    "recovery": 0,
+    "smoke_replay_after_restart": 0,
+    "data_preserved_after_restart": 0,
+    "check-windows-final": 0,
+    "check-linux-final": 0,
+    "metadata-secrets-final": 0
+  },
+  "images": {
+    "postgres": {
+      "image": "opspilot-postgres:18.6-s02",
+      "docker_image_id": "sha256:39d00c5aa3ce070fafcec7db188b7bea93dbbe87fbe8c521d50a19ec7cc6b993",
+      "config_id": "sha256:d8cd50ddd2b30b89523579865861b7edb8ac7322578a84349469db37dbe019ef",
+      "raw_sha256": "61c2abdbe32c9d3e00c841932aecb07e8ee4b9eeeb0f4253f9f14e63692beb66",
+      "report_os": {
+        "Family": "alpine",
+        "Name": "3.24.3"
+      },
+      "targets": [
+        {
+          "class": "os-pkgs",
+          "type": "alpine"
+        }
+      ],
+      "report_complete": true,
+      "identity_and_runtime_match": true,
+      "current_inputs_match": true,
+      "verdict": "PASS",
+      "high_critical": 0,
+      "exit_code": 0
+    },
+    "keycloak": {
+      "image": "opspilot-keycloak:26.8.1-s02",
+      "docker_image_id": "sha256:857a97da7f1286f6f5218253fb193dda7742e8ac5c96b06acaf54b581a444076",
+      "config_id": "sha256:38292add2f0c1502ffecbdf7f3778622fc274f2ef0ba04f7c9f1ccc5ddafca48",
+      "raw_sha256": "4f13daddd2ec33f3e404276768caa60bfb68d31482a939d83aa5692cfb312dbe",
+      "report_os": {
+        "Family": "alpine",
+        "Name": "3.24.3"
+      },
+      "targets": [
+        {
+          "class": "os-pkgs",
+          "type": "alpine"
+        },
+        {
+          "class": "lang-pkgs",
+          "type": "jar"
+        }
+      ],
+      "report_complete": true,
+      "identity_and_runtime_match": true,
+      "current_inputs_match": true,
+      "verdict": "PASS",
+      "high_critical": 0,
+      "exit_code": 0
+    },
+    "api": {
+      "image": "opspilot-ai:0.2.0",
+      "docker_image_id": "sha256:6c1f5ba866ca4dbb565dbbf345c5ab9e960ae33934329ce17f62f065fd33cb4a",
+      "config_id": "sha256:e3dcf2014d38d4f04127276c1b514e036fae0985cc1d49b68cac745cc90fac43",
+      "raw_sha256": "8f89e0bf0788691312a784397d7bc7040d34b47144789cf7b05efebafb20074f",
+      "report_os": {
+        "Family": "alpine",
+        "Name": "3.24.1"
+      },
+      "targets": [
+        {
+          "class": "os-pkgs",
+          "type": "alpine"
+        },
+        {
+          "class": "lang-pkgs",
+          "type": "python-pkg"
+        }
+      ],
+      "report_complete": true,
+      "identity_and_runtime_match": true,
+      "current_inputs_match": true,
+      "verdict": "PASS",
+      "high_critical": 0,
+      "exit_code": 0
+    }
+  },
+  "go_t03_05": true,
+  "go_reason": "Pinned maintained Brotli 1.2.1-r0; real full suites, checks, fresh PG, recovery, exact data hashes and all three current complete scans PASS",
+  "s03": "OPEN",
+  "s04": "NO_GO",
+  "production": "NO_GO",
+  "remote_ci_current_tree": "NOT_RUN",
+  "publication_actions_performed": false,
+  "lab_final_state": "STOPPED_WITH_VOLUME_AND_CREDENTIALS_PRESERVED",
+  "t03_05": "NOT_IMPLEMENTED",
+  "t03_06": "NOT_IMPLEMENTED",
+  "AC03_06": "PARTIAL_API_SQL_ONLY",
+  "windows": {
+    "tests": 666,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "real_integrations": 214,
+    "raw_sha256": "cb990060bdca3b0b79e934f6a72af1937021f417d64efe30b1acdff3551c6623"
+  },
+  "linux": {
+    "tests": 666,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "real_integrations": 214,
+    "raw_sha256": "5433919438f415d21a882f1fd405ad713b4aca2d7e6a4754c094565f835dbb5b"
+  },
+  "authorization": "Hotfix only; implementing T03-05 requires a new user request",
+  "input_sha256": "08b709107230d08d120621247f94fe35d446f12991fda6688ae57fb95cb95b5d",
+  "final_metadata_quality": "PASS Windows and Linux final full harness",
+  "residual_risks": [
+    "R15 ongoing image/DB refresh and pinned APK availability",
+    "ADR-0007 Keycloak musl/linux-amd64 maintenance",
+    "R01 worker crash/fencing and full AC03-06 pending",
+    "R02/R14 external effects and UNKNOWN",
+    "Privacy before real data; audit is not WORM",
+    "Restart recovery is not backup/restore or HA",
+    "One existing Starlette/httpx deprecation warning per OS",
+    "Keycloak JDBC reconnect after PostgreSQL recreation requires real PKCE check"
+  ],
+  "git_status_short": [
+    " M AGENTS.md",
+    " M README.md",
+    " M contracts/workflows.openapi.json",
+    " M docs/architecture/API_CONTRACTS.md",
+    " M docs/architecture/DATA_MODEL.md",
+    " M docs/architecture/WORKFLOW_ENGINE.md",
+    " M docs/engineering/PLATFORM_RUNBOOK.md",
+    " M docs/roadmap/HANDOFF.md",
+    " M docs/roadmap/RISKS.md",
+    " M docs/roadmap/SESSION_03_SPEC.md",
+    " M infra/postgres.Dockerfile",
+    " M scripts/check_architecture.py",
+    " M scripts/verify_recovery.py",
+    " M specs/003-workflows/checklist.md",
+    " M specs/003-workflows/contracts.md",
+    " M specs/003-workflows/plan.md",
+    " M specs/003-workflows/spec.md",
+    " M specs/003-workflows/tasks.md",
+    " M specs/traceability.json",
+    " M src/opspilot/entrypoints/api/app.py",
+    " M src/opspilot/entrypoints/api/dto.py",
+    " M src/opspilot/identity/domain/principal.py",
+    " M tests/architecture/test_layers.py",
+    " M tests/contract/test_api.py",
+    " M tests/integration/conftest.py",
+    " M tests/integration/test_identity.py",
+    " M tests/unit/test_oidc.py",
+    "?? artifacts/session-03/access-cancel/",
+    "?? artifacts/session-03/postgres-security/",
+    "?? docs/roadmap/SESSION_03_ACCESS_CANCEL_REVIEW.md",
+    "?? docs/roadmap/SESSION_03_POSTGRES_SECURITY_REVIEW.md",
+    "?? specs/003-workflows/access-cancel.md",
+    "?? specs/003-workflows/postgres-security.md",
+    "?? src/opspilot/adapters/postgres/workflows.py",
+    "?? src/opspilot/entrypoints/api/access.py",
+    "?? src/opspilot/workflows/",
+    "?? tests/contract/test_access_cancel_api.py",
+    "?? tests/integration/cancel_process.py",
+    "?? tests/integration/test_access_cancel.py",
+    "?? tests/unit/test_access_cancel.py"
+  ],
+  "manifest": "manifest.json",
+  "final_inputs": "final-inputs.json"
+}

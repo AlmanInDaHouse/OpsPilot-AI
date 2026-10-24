@@ -1,0 +1,15 @@
+{
+  "name": "build-tests-review",
+  "command": [
+    "docker",
+    "compose",
+    "-f",
+    "infra/compose.yaml",
+    "build",
+    "tests"
+  ],
+  "started_at_utc": "2026-10-23T23:19:47.134225+00:00",
+  "finished_at_utc": "2026-10-23T23:19:54.992274+00:00",
+  "exit_code": 0,
+  "raw_sha256": "c6554a967d07d7b276307fba2d76b0cfecc6073e894163b7c21c5bf4b5ccfb6d"
+}

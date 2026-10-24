@@ -1,0 +1,355 @@
+{
+  "head": "e116767635c2f723456dd27cb7d52ce267e147ac",
+  "initial_tree": "CLEAN",
+  "branch": "main",
+  "windows": {
+    "tests": 567,
+    "real_integrations": 155,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": null,
+    "exit_note": "Initial shell session ID not retained; complete pytest footer observed, no exit code invented",
+    "raw_sha256": "e5b33473636a1079c2add92e22a7f172ab1356719c03eb24a7794b7725146329"
+  },
+  "linux": {
+    "tests": 567,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "real_integrations": 155,
+    "raw_sha256": "5085fd11a0eac756a7b63103fb3d4e7742593a9ebdee4a31a500d08ddd63c964",
+    "observations": [
+      {
+        "scenario": "same",
+        "requests": 20,
+        "http_202": 20,
+        "http_409": 0,
+        "rows_added": {
+          "incidents": 1,
+          "workflows": 1,
+          "workflow_steps": 1,
+          "jobs": 1,
+          "api_idempotency": 1,
+          "audit_events": 1,
+          "audit_streams": 1
+        },
+        "distinct_accepted_bodies": 1
+      },
+      {
+        "scenario": "different_body",
+        "requests": 20,
+        "http_202": 10,
+        "http_409": 10,
+        "rows_added": {
+          "incidents": 1,
+          "workflows": 1,
+          "workflow_steps": 1,
+          "jobs": 1,
+          "api_idempotency": 1,
+          "audit_events": 1,
+          "audit_streams": 1
+        },
+        "distinct_accepted_bodies": 1
+      },
+      {
+        "scenario": "independent_keys",
+        "requests": 20,
+        "http_202": 20,
+        "http_409": 0,
+        "rows_added": {
+          "incidents": 20,
+          "workflows": 20,
+          "workflow_steps": 20,
+          "jobs": 20,
+          "api_idempotency": 20,
+          "audit_events": 20,
+          "audit_streams": 20
+        },
+        "distinct_accepted_bodies": 20
+      },
+      {
+        "fault": "incidents",
+        "status": 503,
+        "before": {
+          "incidents": 27,
+          "workflows": 27,
+          "workflow_steps": 27,
+          "jobs": 27,
+          "api_idempotency": 27,
+          "audit_events": 72,
+          "audit_streams": 38
+        },
+        "after": {
+          "incidents": 27,
+          "workflows": 27,
+          "workflow_steps": 27,
+          "jobs": 27,
+          "api_idempotency": 27,
+          "audit_events": 72,
+          "audit_streams": 38
+        }
+      },
+      {
+        "fault": "workflows",
+        "status": 503,
+        "before": {
+          "incidents": 27,
+          "workflows": 27,
+          "workflow_steps": 27,
+          "jobs": 27,
+          "api_idempotency": 27,
+          "audit_events": 72,
+          "audit_streams": 38
+        },
+        "after": {
+          "incidents": 27,
+          "workflows": 27,
+          "workflow_steps": 27,
+          "jobs": 27,
+          "api_idempotency": 27,
+          "audit_events": 72,
+          "audit_streams": 38
+        }
+      },
+      {
+        "fault": "workflow_steps",
+        "status": 503,
+        "before": {
+          "incidents": 27,
+          "workflows": 27,
+          "workflow_steps": 27,
+          "jobs": 27,
+          "api_idempotency": 27,
+          "audit_events": 72,
+          "audit_streams": 38
+        },
+        "after": {
+          "incidents": 27,
+          "workflows": 27,
+          "workflow_steps": 27,
+          "jobs": 27,
+          "api_idempotency": 27,
+          "audit_events": 72,
+          "audit_streams": 38
+        }
+      },
+      {
+        "fault": "jobs",
+        "status": 503,
+        "before": {
+          "incidents": 27,
+          "workflows": 27,
+          "workflow_steps": 27,
+          "jobs": 27,
+          "api_idempotency": 27,
+          "audit_events": 72,
+          "audit_streams": 38
+        },
+        "after": {
+          "incidents": 27,
+          "workflows": 27,
+          "workflow_steps": 27,
+          "jobs": 27,
+          "api_idempotency": 27,
+          "audit_events": 72,
+          "audit_streams": 38
+        }
+      },
+      {
+        "fault": "audit_events",
+        "status": 503,
+        "before": {
+          "incidents": 27,
+          "workflows": 27,
+          "workflow_steps": 27,
+          "jobs": 27,
+          "api_idempotency": 27,
+          "audit_events": 72,
+          "audit_streams": 38
+        },
+        "after": {
+          "incidents": 27,
+          "workflows": 27,
+          "workflow_steps": 27,
+          "jobs": 27,
+          "api_idempotency": 27,
+          "audit_events": 72,
+          "audit_streams": 38
+        }
+      },
+      {
+        "fault": "api_idempotency",
+        "status": 503,
+        "before": {
+          "incidents": 27,
+          "workflows": 27,
+          "workflow_steps": 27,
+          "jobs": 27,
+          "api_idempotency": 27,
+          "audit_events": 72,
+          "audit_streams": 38
+        },
+        "after": {
+          "incidents": 27,
+          "workflows": 27,
+          "workflow_steps": 27,
+          "jobs": 27,
+          "api_idempotency": 27,
+          "audit_events": 72,
+          "audit_streams": 38
+        }
+      },
+      {
+        "fault": "deferred_constraint_at_actual_commit",
+        "status": 503,
+        "commit_attempts": 1,
+        "before": {
+          "incidents": 27,
+          "workflows": 27,
+          "workflow_steps": 27,
+          "jobs": 27,
+          "api_idempotency": 27,
+          "audit_events": 72,
+          "audit_streams": 38
+        },
+        "after": {
+          "incidents": 27,
+          "workflows": 27,
+          "workflow_steps": 27,
+          "jobs": 27,
+          "api_idempotency": 27,
+          "audit_events": 72,
+          "audit_streams": 38
+        }
+      },
+      {
+        "phase": "before_commit",
+        "exit_code": -9,
+        "before": {
+          "incidents": 30,
+          "workflows": 30,
+          "workflow_steps": 30,
+          "jobs": 30,
+          "api_idempotency": 30,
+          "audit_events": 75,
+          "audit_streams": 41
+        },
+        "after_replay": {
+          "incidents": 31,
+          "workflows": 31,
+          "workflow_steps": 31,
+          "jobs": 31,
+          "api_idempotency": 31,
+          "audit_events": 76,
+          "audit_streams": 42
+        }
+      },
+      {
+        "phase": "after_commit",
+        "exit_code": -9,
+        "before": {
+          "incidents": 31,
+          "workflows": 31,
+          "workflow_steps": 31,
+          "jobs": 31,
+          "api_idempotency": 31,
+          "audit_events": 76,
+          "audit_streams": 42
+        },
+        "after_replay": {
+          "incidents": 32,
+          "workflows": 32,
+          "workflow_steps": 32,
+          "jobs": 32,
+          "api_idempotency": 32,
+          "audit_events": 77,
+          "audit_streams": 43
+        }
+      },
+      {
+        "scenario": "two_api_processes_then_restart",
+        "requests": 20,
+        "http_202": 20,
+        "distinct_accepted_bodies": 1,
+        "restart_replay_status": 202,
+        "restart_replay_exact": true,
+        "before": {
+          "incidents": 32,
+          "workflows": 32,
+          "workflow_steps": 32,
+          "jobs": 32,
+          "api_idempotency": 32,
+          "audit_events": 77,
+          "audit_streams": 43
+        },
+        "after": {
+          "incidents": 33,
+          "workflows": 33,
+          "workflow_steps": 33,
+          "jobs": 33,
+          "api_idempotency": 33,
+          "audit_events": 78,
+          "audit_streams": 44
+        }
+      },
+      {
+        "phase": "serve_before_commit",
+        "exit_code": -9,
+        "response_before_kill": false,
+        "transport_error": true,
+        "replay_status": 202,
+        "before": {
+          "incidents": 33,
+          "workflows": 33,
+          "workflow_steps": 33,
+          "jobs": 33,
+          "api_idempotency": 33,
+          "audit_events": 78,
+          "audit_streams": 44
+        },
+        "after_replay": {
+          "incidents": 34,
+          "workflows": 34,
+          "workflow_steps": 34,
+          "jobs": 34,
+          "api_idempotency": 34,
+          "audit_events": 79,
+          "audit_streams": 45
+        }
+      },
+      {
+        "phase": "serve_after_commit",
+        "exit_code": -9,
+        "response_before_kill": false,
+        "transport_error": true,
+        "replay_status": 202,
+        "before": {
+          "incidents": 34,
+          "workflows": 34,
+          "workflow_steps": 34,
+          "jobs": 34,
+          "api_idempotency": 34,
+          "audit_events": 79,
+          "audit_streams": 45
+        },
+        "after_replay": {
+          "incidents": 35,
+          "workflows": 35,
+          "workflow_steps": 35,
+          "jobs": 35,
+          "api_idempotency": 35,
+          "audit_events": 80,
+          "audit_streams": 46
+        }
+      }
+    ],
+    "exit_code": 0
+  },
+  "check": {
+    "status": "PASS",
+    "exit_code": null,
+    "exit_note": "All commands through final dependency audit completed without findings; shell exit not retained",
+    "raw_sha256": "a8e32fb10f95269d8af021d7c9660ac182718a952e24d62c1d4bda0ab3e395a8"
+  }
+}

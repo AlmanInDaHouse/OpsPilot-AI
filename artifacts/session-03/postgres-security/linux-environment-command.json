@@ -1,0 +1,20 @@
+{
+  "name": "linux-environment",
+  "command": [
+    "docker",
+    "compose",
+    "-f",
+    "infra/compose.yaml",
+    "run",
+    "--rm",
+    "--no-deps",
+    "tests",
+    "/app/.venv/bin/python",
+    "-c",
+    "import json,os,platform; print(json.dumps(dict(os=platform.system(),python=platform.python_version(),uid=os.getuid(),gid=os.getgid(),machine=platform.machine())))"
+  ],
+  "started_at_utc": "2026-10-23T23:21:46.345555+00:00",
+  "finished_at_utc": "2026-10-23T23:21:48.262526+00:00",
+  "exit_code": 0,
+  "raw_sha256": "fdab1c618be007ae7ac01ff0521852fc17912606e8e6b67cc06f18726f12b1d2"
+}

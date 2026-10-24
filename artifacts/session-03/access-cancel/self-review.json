@@ -1,0 +1,363 @@
+{
+  "review_type": "SELF_CRITIQUE_NOT_INDEPENDENT_AUDIT",
+  "wire_unchanged": true,
+  "tested_input_drift": [],
+  "foundation_all_match_head": true,
+  "historical_snapshot_diff": [],
+  "staged_changes": [],
+  "head_matches_origin_main": true,
+  "observed_races_failures": {
+    "windows": [
+      {
+        "scenario": "cancel_replay",
+        "http": [
+          202,
+          202
+        ]
+      },
+      {
+        "scenario": "simultaneous_cancel",
+        "http": [
+          409,
+          202
+        ]
+      },
+      {
+        "scenario": "simultaneous_cancel",
+        "http": [
+          409,
+          409,
+          202,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409
+        ]
+      },
+      {
+        "scenario": "locked_workflow",
+        "http": 202
+      },
+      {
+        "scenario": "locked_job",
+        "http": 202
+      },
+      {
+        "scenario": "locked_audit",
+        "http": 202
+      },
+      {
+        "scenario": "sql_failure_workflows",
+        "http": 503,
+        "rollback_exact": true
+      },
+      {
+        "scenario": "sql_failure_jobs",
+        "http": 503,
+        "rollback_exact": true
+      },
+      {
+        "scenario": "sql_failure_audit_events",
+        "http": 503,
+        "rollback_exact": true
+      },
+      {
+        "scenario": "sql_failure_commit",
+        "http": 503,
+        "rollback_exact": true
+      },
+      {
+        "scenario": "lock_timeout",
+        "http": 503,
+        "rollback_exact": true
+      },
+      {
+        "scenario": "http_crash_before_commit",
+        "exit_code": 1,
+        "retry_http": 202
+      },
+      {
+        "scenario": "http_crash_after_commit",
+        "exit_code": 1,
+        "retry_http": 202
+      },
+      {
+        "scenario": "two_api_processes",
+        "http": [
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          202,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409
+        ],
+        "restart_http": 202
+      },
+      {
+        "scenario": "real_expired_access_token",
+        "http": [
+          401,
+          401,
+          401
+        ]
+      },
+      {
+        "scenario": "same"
+      },
+      {
+        "scenario": "different_body"
+      },
+      {
+        "scenario": "independent_keys"
+      },
+      {
+        "scenario": "intake regression"
+      },
+      {
+        "scenario": "intake regression"
+      },
+      {
+        "scenario": "intake regression"
+      },
+      {
+        "scenario": "intake regression"
+      },
+      {
+        "scenario": "intake regression"
+      },
+      {
+        "scenario": "intake regression"
+      },
+      {
+        "scenario": "intake regression"
+      },
+      {
+        "scenario": "before_commit",
+        "exit_code": 1
+      },
+      {
+        "scenario": "after_commit",
+        "exit_code": 1
+      },
+      {
+        "scenario": "two_api_processes_then_restart"
+      },
+      {
+        "scenario": "serve_before_commit",
+        "exit_code": 1
+      },
+      {
+        "scenario": "serve_after_commit",
+        "exit_code": 1
+      }
+    ],
+    "linux": [
+      {
+        "scenario": "cancel_replay",
+        "http": [
+          202,
+          202
+        ]
+      },
+      {
+        "scenario": "simultaneous_cancel",
+        "http": [
+          202,
+          409
+        ]
+      },
+      {
+        "scenario": "simultaneous_cancel",
+        "http": [
+          409,
+          409,
+          409,
+          409,
+          202,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409
+        ]
+      },
+      {
+        "scenario": "locked_workflow",
+        "http": 202
+      },
+      {
+        "scenario": "locked_job",
+        "http": 202
+      },
+      {
+        "scenario": "locked_audit",
+        "http": 202
+      },
+      {
+        "scenario": "sql_failure_workflows",
+        "http": 503,
+        "rollback_exact": true
+      },
+      {
+        "scenario": "sql_failure_jobs",
+        "http": 503,
+        "rollback_exact": true
+      },
+      {
+        "scenario": "sql_failure_audit_events",
+        "http": 503,
+        "rollback_exact": true
+      },
+      {
+        "scenario": "sql_failure_commit",
+        "http": 503,
+        "rollback_exact": true
+      },
+      {
+        "scenario": "lock_timeout",
+        "http": 503,
+        "rollback_exact": true
+      },
+      {
+        "scenario": "http_crash_before_commit",
+        "exit_code": -9,
+        "retry_http": 202
+      },
+      {
+        "scenario": "http_crash_after_commit",
+        "exit_code": -9,
+        "retry_http": 202
+      },
+      {
+        "scenario": "two_api_processes",
+        "http": [
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409,
+          202,
+          409,
+          409,
+          409,
+          409,
+          409,
+          409
+        ],
+        "restart_http": 202
+      },
+      {
+        "scenario": "real_expired_access_token",
+        "http": [
+          401,
+          401,
+          401
+        ]
+      },
+      {
+        "scenario": "same"
+      },
+      {
+        "scenario": "different_body"
+      },
+      {
+        "scenario": "independent_keys"
+      },
+      {
+        "scenario": "intake regression"
+      },
+      {
+        "scenario": "intake regression"
+      },
+      {
+        "scenario": "intake regression"
+      },
+      {
+        "scenario": "intake regression"
+      },
+      {
+        "scenario": "intake regression"
+      },
+      {
+        "scenario": "intake regression"
+      },
+      {
+        "scenario": "intake regression"
+      },
+      {
+        "scenario": "before_commit",
+        "exit_code": -9
+      },
+      {
+        "scenario": "after_commit",
+        "exit_code": -9
+      },
+      {
+        "scenario": "two_api_processes_then_restart"
+      },
+      {
+        "scenario": "serve_before_commit",
+        "exit_code": -9
+      },
+      {
+        "scenario": "serve_after_commit",
+        "exit_code": -9
+      }
+    ]
+  },
+  "design_limits": [
+    "Fresh grant check after workflow lock; revoke after that point is not retroactive",
+    "Workflow snapshot plus evidence use one committed SELECT snapshot",
+    "Existing PG row guard prevents terminal resurrection; future completion handler is not implemented or proven",
+    "Future state fixture baseline is synthetic privileged setup, not evidence of worker execution",
+    "Job owner/fence/lease predicates demonstrated with SQL only; no worker claimed",
+    "No RLS per human principal; API remains trusted",
+    "Hash chain is not WORM against DB admin",
+    "New HIGH image finding prevents GO T03-05"
+  ]
+}

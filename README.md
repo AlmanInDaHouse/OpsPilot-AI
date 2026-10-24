@@ -14,6 +14,11 @@ sin validación empresarial ni readiness de producción. [S03 en curso](docs/roa
 [T03-02](docs/roadmap/SESSION_03_PERSISTENCE_REVIEW.md) implementa esquema durable,
 rol worker y auditoría v2 con lectura mixta. [T03-03](docs/roadmap/SESSION_03_INTAKE_REVIEW.md)
 implementa intake atómico/idempotente; worker ejecutable pendiente.
+T03-04 añade [lecturas autorizadas y cancelación CAS](docs/roadmap/SESSION_03_ACCESS_CANCEL_REVIEW.md),
+sin worker ni cierre automático del incidente.
+Regresión local 666 PASS/OS. [Hotfix PostgreSQL/Brotli](docs/roadmap/SESSION_03_POSTGRES_SECURITY_REVIEW.md)
+instalado: tres scans finales PASS, datos/recovery/checks PASS. GO técnico LOCAL para
+preparar T03-05 bajo nueva petición; sin GO S03 completa/S04/producción ni CI nueva.
 Las evidencias históricas conservan sus NO-GO y aceptaciones pendientes originales.
 
 OpsPilot investigará incidencias IT con documentación autorizada y evidencias,

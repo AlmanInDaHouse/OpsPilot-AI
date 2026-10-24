@@ -1,0 +1,16 @@
+{
+  "name": "recovery",
+  "command": [
+    "uv",
+    "run",
+    "--frozen",
+    "python",
+    "scripts/verify_recovery.py",
+    "--report",
+    "artifacts/session-03/postgres-security/recovery.json"
+  ],
+  "started_at_utc": "2026-10-23T23:22:01.181396+00:00",
+  "finished_at_utc": "2026-10-23T23:23:15.878307+00:00",
+  "exit_code": 0,
+  "raw_sha256": "fda0a76e9fa5e39ba45d910323bfb130666ec9def0170af43133b63441abd630"
+}

@@ -3,7 +3,7 @@
 Estado: entrada humana satisfecha; T03-01 aprobada y T03-02 implementada/probada
 localmente; [intake T03-03](intake.md) implementado. Sin worker ejecutable.
 [Spec](spec.md), [contratos](contracts.md) y [persistencia](persistence.md).
-T03-04..08 continúan pendientes.
+[Acceso/cancelación T03-04](access-cancel.md) implementado; T03-05..08 pendientes.
 
 1. Aprobar entrada humana y cerrar contrato OpenAPI/evento/snapshot/errores y
    matriz RBAC. Reutilizar S02; ninguna autoridad derivada de claims del IdP.

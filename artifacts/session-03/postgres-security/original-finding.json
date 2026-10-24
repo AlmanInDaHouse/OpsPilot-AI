@@ -1,0 +1,37 @@
+{
+  "source_summary": "artifacts/session-03/access-cancel/scans/postgres-cves.json",
+  "raw_sha256": "f10fe51694ccedc97ba2868da2104cbd1bd58da826b6b3bacb57e7070c8abbf4",
+  "metadata": {
+    "OS": {
+      "Family": "alpine",
+      "Name": "3.24.3"
+    },
+    "ImageID": "sha256:4030d72fe5e55d7782a50108224e6d912baa4510881caa5a3fb9d69bf259a475",
+    "RepoTags": [
+      "opspilot-postgres:18.6-s02"
+    ],
+    "RepoDigests": null
+  },
+  "findings": [
+    {
+      "VulnerabilityID": "CVE-2026-111497",
+      "PkgName": "brotli-libs",
+      "InstalledVersion": "1.2.0-r1",
+      "FixedVersion": "1.2.1-r0",
+      "Severity": "HIGH",
+      "Status": "fixed",
+      "DataSource": {
+        "ID": "alpine",
+        "Name": "Alpine Secdb",
+        "URL": "https://secdb.alpinelinux.org/"
+      },
+      "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-111497",
+      "PublishedDate": "2026-10-22T14:17:37.19Z",
+      "LastModifiedDate": "2026-10-23T14:17:31.247Z"
+    }
+  ],
+  "raw_capture": {
+    "file": "original-finding-original.json",
+    "raw_sha256": "2f7ae93d39443eaeb829c04593d19f2ac1fe4d1f6b6276a132d4eb875535dc2f"
+  }
+}

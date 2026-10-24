@@ -1,0 +1,15 @@
+{
+  "name": "data-before",
+  "command": [
+    "uv",
+    "run",
+    "--frozen",
+    "python",
+    "artifacts/local/postgres-security/snapshot.py",
+    "before"
+  ],
+  "started_at_utc": "2026-10-23T23:13:40.596928+00:00",
+  "finished_at_utc": "2026-10-23T23:13:47.617329+00:00",
+  "exit_code": 1,
+  "raw_sha256": "16a4c36d2a3db995ec9cb48f2a7124362bf0d56c443702ed90905743b8e17070"
+}

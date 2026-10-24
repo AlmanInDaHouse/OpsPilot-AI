@@ -1,0 +1,15 @@
+{
+  "name": "smoke-after",
+  "command": [
+    "uv",
+    "run",
+    "--frozen",
+    "python",
+    "artifacts/local/postgres-security/smoke.py",
+    "after"
+  ],
+  "started_at_utc": "2026-10-23T23:23:16.095560+00:00",
+  "finished_at_utc": "2026-10-23T23:23:21.023731+00:00",
+  "exit_code": 0,
+  "raw_sha256": "dd39e62919f073682969ea3422b3e68f7cd730f0a17da958adeb621d42f95b3f"
+}

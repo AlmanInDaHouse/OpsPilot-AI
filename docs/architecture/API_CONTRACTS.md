@@ -1,7 +1,8 @@
 # Contratos y versionado
 
 Estado: endpoints S02 implementados y probados localmente; sin despliegue externo.
-Intake T03-03 implementado; worker sigue PROPUESTO. T03-02 añade persistencia y lectura audit v1/v2.
+Intake T03-03 y lecturas/cancelación T03-04 implementados; worker sigue PROPUESTO.
+T03-02 añade persistencia y lectura audit v1/v2.
 Contrato máquina de plataforma:
 [platform.openapi.json](../../contracts/platform.openapi.json). Dominio futuro abajo.
 Schemas JSON son contratos objetivo; comprobar JSON/refs no equivale a validación
@@ -49,7 +50,9 @@ tokens en memoria y CSP; no localStorage ni flujos password/implicit.
 S03 iniciada: [contrato OpenAPI concreto](../../contracts/workflows.openapi.json)
 y [semántica para revisión](../../specs/003-workflows/contracts.md), con eventos v2
 cerrados y snapshots independientes. Paquete T03-01 aprobado por autor; endpoints
-de intake instalado por T03-03. Lecturas/cancelación siguen pendientes T03-04.
+de intake instalado por T03-03. [Lecturas/cancelación T03-04](../../specs/003-workflows/access-cancel.md)
+implementadas sin cambiar wire ni grants: snapshot SQL autorizado, 404 uniforme,
+ETag fuerte y CAS bajo workflow/job locks con audit v2 y commit común.
 La descripción siguiente conserva el diseño general.
 
 S03 definirá OpenAPI exacto antes de implementar: POST /v1/incidents devuelve 202

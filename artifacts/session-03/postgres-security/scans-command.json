@@ -1,0 +1,16 @@
+{
+  "name": "scans",
+  "command": [
+    "uv",
+    "run",
+    "--frozen",
+    "python",
+    "scripts/scan_images.py",
+    "--evidence-dir",
+    "artifacts/session-03/postgres-security/scans"
+  ],
+  "started_at_utc": "2026-10-23T23:14:53.499179+00:00",
+  "finished_at_utc": "2026-10-23T23:28:06.326907+00:00",
+  "exit_code": 0,
+  "raw_sha256": "2e1cfcaf8dd2929053f1948d2e271feb60f944cbbaa4a3d9cda17af3a0d93975"
+}

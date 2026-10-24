@@ -1,0 +1,16 @@
+{
+  "name": "restart-dependent-services",
+  "command": [
+    "docker",
+    "compose",
+    "-f",
+    "infra/compose.yaml",
+    "restart",
+    "keycloak",
+    "api"
+  ],
+  "started_at_utc": "2026-10-23T23:17:00.092898+00:00",
+  "finished_at_utc": "2026-10-23T23:17:02.698548+00:00",
+  "exit_code": 0,
+  "raw_sha256": "8f5196f4835fd3cbafd3afd561702e4ed39f77569004730a0279b27f92d0100a"
+}

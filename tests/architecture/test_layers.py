@@ -26,8 +26,9 @@ def test_real_source_has_no_forbidden_dependencies():
         "__import__('httpx')",
     ],
 )
-def test_forbidden_imports_fail_including_relative(tmp_path, source):
-    file = tmp_path / "opspilot/identity/domain/model.py"
+@pytest.mark.parametrize("module", ["identity", "workflows"])
+def test_forbidden_imports_fail_including_relative(tmp_path, source, module):
+    file = tmp_path / f"opspilot/{module}/domain/model.py"
     file.parent.mkdir(parents=True)
     file.write_text(source, encoding="utf-8")
     assert arch.violations(tmp_path)

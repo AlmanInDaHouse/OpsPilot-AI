@@ -1,7 +1,8 @@
 # Motor durable — especificación normativa
 
 Estado: ejecución de motor PROPUESTA; T03-02 implementa almacenamiento, constraints
-y appender/lectura v2; T03-03 añade intake/UoW/idempotencia. Sin worker.
+y appender/lectura v2; T03-03 añade intake/UoW/idempotencia y T03-04 lecturas/cancel CAS.
+Sin worker. [Revisión de cancelación](../roadmap/SESSION_03_ACCESS_CANCEL_REVIEW.md).
 REQ-WF-01/02/03. Fuente de estados/transiciones:
 [workflow-v1.json](../../contracts/workflow-v1.json); diagrama derivado en [C4](C4.md).
 Workflow, ticket y ejecución externa tienen estados independientes.
@@ -76,6 +77,9 @@ Expiry vs dispatch se decide bajo el mismo lock, no por temporizador cliente.
 
 Cancelación es intención auditada, no rollback físico. QUEUED/INVESTIGATING/PLAN_READY/
 AWAITING_APPROVAL/RETRY_WAIT pueden ir CANCELLED tras invalidar jobs/propuestas.
+NEEDS_OPERATOR también permite CANCELLED según workflow-v1; T03-04 solo invalida
+jobs existentes, sin tablas de propuestas anticipadas. Su CAS serializa workflow,
+jobs por id y auditoría; reautoriza después de esperar workflow y preserva intención.
 Durante EXECUTING/VERIFYING/OUTCOME_UNKNOWN persistir cancel_requested_at, bloquear
 nuevos envíos y reconciliar/verificar primero; finalizar en NEEDS_OPERATOR si cancelado
 con efectos, no prometer ausencia de efectos. Fencing evita commit tardío que resucite

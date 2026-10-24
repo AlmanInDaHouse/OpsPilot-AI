@@ -1,0 +1,15 @@
+{
+  "name": "data-after-recovery",
+  "command": [
+    "uv",
+    "run",
+    "--frozen",
+    "python",
+    "artifacts/local/postgres-security/snapshot.py",
+    "after-recovery"
+  ],
+  "started_at_utc": "2026-10-23T23:23:21.233329+00:00",
+  "finished_at_utc": "2026-10-23T23:23:22.971625+00:00",
+  "exit_code": 0,
+  "raw_sha256": "569b36a62de157c51566a6674559948478277ed3d76a595efde83301860be546"
+}

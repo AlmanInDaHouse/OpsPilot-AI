@@ -1,0 +1,15 @@
+{
+  "name": "data-before-retry",
+  "command": [
+    "uv",
+    "run",
+    "--frozen",
+    "python",
+    "artifacts/local/postgres-security/snapshot.py",
+    "before"
+  ],
+  "started_at_utc": "2026-10-23T23:14:02.388654+00:00",
+  "finished_at_utc": "2026-10-23T23:14:03.514652+00:00",
+  "exit_code": 0,
+  "raw_sha256": "e42211e64983e23bd6ace9aa632f587269c907c07b0df1db2096738e7915cc32"
+}

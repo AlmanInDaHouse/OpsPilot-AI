@@ -1,0 +1,16 @@
+{
+  "verdict": "PASS",
+  "unchanged_runtime_contract_test_script_files": 97,
+  "unchanged_historical_evidence_files": 187,
+  "changed_from_initial": [
+    "README.md",
+    "docs/engineering/PLATFORM_RUNBOOK.md",
+    "docs/roadmap/HANDOFF.md",
+    "docs/roadmap/RISKS.md",
+    "infra/postgres.Dockerfile",
+    "specs/003-workflows/checklist.md",
+    "specs/003-workflows/tasks.md",
+    "specs/traceability.json"
+  ],
+  "all_baseline_files_preserved_or_explicit_documentation_image_updates": true
+}

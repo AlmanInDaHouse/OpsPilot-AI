@@ -1,0 +1,22 @@
+{
+  "windows": {
+    "os": "Windows",
+    "release": "11",
+    "python": "3.13.14",
+    "machine": "AMD64"
+  },
+  "linux": {
+    "os": "Linux",
+    "python": "3.13.14",
+    "uid": 10001,
+    "gid": 10001,
+    "machine": "x86_64"
+  },
+  "git": "git version 2.52.0.windows.1",
+  "uv": "uv 0.11.13 (4512a3931 2026-05-10 x86_64-pc-windows-msvc)",
+  "docker_server": "29.1.2",
+  "compose": "2.40.3-desktop.1",
+  "test_image_id": "sha256:5e7ec09f748cf2d7ac5a445be8b6843518a643db7eb7be6aa8b9c7b7dd26aed0",
+  "timezone": "Europe/Madrid",
+  "review_date": "2026-10-24"
+}

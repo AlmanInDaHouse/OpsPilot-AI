@@ -1,0 +1,54 @@
+{
+  "tests": 666,
+  "failures": 1,
+  "errors": 101,
+  "skipped": 0,
+  "real_integrations": 214,
+  "raw_sha256": "e6bcf47d3805ff27a728d1823deaa14d4a6db9a1e9940f4cf650b19de6cfa34d",
+  "observations": [
+    {
+      "phase": "before_commit",
+      "exit_code": 1,
+      "before": {
+        "incidents": 1,
+        "workflows": 1,
+        "workflow_steps": 1,
+        "jobs": 1,
+        "api_idempotency": 1,
+        "audit_events": 38,
+        "audit_streams": 12
+      },
+      "after_replay": {
+        "incidents": 2,
+        "workflows": 2,
+        "workflow_steps": 2,
+        "jobs": 2,
+        "api_idempotency": 2,
+        "audit_events": 39,
+        "audit_streams": 13
+      }
+    },
+    {
+      "phase": "after_commit",
+      "exit_code": 1,
+      "before": {
+        "incidents": 2,
+        "workflows": 2,
+        "workflow_steps": 2,
+        "jobs": 2,
+        "api_idempotency": 2,
+        "audit_events": 39,
+        "audit_streams": 13
+      },
+      "after_replay": {
+        "incidents": 3,
+        "workflows": 3,
+        "workflow_steps": 3,
+        "jobs": 3,
+        "api_idempotency": 3,
+        "audit_events": 40,
+        "audit_streams": 14
+      }
+    }
+  ]
+}

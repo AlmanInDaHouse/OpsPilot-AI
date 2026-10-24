@@ -1,0 +1,14 @@
+{
+  "name": "check-first",
+  "command": [
+    "python",
+    "scripts/dev.py",
+    "check",
+    "--report",
+    "artifacts/session-03/postgres-security/check-windows.json"
+  ],
+  "started_at_utc": "2026-10-23T23:18:57.119269+00:00",
+  "finished_at_utc": "2026-10-23T23:19:38.791940+00:00",
+  "exit_code": 1,
+  "raw_sha256": "5c15306f8cd28498f39d81e6c1edcc7cce47f5055e2ff75456d959f78cb2313c"
+}

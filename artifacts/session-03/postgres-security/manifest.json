@@ -1,0 +1,294 @@
+{
+  "head": "e116767635c2f723456dd27cb7d52ce267e147ac",
+  "scope": "New hotfix evidence only; self excluded to avoid recursive hash; original snapshots untouched",
+  "files": [
+    {
+      "path": "artifacts/session-03/postgres-security/apk-preflight-command.json",
+      "hash": "cb9e600d8bff41f2e8d135ebb69dba0e1a56b9aced10a2b182b0d512eb5fe403"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/apk-verify-command.json",
+      "hash": "7e61f53fcb6e3e6dd2974257f09d4c81c02aeda96dd33fcacfb2c86348c7545b"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/apk-verify-direct-command.json",
+      "hash": "0c6c19b4fc6a356c9456f34c2699fb1e085a7a0387dcd08f739ab6d4eae2a45d"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/baseline.json",
+      "hash": "adc00f0346eeec59d41a66b26769d8101ba2b84c9cd79e3402c66e0e260ddf79"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/build-postgres-command.json",
+      "hash": "80cd0ad7c2c4a8e641c9b1e2b3359dfbbe48d08342425b25deae1de286a3dc45"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/build-postgres-no-cache-command.json",
+      "hash": "f5981310789d498a5f211ef1119c90394f6172c685693561f68c78443917cf05"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/build-tests-api-command.json",
+      "hash": "eebe6a5a2813c535cb0f1d15fcb9600e10a9bd5d92ccb00651f017d3b2f4d0d4"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/build-tests-review-command.json",
+      "hash": "631d114a3b05b2541644a8230fb01f266a72dc643b9ff066e19f81524288c572"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/check-first-command.json",
+      "hash": "6a70e3d0c05ec9441a9f40a25deaf6a88aba2015e8dbd8cbe82ca9207896856c"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/check-linux-command.json",
+      "hash": "3e8414f35d0a00fcabcad5d99f906467a705b4fcfc7f07d7c9e0a66c000c0b40"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/check-linux-final-command.json",
+      "hash": "0569b31677d45b4ad5182c471f102816f643ebfeeaaf5fb00155f2a5cc463231"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/check-linux-retry-command.json",
+      "hash": "aaf6963fd3a0980f060a24fea2c571e6e2acac70987addc666086b08a20f8162"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/check-windows-command.json",
+      "hash": "76d0ecfc4bb139696c31b307b2d4868c6c5120206fd5e7e650aef04d9141dd8f"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/check-windows-final-command.json",
+      "hash": "189f2f0d5a891e1004c7e5c0ea4ed3db8397c76ee81ad2b63d4aa53f7f8c7d52"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/check-windows.json",
+      "hash": "665b5aeb0434525905e6bc78f17dd6765e406982140c24f23538ce31796526e8"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/checks-windows-final.json",
+      "hash": "7e4469acb74baf558d3286d5c239eb4c5b4dce9ac20fc01fe9a197e7767b72f8"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/checks-windows.json",
+      "hash": "ed91a5a7404003d191b6184bd464dc2a58d6f600e4ead8749e19024ccfc6426f"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/commands.json",
+      "hash": "27007914c0f72d4d74859d13af7dd275719fe6f9c21903df9e45716aafe96998"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/data-after-build-command.json",
+      "hash": "393f0a73db56e190f73d4aec1cf43f4e3e32184de821566fe1bc3c26ef48a656"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/data-after-build.json",
+      "hash": "ab1fc6eb303b31d236357a1150f59013662f33c166ad9380d37f7dbd51f1ac35"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/data-after-recovery-command.json",
+      "hash": "ed89986a3631da32ee24cf9aa0bdeec7baadd21bf3d2238fd74dc4fc795718b9"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/data-after-recovery.json",
+      "hash": "1aaaeb9b5f167328a6429d9d498b73590a4a1fff8a78ca21ef165f685aa177df"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/data-before-command.json",
+      "hash": "bcfbf493471d4314697415022b6573d8f4a808bc63d40e8346a934e86d7f8ae6"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/data-before-retry-command.json",
+      "hash": "db954c6cb049ec9d9a169ed81bf7e0a4e3e2fed9b28db3aa2101d6ab4a1f0740"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/data-before.json",
+      "hash": "7fcbaf2a9b34e1d50490a1995a4d1d3dd8ab821595f005e684e350812a3d1ad8"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/docs-current.json",
+      "hash": "4d1c8e581c518ac5e18632c4ad0b4af95017f3412eb6446be5644dd5efc9d204"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/environment.json",
+      "hash": "0f4811ca6a937f56c425b902e343a21febd407f055a0a20be2f2d234eb773eb7"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/final-inputs.json",
+      "hash": "ff5c2543b4f1075356f245132e75db16b0229f544c49775bad25ba896142cd69"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/fresh-command.json",
+      "hash": "7d2cc0c43d2206a1218d079cefb8a0f223de5b62a973308f75274c14c717ebba"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/fresh-postgres.json",
+      "hash": "8c27f25f3ecc47fa03fc0ecfcd5bbd721cf60e61fbae56063daedbdc21fb0ec5"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/image-before.json",
+      "hash": "790f2239c11293637f2dd4575cb55ce4892e75bf7c66b3d815ad14e403808711"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/image-consistency.json",
+      "hash": "96cb4df64b8b73ef1dfc946b7483c589e1be41b62680c45c54c1dad055d0f8c4"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/image-final.json",
+      "hash": "19c4a73cb69b0d486b75d6718a587466bf7686d09fd57230bef7265783e4fbc7"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/inventory-before-command.json",
+      "hash": "7fbde6cf8a03e05de5611e0f6bde9497073387a616f6b53203da2f6282408956"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/inventory-final-command.json",
+      "hash": "fcfe1015061dbf2936aa07b08fc1e24bbfa3efa8b412478415302f965b689ef8"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/keycloak-diagnostic-command.json",
+      "hash": "2bd6f4af91ff664576451de8dffef91229a2043827e7fa4fdd708c8a5566cdd9"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/lab-final-state.json",
+      "hash": "6860d16a9b5a6f9f8c1bc34e083149610831987a42b5c91d5924c8c983243cbc"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/lab-smoke-after.json",
+      "hash": "14e2c192af665d6950bd0ca4888ab53cb8c30e6d8afa766cfa5c598bedd14a2b"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/lab-smoke-before.json",
+      "hash": "14e2c192af665d6950bd0ca4888ab53cb8c30e6d8afa766cfa5c598bedd14a2b"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/linux-command.json",
+      "hash": "5eb77d60fad188294206fd2694e168c5b6a3e56c5432ffb095441bff5ba9144a"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/linux-environment-command.json",
+      "hash": "58f1882e3434169ab6534d76a70da29b548751ba263a1452c498910bb5d058a5"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/linux-quality-inputs.json",
+      "hash": "090cd9c5cfb2b909987517999908ba6d511730f549bff1e322aa5c9505343350"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/metadata-secrets-final-command.json",
+      "hash": "fba8af1bb976bc6c7b282c6af5b42d108711f936f725c85a6d7a4b907df367bf"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/original-finding.json",
+      "hash": "c0edf4cab27842ffc9648b6565c064845336994619ca1a84ad4404a609132fc4"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/package-diff.json",
+      "hash": "14d92de45ac118a9e644dd11cac1dbf725b82ca2ff7f3d51716c0d134c20eeb4"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/preservation.json",
+      "hash": "62a115bb55159519205b9927da2194349df86f3d3bf711084e623eac3c81efaa"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/rebuilds.json",
+      "hash": "06340115668569a6a2cf476ebd9af99ce7124280458d32c8de54e99c286a39c4"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/recovery-command.json",
+      "hash": "e28a7609e123aa55233039495544bd6b1b5cfa5241eff395a05705ca39115ae3"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/recovery.json",
+      "hash": "203fe7c326f279e052bcc0d8755bde3051ddff32e6aaf4f2ecc845b52a4d4d48"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/regression-scenarios.json",
+      "hash": "2f4af5654b3a6a1819277d8976a6c594af2384c06aadce2b931e03c2bf1d43c0"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/replace-postgres-command.json",
+      "hash": "c6c8cb402696a03247ab8dbac64e662e02a32c2b8fac6fbb704ac59b2477e86e"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/restart-dependent-services-command.json",
+      "hash": "be4395d2c519c7729d6a7fdbb8f23157e8ec6aeb9d65793ef14d172de1bdc5ab"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/runtime.json",
+      "hash": "2c4d5126c061e9c2743208d5b70e982ee59fe78999b3b81d76799faa881d7817"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/scans/api-cves.json",
+      "hash": "725494a5f785716f6b4a23a71b4d36c5c82823f0d761926e7c10b5993beef5c7"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/scans/keycloak-cves.json",
+      "hash": "46b427e99160ff284563aea5dbac5e3ad4333a8e0ad61ba5efe39109ccc760f1"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/scans/postgres-cves.json",
+      "hash": "424da3ff192832dea3a705e6c715a19eb2309a73dd87d29df3835b46056c8782"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/scans-command.json",
+      "hash": "802294927d8f900e2e8b8e46ce7f817b4c7420a744841ff0e9f25def805cb5d5"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/secrets-normalized-command.json",
+      "hash": "6797223576200a10945231528bbf8a21a9d9ba4717c1a758e3985f7b683171e3"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/smoke-after-command.json",
+      "hash": "f3493c6c1a76f98727fedcecf1ec81e5de552c1de66a0eb447a413ec5eaa7261"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/smoke-before-command.json",
+      "hash": "b0e1bc1c6495df60841aab210fd7478b761ff9eb5853634573e268fbc45b8727"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/sources.json",
+      "hash": "5758076f10d168c036007f548d7ab21473c8d8cd0f53e0e0491205d08deb2113"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/stop-command.json",
+      "hash": "5938bba43a4e70127c4d1dfad5f6769d453ddb0c708f49cae7919d14878ad747"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/tested-inputs.json",
+      "hash": "94cba9697e927ad75f8204b10062d8566c2bf489aba229f34f5dd1be2bcfa607"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/tests-linux.json",
+      "hash": "5a9fd086fb46b7f8c632c38f675456844e69fa681391b22717a0e3c83afa6c5f"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/tests-windows-failed.json",
+      "hash": "131b3606754924dbc8ecb772f84db553c408d8d91c8b9f76f6c986a18d14eb75"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/tests-windows-final.json",
+      "hash": "077e1582038c5c7691688dc11729ca4dd4ab4182b9f5d315d3a9f33c347fbf57"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/up-baseline-command.json",
+      "hash": "7e06de7fc918a60a55830d47ad734e800a50608455ad6473672705ef0e691083"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/up-final-api-command.json",
+      "hash": "8173ec907515f5a00ab148251dfdb596ee0c207cc094eed9ffcdba8d4e84b95e"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/verification.json",
+      "hash": "d42632fc9eb979ca9182f4f24ee5dc2ae9d051fe524b1632d5cbd080ffdf8b1a"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/wait-dependent-services-command.json",
+      "hash": "e58d987ed1dd78264aae0a64460e44762abe65262f1e2cfc762d83f7b41469db"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/windows-command.json",
+      "hash": "f1828429c7f59f89d82878c9483b63f3db94166b3b91888e49cba5712b1162ce"
+    },
+    {
+      "path": "artifacts/session-03/postgres-security/windows-final-command.json",
+      "hash": "7b011bc87b20cbe7c5e0599e1fedfe4aa648ddd522df5defa841f6e94a100681"
+    }
+  ]
+}

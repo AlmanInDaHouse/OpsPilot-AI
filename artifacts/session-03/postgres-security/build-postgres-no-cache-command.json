@@ -1,0 +1,16 @@
+{
+  "name": "build-postgres-no-cache",
+  "command": [
+    "docker",
+    "compose",
+    "-f",
+    "infra/compose.yaml",
+    "build",
+    "--no-cache",
+    "postgres"
+  ],
+  "started_at_utc": "2026-10-23T23:14:28.274487+00:00",
+  "finished_at_utc": "2026-10-23T23:14:32.235476+00:00",
+  "exit_code": 0,
+  "raw_sha256": "3ff3199a04b0da2463850e90ed495f07b40902eb0de17619c666aee043f0f62e"
+}

@@ -75,3 +75,9 @@ crear referencias antes del INSERT final. Solo 23505 de su PK implica carrera;
 rollback completo del perdedor y nueva transacción para reautorizar/releer. Sin
 placeholders, claves recicladas ni filas huérfanas. Tests PG y procesos reales en
 [revisión de intake](../roadmap/SESSION_03_INTAKE_REVIEW.md).
+
+T03-04 no añade DDL: usa las columnas/grants existentes para leer proyecciones
+cerradas y cancelar con workflow → jobs → audit stream. READY/LEASED a DEAD,
+owner/lease NULL, fence+1; intención PG inmutable, version+1 y audit v2 atómicos.
+Incidents permanece OPEN. SQL guarda terminales; el resultado tardío del worker
+requiere validación adicional owner/fence/lease/version/intención en T03-05/06.

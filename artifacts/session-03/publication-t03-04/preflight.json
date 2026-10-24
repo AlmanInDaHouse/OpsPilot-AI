@@ -1,0 +1,16 @@
+{
+  "captured_at_utc": "2026-10-24T00:26:49.181270+00:00",
+  "head": "e116767635c2f723456dd27cb7d52ce267e147ac",
+  "branch": "main",
+  "authorization": "User explicitly requested commit and push with pushealo after hotfix delivery",
+  "scope": "T03-04 access/cancel and PostgreSQL Brotli hotfix; no T03-05 implementation",
+  "preflight": "Original hotfix manifest, final-inputs and tested-inputs verified without drift before publication note",
+  "publication_only_changes": [
+    "docs/roadmap/HANDOFF.md"
+  ],
+  "local_gates": "Recorded 666 PASS and 214 real integrations per OS; checks/fresh PG/recovery/three current scans PASS",
+  "snapshots": "Historical evidence files unchanged; Git normalizes text EOL to LF; this does not assert remote CI success",
+  "remote_ci": "PENDING_FOR_NEW_COMMIT",
+  "go_s04": false,
+  "production": "NO_GO"
+}

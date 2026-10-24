@@ -83,6 +83,19 @@ def main() -> int:
                     json={"title": "Outage sintético", "description": "No debe persistir"},
                 ).status_code
                 assert intake_status == 503
+                resource = uuid4()
+                access_statuses = {
+                    path: http.get(API + path, headers=headers).status_code
+                    for path in (f"/v1/incidents/{resource}", f"/v1/workflows/{resource}")
+                }
+                access_statuses["cancel"] = http.post(
+                    API + f"/v1/workflows/{resource}/cancel",
+                    headers={
+                        "Authorization": "Bearer " + operator_token,
+                        "If-Match": f'"wf-{resource}-v1"',
+                    },
+                ).status_code
+                assert set(access_statuses.values()) == {503}
             finally:
                 compose("up", "-d", "--wait", "postgres")
             compose("restart", "keycloak", "api")
@@ -110,6 +123,7 @@ def main() -> int:
             verdict="PASS",
             during_database_outage=statuses,
             intake_during_database_outage=intake_status,
+            access_cancel_during_database_outage=access_statuses,
             before=before,
             after=after,
             idp_pkce_after_restart="PASS",

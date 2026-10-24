@@ -3,7 +3,8 @@
     "requirement": "REQ-PLAT-01",
     "status": "PROBADO",
     "spec": [
-      "specs/002-platform/spec.md"
+      "specs/002-platform/spec.md",
+      "specs/003-workflows/postgres-security.md"
     ],
     "design": [
       "docs/architecture/API_CONTRACTS.md",
@@ -11,7 +12,8 @@
       "docs/decisions/0007-keycloak-maintained-runtime.md"
     ],
     "task": [
-      "specs/002-platform/tasks.md"
+      "specs/002-platform/tasks.md",
+      "specs/003-workflows/tasks.md"
     ],
     "code": [
       "src/opspilot/identity/application/authenticate.py",
@@ -20,7 +22,8 @@
       "src/opspilot/adapters/postgres/identity.py",
       "src/opspilot/entrypoints/api/app.py",
       "src/opspilot/entrypoints/settings.py",
-      "infra/keycloak.Dockerfile"
+      "infra/keycloak.Dockerfile",
+      "infra/postgres.Dockerfile"
     ],
     "test": [
       "tests/unit/test_oidc.py",
@@ -44,9 +47,10 @@
       "artifacts/session-02/closure-660f7d3/remote-audit.json",
       "artifacts/session-02/closure-660f7d3/ci/tests-ci.xml",
       "artifacts/session-03/persistence/verification.json",
-      "artifacts/session-03/intake/verification.json"
+      "artifacts/session-03/intake/verification.json",
+      "artifacts/session-03/postgres-security/verification.json"
     ],
-    "acceptance": "Historical technical GO S02 for exact 660f7d3; author accepted S02 closure/risks and T03-01 before implementing T03-02. Current tree has local regression evidence only, no inherited remote GO or production validation.",
+    "acceptance": "Historical technical GO S02 for exact 660f7d3; author accepted S02 closure/risks and T03-01 before implementing T03-02. Current tree has local regression evidence only, no inherited remote GO or production validation. PostgreSQL/Brotli hotfix and full local regression recorded separately in postgres-security/verification.json; actual image gates there govern local T03-05 only, not global S03/remote CI/production.",
     "task_ids": [
       "T02-01",
       "T02-02",
@@ -61,14 +65,16 @@
     "requirement": "REQ-PLAT-02",
     "status": "PROBADO",
     "spec": [
-      "specs/002-platform/spec.md"
+      "specs/002-platform/spec.md",
+      "specs/003-workflows/postgres-security.md"
     ],
     "design": [
       "docs/architecture/DATA_MODEL.md",
       "docs/decisions/0006-platform-boundaries.md"
     ],
     "task": [
-      "specs/002-platform/tasks.md"
+      "specs/002-platform/tasks.md",
+      "specs/003-workflows/tasks.md"
     ],
     "code": [
       "src/opspilot/adapters/postgres/audit.py",
@@ -78,7 +84,8 @@
       "src/opspilot/identity/application/provision.py",
       "migrations/versions/0001_platform.py",
       "migrations/sql/0001_platform.sql",
-      "src/opspilot/entrypoints/api/dto.py"
+      "src/opspilot/entrypoints/api/dto.py",
+      "infra/postgres.Dockerfile"
     ],
     "test": [
       "tests/unit/test_canonical.py",
@@ -102,9 +109,10 @@
       "artifacts/session-02/closure-660f7d3/remote-audit.json",
       "artifacts/session-02/closure-660f7d3/ci/tests-ci.xml",
       "artifacts/session-03/persistence/verification.json",
-      "artifacts/session-03/intake/verification.json"
+      "artifacts/session-03/intake/verification.json",
+      "artifacts/session-03/postgres-security/verification.json"
     ],
-    "acceptance": "Historical technical GO S02 for exact 660f7d3; author accepted S02 closure/risks and T03-01 before implementing T03-02. Current tree has local regression evidence only, no inherited remote GO or production validation.",
+    "acceptance": "Historical technical GO S02 for exact 660f7d3; author accepted S02 closure/risks and T03-01 before implementing T03-02. Current tree has local regression evidence only, no inherited remote GO or production validation. PostgreSQL/Brotli hotfix and full local regression recorded separately in postgres-security/verification.json; actual image gates there govern local T03-05 only, not global S03/remote CI/production.",
     "task_ids": [
       "T02-01",
       "T02-02",
@@ -123,7 +131,8 @@
       "docs/roadmap/SESSION_03_SPEC.md",
       "specs/003-workflows/spec.md",
       "specs/003-workflows/persistence.md",
-      "specs/003-workflows/intake.md"
+      "specs/003-workflows/intake.md",
+      "specs/003-workflows/access-cancel.md"
     ],
     "design": [
       "docs/architecture/WORKFLOW_ENGINE.md",
@@ -146,7 +155,11 @@
       "src/opspilot/incidents/domain/intake.py",
       "src/opspilot/adapters/postgres/incidents.py",
       "src/opspilot/entrypoints/api/intake.py",
-      "src/opspilot/entrypoints/api/app.py"
+      "src/opspilot/entrypoints/api/app.py",
+      "src/opspilot/workflows/domain/access.py",
+      "src/opspilot/workflows/application/access.py",
+      "src/opspilot/adapters/postgres/workflows.py",
+      "src/opspilot/entrypoints/api/access.py"
     ],
     "test": [
       "tests/contract/test_workflow_design.py",
@@ -154,7 +167,11 @@
       "tests/unit/test_intake.py",
       "tests/contract/test_intake_api.py",
       "tests/integration/test_incident_intake.py",
-      "tests/integration/intake_process.py"
+      "tests/integration/intake_process.py",
+      "tests/unit/test_access_cancel.py",
+      "tests/contract/test_access_cancel_api.py",
+      "tests/integration/test_access_cancel.py",
+      "tests/integration/cancel_process.py"
     ],
     "evidence": [
       "artifacts/session-03/start/verification.json",
@@ -162,9 +179,23 @@
       "artifacts/session-03/persistence/lab-migration.json",
       "artifacts/session-03/intake/verification.json",
       "artifacts/session-03/intake/tests-windows.json",
-      "artifacts/session-03/intake/tests-linux.json"
+      "artifacts/session-03/intake/tests-linux.json",
+      "artifacts/session-03/access-cancel/verification.json",
+      "artifacts/session-03/access-cancel/tests-windows.json",
+      "artifacts/session-03/access-cancel/tests-linux.json",
+      "artifacts/session-03/postgres-security/verification.json",
+      "artifacts/session-03/postgres-security/tests-windows-final.json",
+      "artifacts/session-03/postgres-security/tests-linux.json"
     ],
-    "acceptance": "T03-01 approved; T03-02 storage and T03-03 intake locally implemented/tested. AC03-01/02 atomic/idempotent intake and API process recovery proven with real PG18/Keycloak, 20 requests and actual rejected COMMIT. Full requirement remains PROPOSED pending worker/job crash/fence/cancel acceptance T03-04..08. No GO S04 or production; current-tree remote CI NOT_RUN."
+    "acceptance": "T03-02/03 preserved. T03-04 authorized reads and durable CAS cancellation implemented and tested locally: AC03-03/09 in scope, AC03-06 API/SQL only. Worker claim/completion, 100 jobs and stale completion handler remain T03-05/06; requirement stays PROPOSED until full acceptance. No remote CI for local changes, no S04 or production GO. See access-cancel/verification.json for actual gates.",
+    "task_ids": [
+      "T03-04"
+    ],
+    "acceptance_ids": [
+      "AC03-03",
+      "AC03-06",
+      "AC03-09"
+    ]
   },
   {
     "requirement": "REQ-WF-02",
@@ -174,7 +205,8 @@
       "docs/roadmap/SESSION_03_SPEC.md",
       "specs/003-workflows/spec.md",
       "specs/003-workflows/persistence.md",
-      "specs/003-workflows/intake.md"
+      "specs/003-workflows/intake.md",
+      "specs/003-workflows/access-cancel.md"
     ],
     "design": [
       "docs/architecture/WORKFLOW_ENGINE.md",
@@ -198,7 +230,11 @@
       "src/opspilot/incidents/application/create.py",
       "src/opspilot/adapters/postgres/incidents.py",
       "src/opspilot/entrypoints/api/intake.py",
-      "src/opspilot/entrypoints/api/app.py"
+      "src/opspilot/entrypoints/api/app.py",
+      "src/opspilot/workflows/domain/access.py",
+      "src/opspilot/workflows/application/access.py",
+      "src/opspilot/adapters/postgres/workflows.py",
+      "src/opspilot/entrypoints/api/access.py"
     ],
     "test": [
       "tests/integration/test_workflow_crash.py",
@@ -207,7 +243,11 @@
       "tests/unit/test_intake.py",
       "tests/contract/test_intake_api.py",
       "tests/integration/test_incident_intake.py",
-      "tests/integration/intake_process.py"
+      "tests/integration/intake_process.py",
+      "tests/unit/test_access_cancel.py",
+      "tests/contract/test_access_cancel_api.py",
+      "tests/integration/test_access_cancel.py",
+      "tests/integration/cancel_process.py"
     ],
     "evidence": [
       "artifacts/session-03/start/verification.json",
@@ -215,9 +255,23 @@
       "artifacts/session-03/persistence/lab-migration.json",
       "artifacts/session-03/intake/verification.json",
       "artifacts/session-03/intake/tests-windows.json",
-      "artifacts/session-03/intake/tests-linux.json"
+      "artifacts/session-03/intake/tests-linux.json",
+      "artifacts/session-03/access-cancel/verification.json",
+      "artifacts/session-03/access-cancel/tests-windows.json",
+      "artifacts/session-03/access-cancel/tests-linux.json",
+      "artifacts/session-03/postgres-security/verification.json",
+      "artifacts/session-03/postgres-security/tests-windows-final.json",
+      "artifacts/session-03/postgres-security/tests-linux.json"
     ],
-    "acceptance": "T03-01 approved; T03-02 storage and T03-03 intake locally implemented/tested. AC03-01/02 atomic/idempotent intake and API process recovery proven with real PG18/Keycloak, 20 requests and actual rejected COMMIT. Full requirement remains PROPOSED pending worker/job crash/fence/cancel acceptance T03-04..08. No GO S04 or production; current-tree remote CI NOT_RUN."
+    "acceptance": "T03-02/03 preserved. T03-04 authorized reads and durable CAS cancellation implemented and tested locally: AC03-03/09 in scope, AC03-06 API/SQL only. Worker claim/completion, 100 jobs and stale completion handler remain T03-05/06; requirement stays PROPOSED until full acceptance. No remote CI for local changes, no S04 or production GO. See access-cancel/verification.json for actual gates.",
+    "task_ids": [
+      "T03-04"
+    ],
+    "acceptance_ids": [
+      "AC03-03",
+      "AC03-06",
+      "AC03-09"
+    ]
   },
   {
     "requirement": "REQ-WF-03",
@@ -226,7 +280,8 @@
       "specs/001-vpn/spec.md",
       "docs/roadmap/SESSION_03_SPEC.md",
       "specs/003-workflows/spec.md",
-      "specs/003-workflows/persistence.md"
+      "specs/003-workflows/persistence.md",
+      "specs/003-workflows/access-cancel.md"
     ],
     "design": [
       "docs/architecture/WORKFLOW_ENGINE.md",
@@ -245,19 +300,41 @@
       "migrations/sql/0002_workflows.sql",
       "migrations/sql/0002_workflow_functions.sql",
       "src/opspilot/adapters/postgres/models.py",
-      "src/opspilot/adapters/postgres/audit.py"
+      "src/opspilot/adapters/postgres/audit.py",
+      "src/opspilot/workflows/domain/access.py",
+      "src/opspilot/workflows/application/access.py",
+      "src/opspilot/adapters/postgres/workflows.py",
+      "src/opspilot/entrypoints/api/access.py"
     ],
     "test": [
       "tests/integration/test_unknown_outcome.py",
       "tests/contract/test_workflow_design.py",
-      "tests/integration/test_workflow_persistence.py"
+      "tests/integration/test_workflow_persistence.py",
+      "tests/unit/test_access_cancel.py",
+      "tests/contract/test_access_cancel_api.py",
+      "tests/integration/test_access_cancel.py",
+      "tests/integration/cancel_process.py"
     ],
     "evidence": [
       "artifacts/session-03/start/verification.json",
       "artifacts/session-03/persistence/verification.json",
-      "artifacts/session-03/persistence/lab-migration.json"
+      "artifacts/session-03/persistence/lab-migration.json",
+      "artifacts/session-03/access-cancel/verification.json",
+      "artifacts/session-03/access-cancel/tests-windows.json",
+      "artifacts/session-03/access-cancel/tests-linux.json",
+      "artifacts/session-03/postgres-security/verification.json",
+      "artifacts/session-03/postgres-security/tests-windows-final.json",
+      "artifacts/session-03/postgres-security/tests-linux.json"
     ],
-    "acceptance": "T03-01 approved by author after S02 risk review; T03-02 storage/appender/read union implemented and tested locally. Requirement remains PROPOSED until intake, worker and crash acceptance. No GO S04; full CI/scans/recovery pending."
+    "acceptance": "T03-02/03 preserved. T03-04 authorized reads and durable CAS cancellation implemented and tested locally: AC03-03/09 in scope, AC03-06 API/SQL only. Worker claim/completion, 100 jobs and stale completion handler remain T03-05/06; requirement stays PROPOSED until full acceptance. No remote CI for local changes, no S04 or production GO. See access-cancel/verification.json for actual gates.",
+    "task_ids": [
+      "T03-04"
+    ],
+    "acceptance_ids": [
+      "AC03-03",
+      "AC03-06",
+      "AC03-09"
+    ]
   },
   {
     "requirement": "REQ-AI-01",
@@ -443,13 +520,15 @@
     "requirement": "REQ-HAR-01",
     "status": "PROBADO",
     "spec": [
-      "docs/engineering/HARNESS.md"
+      "docs/engineering/HARNESS.md",
+      "specs/003-workflows/postgres-security.md"
     ],
     "design": [
       "docs/engineering/SDD.md"
     ],
     "task": [
-      "docs/roadmap/ROADMAP_8_SESSIONS.md"
+      "docs/roadmap/ROADMAP_8_SESSIONS.md",
+      "specs/003-workflows/tasks.md"
     ],
     "code": [
       "scripts/check_repository.py",
@@ -457,7 +536,8 @@
       "scripts/check_architecture.py",
       "scripts/check_secrets.py",
       "scripts/scan_images.py",
-      "scripts/verify_session02.py"
+      "scripts/verify_session02.py",
+      "infra/postgres.Dockerfile"
     ],
     "test": [
       "tests/harness/test_checks.py",
@@ -481,8 +561,9 @@
       "artifacts/session-02/closure-660f7d3/remote-audit.json",
       "artifacts/session-02/closure-660f7d3/ci/tests-ci.xml",
       "artifacts/session-03/persistence/verification.json",
-      "artifacts/session-03/intake/verification.json"
+      "artifacts/session-03/intake/verification.json",
+      "artifacts/session-03/postgres-security/verification.json"
     ],
-    "acceptance": "Historical technical GO S02 for exact 660f7d3; author accepted S02 closure/risks and T03-01 before implementing T03-02. Current tree has local regression evidence only, no inherited remote GO or production validation."
+    "acceptance": "Historical technical GO S02 for exact 660f7d3; author accepted S02 closure/risks and T03-01 before implementing T03-02. Current tree has local regression evidence only, no inherited remote GO or production validation. PostgreSQL/Brotli hotfix and full local regression recorded separately in postgres-security/verification.json; actual image gates there govern local T03-05 only, not global S03/remote CI/production."
   }
 ]

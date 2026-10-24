@@ -1,0 +1,687 @@
+[
+  {
+    "name": "up-baseline",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "infra/compose.yaml",
+      "up",
+      "-d",
+      "--no-build",
+      "--wait",
+      "postgres",
+      "keycloak",
+      "api"
+    ],
+    "started_at_utc": "2026-10-23T23:12:25.957752+00:00",
+    "finished_at_utc": "2026-10-23T23:13:08.798731+00:00",
+    "exit_code": 0,
+    "raw_sha256": "65433faba1ffa4038d730c56af1c5269c5574fc39c75d4a9704f5e599c8f937f"
+  },
+  {
+    "name": "apk-preflight",
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--user",
+      "0:0",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--entrypoint",
+      "sh",
+      "opspilot-postgres:18.6-s02",
+      "-c",
+      "apk update && apk policy brotli-libs && apk add --simulate --no-cache brotli-libs=1.2.1-r0"
+    ],
+    "started_at_utc": "2026-10-23T23:12:50.288385+00:00",
+    "finished_at_utc": "2026-10-23T23:13:01.248207+00:00",
+    "exit_code": 0,
+    "raw_sha256": "4ce2ed28c656064fb0c860d5d872fdd12c1598abf913df3f4067cc8a0014ba07"
+  },
+  {
+    "name": "data-before",
+    "command": [
+      "uv",
+      "run",
+      "--frozen",
+      "python",
+      "artifacts/local/postgres-security/snapshot.py",
+      "before"
+    ],
+    "started_at_utc": "2026-10-23T23:13:40.596928+00:00",
+    "finished_at_utc": "2026-10-23T23:13:47.617329+00:00",
+    "exit_code": 1,
+    "raw_sha256": "16a4c36d2a3db995ec9cb48f2a7124362bf0d56c443702ed90905743b8e17070"
+  },
+  {
+    "name": "data-before-retry",
+    "command": [
+      "uv",
+      "run",
+      "--frozen",
+      "python",
+      "artifacts/local/postgres-security/snapshot.py",
+      "before"
+    ],
+    "started_at_utc": "2026-10-23T23:14:02.388654+00:00",
+    "finished_at_utc": "2026-10-23T23:14:03.514652+00:00",
+    "exit_code": 0,
+    "raw_sha256": "e42211e64983e23bd6ace9aa632f587269c907c07b0df1db2096738e7915cc32"
+  },
+  {
+    "name": "build-postgres",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "infra/compose.yaml",
+      "build",
+      "postgres"
+    ],
+    "started_at_utc": "2026-10-23T23:14:04.144554+00:00",
+    "finished_at_utc": "2026-10-23T23:14:11.649997+00:00",
+    "exit_code": 0,
+    "raw_sha256": "71705f1e4cbb68debcb9e973c986909cbc626e84ece1635419dd6c469350006d"
+  },
+  {
+    "name": "build-postgres-no-cache",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "infra/compose.yaml",
+      "build",
+      "--no-cache",
+      "postgres"
+    ],
+    "started_at_utc": "2026-10-23T23:14:28.274487+00:00",
+    "finished_at_utc": "2026-10-23T23:14:32.235476+00:00",
+    "exit_code": 0,
+    "raw_sha256": "3ff3199a04b0da2463850e90ed495f07b40902eb0de17619c666aee043f0f62e"
+  },
+  {
+    "name": "inventory-before",
+    "command": [
+      "uv",
+      "run",
+      "--frozen",
+      "python",
+      "artifacts/local/postgres-security/inventory.py",
+      "opspilot-s02-postgres-1",
+      "image-before"
+    ],
+    "started_at_utc": "2026-10-23T23:14:44.283073+00:00",
+    "finished_at_utc": "2026-10-23T23:14:45.852161+00:00",
+    "exit_code": 0,
+    "raw_sha256": "3937819ac37b39b676ba63cc8dacd5f741557a5a028f593676267f73f23d97e9"
+  },
+  {
+    "name": "inventory-final",
+    "command": [
+      "uv",
+      "run",
+      "--frozen",
+      "python",
+      "artifacts/local/postgres-security/inventory.py",
+      "opspilot-postgres:18.6-s02",
+      "image-final"
+    ],
+    "started_at_utc": "2026-10-23T23:14:46.043122+00:00",
+    "finished_at_utc": "2026-10-23T23:14:52.606809+00:00",
+    "exit_code": 0,
+    "raw_sha256": "4697faaa95d4c37c227d957e6e44af0656e39ba4344387cd3487f198021fb7fc"
+  },
+  {
+    "name": "scans",
+    "command": [
+      "uv",
+      "run",
+      "--frozen",
+      "python",
+      "scripts/scan_images.py",
+      "--evidence-dir",
+      "artifacts/session-03/postgres-security/scans"
+    ],
+    "started_at_utc": "2026-10-23T23:14:53.499179+00:00",
+    "finished_at_utc": "2026-10-23T23:28:06.326907+00:00",
+    "exit_code": 0,
+    "raw_sha256": "2e1cfcaf8dd2929053f1948d2e271feb60f944cbbaa4a3d9cda17af3a0d93975"
+  },
+  {
+    "name": "build-tests-api",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "infra/compose.yaml",
+      "build",
+      "tests",
+      "api"
+    ],
+    "started_at_utc": "2026-10-23T23:15:10.048230+00:00",
+    "finished_at_utc": "2026-10-23T23:15:25.823495+00:00",
+    "exit_code": 0,
+    "raw_sha256": "4f1d32215d073169c3707037f710174b1e987e6f82bc5408baa5cda0a423de2a"
+  },
+  {
+    "name": "replace-postgres",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "infra/compose.yaml",
+      "up",
+      "-d",
+      "--no-build",
+      "--wait",
+      "postgres"
+    ],
+    "started_at_utc": "2026-10-23T23:15:10.049738+00:00",
+    "finished_at_utc": "2026-10-23T23:15:17.470207+00:00",
+    "exit_code": 0,
+    "raw_sha256": "bcc9b3b8e1cc9edeeacbd43d9dd8ac4a4797c214f6c419ecbfa01138ec433cfc"
+  },
+  {
+    "name": "apk-verify",
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--entrypoint",
+      "sh",
+      "opspilot-postgres:18.6-s02",
+      "-c",
+      "cd /tmp && apk fetch --no-cache brotli-libs=1.2.1-r0 && apk verify brotli-libs-1.2.1-r0.apk && sha256sum brotli-libs-1.2.1-r0.apk"
+    ],
+    "started_at_utc": "2026-10-23T23:15:10.061838+00:00",
+    "finished_at_utc": "2026-10-23T23:15:17.868307+00:00",
+    "exit_code": 1,
+    "raw_sha256": "2911be190c87928b5f471357225cf5d5c5da09203d2de7ede5bd1db4ee60a3b5"
+  },
+  {
+    "name": "data-after-build",
+    "command": [
+      "uv",
+      "run",
+      "--frozen",
+      "python",
+      "artifacts/local/postgres-security/snapshot.py",
+      "after-build"
+    ],
+    "started_at_utc": "2026-10-23T23:15:17.864813+00:00",
+    "finished_at_utc": "2026-10-23T23:15:20.422763+00:00",
+    "exit_code": 0,
+    "raw_sha256": "5f58bf9af426b1a03878e6c9ca6a08cbba9cde48be663242ec12340b65b8ef25"
+  },
+  {
+    "name": "apk-verify-direct",
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--cap-drop",
+      "ALL",
+      "--security-opt",
+      "no-new-privileges",
+      "--entrypoint",
+      "sh",
+      "opspilot-postgres:18.6-s02",
+      "-c",
+      "cd /tmp && wget -q https://dl-cdn.alpinelinux.org/alpine/v3.24/main/x86_64/brotli-libs-1.2.1-r0.apk && apk verify brotli-libs-1.2.1-r0.apk && sha256sum brotli-libs-1.2.1-r0.apk"
+    ],
+    "started_at_utc": "2026-10-23T23:15:31.240356+00:00",
+    "finished_at_utc": "2026-10-23T23:15:32.748833+00:00",
+    "exit_code": 0,
+    "raw_sha256": "1724c0496e5bae7ebfcf7566e0cc5d2c5e424128c338fd828cb0b9184ef56846"
+  },
+  {
+    "name": "fresh",
+    "command": [
+      "uv",
+      "run",
+      "--frozen",
+      "python",
+      "scripts/verify_fresh_postgres.py",
+      "--report",
+      "artifacts/session-03/postgres-security/fresh-postgres.json"
+    ],
+    "started_at_utc": "2026-10-23T23:15:33.036617+00:00",
+    "finished_at_utc": "2026-10-23T23:15:38.772000+00:00",
+    "exit_code": 0,
+    "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "up-final-api",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "infra/compose.yaml",
+      "up",
+      "-d",
+      "--no-build",
+      "--no-deps",
+      "--wait",
+      "api"
+    ],
+    "started_at_utc": "2026-10-23T23:15:39.032826+00:00",
+    "finished_at_utc": "2026-10-23T23:15:54.137210+00:00",
+    "exit_code": 0,
+    "raw_sha256": "a0364a14edc5fe998fab70585df5a76387897ec96e88caebde854b13c35f2e7f"
+  },
+  {
+    "name": "windows",
+    "command": [
+      "python",
+      "scripts/dev.py",
+      "test"
+    ],
+    "started_at_utc": "2026-10-23T23:15:50.607841+00:00",
+    "finished_at_utc": "2026-10-23T23:16:37.196182+00:00",
+    "exit_code": 1,
+    "raw_sha256": "2197b9c07327bbcc5e757115a2f489675deb53c1aa22f06808f217c32c950071"
+  },
+  {
+    "name": "restart-dependent-services",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "infra/compose.yaml",
+      "restart",
+      "keycloak",
+      "api"
+    ],
+    "started_at_utc": "2026-10-23T23:17:00.092898+00:00",
+    "finished_at_utc": "2026-10-23T23:17:02.698548+00:00",
+    "exit_code": 0,
+    "raw_sha256": "8f5196f4835fd3cbafd3afd561702e4ed39f77569004730a0279b27f92d0100a"
+  },
+  {
+    "name": "wait-dependent-services",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "infra/compose.yaml",
+      "up",
+      "-d",
+      "--no-build",
+      "--wait",
+      "keycloak",
+      "api"
+    ],
+    "started_at_utc": "2026-10-23T23:17:02.992851+00:00",
+    "finished_at_utc": "2026-10-23T23:17:47.081948+00:00",
+    "exit_code": 0,
+    "raw_sha256": "a3bc2c8fd20fb693d8c4b9e9236f00992fe2bd6ce243b8eda58406c6139eb3a7"
+  },
+  {
+    "name": "windows-final",
+    "command": [
+      "python",
+      "scripts/dev.py",
+      "test"
+    ],
+    "started_at_utc": "2026-10-23T23:17:18.452356+00:00",
+    "finished_at_utc": "2026-10-23T23:19:45.994518+00:00",
+    "exit_code": 0,
+    "raw_sha256": "1fb34796855d218c10b5b80ad6b656a81ae9fdb6fbfe839d8b6dcf1f7692c13a"
+  },
+  {
+    "name": "keycloak-diagnostic",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "infra/compose.yaml",
+      "logs",
+      "--tail",
+      "120",
+      "keycloak"
+    ],
+    "started_at_utc": "2026-10-23T23:17:28.444722+00:00",
+    "finished_at_utc": "2026-10-23T23:17:28.860746+00:00",
+    "exit_code": 0,
+    "raw_sha256": "08d521e1937f7213d74a83112dbd29491dc03b35ac293de3bcf72747c94a7e5f"
+  },
+  {
+    "name": "smoke-before",
+    "command": [
+      "uv",
+      "run",
+      "--frozen",
+      "python",
+      "artifacts/local/postgres-security/smoke.py",
+      "before"
+    ],
+    "started_at_utc": "2026-10-23T23:18:46.229009+00:00",
+    "finished_at_utc": "2026-10-23T23:18:49.490403+00:00",
+    "exit_code": 0,
+    "raw_sha256": "92c85d7dc509cec6659bf65a040cdc0872ee04e37c85842772315f1c4f6233ac"
+  },
+  {
+    "name": "check-first",
+    "command": [
+      "python",
+      "scripts/dev.py",
+      "check",
+      "--report",
+      "artifacts/session-03/postgres-security/check-windows.json"
+    ],
+    "started_at_utc": "2026-10-23T23:18:57.119269+00:00",
+    "finished_at_utc": "2026-10-23T23:19:38.791940+00:00",
+    "exit_code": 1,
+    "raw_sha256": "5c15306f8cd28498f39d81e6c1edcc7cce47f5055e2ff75456d959f78cb2313c"
+  },
+  {
+    "name": "build-tests-review",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "infra/compose.yaml",
+      "build",
+      "tests"
+    ],
+    "started_at_utc": "2026-10-23T23:19:47.134225+00:00",
+    "finished_at_utc": "2026-10-23T23:19:54.992274+00:00",
+    "exit_code": 0,
+    "raw_sha256": "c6554a967d07d7b276307fba2d76b0cfecc6073e894163b7c21c5bf4b5ccfb6d"
+  },
+  {
+    "name": "linux",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "infra/compose.yaml",
+      "run",
+      "--rm",
+      "--no-deps",
+      "tests",
+      "/app/.venv/bin/python",
+      "-m",
+      "pytest",
+      "-q",
+      "--tb=short",
+      "-o",
+      "cache_dir=/tmp/pytest-cache",
+      "-o",
+      "junit_family=xunit1",
+      "--junitxml=/lab/postgres-security/linux.xml"
+    ],
+    "started_at_utc": "2026-10-23T23:20:03.947593+00:00",
+    "finished_at_utc": "2026-10-23T23:21:52.622841+00:00",
+    "exit_code": 0,
+    "raw_sha256": "d0cd0c2c923f9ebb2451c2ecce89563cf8b204be204ad55ea54ea25d01b280a9"
+  },
+  {
+    "name": "secrets-normalized",
+    "command": [
+      "uv",
+      "run",
+      "--frozen",
+      "python",
+      "scripts/check_secrets.py"
+    ],
+    "started_at_utc": "2026-10-23T23:20:46.344237+00:00",
+    "finished_at_utc": "2026-10-23T23:21:10.257222+00:00",
+    "exit_code": 0,
+    "raw_sha256": "edc14cab9390d561340db72394781ea9015bf67f90fe21f87b292428be516013"
+  },
+  {
+    "name": "linux-environment",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "infra/compose.yaml",
+      "run",
+      "--rm",
+      "--no-deps",
+      "tests",
+      "/app/.venv/bin/python",
+      "-c",
+      "import json,os,platform; print(json.dumps(dict(os=platform.system(),python=platform.python_version(),uid=os.getuid(),gid=os.getgid(),machine=platform.machine())))"
+    ],
+    "started_at_utc": "2026-10-23T23:21:46.345555+00:00",
+    "finished_at_utc": "2026-10-23T23:21:48.262526+00:00",
+    "exit_code": 0,
+    "raw_sha256": "fdab1c618be007ae7ac01ff0521852fc17912606e8e6b67cc06f18726f12b1d2"
+  },
+  {
+    "name": "recovery",
+    "command": [
+      "uv",
+      "run",
+      "--frozen",
+      "python",
+      "scripts/verify_recovery.py",
+      "--report",
+      "artifacts/session-03/postgres-security/recovery.json"
+    ],
+    "started_at_utc": "2026-10-23T23:22:01.181396+00:00",
+    "finished_at_utc": "2026-10-23T23:23:15.878307+00:00",
+    "exit_code": 0,
+    "raw_sha256": "fda0a76e9fa5e39ba45d910323bfb130666ec9def0170af43133b63441abd630"
+  },
+  {
+    "name": "check-linux",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "infra/compose.yaml",
+      "run",
+      "--rm",
+      "--no-deps",
+      "--workdir",
+      "/review",
+      "--volume",
+      "C:\\Users\\manul\\OneDrive\\Escritorio\\opspilot-ai\\artifacts\\local\\postgres-security\\linux-quality-source:/review:ro",
+      "--volume",
+      "C:\\Users\\manul\\OneDrive\\Escritorio\\opspilot-ai\\.git:/review/.git:ro",
+      "-e",
+      "UV_PROJECT_ENVIRONMENT=/app/.venv",
+      "-e",
+      "UV_NO_SYNC=1",
+      "-e",
+      "MYPY_CACHE_DIR=/tmp/mypy",
+      "-e",
+      "RUFF_CACHE_DIR=/tmp/ruff",
+      "-e",
+      "XDG_CACHE_HOME=/tmp/cache",
+      "-e",
+      "GIT_CONFIG_COUNT=1",
+      "-e",
+      "GIT_CONFIG_KEY_0=safe.directory",
+      "-e",
+      "GIT_CONFIG_VALUE_0=/review",
+      "tests",
+      "/app/.venv/bin/python",
+      "scripts/dev.py",
+      "check"
+    ],
+    "started_at_utc": "2026-10-23T23:22:35.006954+00:00",
+    "finished_at_utc": "2026-10-23T23:22:36.313043+00:00",
+    "exit_code": 1,
+    "raw_sha256": "eb893cc1394830e3cdf618bb9fb66fbe376dbfeee8fcf086ac4d70705cffe9ad"
+  },
+  {
+    "name": "check-linux-retry",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "infra/compose.yaml",
+      "run",
+      "--rm",
+      "--no-deps",
+      "--workdir",
+      "/review",
+      "--volume",
+      "C:\\Users\\manul\\OneDrive\\Escritorio\\opspilot-ai\\artifacts\\local\\postgres-security\\linux-quality-source:/review:ro",
+      "--volume",
+      "C:\\Users\\manul\\OneDrive\\Escritorio\\opspilot-ai\\.git:/review/.git:ro",
+      "-e",
+      "UV_PROJECT_ENVIRONMENT=/app/.venv",
+      "-e",
+      "UV_NO_SYNC=1",
+      "-e",
+      "MYPY_CACHE_DIR=/tmp/mypy",
+      "-e",
+      "RUFF_CACHE_DIR=/tmp/ruff",
+      "-e",
+      "XDG_CACHE_HOME=/tmp/cache",
+      "-e",
+      "GIT_CONFIG_COUNT=1",
+      "-e",
+      "GIT_CONFIG_KEY_0=safe.directory",
+      "-e",
+      "GIT_CONFIG_VALUE_0=/review",
+      "tests",
+      "/app/.venv/bin/python",
+      "scripts/dev.py",
+      "check"
+    ],
+    "started_at_utc": "2026-10-23T23:22:48.739733+00:00",
+    "finished_at_utc": "2026-10-23T23:24:51.369036+00:00",
+    "exit_code": 0,
+    "raw_sha256": "0feca7ba910cfa24ba97e17850259fdc015520825b7033c7b420764eca16b16d"
+  },
+  {
+    "name": "check-windows",
+    "command": [
+      "python",
+      "scripts/dev.py",
+      "check",
+      "--report",
+      "artifacts/session-03/postgres-security/checks-windows.json"
+    ],
+    "started_at_utc": "2026-10-23T23:23:10.121277+00:00",
+    "finished_at_utc": "2026-10-23T23:23:55.233802+00:00",
+    "exit_code": 0,
+    "raw_sha256": "636716682f368f055fbe00ccee336484e9e5f4127b5d701c50d48501e626bfcb"
+  },
+  {
+    "name": "smoke-after",
+    "command": [
+      "uv",
+      "run",
+      "--frozen",
+      "python",
+      "artifacts/local/postgres-security/smoke.py",
+      "after"
+    ],
+    "started_at_utc": "2026-10-23T23:23:16.095560+00:00",
+    "finished_at_utc": "2026-10-23T23:23:21.023731+00:00",
+    "exit_code": 0,
+    "raw_sha256": "dd39e62919f073682969ea3422b3e68f7cd730f0a17da958adeb621d42f95b3f"
+  },
+  {
+    "name": "data-after-recovery",
+    "command": [
+      "uv",
+      "run",
+      "--frozen",
+      "python",
+      "artifacts/local/postgres-security/snapshot.py",
+      "after-recovery"
+    ],
+    "started_at_utc": "2026-10-23T23:23:21.233329+00:00",
+    "finished_at_utc": "2026-10-23T23:23:22.971625+00:00",
+    "exit_code": 0,
+    "raw_sha256": "569b36a62de157c51566a6674559948478277ed3d76a595efde83301860be546"
+  },
+  {
+    "name": "stop",
+    "command": [
+      "python",
+      "scripts/dev.py",
+      "stop"
+    ],
+    "started_at_utc": "2026-10-23T23:24:11.419758+00:00",
+    "finished_at_utc": "2026-10-23T23:24:16.575922+00:00",
+    "exit_code": 0,
+    "raw_sha256": "4d4360785ea8e4bccb5a0699465d7a0e41d234630cf5f2c0b450e5606dc28e00"
+  },
+  {
+    "name": "check-windows-final",
+    "command": [
+      "python",
+      "scripts/dev.py",
+      "check",
+      "--report",
+      "artifacts/session-03/postgres-security/checks-windows-final.json"
+    ],
+    "started_at_utc": "2026-10-23T23:29:56.344414+00:00",
+    "finished_at_utc": "2026-10-23T23:30:32.104787+00:00",
+    "exit_code": 0,
+    "raw_sha256": "be50d353b800c6187a3311f6a6b720d85d03e7579a42e0ec33d839d652ede988"
+  },
+  {
+    "name": "check-linux-final",
+    "command": [
+      "docker",
+      "compose",
+      "-f",
+      "infra/compose.yaml",
+      "run",
+      "--rm",
+      "--no-deps",
+      "--workdir",
+      "/review",
+      "--volume",
+      "C:\\Users\\manul\\OneDrive\\Escritorio\\opspilot-ai\\artifacts\\local\\postgres-security\\linux-quality-final-source:/review:ro",
+      "--volume",
+      "C:\\Users\\manul\\OneDrive\\Escritorio\\opspilot-ai\\.git:/review/.git:ro",
+      "-e",
+      "UV_PROJECT_ENVIRONMENT=/app/.venv",
+      "-e",
+      "UV_NO_SYNC=1",
+      "-e",
+      "MYPY_CACHE_DIR=/tmp/mypy",
+      "-e",
+      "RUFF_CACHE_DIR=/tmp/ruff",
+      "-e",
+      "XDG_CACHE_HOME=/tmp/cache",
+      "-e",
+      "GIT_CONFIG_COUNT=1",
+      "-e",
+      "GIT_CONFIG_KEY_0=safe.directory",
+      "-e",
+      "GIT_CONFIG_VALUE_0=/review",
+      "tests",
+      "/app/.venv/bin/python",
+      "scripts/dev.py",
+      "check"
+    ],
+    "started_at_utc": "2026-10-23T23:30:07.672638+00:00",
+    "finished_at_utc": "2026-10-23T23:31:53.575676+00:00",
+    "exit_code": 0,
+    "raw_sha256": "90d8d5b514dd27f32fe750a74b15bfd6ade0147c9c7f8e28dd75925bdd5be505"
+  },
+  {
+    "name": "metadata-secrets-final",
+    "command": [
+      "uv",
+      "run",
+      "--frozen",
+      "python",
+      "scripts/check_secrets.py"
+    ],
+    "started_at_utc": "2026-10-23T23:32:23.031568+00:00",
+    "finished_at_utc": "2026-10-23T23:32:44.779397+00:00",
+    "exit_code": 0,
+    "raw_sha256": "e876e9a3b72953b7a14b4b8af2adefa1a49fe612ef724e10ffb8294044596d98"
+  }
+]

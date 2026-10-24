@@ -32,10 +32,12 @@ from opspilot.adapters.postgres.database import (
 )
 from opspilot.adapters.postgres.identity import IdentityWriter, PostgresPrincipals
 from opspilot.adapters.postgres.incidents import PostgresIntakeUow
+from opspilot.adapters.postgres.workflows import PostgresAccessUow
 from opspilot.entrypoints.api.app import platform_api
 from opspilot.identity.application.provision import change_identity, create_identity
 from opspilot.identity.domain.principal import Role
 from opspilot.incidents.application.create import CreateIncident
+from opspilot.workflows.application.access import WorkflowAccess
 
 ROOT = Path(__file__).resolve().parents[2]
 LOCAL = Path(os.environ.get("OPSPILOT_LAB_DIR", ROOT / "artifacts/local"))
@@ -259,6 +261,7 @@ def api(pg, mapped):
             lambda: database_ready(engine) and verifier.ready(),
             lambda: require_database(engine),
             intake=CreateIncident(lambda: PostgresIntakeUow(pg["sessions"]["app"])),
+            access=WorkflowAccess(lambda: PostgresAccessUow(pg["sessions"]["app"])),
         )
         with TestClient(app) as client:
             yield client

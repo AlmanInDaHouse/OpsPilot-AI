@@ -1,0 +1,51 @@
+[
+  {
+    "name": "access-first",
+    "exit_code": 1,
+    "passed": 63,
+    "failed": 1,
+    "raw_sha256": "8e4fb156c245a44983b623fb365349ac75ec7dd97f98689c8ddcd9236c20370e"
+  },
+  {
+    "name": "access-second",
+    "exit_code": 0,
+    "passed": 55,
+    "failed": 0,
+    "raw_sha256": "e871d2e1baec5115320c6befcfdb03fc3316847c4720f5e29edf54f60b5c1178"
+  },
+  {
+    "name": "contracts-first",
+    "exit_code": 0,
+    "passed": 29,
+    "failed": 0,
+    "raw_sha256": "b0b9a092561a31c344a4c38d579d0713f2ab1d2b01dee8f42cb6e9505567a882"
+  },
+  {
+    "name": "additional",
+    "exit_code": 0,
+    "passed": 5,
+    "failed": 0,
+    "raw_sha256": "5bf205d124bb94b6d0b668543cc3c7c510324215907d695b566d36b931c083c4"
+  },
+  {
+    "name": "windows",
+    "exit_code": 1,
+    "passed": 616,
+    "failed": 50,
+    "raw_sha256": "4aea0c5312c8f798a3b6470b54ddee38855d70592ecad4fc13bc31aa9be8d675"
+  },
+  {
+    "name": "windows-final2",
+    "exit_code": 1,
+    "passed": 665,
+    "failed": 1,
+    "raw_sha256": "c62c45e18fbca7eeae3a541e44e8d764c660f781ed84c1b9c0883782be709695"
+  },
+  {
+    "name": "ttl-restoration",
+    "exit_code": 0,
+    "passed": 1,
+    "failed": 0,
+    "raw_sha256": "4be552568b11731995c6323d94f125927beb560ed2cd6bd1b260fd16e0d9fc1e"
+  }
+]

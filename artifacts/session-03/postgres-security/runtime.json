@@ -1,0 +1,105 @@
+{
+  "postgres": {
+    "image_reference": "opspilot-postgres:18.6-s02",
+    "container_image_id": "sha256:39d00c5aa3ce070fafcec7db188b7bea93dbbe87fbe8c521d50a19ec7cc6b993",
+    "user": "postgres",
+    "running": true,
+    "health": "healthy",
+    "cap_drop": [
+      "ALL"
+    ],
+    "security_opt": [
+      "no-new-privileges:true"
+    ],
+    "readonly_rootfs": false,
+    "mounts": [
+      {
+        "type": "volume",
+        "name": "opspilot-s02_pg_data",
+        "destination": "/var/lib/postgresql",
+        "rw": true
+      },
+      {
+        "type": "bind",
+        "name": null,
+        "destination": "/run/secrets/pg_admin",
+        "rw": false
+      }
+    ]
+  },
+  "keycloak": {
+    "image_reference": "opspilot-keycloak:26.8.1-s02",
+    "container_image_id": "sha256:857a97da7f1286f6f5218253fb193dda7742e8ac5c96b06acaf54b581a444076",
+    "user": "1000:0",
+    "running": true,
+    "health": "healthy",
+    "cap_drop": [
+      "ALL"
+    ],
+    "security_opt": [
+      "no-new-privileges:true"
+    ],
+    "readonly_rootfs": false,
+    "mounts": [
+      {
+        "type": "bind",
+        "name": null,
+        "destination": "/opt/lab/start-keycloak.sh",
+        "rw": false
+      },
+      {
+        "type": "bind",
+        "name": null,
+        "destination": "/opt/keycloak/data/import/realm.json",
+        "rw": false
+      },
+      {
+        "type": "bind",
+        "name": null,
+        "destination": "/run/secrets/kc_db",
+        "rw": false
+      },
+      {
+        "type": "bind",
+        "name": null,
+        "destination": "/run/secrets/kc_admin",
+        "rw": false
+      }
+    ]
+  },
+  "api": {
+    "image_reference": "opspilot-ai:0.2.0",
+    "container_image_id": "sha256:6c1f5ba866ca4dbb565dbbf345c5ab9e960ae33934329ce17f62f065fd33cb4a",
+    "user": "10001:10001",
+    "running": true,
+    "health": "healthy",
+    "cap_drop": [
+      "ALL"
+    ],
+    "security_opt": [
+      "no-new-privileges:true"
+    ],
+    "readonly_rootfs": true,
+    "mounts": [
+      {
+        "type": "bind",
+        "name": null,
+        "destination": "/run/secrets/app_dsn",
+        "rw": false
+      }
+    ]
+  },
+  "permanent_volume": {
+    "Name": "opspilot-s02_pg_data",
+    "CreatedAt": "2026-10-22T22:57:27Z",
+    "Driver": "local",
+    "Labels": {
+      "com.docker.compose.project": "opspilot-s02",
+      "com.docker.compose.version": "2.40.3",
+      "com.docker.compose.volume": "pg_data"
+    },
+    "configuration": {
+      "hash": "943338fb04003775d06c6122e6c4745210ff9b5a4aa4bc2bbcae81606be6b2b3"
+    }
+  }
+}

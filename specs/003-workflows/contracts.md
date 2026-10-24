@@ -4,14 +4,14 @@ Estado: APROBADO PARA IMPLEMENTACIÓN por el autor el 2026-10-23 tras revisión 
 cierre/riesgos S02 y ADR-0008: «Apruebo tras revisión; continuar T03-02».
 [Arranque histórico](start.md) y [alcance de persistencia](persistence.md).
 T03-02 implementa esquema/appender/lector; [T03-03](intake.md) implementa intake.
-Worker y lecturas/cancelación siguen pendientes.
+T03-04 implementa [lecturas/cancelación](access-cancel.md); worker pendiente.
 
 ## API y orden de validación
 
 [OpenAPI S03](../../contracts/workflows.openapi.json) es independiente del contrato
 S02: sus cuatro GET se preservan; T03-02 amplía solo el schema de lectura audit a
 unión v1/v2. El OpenAPI de dominio contiene intake implementado y tres operaciones
-de lectura/cancelación pendientes de T03-04.
+de lectura/cancelación implementadas por T03-04.
 No hay endpoint de ejecución, permisos, herramientas, cierre ni set_state.
 
 Todas las respuestas: Cache-Control: no-store, X-Content-Type-Options: nosniff y
@@ -61,7 +61,7 @@ de commit. Commit incierto: 503; retry con la misma clave consulta el resultado 
 Tag fuerte exacto: `"wf-<UUID lowercase>-v<entero decimal positivo>"`. If-Match admite
 una sola etiqueta así, sin W/, wildcard, lista, espacios ni ceros iniciales. Máximo
 9223372036854775807; exceso 422. Schema limita forma/longitud; parser futuro comprueba
-límite numérico. UUID de otra entidad con formato válido: 409 VERSION_CONFLICT,
+límite numérico (implementado en WorkflowTag.parse). UUID de otra entidad con formato válido: 409 VERSION_CONFLICT,
 después de visibilidad. GET workflow 200 y cancel 202 incluyen ETag de su versión.
 Sin conditional GET S03; intake sin ETag porque el workflow puede haber avanzado.
 

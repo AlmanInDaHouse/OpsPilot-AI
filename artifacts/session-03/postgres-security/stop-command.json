@@ -1,0 +1,12 @@
+{
+  "name": "stop",
+  "command": [
+    "python",
+    "scripts/dev.py",
+    "stop"
+  ],
+  "started_at_utc": "2026-10-23T23:24:11.419758+00:00",
+  "finished_at_utc": "2026-10-23T23:24:16.575922+00:00",
+  "exit_code": 0,
+  "raw_sha256": "4d4360785ea8e4bccb5a0699465d7a0e41d234630cf5f2c0b450e5606dc28e00"
+}

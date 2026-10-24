@@ -1,0 +1,27 @@
+{
+  "name": "linux",
+  "command": [
+    "docker",
+    "compose",
+    "-f",
+    "infra/compose.yaml",
+    "run",
+    "--rm",
+    "--no-deps",
+    "tests",
+    "/app/.venv/bin/python",
+    "-m",
+    "pytest",
+    "-q",
+    "--tb=short",
+    "-o",
+    "cache_dir=/tmp/pytest-cache",
+    "-o",
+    "junit_family=xunit1",
+    "--junitxml=/lab/postgres-security/linux.xml"
+  ],
+  "started_at_utc": "2026-10-23T23:20:03.947593+00:00",
+  "finished_at_utc": "2026-10-23T23:21:52.622841+00:00",
+  "exit_code": 0,
+  "raw_sha256": "d0cd0c2c923f9ebb2451c2ecce89563cf8b204be204ad55ea54ea25d01b280a9"
+}

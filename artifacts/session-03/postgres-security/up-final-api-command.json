@@ -1,0 +1,19 @@
+{
+  "name": "up-final-api",
+  "command": [
+    "docker",
+    "compose",
+    "-f",
+    "infra/compose.yaml",
+    "up",
+    "-d",
+    "--no-build",
+    "--no-deps",
+    "--wait",
+    "api"
+  ],
+  "started_at_utc": "2026-10-23T23:15:39.032826+00:00",
+  "finished_at_utc": "2026-10-23T23:15:54.137210+00:00",
+  "exit_code": 0,
+  "raw_sha256": "a0364a14edc5fe998fab70585df5a76387897ec96e88caebde854b13c35f2e7f"
+}

@@ -1,0 +1,101 @@
+{
+  "head": "e116767635c2f723456dd27cb7d52ce267e147ac",
+  "scope": "T03-04 evidence only; not an acceptance gate",
+  "files": [
+    {
+      "path": "artifacts/session-03/access-cancel/baseline.json",
+      "hash": "7c19d42eaa1ab0ff1771979324c381129cad7d0ddc2897f71423749a3c4df509",
+      "bytes": 9380
+    },
+    {
+      "path": "artifacts/session-03/access-cancel/commands.json",
+      "hash": "a1fb5d78ccad9bbee0ab4729612230104dfef158747854fc8475ae08a4f497fa",
+      "bytes": 11197
+    },
+    {
+      "path": "artifacts/session-03/access-cancel/development-attempts.json",
+      "hash": "e6d16d03136aebed8317ac82d78d651c77f57905d0ebdc93b91b0ee2455afd87",
+      "bytes": 1296
+    },
+    {
+      "path": "artifacts/session-03/access-cancel/docs-final.json",
+      "hash": "abd9ca78ce8918b1639c2fbd828f6728b51ff6a26ae09eac4f2e73bba362056a",
+      "bytes": 811
+    },
+    {
+      "path": "artifacts/session-03/access-cancel/environment.json",
+      "hash": "1387de508a49ffceaa24d86b338ac8d42b8fb775c4d6f9dcbda6ae8555346a36",
+      "bytes": 551
+    },
+    {
+      "path": "artifacts/session-03/access-cancel/final-inputs.json",
+      "hash": "f48624ba8b0d0cb5f88444a7cf3d1a257aafedbf179e6906abe0dd0e6a4ad97c",
+      "bytes": 26798
+    },
+    {
+      "path": "artifacts/session-03/access-cancel/foundation-preservation.json",
+      "hash": "fc8578356454fc1bebb724eede17320734c3f6a448dc3abea8781a054b5097dd",
+      "bytes": 7800
+    },
+    {
+      "path": "artifacts/session-03/access-cancel/fresh-postgres.json",
+      "hash": "27a8e276a31398c6a69be685607a021677a5a0a3198e1391a3040ab012094475",
+      "bytes": 303
+    },
+    {
+      "path": "artifacts/session-03/access-cancel/lab-smoke-after.json",
+      "hash": "14e2c192af665d6950bd0ca4888ab53cb8c30e6d8afa766cfa5c598bedd14a2b",
+      "bytes": 1102
+    },
+    {
+      "path": "artifacts/session-03/access-cancel/lab-smoke-before.json",
+      "hash": "14e2c192af665d6950bd0ca4888ab53cb8c30e6d8afa766cfa5c598bedd14a2b",
+      "bytes": 1102
+    },
+    {
+      "path": "artifacts/session-03/access-cancel/recovery.json",
+      "hash": "bd1730b8dbcf0946c59de5dfa741386386f132af80144bd937005a2c20d9bcf1",
+      "bytes": 3294
+    },
+    {
+      "path": "artifacts/session-03/access-cancel/scans/api-cves.json",
+      "hash": "23cd5aa52eaf8f271019cea78588fb39c8bb7bd7c4c631ac1983a5965312bcea",
+      "bytes": 1506
+    },
+    {
+      "path": "artifacts/session-03/access-cancel/scans/keycloak-cves.json",
+      "hash": "4a413f45874ad0d4c29f4f50994fb25b1530218c58f9916ce1b5bffeca606669",
+      "bytes": 1517
+    },
+    {
+      "path": "artifacts/session-03/access-cancel/scans/postgres-cves.json",
+      "hash": "05fa5af390efc5dfda9b5170375c9fec810c0d342c0c07d783d92a59c8ddc6af",
+      "bytes": 1746
+    },
+    {
+      "path": "artifacts/session-03/access-cancel/self-review.json",
+      "hash": "922e5421b31ce71caacf2132297c7c7316067957db1a5791f073efd7abdf4599",
+      "bytes": 7559
+    },
+    {
+      "path": "artifacts/session-03/access-cancel/tested-inputs.json",
+      "hash": "f16ad16193778434a9f892de564f7f84b1d25209241743e2bf948087469a43cc",
+      "bytes": 17349
+    },
+    {
+      "path": "artifacts/session-03/access-cancel/tests-linux.json",
+      "hash": "4e5dffeb88153edf0f66bf1646cd32cc38c826c179fd89f1bd51e1e918ccf636",
+      "bytes": 38008
+    },
+    {
+      "path": "artifacts/session-03/access-cancel/tests-windows.json",
+      "hash": "bc5cb4ddd39c34d7a925b11451e75062a27fccf83fdd71fa1d0d9387db984416",
+      "bytes": 38002
+    },
+    {
+      "path": "artifacts/session-03/access-cancel/verification.json",
+      "hash": "85ce0c12c488f07518dd55825c3accc27bb470a38390ec19c609ae51517fba17",
+      "bytes": 4845
+    }
+  ]
+}

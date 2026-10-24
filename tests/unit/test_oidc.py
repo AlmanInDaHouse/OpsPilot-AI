@@ -56,11 +56,11 @@ def test_valid_access_and_cached_key_without_network(identity):
         {"iss": "https://attacker.invalid"},
         {"aud": "other"},
         {"exp": 1},
-        {"iat": int(time.time()) + 120},
-        {"nbf": int(time.time()) + 120},
+        {"iat": "future"},
+        {"nbf": "future"},
         {"sub": ""},
         {"typ": "ID"},
-        {"exp": int(time.time()) + 1000},
+        {"exp": "far_future"},
         {"iat": "100"},
         {"nbf": True},
         {"exp": True},
@@ -69,6 +69,14 @@ def test_valid_access_and_cached_key_without_network(identity):
 )
 def test_invalid_claims(identity, change):
     private, _, claims, verifier, *_ = identity
+    # Resolve relative times at execution; a longer integration suite must not
+    # turn collection-time future claims into valid current timestamps.
+    change = {
+        key: int(time.time()) + (1000 if value == "far_future" else 120)
+        if value in ("future", "far_future")
+        else value
+        for key, value in change.items()
+    }
     with pytest.raises(Unauthenticated):
         verifier.verify(signed(private, {**claims, **change}))
 

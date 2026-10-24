@@ -1,0 +1,29 @@
+{
+  "windows": {
+    "os": "Windows-11-10.0.26200-SP0",
+    "python": "3.13.14"
+  },
+  "linux": {
+    "os": "Linux",
+    "python": "3.13.14",
+    "uid": 10001,
+    "gid": 10001,
+    "machine": "x86_64"
+  },
+  "postgres_major": 18,
+  "identity": "Real local Keycloak 26.8.1, PKCE, issuer fixed in tests",
+  "lab_services": [
+    {
+      "service": "api",
+      "state": "exited"
+    },
+    {
+      "service": "keycloak",
+      "state": "exited"
+    },
+    {
+      "service": "postgres",
+      "state": "exited"
+    }
+  ]
+}

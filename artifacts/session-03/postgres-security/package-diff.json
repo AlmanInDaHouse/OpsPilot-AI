@@ -1,0 +1,37 @@
+{
+  "verdict": "PASS",
+  "changed_packages": {
+    "brotli-libs": {
+      "before": {
+        "P": "brotli-libs",
+        "V": "1.2.0-r1",
+        "o": "brotli",
+        "D": "so:libc.musl-x86_64.so.1",
+        "p": "so:libbrotlicommon.so.1=1.2.0 so:libbrotlidec.so.1=1.2.0 so:libbrotlienc.so.1=1.2.0"
+      },
+      "after": {
+        "P": "brotli-libs",
+        "V": "1.2.1-r0",
+        "o": "brotli",
+        "D": "so:libc.musl-x86_64.so.1",
+        "p": "so:libbrotlicommon.so.1=1.2.1 so:libbrotlidec.so.1=1.2.1 so:libbrotlienc.so.1=1.2.1"
+      }
+    }
+  },
+  "signed_apk_verification_exit_code": 0,
+  "hash": "62a7e37e43bbfc1f8525a00ad2125fd5897135dc93b849733884cb78ffd8e26c",
+  "source": "https://dl-cdn.alpinelinux.org/alpine/v3.24/main/x86_64/brotli-libs-1.2.1-r0.apk",
+  "chain": [
+    ".postgresql-rundeps -> so:libcurl.so.4",
+    "libcurl -> so:libbrotlidec.so.1",
+    "brotli-libs -> musl"
+  ],
+  "repositories_unchanged": true,
+  "uid_gid_unchanged": true,
+  "base": "postgres:18.6-alpine@sha256:898c60cb390d1085bc97bdd6a1ae968757421df394b071848b52b1c09c89d6a5",
+  "uid_probe_note": "docker exec and docker run render duplicate supplementary group 70 differently; numeric uid/gid both 70",
+  "raw_capture": {
+    "file": "package-diff-original.json",
+    "raw_sha256": "9ed35698405ef95e63c32f2befd65ab71d10b8871e7ff80f549fb01d4fd57847"
+  }
+}

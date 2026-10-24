@@ -1,0 +1,32 @@
+{
+  "checked_at_utc": "2026-10-23T23:17:48.688033+00:00",
+  "sources": [
+    {
+      "url": "https://github.com/google/brotli/releases/tag/v1.2.1",
+      "observed": "Release security note identifies CVE-2026-111497; fixed decoder in upstream 1.2.1"
+    },
+    {
+      "url": "https://dl-cdn.alpinelinux.org/alpine/v3.24/main/x86_64/",
+      "observed": "brotli-libs-1.2.1-r0.apk listed; local signature verification and package inventory provide installed-state evidence"
+    }
+  ],
+  "alpine_secdb": {
+    "url": "https://secdb.alpinelinux.org/v3.24/main.json",
+    "raw_sha256": "e93ed20d92679cba7c735a1f1955d0153276c5c65ba5fd8a7219eaaf9db09b3e",
+    "brotli": [
+      {
+        "pkg": {
+          "name": "brotli",
+          "secfixes": {
+            "1.0.9-r0": [
+              "CVE-2020-8927"
+            ],
+            "1.2.1-r0": [
+              "CVE-2026-111497"
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

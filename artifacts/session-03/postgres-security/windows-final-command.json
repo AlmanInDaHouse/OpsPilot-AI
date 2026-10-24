@@ -1,0 +1,12 @@
+{
+  "name": "windows-final",
+  "command": [
+    "python",
+    "scripts/dev.py",
+    "test"
+  ],
+  "started_at_utc": "2026-10-23T23:17:18.452356+00:00",
+  "finished_at_utc": "2026-10-23T23:19:45.994518+00:00",
+  "exit_code": 0,
+  "raw_sha256": "1fb34796855d218c10b5b80ad6b656a81ae9fdb6fbfe839d8b6dcf1f7692c13a"
+}

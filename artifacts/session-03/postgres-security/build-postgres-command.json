@@ -1,0 +1,15 @@
+{
+  "name": "build-postgres",
+  "command": [
+    "docker",
+    "compose",
+    "-f",
+    "infra/compose.yaml",
+    "build",
+    "postgres"
+  ],
+  "started_at_utc": "2026-10-23T23:14:04.144554+00:00",
+  "finished_at_utc": "2026-10-23T23:14:11.649997+00:00",
+  "exit_code": 0,
+  "raw_sha256": "71705f1e4cbb68debcb9e973c986909cbc626e84ece1635419dd6c469350006d"
+}

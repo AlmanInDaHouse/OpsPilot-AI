@@ -1,0 +1,12 @@
+{
+  "name": "windows",
+  "command": [
+    "python",
+    "scripts/dev.py",
+    "test"
+  ],
+  "started_at_utc": "2026-10-23T23:15:50.607841+00:00",
+  "finished_at_utc": "2026-10-23T23:16:37.196182+00:00",
+  "exit_code": 1,
+  "raw_sha256": "2197b9c07327bbcc5e757115a2f489675deb53c1aa22f06808f217c32c950071"
+}

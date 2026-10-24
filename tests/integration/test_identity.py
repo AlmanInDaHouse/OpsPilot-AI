@@ -39,8 +39,18 @@ def test_no_credentials_401_and_unknown_real_subject_403(api, tokens):
     assert api.get("/v1/me", headers=authorization(tokens, "unmapped")).status_code == 403
 
 
-def test_audit_permissions_and_pagination(api, tokens, mapped):
+def test_audit_permissions_and_pagination(api, pg, tokens, mapped):
     stream = mapped["operator"]
+    # Other real security scenarios may have appended grant/disable events.
+    # Compare pagination with the confirmed ledger instead of assuming only provisioning.
+    with pg["engines"]["app"].connect() as connection:
+        expected = list(
+            connection.execute(
+                text("SELECT seq FROM audit_events WHERE stream_id=:id ORDER BY seq"),
+                {"id": stream},
+            ).scalars()
+        )
+    assert expected[:2] == [1, 2]
     for role in ("operator", "approver"):
         assert (
             api.get(
@@ -63,13 +73,13 @@ def test_audit_permissions_and_pagination(api, tokens, mapped):
             params={"stream_id": stream, "after_seq": 1},
             headers=authorization(tokens, role),
         )
-        assert [row["seq"] for row in second.json()["items"]] == [2]
+        assert [row["seq"] for row in second.json()["items"]] == expected[1:]
         empty = api.get(
             "/v1/audit-events",
-            params={"stream_id": stream, "after_seq": 2},
+            params={"stream_id": stream, "after_seq": expected[-1]},
             headers=authorization(tokens, role),
         )
-        assert empty.json() == {"items": [], "next_after_seq": 2}
+        assert empty.json() == {"items": [], "next_after_seq": expected[-1]}
 
 
 def test_role_revoke_denies_next_request_and_restore_is_audited(api, pg, tokens, mapped):

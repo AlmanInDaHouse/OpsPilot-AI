@@ -107,7 +107,12 @@ def test_runtime_generated_contract_has_exact_routes_operations_errors_and_model
     _, _, _, app = platform
     generated = app.openapi()
     validate(generated)
-    assert set(generated["paths"]) == set(CONTRACT["paths"]) | {"/v1/incidents"}
+    assert set(generated["paths"]) == set(CONTRACT["paths"]) | {
+        "/v1/incidents",
+        "/v1/incidents/{incident_id}",
+        "/v1/workflows/{workflow_id}",
+        "/v1/workflows/{workflow_id}/cancel",
+    }
     for path, methods in CONTRACT["paths"].items():
         assert generated["paths"][path]["get"]["operationId"] == methods["get"]["operationId"]
         assert set(generated["paths"][path]["get"]["responses"]) == set(methods["get"]["responses"])

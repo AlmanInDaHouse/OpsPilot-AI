@@ -1,0 +1,14 @@
+{
+  "name": "publication-check",
+  "command": [
+    "python",
+    "scripts/dev.py",
+    "check",
+    "--report",
+    "artifacts/session-03/publication-t03-04/checks.json"
+  ],
+  "started_at_utc": "2026-10-24T00:26:49.458923+00:00",
+  "finished_at_utc": "2026-10-24T00:27:49.533898+00:00",
+  "exit_code": 0,
+  "raw_sha256": "a3cd71868475c0fd5a35a20fe26a02d6988e78acbfa4da605846b29290d2d7b5"
+}

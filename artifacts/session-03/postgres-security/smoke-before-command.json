@@ -1,0 +1,15 @@
+{
+  "name": "smoke-before",
+  "command": [
+    "uv",
+    "run",
+    "--frozen",
+    "python",
+    "artifacts/local/postgres-security/smoke.py",
+    "before"
+  ],
+  "started_at_utc": "2026-10-23T23:18:46.229009+00:00",
+  "finished_at_utc": "2026-10-23T23:18:49.490403+00:00",
+  "exit_code": 0,
+  "raw_sha256": "92c85d7dc509cec6659bf65a040cdc0872ee04e37c85842772315f1c4f6233ac"
+}

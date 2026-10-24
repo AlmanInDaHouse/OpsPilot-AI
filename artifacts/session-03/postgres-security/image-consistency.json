@@ -1,0 +1,80 @@
+{
+  "head": "e116767635c2f723456dd27cb7d52ce267e147ac",
+  "input_sha256": "08b709107230d08d120621247f94fe35d446f12991fda6688ae57fb95cb95b5d",
+  "images": {
+    "postgres": {
+      "image": "opspilot-postgres:18.6-s02",
+      "docker_image_id": "sha256:39d00c5aa3ce070fafcec7db188b7bea93dbbe87fbe8c521d50a19ec7cc6b993",
+      "config_id": "sha256:d8cd50ddd2b30b89523579865861b7edb8ac7322578a84349469db37dbe019ef",
+      "raw_sha256": "61c2abdbe32c9d3e00c841932aecb07e8ee4b9eeeb0f4253f9f14e63692beb66",
+      "report_os": {
+        "Family": "alpine",
+        "Name": "3.24.3"
+      },
+      "targets": [
+        {
+          "class": "os-pkgs",
+          "type": "alpine"
+        }
+      ],
+      "report_complete": true,
+      "identity_and_runtime_match": true,
+      "current_inputs_match": true,
+      "verdict": "PASS",
+      "high_critical": 0,
+      "exit_code": 0
+    },
+    "keycloak": {
+      "image": "opspilot-keycloak:26.8.1-s02",
+      "docker_image_id": "sha256:857a97da7f1286f6f5218253fb193dda7742e8ac5c96b06acaf54b581a444076",
+      "config_id": "sha256:38292add2f0c1502ffecbdf7f3778622fc274f2ef0ba04f7c9f1ccc5ddafca48",
+      "raw_sha256": "4f13daddd2ec33f3e404276768caa60bfb68d31482a939d83aa5692cfb312dbe",
+      "report_os": {
+        "Family": "alpine",
+        "Name": "3.24.3"
+      },
+      "targets": [
+        {
+          "class": "os-pkgs",
+          "type": "alpine"
+        },
+        {
+          "class": "lang-pkgs",
+          "type": "jar"
+        }
+      ],
+      "report_complete": true,
+      "identity_and_runtime_match": true,
+      "current_inputs_match": true,
+      "verdict": "PASS",
+      "high_critical": 0,
+      "exit_code": 0
+    },
+    "api": {
+      "image": "opspilot-ai:0.2.0",
+      "docker_image_id": "sha256:6c1f5ba866ca4dbb565dbbf345c5ab9e960ae33934329ce17f62f065fd33cb4a",
+      "config_id": "sha256:e3dcf2014d38d4f04127276c1b514e036fae0985cc1d49b68cac745cc90fac43",
+      "raw_sha256": "8f89e0bf0788691312a784397d7bc7040d34b47144789cf7b05efebafb20074f",
+      "report_os": {
+        "Family": "alpine",
+        "Name": "3.24.1"
+      },
+      "targets": [
+        {
+          "class": "os-pkgs",
+          "type": "alpine"
+        },
+        {
+          "class": "lang-pkgs",
+          "type": "python-pkg"
+        }
+      ],
+      "report_complete": true,
+      "identity_and_runtime_match": true,
+      "current_inputs_match": true,
+      "verdict": "PASS",
+      "high_critical": 0,
+      "exit_code": 0
+    }
+  }
+}

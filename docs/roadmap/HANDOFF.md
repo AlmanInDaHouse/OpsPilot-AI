@@ -1,5 +1,70 @@
 # Handoff versionado — plataforma S02 y arranque S03
 
+## Publicación T03-04 y hotfix PostgreSQL autorizada — 2026-10-24
+
+Tras la entrega del hotfix, el autor autoriza commit y push a origin/main con
+«pushealo». Se publica el conjunto dependiente T03-04 + hotfix Brotli, con sus
+contratos, pruebas, documentación y evidencias locales. Antes de publicar:
+HEAD/origin/main e116767 iguales y manifests del hotfix sin drift; 666 PASS por OS,
+214 integraciones por OS, checks/PG fresco/recovery y tres scans finales PASS.
+
+Solo este handoff se añade después de esas verificaciones; no cambia código,
+contratos ni imágenes. Los snapshots conservan HEAD base, decisiones e historial
+previos a publicar. Consultar Git para el SHA efectivo y Actions del mismo SHA:
+los resultados locales no acreditan CI remota ni cierran S03/S04/producción.
+La autorización no inicia T03-05 ni incluye merge, release, despliegue o
+infraestructura externa. Volumen y credenciales del lab detenido conservados.
+
+## Hotfix PostgreSQL / Brotli S03 — 2026-10-24
+
+Petición explícita para resolver el gate supply previo a T03-05, sin implementar
+worker ni publicar. Árbol inicial main/e116767 con T03-04 local conservado.
+[Revisión](SESSION_03_POSTGRES_SECURITY_REVIEW.md),
+[spec](../../specs/003-workflows/postgres-security.md) y
+[evidencia actual](../../artifacts/session-03/postgres-security/verification.json).
+
+Único cambio ejecutable: apk add --no-cache brotli-libs=1.2.1-r0 antes de USER
+postgres, sobre la misma base oficial 18.6/Alpine 3.24 por digest. Paquete oficial
+firmado, únicamente Brotli actualizado; sin cambio de dominio/contratos/DDL/Compose.
+PG fresco UID 70, 666 PASS/OS y 214 integraciones/OS, checks Windows/Linux, recovery,
+replay cancel y hashes de once tablas del lab PASS. Primer run falló por conexiones
+JDBC cerradas de Keycloak tras recrear PG; reinicio de Keycloak/API y repetición
+completa PASS, fallos conservados. Comprobar PKCE real además del health.
+
+Trivy PG/Keycloak/API finales PASS, cero HIGH/CRITICAL, IDs/config/raw e inputs
+contrastados. GO técnico LOCAL para preparar T03-05; requiere nueva petición para
+implementarlo. Sin excepción CVE ni herencia de PASS históricos.
+S03 abierta, AC03-06 parcial API/SQL; worker T03-05/06 y CI del árbol actual pendientes.
+Sin GO S04/producción ni autorización de ejecutar el siguiente ticket. Lab detenido,
+pg_data y credenciales conservados, snapshots previos intactos. Sin commit/push.
+
+## T03-04 — lecturas autorizadas y cancelación CAS, 2026-10-23
+
+Petición explícita del autor para T03-04 solamente. Base main/e116767 limpia;
+T03-01/02/03 ya publicadas, snapshots conservados. Baseline real: check PASS,
+567 PASS Windows y Linux, 155 integraciones/OS. Sin commit/push ni avance S04.
+[Revisión](SESSION_03_ACCESS_CANCEL_REVIEW.md), [spec](../../specs/003-workflows/access-cancel.md)
+y [resultados actuales](../../artifacts/session-03/access-cancel/verification.json).
+
+GET incident/workflow y POST cancel implementados con OIDC/grants locales,
+operator creador/auditor explícito para lectura y solo operator creador cancela.
+404 uniforme, proyección SQL de un snapshot, ETag fuerte y parser If-Match estricto.
+PostgresUow existente: workflow lock → jobs ordenados → appender v2; CAS de versión,
+intención PG, invalidación READY/LEASED/fence y audit en un commit. Incidente OPEN.
+CANCELLED actual no escribe; obsoleto 409. Ambiguos mantienen estado/intención única.
+
+Revisión final: 666 PASS Windows y Linux, 214 integraciones reales/OS, cero skips;
+check PASS, dependencias Linux PASS. **NO-GO local T03-05**: scan PostgreSQL FAIL
+por CVE-2026-111497/HIGH, brotli-libs 1.2.0-r1 (fixed 1.2.1-r0 según Trivy).
+Keycloak/API scans PASS, imágenes actuales verificadas; PG fresco/recovery PASS.
+Cancel v2/replay sin escritura persisten tras reinicio. Lab detenido con volumen y
+credenciales preservados. Consultar JSON; no heredar gates de S02/T03-03.
+Worker T03-05/06 NO implementado; AC03-06 parcial API/SQL, sin prueba de handler
+de resultados tardíos. T03-05 requiere permiso nuevo y sus propios gates de
+lease/fence/owner/version/cancel_requested_at; claim no espera workflow bajo job lock.
+Sin GO global S03/S04/producción ni CI remota de cambios locales. R01/R02/R14,
+privacidad/R11 y mantenimiento R15/musl/linux-amd64 vigentes.
+
 ## Publicación de T03-01..03 autorizada — 2026-10-23
 
 Tras la entrega local de T03-03, el autor autoriza commit y push a origin/main con

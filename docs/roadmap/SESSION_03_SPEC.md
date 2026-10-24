@@ -2,7 +2,8 @@
 
 Estado: EN CURSO por petición explícita del autor el 2026-10-23. T03-01 y ADR-0008
 aprobados tras revisión de cierre/riesgos S02; T03-02 implementada/probada localmente.
-Motor/intake PROPUESTOS. Base técnica S02 en 660f7d3, según [cierre](SESSION_02_CLOSURE.md).
+Intake T03-03 y lecturas/cancelación T03-04 implementados; worker PROPUESTO.
+Base técnica S02 en 660f7d3, según [cierre](SESSION_02_CLOSURE.md).
 [Arranque y supuestos](../../specs/003-workflows/start.md),
 [paquete técnico revisable](../../specs/003-workflows/contracts.md) y ADR-0008.
 [Alcance de persistencia](../../specs/003-workflows/persistence.md) y
@@ -150,8 +151,9 @@ No sleeps ciegos como prueba de crash ni mocks de commit para declarar recuperac
 
 T03-01 aprobada por autor; T03-02 implementa migración/grants/appender v2 y lectura
 mixta con pruebas PG/IdP reales de almacenamiento. T03-03 implementa intake atómico,
-idempotencia y recuperación de procesos API. T03-04..08 pendientes, incluidas
-lecturas/cancelación, leases/fences de worker y crashes de jobs S03.
+idempotencia y recuperación de procesos API. T03-04 implementa lecturas/cancelación
+([revisión](SESSION_03_ACCESS_CANCEL_REVIEW.md)); T03-05..08 pendientes, incluidos
+leases/fences de worker y crashes de jobs S03.
 El paquete concreta wire OpenAPI, lectura/cancelación, appender/evento v2, permisos
 worker, handler local y DefinitionVersion; solo persistencia/appender/lector están
 instalados en T03-02, sin rutas de dominio ni handler ejecutable.

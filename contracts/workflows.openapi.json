@@ -4,7 +4,7 @@
     "title": "OpsPilot S03 workflows — approved contract",
     "version": "0.3.0"
   },
-  "x-implementation-status": "PARTIAL: POST /v1/incidents implemented by T03-03; reads/cancel pending T03-04",
+  "x-implementation-status": "IMPLEMENTED_T03_04_LOCAL: intake, authorized reads and CAS cancel; worker pending T03-05/06",
   "servers": [
     {
       "url": "https://opspilot.invalid"

@@ -43,6 +43,26 @@ class IncidentAcceptedDTO(DTO):
     workflow_id: UUID
 
 
+class IncidentDTO(IncidentAcceptedDTO):
+    creator_id: UUID
+    title: str = Field(min_length=1, max_length=200)
+    description: str = Field(min_length=1, max_length=4000)
+    status: Literal["OPEN"]
+    version: int = Field(ge=1, le=9223372036854775807)
+
+
+class ResourceError(DTO):
+    code: Literal[
+        "UNAUTHENTICATED", "FORBIDDEN", "NOT_FOUND", "INVALID_REQUEST", "DEPENDENCY_UNAVAILABLE"
+    ]
+    request_id: UUID
+
+
+class CancelConflict(DTO):
+    code: Literal["VERSION_CONFLICT", "TERMINAL_WORKFLOW"]
+    request_id: UUID
+
+
 class IntakeConflict(DTO):
     code: Literal["IDEMPOTENCY_CONFLICT"]
     request_id: UUID
@@ -96,6 +116,48 @@ WorkflowState = Literal[
     "FAILED",
     "CANCELLED",
 ]
+
+
+class EvidenceRef(DTO):
+    evidence_id: UUID
+    kind: Literal["INCIDENT_SNAPSHOT_V1"]
+    content_hash: str = Field(pattern=r"^[0-9a-f]{64}$")
+    observed_at: datetime
+    collector_id: Literal["local-intake-v1"]
+    source_ref: str = Field(
+        pattern=r"^incident:[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}:v[1-9][0-9]{0,18}$"
+    )
+    independence_role: Literal["INTAKE_SNAPSHOT"]
+
+
+class WorkflowDTO(DTO):
+    workflow_id: UUID
+    incident_id: UUID
+    state: WorkflowState
+    version: int = Field(ge=1, le=9223372036854775807)
+    definition_version: int = Field(ge=1)
+    cancel_requested_at: datetime | None
+    reason_code: Literal[
+        "INTAKE_ACCEPTED",
+        "LOCAL_STEP_STARTED",
+        "LOCAL_SNAPSHOT_RECORDED",
+        "TRANSIENT_LOCAL_FAILURE",
+        "RETRY_READY",
+        "DEADLINE_EXHAUSTED",
+        "RETRY_EXHAUSTED",
+        "PERMANENT_LOCAL_FAILURE",
+        "UNSUPPORTED_DEFINITION",
+        "CANCELLED_BY_OPERATOR",
+        "CANCEL_REQUESTED",
+    ]
+    evidence: list[EvidenceRef] = Field(max_length=1)
+
+
+class CancelAcceptedDTO(DTO):
+    workflow_id: UUID
+    state: Literal["CANCELLED", "EXECUTING", "VERIFYING", "OUTCOME_UNKNOWN"]
+    version: int = Field(ge=1, le=9223372036854775807)
+    cancel_requested_at: datetime
 
 
 class WorkflowTransition(DTO):

@@ -1,0 +1,23 @@
+{
+  "postgres": {
+    "Status": "exited",
+    "Running": false,
+    "OOMKilled": false,
+    "ExitCode": 0,
+    "FinishedAt": "2026-10-23T23:24:15.886255087Z"
+  },
+  "keycloak": {
+    "Status": "exited",
+    "Running": false,
+    "OOMKilled": false,
+    "ExitCode": 137,
+    "FinishedAt": "2026-10-23T23:24:15.24540866Z"
+  },
+  "api": {
+    "Status": "exited",
+    "Running": false,
+    "OOMKilled": false,
+    "ExitCode": 0,
+    "FinishedAt": "2026-10-23T23:24:13.322178583Z"
+  }
+}

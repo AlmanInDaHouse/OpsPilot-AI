@@ -1,0 +1,14 @@
+{
+  "name": "check-windows",
+  "command": [
+    "python",
+    "scripts/dev.py",
+    "check",
+    "--report",
+    "artifacts/session-03/postgres-security/checks-windows.json"
+  ],
+  "started_at_utc": "2026-10-23T23:23:10.121277+00:00",
+  "finished_at_utc": "2026-10-23T23:23:55.233802+00:00",
+  "exit_code": 0,
+  "raw_sha256": "636716682f368f055fbe00ccee336484e9e5f4127b5d701c50d48501e626bfcb"
+}

@@ -1,0 +1,20 @@
+{
+  "name": "up-baseline",
+  "command": [
+    "docker",
+    "compose",
+    "-f",
+    "infra/compose.yaml",
+    "up",
+    "-d",
+    "--no-build",
+    "--wait",
+    "postgres",
+    "keycloak",
+    "api"
+  ],
+  "started_at_utc": "2026-10-23T23:12:25.957752+00:00",
+  "finished_at_utc": "2026-10-23T23:13:08.798731+00:00",
+  "exit_code": 0,
+  "raw_sha256": "65433faba1ffa4038d730c56af1c5269c5574fc39c75d4a9704f5e599c8f937f"
+}

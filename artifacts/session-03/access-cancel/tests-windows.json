@@ -1,0 +1,1206 @@
+{
+  "tests": 666,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "real_integrations": 214,
+  "raw_sha256": "52bae2e43dd76dd6a34c113b51f5b3b702c3f50d0374c556a9312ab225ffb629",
+  "observations": [
+    {
+      "scenario": "cancel_replay",
+      "before": {
+        "workflow": {
+          "id": "63fcfb33-9b4f-49e7-9a89-5e21440f862c",
+          "incident_id": "2eeddc5d-4d14-4324-af72-e8b4eff0d580",
+          "creator_id": "5693db9c-068f-4521-90a8-d7464594f145",
+          "definition_version": 1,
+          "state": "QUEUED",
+          "resume_state": null,
+          "version": 1,
+          "deadline_at": "2026-10-23 21:26:40.054227+00:00",
+          "budget_spent_ms": 0,
+          "cancel_requested_at": null,
+          "reason_code": "INTAKE_ACCEPTED",
+          "created_at": "2026-10-23 21:21:40.054246+00:00"
+        },
+        "jobs": [
+          {
+            "id": "f937f75b-8b13-4af7-b3fc-6af062b2a069",
+            "workflow_id": "63fcfb33-9b4f-49e7-9a89-5e21440f862c",
+            "step_id": "e90ade56-232e-48f6-8aed-8673ec65ac31",
+            "kind": "intake_snapshot",
+            "state": "READY",
+            "available_at": "2026-10-23 21:21:40.062858+00:00",
+            "lease_until": null,
+            "owner": null,
+            "fence": 0,
+            "attempts": 0
+          }
+        ],
+        "events": 0
+      },
+      "after": {
+        "workflow": {
+          "id": "63fcfb33-9b4f-49e7-9a89-5e21440f862c",
+          "incident_id": "2eeddc5d-4d14-4324-af72-e8b4eff0d580",
+          "creator_id": "5693db9c-068f-4521-90a8-d7464594f145",
+          "definition_version": 1,
+          "state": "CANCELLED",
+          "resume_state": null,
+          "version": 2,
+          "deadline_at": "2026-10-23 21:26:40.054227+00:00",
+          "budget_spent_ms": 0,
+          "cancel_requested_at": "2026-10-23 21:21:40.211326+00:00",
+          "reason_code": "CANCELLED_BY_OPERATOR",
+          "created_at": "2026-10-23 21:21:40.054246+00:00"
+        },
+        "jobs": [
+          {
+            "id": "f937f75b-8b13-4af7-b3fc-6af062b2a069",
+            "workflow_id": "63fcfb33-9b4f-49e7-9a89-5e21440f862c",
+            "step_id": "e90ade56-232e-48f6-8aed-8673ec65ac31",
+            "kind": "intake_snapshot",
+            "state": "DEAD",
+            "available_at": "2026-10-23 21:21:40.062858+00:00",
+            "lease_until": null,
+            "owner": null,
+            "fence": 1,
+            "attempts": 0
+          }
+        ],
+        "events": 1
+      },
+      "http": [
+        202,
+        202
+      ],
+      "etag": "\"wf-63fcfb33-9b4f-49e7-9a89-5e21440f862c-v2\""
+    },
+    {
+      "scenario": "simultaneous_cancel",
+      "http": [
+        409,
+        202
+      ],
+      "before": {
+        "workflow": {
+          "id": "09c4c2cf-5c07-43d2-b447-a2f65146f7d6",
+          "incident_id": "472908a4-9901-4bc9-93ca-539a0bc8d78d",
+          "creator_id": "5693db9c-068f-4521-90a8-d7464594f145",
+          "definition_version": 1,
+          "state": "QUEUED",
+          "resume_state": null,
+          "version": 1,
+          "deadline_at": "2026-10-23 21:26:51.848828+00:00",
+          "budget_spent_ms": 0,
+          "cancel_requested_at": null,
+          "reason_code": "INTAKE_ACCEPTED",
+          "created_at": "2026-10-23 21:21:51.848844+00:00"
+        },
+        "jobs": [
+          {
+            "id": "e919a479-60d6-4b7f-ae8f-f42e0155a3a4",
+            "workflow_id": "09c4c2cf-5c07-43d2-b447-a2f65146f7d6",
+            "step_id": "1f2ffaeb-0290-4057-b1fe-dd02007ec965",
+            "kind": "intake_snapshot",
+            "state": "READY",
+            "available_at": "2026-10-23 21:21:51.852584+00:00",
+            "lease_until": null,
+            "owner": null,
+            "fence": 0,
+            "attempts": 0
+          }
+        ],
+        "events": 0
+      },
+      "after": {
+        "workflow": {
+          "id": "09c4c2cf-5c07-43d2-b447-a2f65146f7d6",
+          "incident_id": "472908a4-9901-4bc9-93ca-539a0bc8d78d",
+          "creator_id": "5693db9c-068f-4521-90a8-d7464594f145",
+          "definition_version": 1,
+          "state": "CANCELLED",
+          "resume_state": null,
+          "version": 2,
+          "deadline_at": "2026-10-23 21:26:51.848828+00:00",
+          "budget_spent_ms": 0,
+          "cancel_requested_at": "2026-10-23 21:21:51.901744+00:00",
+          "reason_code": "CANCELLED_BY_OPERATOR",
+          "created_at": "2026-10-23 21:21:51.848844+00:00"
+        },
+        "jobs": [
+          {
+            "id": "e919a479-60d6-4b7f-ae8f-f42e0155a3a4",
+            "workflow_id": "09c4c2cf-5c07-43d2-b447-a2f65146f7d6",
+            "step_id": "1f2ffaeb-0290-4057-b1fe-dd02007ec965",
+            "kind": "intake_snapshot",
+            "state": "DEAD",
+            "available_at": "2026-10-23 21:21:51.852584+00:00",
+            "lease_until": null,
+            "owner": null,
+            "fence": 1,
+            "attempts": 0
+          }
+        ],
+        "events": 1
+      }
+    },
+    {
+      "scenario": "simultaneous_cancel",
+      "http": [
+        409,
+        409,
+        202,
+        409,
+        409,
+        409,
+        409,
+        409,
+        409,
+        409,
+        409,
+        409,
+        409,
+        409,
+        409,
+        409,
+        409,
+        409,
+        409,
+        409
+      ],
+      "before": {
+        "workflow": {
+          "id": "bccc8cae-b36a-4e77-a1a1-5f71831284c7",
+          "incident_id": "4309c8c7-5b03-4464-b07b-c89eb4c1975c",
+          "creator_id": "5693db9c-068f-4521-90a8-d7464594f145",
+          "definition_version": 1,
+          "state": "QUEUED",
+          "resume_state": null,
+          "version": 1,
+          "deadline_at": "2026-10-23 21:26:52.472724+00:00",
+          "budget_spent_ms": 0,
+          "cancel_requested_at": null,
+          "reason_code": "INTAKE_ACCEPTED",
+          "created_at": "2026-10-23 21:21:52.472744+00:00"
+        },
+        "jobs": [
+          {
+            "id": "f7401802-2ea9-45f1-bda3-c016712f486e",
+            "workflow_id": "bccc8cae-b36a-4e77-a1a1-5f71831284c7",
+            "step_id": "1fbbdbf9-b11f-42a7-9927-f97409d53d48",
+            "kind": "intake_snapshot",
+            "state": "READY",
+            "available_at": "2026-10-23 21:21:52.476650+00:00",
+            "lease_until": null,
+            "owner": null,
+            "fence": 0,
+            "attempts": 0
+          }
+        ],
+        "events": 0
+      },
+      "after": {
+        "workflow": {
+          "id": "bccc8cae-b36a-4e77-a1a1-5f71831284c7",
+          "incident_id": "4309c8c7-5b03-4464-b07b-c89eb4c1975c",
+          "creator_id": "5693db9c-068f-4521-90a8-d7464594f145",
+          "definition_version": 1,
+          "state": "CANCELLED",
+          "resume_state": null,
+          "version": 2,
+          "deadline_at": "2026-10-23 21:26:52.472724+00:00",
+          "budget_spent_ms": 0,
+          "cancel_requested_at": "2026-10-23 21:21:52.814426+00:00",
+          "reason_code": "CANCELLED_BY_OPERATOR",
+          "created_at": "2026-10-23 21:21:52.472744+00:00"
+        },
+        "jobs": [
+          {
+            "id": "f7401802-2ea9-45f1-bda3-c016712f486e",
+            "workflow_id": "bccc8cae-b36a-4e77-a1a1-5f71831284c7",
+            "step_id": "1fbbdbf9-b11f-42a7-9927-f97409d53d48",
+            "kind": "intake_snapshot",
+            "state": "DEAD",
+            "available_at": "2026-10-23 21:21:52.476650+00:00",
+            "lease_until": null,
+            "owner": null,
+            "fence": 1,
+            "attempts": 0
+          }
+        ],
+        "events": 1
+      }
+    },
+    {
+      "scenario": "locked_workflow",
+      "db_lock_observed": true,
+      "http": 202,
+      "before": {
+        "workflow": {
+          "id": "52cecfec-b9b5-4f9b-916b-d27bb8409baa",
+          "incident_id": "730b71d8-4c52-4644-a9d8-e001483ab52f",
+          "creator_id": "5693db9c-068f-4521-90a8-d7464594f145",
+          "definition_version": 1,
+          "state": "QUEUED",
+          "resume_state": null,
+          "version": 1,
+          "deadline_at": "2026-10-23 21:26:50.664039+00:00",
+          "budget_spent_ms": 0,
+          "cancel_requested_at": null,
+          "reason_code": "INTAKE_ACCEPTED",
+          "created_at": "2026-10-23 21:21:50.664049+00:00"
+        },
+        "jobs": [
+          {
+            "id": "c88122ab-7d0c-43dc-b09f-c9dd09f099c8",
+            "workflow_id": "52cecfec-b9b5-4f9b-916b-d27bb8409baa",
+            "step_id": "c98d5d82-3c04-4c60-928c-6f02228f8dfb",
+            "kind": "intake_snapshot",
+            "state": "READY",
+            "available_at": "2026-10-23 21:21:50.669253+00:00",
+            "lease_until": null,
+            "owner": null,
+            "fence": 0,
+            "attempts": 0
+          }
+        ],
+        "events": 0
+      },
+      "after": {
+        "workflow": {
+          "id": "52cecfec-b9b5-4f9b-916b-d27bb8409baa",
+          "incident_id": "730b71d8-4c52-4644-a9d8-e001483ab52f",
+          "creator_id": "5693db9c-068f-4521-90a8-d7464594f145",
+          "definition_version": 1,
+          "state": "CANCELLED",
+          "resume_state": null,
+          "version": 2,
+          "deadline_at": "2026-10-23 21:26:50.664039+00:00",
+          "budget_spent_ms": 0,
+          "cancel_requested_at": "2026-10-23 21:21:50.759841+00:00",
+          "reason_code": "CANCELLED_BY_OPERATOR",
+          "created_at": "2026-10-23 21:21:50.664049+00:00"
+        },
+        "jobs": [
+          {
+            "id": "c88122ab-7d0c-43dc-b09f-c9dd09f099c8",
+            "workflow_id": "52cecfec-b9b5-4f9b-916b-d27bb8409baa",
+            "step_id": "c98d5d82-3c04-4c60-928c-6f02228f8dfb",
+            "kind": "intake_snapshot",
+            "state": "DEAD",
+            "available_at": "2026-10-23 21:21:50.669253+00:00",
+            "lease_until": null,
+            "owner": null,
+            "fence": 1,
+            "attempts": 0
+          }
+        ],
+        "events": 1
+      }
+    },
+    {
+      "scenario": "locked_job",
+      "db_lock_observed": true,
+      "http": 202,
+      "before": {
+        "workflow": {
+          "id": "91406283-1d65-4e63-9355-8857e9f343bd",
+          "incident_id": "7b99f9c9-c9d1-4a95-a24a-555ce9a102e2",
+          "creator_id": "5693db9c-068f-4521-90a8-d7464594f145",
+          "definition_version": 1,
+          "state": "QUEUED",
+          "resume_state": null,
+          "version": 1,
+          "deadline_at": "2026-10-23 21:26:51.134347+00:00",
+          "budget_spent_ms": 0,
+          "cancel_requested_at": null,
+          "reason_code": "INTAKE_ACCEPTED",
+          "created_at": "2026-10-23 21:21:51.134358+00:00"
+        },
+        "jobs": [
+          {
+            "id": "86f298d0-ddec-4bb8-9d27-1642ba40d6e2",
+            "workflow_id": "91406283-1d65-4e63-9355-8857e9f343bd",
+            "step_id": "f2ad3469-a22b-41a4-bb80-6f1b00c3a18b",
+            "kind": "intake_snapshot",
+            "state": "READY",
+            "available_at": "2026-10-23 21:21:51.138576+00:00",
+            "lease_until": null,
+            "owner": null,
+            "fence": 0,
+            "attempts": 0
+          }
+        ],
+        "events": 0
+      },
+      "after": {
+        "workflow": {
+          "id": "91406283-1d65-4e63-9355-8857e9f343bd",
+          "incident_id": "7b99f9c9-c9d1-4a95-a24a-555ce9a102e2",
+          "creator_id": "5693db9c-068f-4521-90a8-d7464594f145",
+          "definition_version": 1,
+          "state": "CANCELLED",
+          "resume_state": null,
+          "version": 2,
+          "deadline_at": "2026-10-23 21:26:51.134347+00:00",
+          "budget_spent_ms": 0,
+          "cancel_requested_at": "2026-10-23 21:21:51.197378+00:00",
+          "reason_code": "CANCELLED_BY_OPERATOR",
+          "created_at": "2026-10-23 21:21:51.134358+00:00"
+        },
+        "jobs": [
+          {
+            "id": "86f298d0-ddec-4bb8-9d27-1642ba40d6e2",
+            "workflow_id": "91406283-1d65-4e63-9355-8857e9f343bd",
+            "step_id": "f2ad3469-a22b-41a4-bb80-6f1b00c3a18b",
+            "kind": "intake_snapshot",
+            "state": "DEAD",
+            "available_at": "2026-10-23 21:21:51.138576+00:00",
+            "lease_until": null,
+            "owner": null,
+            "fence": 4,
+            "attempts": 0
+          }
+        ],
+        "events": 1
+      }
+    },
+    {
+      "scenario": "locked_audit",
+      "db_lock_observed": true,
+      "http": 202,
+      "before": {
+        "workflow": {
+          "id": "0bf7cb9e-15db-4e59-92e0-c3e54d71339a",
+          "incident_id": "21f2e383-1b2d-4e5f-b55f-8707b74a63ef",
+          "creator_id": "5693db9c-068f-4521-90a8-d7464594f145",
+          "definition_version": 1,
+          "state": "QUEUED",
+          "resume_state": null,
+          "version": 1,
+          "deadline_at": "2026-10-23 21:26:51.608238+00:00",
+          "budget_spent_ms": 0,
+          "cancel_requested_at": null,
+          "reason_code": "INTAKE_ACCEPTED",
+          "created_at": "2026-10-23 21:21:51.608248+00:00"
+        },
+        "jobs": [
+          {
+            "id": "82cf3073-f134-45fa-b141-7538e2dff2dc",
+            "workflow_id": "0bf7cb9e-15db-4e59-92e0-c3e54d71339a",
+            "step_id": "57d1de22-6cbe-4c3f-be8c-7157ee341b22",
+            "kind": "intake_snapshot",
+            "state": "READY",
+            "available_at": "2026-10-23 21:21:51.613101+00:00",
+            "lease_until": null,
+            "owner": null,
+            "fence": 0,
+            "attempts": 0
+          }
+        ],
+        "events": 0
+      },
+      "after": {
+        "workflow": {
+          "id": "0bf7cb9e-15db-4e59-92e0-c3e54d71339a",
+          "incident_id": "21f2e383-1b2d-4e5f-b55f-8707b74a63ef",
+          "creator_id": "5693db9c-068f-4521-90a8-d7464594f145",
+          "definition_version": 1,
+          "state": "CANCELLED",
+          "resume_state": null,
+          "version": 2,
+          "deadline_at": "2026-10-23 21:26:51.608238+00:00",
+          "budget_spent_ms": 0,
+          "cancel_requested_at": "2026-10-23 21:21:51.674042+00:00",
+          "reason_code": "CANCELLED_BY_OPERATOR",
+          "created_at": "2026-10-23 21:21:51.608248+00:00"
+        },
+        "jobs": [
+          {
+            "id": "82cf3073-f134-45fa-b141-7538e2dff2dc",
+            "workflow_id": "0bf7cb9e-15db-4e59-92e0-c3e54d71339a",
+            "step_id": "57d1de22-6cbe-4c3f-be8c-7157ee341b22",
+            "kind": "intake_snapshot",
+            "state": "DEAD",
+            "available_at": "2026-10-23 21:21:51.613101+00:00",
+            "lease_until": null,
+            "owner": null,
+            "fence": 1,
+            "attempts": 0
+          }
+        ],
+        "events": 1
+      }
+    },
+    {
+      "scenario": "sql_failure_workflows",
+      "rollback_exact": true,
+      "before": {
+        "workflow": {
+          "id": "2a6a00cb-46f1-480c-bec0-e50b330e5578",
+          "incident_id": "83539580-aa5a-4551-a8bc-5d33450f4e42",
+          "creator_id": "5693db9c-068f-4521-90a8-d7464594f145",
+          "definition_version": 1,
+          "state": "QUEUED",
+          "resume_state": null,
+          "version": 1,
+          "deadline_at": "2026-10-23 21:26:53.894714+00:00",
+          "budget_spent_ms": 0,
+          "cancel_requested_at": null,
+          "reason_code": "INTAKE_ACCEPTED",
+          "created_at": "2026-10-23 21:21:53.894725+00:00"
+        },
+        "jobs": [
+          {
+            "id": "0c04175c-f03e-4f9c-b7ea-cc38bf2fec6b",
+            "workflow_id": "2a6a00cb-46f1-480c-bec0-e50b330e5578",
+            "step_id": "03f4ff4f-fd8b-4fc6-b6e4-e0254de45a19",
+            "kind": "intake_snapshot",
+            "state": "READY",
+            "available_at": "2026-10-23 21:21:53.897155+00:00",
+            "lease_until": null,
+            "owner": null,
+            "fence": 0,
+            "attempts": 0
+          }
+        ],
+        "events": 0
+      },
+      "http": 503
+    },
+    {
+      "scenario": "sql_failure_jobs",
+      "rollback_exact": true,
+      "before": {
+        "workflow": {
+          "id": "43d476b0-459e-48bf-9e3e-57f73998591f",
+          "incident_id": "05e3c928-9df0-4546-89dd-632b59d2f6d9",
+          "creator_id": "5693db9c-068f-4521-90a8-d7464594f145",
+          "definition_version": 1,
+          "state": "QUEUED",
+          "resume_state": null,
+          "version": 1,
+          "deadline_at": "2026-10-23 21:26:54.335282+00:00",
+          "budget_spent_ms": 0,
+          "cancel_requested_at": null,
+          "reason_code": "INTAKE_ACCEPTED",
+          "created_at": "2026-10-23 21:21:54.335293+00:00"
+        },
+        "jobs": [
+          {
+            "id": "449d02ee-a56f-4c96-a363-4f83f4770d22",
+            "workflow_id": "43d476b0-459e-48bf-9e3e-57f73998591f",
+            "step_id": "15966442-af61-47cb-9fd6-33494c71162a",
+            "kind": "intake_snapshot",
+            "state": "READY",
+            "available_at": "2026-10-23 21:21:54.338323+00:00",
+            "lease_until": null,
+            "owner": null,
+            "fence": 0,
+            "attempts": 0
+          }
+        ],
+        "events": 0
+      },
+      "http": 503
+    },
+    {
+      "scenario": "sql_failure_audit_events",
+      "rollback_exact": true,
+      "before": {
+        "workflow": {
+          "id": "e413d0d8-ca00-4463-b156-11ed2a0d9160",
+          "incident_id": "6d796fe8-1c92-453f-8b55-7524b5dc4b99",
+          "creator_id": "5693db9c-068f-4521-90a8-d7464594f145",
+          "definition_version": 1,
+          "state": "QUEUED",
+          "resume_state": null,
+          "version": 1,
+          "deadline_at": "2026-10-23 21:26:54.765563+00:00",
+          "budget_spent_ms": 0,
+          "cancel_requested_at": null,
+          "reason_code": "INTAKE_ACCEPTED",
+          "created_at": "2026-10-23 21:21:54.765580+00:00"
+        },
+        "jobs": [
+          {
+            "id": "3fe907d7-7142-4085-b2ba-c8f0843ce25d",
+            "workflow_id": "e413d0d8-ca00-4463-b156-11ed2a0d9160",
+            "step_id": "9b00a908-7ba1-4680-bbd3-f1592280ae18",
+            "kind": "intake_snapshot",
+            "state": "READY",
+            "available_at": "2026-10-23 21:21:54.769753+00:00",
+            "lease_until": null,
+            "owner": null,
+            "fence": 0,
+            "attempts": 0
+          }
+        ],
+        "events": 0
+      },
+      "http": 503
+    },
+    {
+      "scenario": "sql_failure_commit",
+      "rollback_exact": true,
+      "before": {
+        "workflow": {
+          "id": "281b585f-d7e2-4b34-a1e7-b9e09b7016a6",
+          "incident_id": "8e623136-4524-44cf-8d65-32aea02a27e8",
+          "creator_id": "5693db9c-068f-4521-90a8-d7464594f145",
+          "definition_version": 1,
+          "state": "QUEUED",
+          "resume_state": null,
+          "version": 1,
+          "deadline_at": "2026-10-23 21:26:55.340579+00:00",
+          "budget_spent_ms": 0,
+          "cancel_requested_at": null,
+          "reason_code": "INTAKE_ACCEPTED",
+          "created_at": "2026-10-23 21:21:55.340592+00:00"
+        },
+        "jobs": [
+          {
+            "id": "2cad05ac-2319-4e43-8998-2d97bfff55c2",
+            "workflow_id": "281b585f-d7e2-4b34-a1e7-b9e09b7016a6",
+            "step_id": "0b6265d4-19ea-4261-9e99-b266f91774d0",
+            "kind": "intake_snapshot",
+            "state": "READY",
+            "available_at": "2026-10-23 21:21:55.343985+00:00",
+            "lease_until": null,
+            "owner": null,
+            "fence": 0,
+            "attempts": 0
+          }
+        ],
+        "events": 0
+      },
+      "http": 503
+    },
+    {
+      "scenario": "lock_timeout",
+      "http": 503,
+      "rollback_exact": true,
+      "before": {
+        "workflow": {
+          "id": "c8ed4e37-3e6e-4d4f-a3f9-4542c17d61e2",
+          "incident_id": "0332b857-be8a-41ae-bb41-49af50b409df",
+          "creator_id": "5693db9c-068f-4521-90a8-d7464594f145",
+          "definition_version": 1,
+          "state": "QUEUED",
+          "resume_state": null,
+          "version": 1,
+          "deadline_at": "2026-10-23 21:26:55.975293+00:00",
+          "budget_spent_ms": 0,
+          "cancel_requested_at": null,
+          "reason_code": "INTAKE_ACCEPTED",
+          "created_at": "2026-10-23 21:21:55.975314+00:00"
+        },
+        "jobs": [
+          {
+            "id": "e8dbcfa1-7f86-4663-9512-31bc3b3c95e0",
+            "workflow_id": "c8ed4e37-3e6e-4d4f-a3f9-4542c17d61e2",
+            "step_id": "a35b7593-d478-49bb-a014-f29efe60fef3",
+            "kind": "intake_snapshot",
+            "state": "READY",
+            "available_at": "2026-10-23 21:21:55.981777+00:00",
+            "lease_until": null,
+            "owner": null,
+            "fence": 0,
+            "attempts": 0
+          }
+        ],
+        "events": 0
+      }
+    },
+    {
+      "scenario": "http_crash_before_commit",
+      "exit_code": 1,
+      "http_before_kill": null,
+      "transport_error": true,
+      "before": {
+        "workflow": {
+          "id": "ae3a11af-d56a-44cf-9aa3-13dc76d535e1",
+          "incident_id": "f2ab584b-36b5-4458-89a5-9a8e27fab2ce",
+          "creator_id": "5693db9c-068f-4521-90a8-d7464594f145",
+          "definition_version": 1,
+          "state": "QUEUED",
+          "resume_state": null,
+          "version": 1,
+          "deadline_at": "2026-10-23 21:27:00.010705+00:00",
+          "budget_spent_ms": 0,
+          "cancel_requested_at": null,
+          "reason_code": "INTAKE_ACCEPTED",
+          "created_at": "2026-10-23 21:22:00.010717+00:00"
+        },
+        "jobs": [
+          {
+            "id": "bf4bcde4-0381-454e-879a-643a5bfdbc47",
+            "workflow_id": "ae3a11af-d56a-44cf-9aa3-13dc76d535e1",
+            "step_id": "0e1f4790-9721-46f7-a7f1-cc3591ee9c53",
+            "kind": "intake_snapshot",
+            "state": "READY",
+            "available_at": "2026-10-23 21:22:00.013771+00:00",
+            "lease_until": null,
+            "owner": null,
+            "fence": 0,
+            "attempts": 0
+          }
+        ],
+        "events": 0
+      },
+      "during": {
+        "workflow": {
+          "id": "ae3a11af-d56a-44cf-9aa3-13dc76d535e1",
+          "incident_id": "f2ab584b-36b5-4458-89a5-9a8e27fab2ce",
+          "creator_id": "5693db9c-068f-4521-90a8-d7464594f145",
+          "definition_version": 1,
+          "state": "QUEUED",
+          "resume_state": null,
+          "version": 1,
+          "deadline_at": "2026-10-23 21:27:00.010705+00:00",
+          "budget_spent_ms": 0,
+          "cancel_requested_at": null,
+          "reason_code": "INTAKE_ACCEPTED",
+          "created_at": "2026-10-23 21:22:00.010717+00:00"
+        },
+        "jobs": [
+          {
+            "id": "bf4bcde4-0381-454e-879a-643a5bfdbc47",
+            "workflow_id": "ae3a11af-d56a-44cf-9aa3-13dc76d535e1",
+            "step_id": "0e1f4790-9721-46f7-a7f1-cc3591ee9c53",
+            "kind": "intake_snapshot",
+            "state": "READY",
+            "available_at": "2026-10-23 21:22:00.013771+00:00",
+            "lease_until": null,
+            "owner": null,
+            "fence": 0,
+            "attempts": 0
+          }
+        ],
+        "events": 0
+      },
+      "after_retry": {
+        "workflow": {
+          "id": "ae3a11af-d56a-44cf-9aa3-13dc76d535e1",
+          "incident_id": "f2ab584b-36b5-4458-89a5-9a8e27fab2ce",
+          "creator_id": "5693db9c-068f-4521-90a8-d7464594f145",
+          "definition_version": 1,
+          "state": "CANCELLED",
+          "resume_state": null,
+          "version": 2,
+          "deadline_at": "2026-10-23 21:27:00.010705+00:00",
+          "budget_spent_ms": 0,
+          "cancel_requested_at": "2026-10-23 21:22:03.406284+00:00",
+          "reason_code": "CANCELLED_BY_OPERATOR",
+          "created_at": "2026-10-23 21:22:00.010717+00:00"
+        },
+        "jobs": [
+          {
+            "id": "bf4bcde4-0381-454e-879a-643a5bfdbc47",
+            "workflow_id": "ae3a11af-d56a-44cf-9aa3-13dc76d535e1",
+            "step_id": "0e1f4790-9721-46f7-a7f1-cc3591ee9c53",
+            "kind": "intake_snapshot",
+            "state": "DEAD",
+            "available_at": "2026-10-23 21:22:00.013771+00:00",
+            "lease_until": null,
+            "owner": null,
+            "fence": 1,
+            "attempts": 0
+          }
+        ],
+        "events": 1
+      },
+      "retry_http": 202
+    },
+    {
+      "scenario": "http_crash_after_commit",
+      "exit_code": 1,
+      "http_before_kill": null,
+      "transport_error": true,
+      "before": {
+        "workflow": {
+          "id": "c78a0ec7-1725-4c1c-9cad-6e4d1a6d016f",
+          "incident_id": "7f95bccf-cf81-4b2e-9b0e-154128f1d6c1",
+          "creator_id": "5693db9c-068f-4521-90a8-d7464594f145",
+          "definition_version": 1,
+          "state": "QUEUED",
+          "resume_state": null,
+          "version": 1,
+          "deadline_at": "2026-10-23 21:27:03.966617+00:00",
+          "budget_spent_ms": 0,
+          "cancel_requested_at": null,
+          "reason_code": "INTAKE_ACCEPTED",
+          "created_at": "2026-10-23 21:22:03.966630+00:00"
+        },
+        "jobs": [
+          {
+            "id": "9b7f936a-999e-45da-82c3-4ae7ed3da62e",
+            "workflow_id": "c78a0ec7-1725-4c1c-9cad-6e4d1a6d016f",
+            "step_id": "22e27727-98c2-4f0a-ac3d-125bce5e13ad",
+            "kind": "intake_snapshot",
+            "state": "READY",
+            "available_at": "2026-10-23 21:22:03.969398+00:00",
+            "lease_until": null,
+            "owner": null,
+            "fence": 0,
+            "attempts": 0
+          }
+        ],
+        "events": 0
+      },
+      "during": {
+        "workflow": {
+          "id": "c78a0ec7-1725-4c1c-9cad-6e4d1a6d016f",
+          "incident_id": "7f95bccf-cf81-4b2e-9b0e-154128f1d6c1",
+          "creator_id": "5693db9c-068f-4521-90a8-d7464594f145",
+          "definition_version": 1,
+          "state": "CANCELLED",
+          "resume_state": null,
+          "version": 2,
+          "deadline_at": "2026-10-23 21:27:03.966617+00:00",
+          "budget_spent_ms": 0,
+          "cancel_requested_at": "2026-10-23 21:22:07.059528+00:00",
+          "reason_code": "CANCELLED_BY_OPERATOR",
+          "created_at": "2026-10-23 21:22:03.966630+00:00"
+        },
+        "jobs": [
+          {
+            "id": "9b7f936a-999e-45da-82c3-4ae7ed3da62e",
+            "workflow_id": "c78a0ec7-1725-4c1c-9cad-6e4d1a6d016f",
+            "step_id": "22e27727-98c2-4f0a-ac3d-125bce5e13ad",
+            "kind": "intake_snapshot",
+            "state": "DEAD",
+            "available_at": "2026-10-23 21:22:03.969398+00:00",
+            "lease_until": null,
+            "owner": null,
+            "fence": 1,
+            "attempts": 0
+          }
+        ],
+        "events": 1
+      },
+      "after_retry": {
+        "workflow": {
+          "id": "c78a0ec7-1725-4c1c-9cad-6e4d1a6d016f",
+          "incident_id": "7f95bccf-cf81-4b2e-9b0e-154128f1d6c1",
+          "creator_id": "5693db9c-068f-4521-90a8-d7464594f145",
+          "definition_version": 1,
+          "state": "CANCELLED",
+          "resume_state": null,
+          "version": 2,
+          "deadline_at": "2026-10-23 21:27:03.966617+00:00",
+          "budget_spent_ms": 0,
+          "cancel_requested_at": "2026-10-23 21:22:07.059528+00:00",
+          "reason_code": "CANCELLED_BY_OPERATOR",
+          "created_at": "2026-10-23 21:22:03.966630+00:00"
+        },
+        "jobs": [
+          {
+            "id": "9b7f936a-999e-45da-82c3-4ae7ed3da62e",
+            "workflow_id": "c78a0ec7-1725-4c1c-9cad-6e4d1a6d016f",
+            "step_id": "22e27727-98c2-4f0a-ac3d-125bce5e13ad",
+            "kind": "intake_snapshot",
+            "state": "DEAD",
+            "available_at": "2026-10-23 21:22:03.969398+00:00",
+            "lease_until": null,
+            "owner": null,
+            "fence": 1,
+            "attempts": 0
+          }
+        ],
+        "events": 1
+      },
+      "retry_http": 202
+    },
+    {
+      "scenario": "two_api_processes",
+      "http": [
+        409,
+        409,
+        409,
+        409,
+        409,
+        409,
+        409,
+        409,
+        202,
+        409,
+        409,
+        409,
+        409,
+        409,
+        409,
+        409,
+        409,
+        409,
+        409,
+        409
+      ],
+      "restart_http": 202,
+      "after": {
+        "workflow": {
+          "id": "5707a4cd-8d46-4a0c-88f9-934650ac3a51",
+          "incident_id": "cde1811f-25fe-40ee-8b88-165f1e9f9cea",
+          "creator_id": "5693db9c-068f-4521-90a8-d7464594f145",
+          "definition_version": 1,
+          "state": "CANCELLED",
+          "resume_state": null,
+          "version": 2,
+          "deadline_at": "2026-10-23 21:27:10.481439+00:00",
+          "budget_spent_ms": 0,
+          "cancel_requested_at": "2026-10-23 21:22:17.959374+00:00",
+          "reason_code": "CANCELLED_BY_OPERATOR",
+          "created_at": "2026-10-23 21:22:10.481458+00:00"
+        },
+        "jobs": [
+          {
+            "id": "200d2a3c-3c92-420a-b996-7941b83995ef",
+            "workflow_id": "5707a4cd-8d46-4a0c-88f9-934650ac3a51",
+            "step_id": "529b3458-5f68-4ed2-b208-0ef7bb6c00cd",
+            "kind": "intake_snapshot",
+            "state": "DEAD",
+            "available_at": "2026-10-23 21:22:10.484999+00:00",
+            "lease_until": null,
+            "owner": null,
+            "fence": 1,
+            "attempts": 0
+          }
+        ],
+        "events": 1
+      }
+    },
+    {
+      "scenario": "real_expired_access_token",
+      "http": [
+        401,
+        401,
+        401
+      ],
+      "signature_clock_mocks": false
+    },
+    {
+      "scenario": "same",
+      "requests": 20,
+      "http_202": 20,
+      "http_409": 0,
+      "rows_added": {
+        "incidents": 1,
+        "workflows": 1,
+        "workflow_steps": 1,
+        "jobs": 1,
+        "api_idempotency": 1,
+        "audit_events": 1,
+        "audit_streams": 1
+      },
+      "distinct_accepted_bodies": 1
+    },
+    {
+      "scenario": "different_body",
+      "requests": 20,
+      "http_202": 10,
+      "http_409": 10,
+      "rows_added": {
+        "incidents": 1,
+        "workflows": 1,
+        "workflow_steps": 1,
+        "jobs": 1,
+        "api_idempotency": 1,
+        "audit_events": 1,
+        "audit_streams": 1
+      },
+      "distinct_accepted_bodies": 1
+    },
+    {
+      "scenario": "independent_keys",
+      "requests": 20,
+      "http_202": 20,
+      "http_409": 0,
+      "rows_added": {
+        "incidents": 20,
+        "workflows": 20,
+        "workflow_steps": 20,
+        "jobs": 20,
+        "api_idempotency": 20,
+        "audit_events": 20,
+        "audit_streams": 20
+      },
+      "distinct_accepted_bodies": 20
+    },
+    {
+      "fault": "incidents",
+      "status": 503,
+      "before": {
+        "incidents": 87,
+        "workflows": 87,
+        "workflow_steps": 87,
+        "jobs": 87,
+        "api_idempotency": 74,
+        "audit_events": 171,
+        "audit_streams": 113
+      },
+      "after": {
+        "incidents": 87,
+        "workflows": 87,
+        "workflow_steps": 87,
+        "jobs": 87,
+        "api_idempotency": 74,
+        "audit_events": 171,
+        "audit_streams": 113
+      }
+    },
+    {
+      "fault": "workflows",
+      "status": 503,
+      "before": {
+        "incidents": 87,
+        "workflows": 87,
+        "workflow_steps": 87,
+        "jobs": 87,
+        "api_idempotency": 74,
+        "audit_events": 171,
+        "audit_streams": 113
+      },
+      "after": {
+        "incidents": 87,
+        "workflows": 87,
+        "workflow_steps": 87,
+        "jobs": 87,
+        "api_idempotency": 74,
+        "audit_events": 171,
+        "audit_streams": 113
+      }
+    },
+    {
+      "fault": "workflow_steps",
+      "status": 503,
+      "before": {
+        "incidents": 87,
+        "workflows": 87,
+        "workflow_steps": 87,
+        "jobs": 87,
+        "api_idempotency": 74,
+        "audit_events": 171,
+        "audit_streams": 113
+      },
+      "after": {
+        "incidents": 87,
+        "workflows": 87,
+        "workflow_steps": 87,
+        "jobs": 87,
+        "api_idempotency": 74,
+        "audit_events": 171,
+        "audit_streams": 113
+      }
+    },
+    {
+      "fault": "jobs",
+      "status": 503,
+      "before": {
+        "incidents": 87,
+        "workflows": 87,
+        "workflow_steps": 87,
+        "jobs": 87,
+        "api_idempotency": 74,
+        "audit_events": 171,
+        "audit_streams": 113
+      },
+      "after": {
+        "incidents": 87,
+        "workflows": 87,
+        "workflow_steps": 87,
+        "jobs": 87,
+        "api_idempotency": 74,
+        "audit_events": 171,
+        "audit_streams": 113
+      }
+    },
+    {
+      "fault": "audit_events",
+      "status": 503,
+      "before": {
+        "incidents": 87,
+        "workflows": 87,
+        "workflow_steps": 87,
+        "jobs": 87,
+        "api_idempotency": 74,
+        "audit_events": 171,
+        "audit_streams": 113
+      },
+      "after": {
+        "incidents": 87,
+        "workflows": 87,
+        "workflow_steps": 87,
+        "jobs": 87,
+        "api_idempotency": 74,
+        "audit_events": 171,
+        "audit_streams": 113
+      }
+    },
+    {
+      "fault": "api_idempotency",
+      "status": 503,
+      "before": {
+        "incidents": 87,
+        "workflows": 87,
+        "workflow_steps": 87,
+        "jobs": 87,
+        "api_idempotency": 74,
+        "audit_events": 171,
+        "audit_streams": 113
+      },
+      "after": {
+        "incidents": 87,
+        "workflows": 87,
+        "workflow_steps": 87,
+        "jobs": 87,
+        "api_idempotency": 74,
+        "audit_events": 171,
+        "audit_streams": 113
+      }
+    },
+    {
+      "fault": "deferred_constraint_at_actual_commit",
+      "status": 503,
+      "commit_attempts": 1,
+      "before": {
+        "incidents": 87,
+        "workflows": 87,
+        "workflow_steps": 87,
+        "jobs": 87,
+        "api_idempotency": 74,
+        "audit_events": 171,
+        "audit_streams": 113
+      },
+      "after": {
+        "incidents": 87,
+        "workflows": 87,
+        "workflow_steps": 87,
+        "jobs": 87,
+        "api_idempotency": 74,
+        "audit_events": 171,
+        "audit_streams": 113
+      }
+    },
+    {
+      "phase": "before_commit",
+      "exit_code": 1,
+      "before": {
+        "incidents": 90,
+        "workflows": 90,
+        "workflow_steps": 90,
+        "jobs": 90,
+        "api_idempotency": 77,
+        "audit_events": 174,
+        "audit_streams": 116
+      },
+      "after_replay": {
+        "incidents": 91,
+        "workflows": 91,
+        "workflow_steps": 91,
+        "jobs": 91,
+        "api_idempotency": 78,
+        "audit_events": 175,
+        "audit_streams": 117
+      }
+    },
+    {
+      "phase": "after_commit",
+      "exit_code": 1,
+      "before": {
+        "incidents": 91,
+        "workflows": 91,
+        "workflow_steps": 91,
+        "jobs": 91,
+        "api_idempotency": 78,
+        "audit_events": 175,
+        "audit_streams": 117
+      },
+      "after_replay": {
+        "incidents": 92,
+        "workflows": 92,
+        "workflow_steps": 92,
+        "jobs": 92,
+        "api_idempotency": 79,
+        "audit_events": 176,
+        "audit_streams": 118
+      }
+    },
+    {
+      "scenario": "two_api_processes_then_restart",
+      "requests": 20,
+      "http_202": 20,
+      "distinct_accepted_bodies": 1,
+      "restart_replay_status": 202,
+      "restart_replay_exact": true,
+      "before": {
+        "incidents": 92,
+        "workflows": 92,
+        "workflow_steps": 92,
+        "jobs": 92,
+        "api_idempotency": 79,
+        "audit_events": 176,
+        "audit_streams": 118
+      },
+      "after": {
+        "incidents": 93,
+        "workflows": 93,
+        "workflow_steps": 93,
+        "jobs": 93,
+        "api_idempotency": 80,
+        "audit_events": 177,
+        "audit_streams": 119
+      }
+    },
+    {
+      "phase": "serve_before_commit",
+      "exit_code": 1,
+      "response_before_kill": false,
+      "transport_error": true,
+      "replay_status": 202,
+      "before": {
+        "incidents": 93,
+        "workflows": 93,
+        "workflow_steps": 93,
+        "jobs": 93,
+        "api_idempotency": 80,
+        "audit_events": 177,
+        "audit_streams": 119
+      },
+      "after_replay": {
+        "incidents": 94,
+        "workflows": 94,
+        "workflow_steps": 94,
+        "jobs": 94,
+        "api_idempotency": 81,
+        "audit_events": 178,
+        "audit_streams": 120
+      }
+    },
+    {
+      "phase": "serve_after_commit",
+      "exit_code": 1,
+      "response_before_kill": false,
+      "transport_error": true,
+      "replay_status": 202,
+      "before": {
+        "incidents": 94,
+        "workflows": 94,
+        "workflow_steps": 94,
+        "jobs": 94,
+        "api_idempotency": 81,
+        "audit_events": 178,
+        "audit_streams": 120
+      },
+      "after_replay": {
+        "incidents": 95,
+        "workflows": 95,
+        "workflow_steps": 95,
+        "jobs": 95,
+        "api_idempotency": 82,
+        "audit_events": 179,
+        "audit_streams": 121
+      }
+    }
+  ]
+}

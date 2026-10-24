@@ -1,0 +1,410 @@
+{
+  "scope": "Selected scenarios from the complete executed suite; worker completion not implemented",
+  "scenarios": [
+    {
+      "suite": "tests.harness.test_checks.HarnessChecks",
+      "test": "test_unclosed_code_fence_fails",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_access_cancel",
+      "test": "test_revocation_before_reads_and_cancel[operator-revoke]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_access_cancel",
+      "test": "test_revocation_before_reads_and_cancel[auditor-revoke]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_access_cancel",
+      "test": "test_lock_wait_rechecks_version_and_permissions[revoke]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_access_cancel",
+      "test": "test_leased_job_fence_and_sql_no_resurrection",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_access_cancel",
+      "test": "test_fence_overflow_rolls_back_and_max_version_header_is_valid",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_entrypoints",
+      "test": "test_actual_cli_create_grant_revoke_disable_commits_audit",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_identity",
+      "test": "test_role_revoke_denies_next_request_and_restore_is_audited",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_incident_intake",
+      "test": "test_replay_rechecks_current_identity_and_grants[revoke]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_n_minus_one_preserves_real_identity_grants_events_hash_and_appender",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_failed_migration_rolls_back_tables_checks_and_revision",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_sql_v2_snapshot_hash_schema_and_mixed_chain",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_v2_created_and_local_snapshot_are_valid_durable_rows",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_v2_invalid_payload_rolls_back_state_and_stream[mutation0]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_v2_invalid_payload_rolls_back_state_and_stream[mutation1]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_v2_invalid_payload_rolls_back_state_and_stream[mutation2]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_v2_invalid_payload_rolls_back_state_and_stream[mutation3]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_v2_invalid_payload_rolls_back_state_and_stream[mutation4]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_v2_invalid_payload_rolls_back_state_and_stream[mutation5]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_v2_invalid_payload_rolls_back_state_and_stream[mutation6]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_v2_invalid_payload_rolls_back_state_and_stream[mutation7]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_v2_raw_noncanonical_or_wrong_shape_is_rejected[{\"x\":1.0}]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_v2_raw_noncanonical_or_wrong_shape_is_rejected[{\"x\":1e2}]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_v2_raw_noncanonical_or_wrong_shape_is_rejected[{\"x\":1,\"x\":2}]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_v2_raw_noncanonical_or_wrong_shape_is_rejected[[]]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_v2_raw_noncanonical_or_wrong_shape_is_rejected[null]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_unknown_definition_holds_state_and_can_be_cancelled",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_deferred_cancel_records_intention_without_transition_or_retry[EXECUTING]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_deferred_cancel_records_intention_without_transition_or_retry[VERIFYING]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_deferred_cancel_records_intention_without_transition_or_retry[OUTCOME_UNKNOWN]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_cancel_retry_wait_clears_resume_without_widening_api_grants",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_duplicate_v2_append_cannot_add_a_second_event_for_version",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_evidence_rejects_wrong_hash_shape_source_or_unredacted_text[mutation0]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_evidence_rejects_wrong_hash_shape_source_or_unredacted_text[mutation1]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_evidence_rejects_wrong_hash_shape_source_or_unredacted_text[mutation2]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_evidence_rejects_wrong_hash_shape_source_or_unredacted_text[mutation3]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_audit_cannot_refer_to_missing_or_other_workflow_evidence[False]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_audit_cannot_refer_to_missing_or_other_workflow_evidence[True]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_worker_events_reject_wrong_login_or_actor[app-None]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_worker_events_reject_wrong_login_or_actor[worker-creator]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_worker_events_reject_wrong_login_or_actor[provisioner-None]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_real_http_audit_reads_mixed_versions_without_private_state",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_evidence_deduplication_and_cross_workflow_step_binding",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_actual_runtime_privileges_deny_forbidden_operations[app-CREATE TABLE forbidden_t03(id int)]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_actual_runtime_privileges_deny_forbidden_operations[app-CREATE SCHEMA forbidden_t03]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_actual_runtime_privileges_deny_forbidden_operations[app-CREATE TEMP TABLE forbidden_t03(id int)]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_actual_runtime_privileges_deny_forbidden_operations[app-UPDATE audit_events SET payload='{}'::jsonb]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_actual_runtime_privileges_deny_forbidden_operations[app-DELETE FROM audit_events]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_actual_runtime_privileges_deny_forbidden_operations[app-TRUNCATE workflows CASCADE]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_actual_runtime_privileges_deny_forbidden_operations[app-UPDATE evidence SET payload='{}'::jsonb]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_actual_runtime_privileges_deny_forbidden_operations[app-DELETE FROM evidence]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_actual_runtime_privileges_deny_forbidden_operations[app-DELETE FROM api_idempotency]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_actual_runtime_privileges_deny_forbidden_operations[app-UPDATE principals SET enabled=false]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_actual_runtime_privileges_deny_forbidden_operations[app-SET ROLE opspilot_audit_owner]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_actual_runtime_privileges_deny_forbidden_operations[worker-CREATE TABLE forbidden_t03(id int)]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_actual_runtime_privileges_deny_forbidden_operations[worker-CREATE SCHEMA forbidden_t03]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_actual_runtime_privileges_deny_forbidden_operations[worker-CREATE TEMP TABLE forbidden_t03(id int)]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_actual_runtime_privileges_deny_forbidden_operations[worker-UPDATE audit_events SET payload='{}'::jsonb]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_actual_runtime_privileges_deny_forbidden_operations[worker-DELETE FROM audit_events]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_actual_runtime_privileges_deny_forbidden_operations[worker-TRUNCATE workflows CASCADE]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_actual_runtime_privileges_deny_forbidden_operations[worker-UPDATE evidence SET payload='{}'::jsonb]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_actual_runtime_privileges_deny_forbidden_operations[worker-DELETE FROM evidence]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_actual_runtime_privileges_deny_forbidden_operations[worker-DELETE FROM api_idempotency]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_actual_runtime_privileges_deny_forbidden_operations[worker-UPDATE principals SET enabled=false]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_actual_runtime_privileges_deny_forbidden_operations[worker-SET ROLE opspilot_audit_owner]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_actual_runtime_privileges_deny_forbidden_operations[worker-SELECT * FROM api_idempotency]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_actual_runtime_privileges_deny_forbidden_operations[worker-SELECT * FROM role_grants]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_actual_runtime_privileges_deny_forbidden_operations[worker-INSERT INTO incidents(id) VALUES(gen_random_uuid())]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_actual_runtime_privileges_deny_forbidden_operations[worker-UPDATE workflows SET deadline_at=clock_timestamp()]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_actual_runtime_privileges_deny_forbidden_operations[worker-SELECT audit_append(gen_random_uuid(),'identity.provisioned',NULL,repeat('0',32),'{}')]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_actual_runtime_privileges_deny_forbidden_operations[app-UPDATE jobs SET attempts=0]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_actual_runtime_privileges_deny_forbidden_operations[provisioner-SELECT * FROM workflows]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_worker_flags_database_scope_function_ownership_and_exact_column_grants",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_db_workflow_guards_reject_illegal_edges_cas_shape_and_budget[UPDATE workflows SET state='EXECUTING',version=version+1 WHERE id=:id]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_db_workflow_guards_reject_illegal_edges_cas_shape_and_budget[UPDATE workflows SET version=version WHERE id=:id]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_db_workflow_guards_reject_illegal_edges_cas_shape_and_budget[UPDATE workflows SET state='RETRY_WAIT',version=version+1,resume_state='EXECUTING' WHERE id=:id]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_db_workflow_guards_reject_illegal_edges_cas_shape_and_budget[UPDATE workflows SET version=version+1,budget_spent_ms=300001 WHERE id=:id]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_unknown_outcome_cannot_be_dispatched_or_retried_in_db[EXECUTING]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_unknown_outcome_cannot_be_dispatched_or_retried_in_db[RETRY_WAIT]",
+      "passed": true
+    },
+    {
+      "suite": "tests.integration.test_workflow_persistence",
+      "test": "test_active_workflow_job_and_idempotency_relational_invariants",
+      "passed": true
+    },
+    {
+      "suite": "tests.unit.test_intake",
+      "test": "test_usecase_commit_before_return_and_race_rollback_before_replay",
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "verdict": "PASS",
+  "checked_at_utc": "2026-10-23T23:18:59.477670+00:00",
+  "python": "3.13.14",
+  "files": 182,
+  "input_sha256": "bfee7ab9eadce0706b3775b3b3c9d4d0fdf9afb8f97041cc922c527151fe907a",
+  "digest_excludes": [
+    ".git",
+    "artifacts",
+    "__pycache__",
+    ".venv",
+    "node_modules",
+    "docs/roadmap/HANDOFF.md",
+    "docs/roadmap/SESSION_01_REVIEW.md"
+  ],
+  "checks": [
+    "required documents",
+    "whitespace and final newline",
+    "Markdown links/fences",
+    "JSON local refs",
+    "workflow graph and Mermaid parity",
+    "eight sessions/twelve fields",
+    "traceability and PRD parity",
+    "OpenAPI S02 auth/scope"
+  ],
+  "errors": [],
+  "limitations": "Not runtime, full OpenAPI/JSON Schema, secret scanning or Mermaid rendering validation."
+}

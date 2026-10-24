@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "ids": {
+    "incident_id": "75f9b11f-67bf-441f-a6a4-e203c44afcac",
+    "workflow_id": "47b95db7-1168-4faf-b349-f8c2656a1ee7"
+  },
+  "workflow": {
+    "workflow_id": "47b95db7-1168-4faf-b349-f8c2656a1ee7",
+    "incident_id": "75f9b11f-67bf-441f-a6a4-e203c44afcac",
+    "state": "CANCELLED",
+    "version": 2,
+    "definition_version": 1,
+    "cancel_requested_at": "2026-10-23T21:18:57.115867Z",
+    "reason_code": "CANCELLED_BY_OPERATOR",
+    "evidence": []
+  },
+  "etag": "\"wf-47b95db7-1168-4faf-b349-f8c2656a1ee7-v2\"",
+  "cancel": {
+    "workflow_id": "47b95db7-1168-4faf-b349-f8c2656a1ee7",
+    "state": "CANCELLED",
+    "version": 2,
+    "cancel_requested_at": "2026-10-23T21:18:57.115867Z"
+  },
+  "incident_status": "OPEN",
+  "jobs": [
+    {
+      "state": "DEAD",
+      "owner": null,
+      "lease_until": null,
+      "fence": 1,
+      "attempts": 0
+    }
+  ],
+  "counts": {
+    "principals": 4,
+    "role_grants": 4,
+    "incidents": 2,
+    "workflows": 2,
+    "jobs": 2,
+    "audit_events": 11,
+    "audit_streams": 7
+  }
+}

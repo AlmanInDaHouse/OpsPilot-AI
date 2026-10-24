@@ -1,5 +1,26 @@
 # Runbook de plataforma S02
 
+## Hotfix PostgreSQL / Brotli S03
+
+[Revisión y resultados actuales](../roadmap/SESSION_03_POSTGRES_SECURITY_REVIEW.md).
+La base PostgreSQL 18.6/Alpine 3.24.3 por digest conserva su configuración y UID 70;
+infra/postgres.Dockerfile instala brotli-libs=1.2.1-r0 firmado desde v3.24/main,
+antes de USER postgres. No mezclar ramas ni eliminar la dependencia de libcurl.
+Si Alpine retira esa revisión, el build falla: revisar versión mantenida, fijarla
+y repetir los gates; no quitar el pin ni el scan como reparación automática.
+
+Para revalidar, construir PG, API y tests; guardar inventario/digests; ejecutar las
+suites Windows/Linux secuencialmente, PG fresco, recovery y los tres scans en un
+directorio nuevo. Contrastar inspect/config/Trivy de la imagen final y hashes de
+datos antes/después. No reutilizar informes de otra imagen o snapshot histórico.
+
+Tras recrear el contenedor PostgreSQL, Keycloak puede mantener conexiones JDBC
+cerradas y devolver 500 en PKCE aun con health verde. Reiniciar Keycloak y API del
+lab propio, esperar health y comprobar login PKCE real antes de aceptar regresión.
+No reprovisionar identidades ni reconstruir el volumen para corregir ese estado.
+Mantener pg_data, credenciales y evidencias; no usar down -v ni eliminar volúmenes.
+Recovery por restart no sustituye la restauración de backups exigida en S08.
+
 ## Actualización S03 — persistencia T03-02
 
 El autor aprobó cierre/riesgos S02 y T03-01/ADR-0008 antes de código. Migración 0002
@@ -211,6 +232,26 @@ sincronización, nunca switches de fallo en src. verify_recovery.py comprueba ta
 503 del POST durante caída real de PostgreSQL. El smoke T03-03 deja una incidencia
 sintética en el volumen del lab y comprueba replay exacto después del reinicio.
 [Revisión/evidencias](../roadmap/SESSION_03_INTAKE_REVIEW.md), sin modificar snapshots S02/T03-02.
+
+## Lecturas y cancelación local T03-04
+
+GET /v1/incidents/{incident_id} y GET /v1/workflows/{workflow_id}: operator creador
+o auditor local explícito. Sin body/query, no existe conditional GET. Workflow
+devuelve ETag fuerte con UUID lowercase y versión. Admin/approver no heredan acceso.
+Cancel requiere operator creador y POST /v1/workflows/{workflow_id}/cancel sin body,
+con If-Match exactamente igual al tag leído. 202 solo tras commit; devuelve el ETag
+nuevo. La incidencia permanece OPEN; no implica revertir efectos ni resolver VPN.
+
+Ante 409 VERSION_CONFLICT o transporte perdido, releer GET workflow autorizado.
+Si CANCELLED, repetir con ETag actual da 202 sin cambios; viejo sigue 409. Ante 503
+no asumir éxito ni fracaso del commit. SUCCEEDED/FAILED actuales devuelven 409
+TERMINAL_WORKFLOW. Ambiguos solo registran intención; no activar reintentos.
+Pruebas de T03-04 incluyen caducidad real de token con TTL temporal de un segundo
+del cliente PKCE sintético, restaurado tras emisión; ejecutar suites de integración
+secuencialmente para evitar interferir con ese cambio local del IdP.
+
+Evidencias nuevas en artifacts/session-03/access-cancel; snapshots anteriores
+intactos. Worker, leases/resultados tardíos y AC03-06 completo siguen T03-05/06.
 
 ## Scanner aislado y evidencia nueva
 

@@ -1,0 +1,16 @@
+{
+  "name": "inventory-before",
+  "command": [
+    "uv",
+    "run",
+    "--frozen",
+    "python",
+    "artifacts/local/postgres-security/inventory.py",
+    "opspilot-s02-postgres-1",
+    "image-before"
+  ],
+  "started_at_utc": "2026-10-23T23:14:44.283073+00:00",
+  "finished_at_utc": "2026-10-23T23:14:45.852161+00:00",
+  "exit_code": 0,
+  "raw_sha256": "3937819ac37b39b676ba63cc8dacd5f741557a5a028f593676267f73f23d97e9"
+}

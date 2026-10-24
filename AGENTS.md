@@ -4,6 +4,8 @@ Lee [README](README.md), [handoff](docs/roadmap/HANDOFF.md),
 [constitución](docs/engineering/CONSTITUTION.md) y la especificación del hito activo.
 S02 tiene GO técnico para 660f7d3. El autor aprobó cierre/riesgos S02, T03-01 y
 ADR-0008; T03-02 implementa persistencia/appender v2 y T03-03 añade intake atómico.
+T03-04 implementa [acceso/cancelación CAS](docs/roadmap/SESSION_03_ACCESS_CANCEL_REVIEW.md);
+worker T03-05/06 pendiente y AC03-06 solo parcial.
 Leer [revisión de intake](docs/roadmap/SESSION_03_INTAKE_REVIEW.md) y sus gates.
 Consultar revisión y handoff para gates y limitaciones; sin GO S04.
 

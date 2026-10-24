@@ -1,0 +1,16 @@
+{
+  "name": "build-tests-api",
+  "command": [
+    "docker",
+    "compose",
+    "-f",
+    "infra/compose.yaml",
+    "build",
+    "tests",
+    "api"
+  ],
+  "started_at_utc": "2026-10-23T23:15:10.048230+00:00",
+  "finished_at_utc": "2026-10-23T23:15:25.823495+00:00",
+  "exit_code": 0,
+  "raw_sha256": "4f1d32215d073169c3707037f710174b1e987e6f82bc5408baa5cda0a423de2a"
+}

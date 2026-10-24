@@ -20,5 +20,6 @@ ni de producción; el cierre humano de toda S03 se reserva a T03-08.
 La especificación enlazada detalla precondiciones, flujo, transacciones, errores,
 seguridad, contratos y AC03-01..10. [Plan](plan.md), [tareas](tasks.md) y
 [checklist](checklist.md) descomponen la ejecución. Tests de contrato T03-01 existentes;
-intake y sus pruebas PG/HTTP/process crash implementados. Las rutas de lectura,
-cancelación y ejecución durable del worker siguen propuestas. Sin GO S04.
+intake y sus pruebas PG/HTTP/process crash implementados. [T03-04](access-cancel.md)
+implementa lecturas autorizadas y cancelación CAS/audit/jobs. Worker pendiente;
+AC03-06 parcial hasta probar claim/completion real en T03-05/06. Sin GO S04.

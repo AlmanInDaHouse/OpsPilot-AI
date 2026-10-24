@@ -1,0 +1,21 @@
+{
+  "name": "apk-verify-direct",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--cap-drop",
+    "ALL",
+    "--security-opt",
+    "no-new-privileges",
+    "--entrypoint",
+    "sh",
+    "opspilot-postgres:18.6-s02",
+    "-c",
+    "cd /tmp && wget -q https://dl-cdn.alpinelinux.org/alpine/v3.24/main/x86_64/brotli-libs-1.2.1-r0.apk && apk verify brotli-libs-1.2.1-r0.apk && sha256sum brotli-libs-1.2.1-r0.apk"
+  ],
+  "started_at_utc": "2026-10-23T23:15:31.240356+00:00",
+  "finished_at_utc": "2026-10-23T23:15:32.748833+00:00",
+  "exit_code": 0,
+  "raw_sha256": "1724c0496e5bae7ebfcf7566e0cc5d2c5e424128c338fd828cb0b9184ef56846"
+}

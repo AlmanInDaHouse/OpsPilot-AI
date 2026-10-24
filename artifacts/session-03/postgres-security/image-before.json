@@ -1,0 +1,391 @@
+{
+  "image": "opspilot-s02-postgres-1",
+  "id": "sha256:a88335c32e200cb4d4a9476632aea4bea9e881afd2f13cf7ab4883920bc2226c",
+  "repo_digests": [],
+  "architecture": "amd64",
+  "os": "linux",
+  "user": "postgres",
+  "uid_gid": "uid=70(postgres) gid=70(postgres) groups=70(postgres)",
+  "alpine": "3.24.3",
+  "repositories": [
+    "https://dl-cdn.alpinelinux.org/alpine/v3.24/main",
+    "https://dl-cdn.alpinelinux.org/alpine/v3.24/community"
+  ],
+  "postgres": "postgres (PostgreSQL) 18.6",
+  "gosu_absent": true,
+  "packages": {
+    ".postgresql-rundeps": {
+      "P": ".postgresql-rundeps",
+      "V": "20261021.225639",
+      "D": "so:libLLVM.so.21.1 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libcurl.so.4 so:libedit.so.0 so:libgcc_s.so.1 so:libgssapi_krb5.so.2 so:libicui18n.so.78 so:libicuuc.so.78 so:libldap.so.2 so:liblz4.so.1 so:libssl.so.3 so:libstdc++.so.6 so:liburing.so.2 so:libuuid.so.1 so:libxml2.so.2 so:libxslt.so.1 so:libz.so.1 so:libzstd.so.1 bash tzdata zstd icu-data-full nss_wrapper"
+    },
+    "alpine-baselayout": {
+      "P": "alpine-baselayout",
+      "V": "3.7.2-r1",
+      "o": "alpine-baselayout",
+      "D": "alpine-baselayout-data=3.7.2-r1 /bin/sh"
+    },
+    "alpine-baselayout-data": {
+      "P": "alpine-baselayout-data",
+      "V": "3.7.2-r1",
+      "o": "alpine-baselayout"
+    },
+    "alpine-keys": {
+      "P": "alpine-keys",
+      "V": "2.6-r0",
+      "o": "alpine-keys"
+    },
+    "alpine-release": {
+      "P": "alpine-release",
+      "V": "3.24.3-r0",
+      "o": "alpine-base",
+      "D": "alpine-keys"
+    },
+    "apk-tools": {
+      "P": "apk-tools",
+      "V": "3.0.8-r0",
+      "o": "apk-tools",
+      "D": "musl>=1.2.3_git20230424 libcrypto3>=3.5 libapk=3.0.8-r0 ca-certificates-bundle so:libapk.so.3.0.0 so:libc.musl-x86_64.so.1 so:libz.so.1",
+      "p": "apk-tools3=3.0.8-r0 cmd:apk=3.0.8-r0"
+    },
+    "bash": {
+      "P": "bash",
+      "V": "5.3.9-r1",
+      "o": "bash",
+      "D": "/bin/sh so:libc.musl-x86_64.so.1 so:libreadline.so.8",
+      "p": "cmd:bash=5.3.9-r1"
+    },
+    "brotli-libs": {
+      "P": "brotli-libs",
+      "V": "1.2.0-r1",
+      "o": "brotli",
+      "D": "so:libc.musl-x86_64.so.1",
+      "p": "so:libbrotlicommon.so.1=1.2.0 so:libbrotlidec.so.1=1.2.0 so:libbrotlienc.so.1=1.2.0"
+    },
+    "busybox": {
+      "P": "busybox",
+      "V": "1.37.0-r31",
+      "o": "busybox",
+      "D": "so:libc.musl-x86_64.so.1",
+      "p": "cmd:busybox=1.37.0-r31"
+    },
+    "busybox-binsh": {
+      "P": "busybox-binsh",
+      "V": "1.37.0-r31",
+      "o": "busybox",
+      "D": "busybox=1.37.0-r31",
+      "p": "/bin/sh cmd:sh=1.37.0-r31"
+    },
+    "c-ares": {
+      "P": "c-ares",
+      "V": "1.34.9-r0",
+      "o": "c-ares",
+      "D": "so:libc.musl-x86_64.so.1",
+      "p": "so:libcares.so.2=2.19.8"
+    },
+    "ca-certificates-bundle": {
+      "P": "ca-certificates-bundle",
+      "V": "20261020-r0",
+      "o": "ca-certificates",
+      "p": "ca-certificates-cacert=20261020-r0"
+    },
+    "gdbm": {
+      "P": "gdbm",
+      "V": "1.26-r0",
+      "o": "gdbm",
+      "D": "so:libc.musl-x86_64.so.1",
+      "p": "so:libgdbm.so.6=6.0.0 so:libgdbm_compat.so.4=4.0.0"
+    },
+    "icu-data-full": {
+      "P": "icu-data-full",
+      "V": "78.1-r0",
+      "o": "icu",
+      "p": "icu-data=78.1-r0"
+    },
+    "icu-libs": {
+      "P": "icu-libs",
+      "V": "78.1-r0",
+      "o": "icu",
+      "D": "icu-data=78.1-r0 so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6",
+      "p": "so:libicudata.so.78=78.1 so:libicui18n.so.78=78.1 so:libicuio.so.78=78.1 so:libicuuc.so.78=78.1"
+    },
+    "keyutils-libs": {
+      "P": "keyutils-libs",
+      "V": "1.6.3-r4",
+      "o": "keyutils",
+      "D": "so:libc.musl-x86_64.so.1",
+      "p": "so:libkeyutils.so.1=1.10"
+    },
+    "krb5-conf": {
+      "P": "krb5-conf",
+      "V": "1.0-r2",
+      "o": "krb5-conf"
+    },
+    "krb5-libs": {
+      "P": "krb5-libs",
+      "V": "1.22.2-r1",
+      "o": "krb5",
+      "D": "krb5-conf so:libc.musl-x86_64.so.1 so:libcom_err.so.2 so:libcrypto.so.3 so:libkeyutils.so.1 so:libssl.so.3 so:libverto.so.1",
+      "p": "so:libgssapi_krb5.so.2=2.2 so:libgssrpc.so.4=4.2 so:libk5crypto.so.3=3.1 so:libkadm5clnt_mit.so.12=12.0 so:libkadm5srv_mit.so.12=12.0 so:libkdb5.so.10=10.0 so:libkrad.so.0=0.0 so:libkrb5.so.3=3.3 so:libkrb5support.so.0=0.1"
+    },
+    "libapk": {
+      "P": "libapk",
+      "V": "3.0.8-r0",
+      "o": "apk-tools",
+      "D": "so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libssl.so.3 so:libz.so.1",
+      "p": "libapk2=3.0.8-r0 so:libapk.so.3.0.0=3.0.0"
+    },
+    "libcom_err": {
+      "P": "libcom_err",
+      "V": "1.47.4-r0",
+      "o": "e2fsprogs",
+      "D": "so:libc.musl-x86_64.so.1",
+      "p": "so:libcom_err.so.2=2.1"
+    },
+    "libcrypto3": {
+      "P": "libcrypto3",
+      "V": "3.5.9-r0",
+      "o": "openssl",
+      "D": "so:libc.musl-x86_64.so.1",
+      "p": "so:libcrypto.so.3=3"
+    },
+    "libcurl": {
+      "P": "libcurl",
+      "V": "8.22.0-r0",
+      "o": "curl",
+      "D": "ca-certificates-bundle so:libbrotlidec.so.1 so:libc.musl-x86_64.so.1 so:libcares.so.2 so:libcrypto.so.3 so:libidn2.so.0 so:libnghttp2.so.14 so:libpsl.so.5 so:libssl.so.3 so:libz.so.1 so:libzstd.so.1",
+      "p": "so:libcurl.so.4=4.8.0"
+    },
+    "libedit": {
+      "P": "libedit",
+      "V": "20260508.3.1-r1",
+      "o": "libedit",
+      "D": "so:libc.musl-x86_64.so.1 so:libncursesw.so.6",
+      "p": "so:libedit.so.0=0.0.77"
+    },
+    "libffi": {
+      "P": "libffi",
+      "V": "3.5.2-r1",
+      "o": "libffi",
+      "D": "so:libc.musl-x86_64.so.1",
+      "p": "so:libffi.so.8=8.2.0"
+    },
+    "libgcc": {
+      "P": "libgcc",
+      "V": "15.2.0-r5",
+      "o": "gcc",
+      "D": "so:libc.musl-x86_64.so.1",
+      "p": "so:libgcc_s.so.1=1"
+    },
+    "libidn2": {
+      "P": "libidn2",
+      "V": "2.3.8-r0",
+      "o": "libidn2",
+      "D": "so:libc.musl-x86_64.so.1 so:libunistring.so.5",
+      "p": "so:libidn2.so.0=0.4.0"
+    },
+    "libldap": {
+      "P": "libldap",
+      "V": "2.6.15-r0",
+      "o": "openldap",
+      "D": "so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libsasl2.so.3 so:libssl.so.3",
+      "p": "so:liblber.so.2=2.0.200 so:libldap.so.2=2.0.200"
+    },
+    "libncursesw": {
+      "P": "libncursesw",
+      "V": "6.6_p20260516-r0",
+      "o": "ncurses",
+      "D": "ncurses-terminfo-base=6.6_p20260516-r0 so:libc.musl-x86_64.so.1",
+      "p": "so:libncursesw.so.6=6.6"
+    },
+    "libpsl": {
+      "P": "libpsl",
+      "V": "0.21.5-r3",
+      "o": "libpsl",
+      "D": "so:libc.musl-x86_64.so.1 so:libidn2.so.0 so:libunistring.so.5",
+      "p": "so:libpsl.so.5=5.3.5"
+    },
+    "libsasl": {
+      "P": "libsasl",
+      "V": "2.1.28-r9",
+      "o": "cyrus-sasl",
+      "D": "so:libc.musl-x86_64.so.1 so:libgdbm.so.6",
+      "p": "so:libsasl2.so.3=3.0.0"
+    },
+    "libssl3": {
+      "P": "libssl3",
+      "V": "3.5.9-r0",
+      "o": "openssl",
+      "D": "libcrypto3=3.5.9-r0 so:libc.musl-x86_64.so.1 so:libcrypto.so.3",
+      "p": "so:libssl.so.3=3"
+    },
+    "libstdc++": {
+      "P": "libstdc++",
+      "V": "15.2.0-r5",
+      "o": "gcc",
+      "D": "so:libc.musl-x86_64.so.1 so:libgcc_s.so.1",
+      "p": "so:libstdc++.so.6=6.0.34"
+    },
+    "libunistring": {
+      "P": "libunistring",
+      "V": "1.4.2-r0",
+      "o": "libunistring",
+      "D": "so:libc.musl-x86_64.so.1",
+      "p": "so:libunistring.so.5=5.2.1"
+    },
+    "liburing": {
+      "P": "liburing",
+      "V": "2.14-r0",
+      "o": "liburing",
+      "D": "so:libc.musl-x86_64.so.1",
+      "p": "so:liburing.so.2=2.14"
+    },
+    "libuuid": {
+      "P": "libuuid",
+      "V": "2.42.3-r1",
+      "o": "util-linux",
+      "D": "so:libc.musl-x86_64.so.1",
+      "p": "so:libuuid.so.1=1.3.0"
+    },
+    "libverto": {
+      "P": "libverto",
+      "V": "0.3.2-r2",
+      "o": "libverto",
+      "D": "so:libc.musl-x86_64.so.1",
+      "p": "so:libverto.so.1=1.0.0"
+    },
+    "libxml2": {
+      "P": "libxml2",
+      "V": "2.13.9-r2",
+      "o": "libxml2",
+      "D": "so:libc.musl-x86_64.so.1 so:liblzma.so.5 so:libz.so.1",
+      "p": "so:libxml2.so.2=2.13.9"
+    },
+    "libxslt": {
+      "P": "libxslt",
+      "V": "1.1.43-r3",
+      "o": "libxslt",
+      "D": "so:libc.musl-x86_64.so.1 so:libxml2.so.2",
+      "p": "cmd:xsltproc=1.1.43-r3 so:libexslt.so.0=0.8.24 so:libxslt.so.1=1.1.43"
+    },
+    "llvm21-libs": {
+      "P": "llvm21-libs",
+      "V": "21.1.8-r1",
+      "o": "llvm21",
+      "D": "so:libc.musl-x86_64.so.1 so:libffi.so.8 so:libgcc_s.so.1 so:libstdc++.so.6 so:libxml2.so.2 so:libz.so.1 so:libzstd.so.1",
+      "p": "so:libLLVM.so.21.1=21.1"
+    },
+    "lz4-libs": {
+      "P": "lz4-libs",
+      "V": "1.10.0-r1",
+      "o": "lz4",
+      "D": "so:libc.musl-x86_64.so.1",
+      "p": "so:liblz4.so.1=1.10.0"
+    },
+    "musl": {
+      "P": "musl",
+      "V": "1.2.6-r3",
+      "o": "musl",
+      "p": "so:libc.musl-x86_64.so.1=1"
+    },
+    "musl-utils": {
+      "P": "musl-utils",
+      "V": "1.2.6-r3",
+      "o": "musl",
+      "D": "scanelf so:libc.musl-x86_64.so.1",
+      "p": "libc-utils=1.2.6-r3 cmd:getconf=1.2.6-r3 cmd:getent=1.2.6-r3 cmd:iconv=1.2.6-r3 cmd:ldconfig=1.2.6-r3 cmd:ldd=1.2.6-r3"
+    },
+    "ncurses-terminfo-base": {
+      "P": "ncurses-terminfo-base",
+      "V": "6.6_p20260516-r0",
+      "o": "ncurses"
+    },
+    "nghttp2-libs": {
+      "P": "nghttp2-libs",
+      "V": "1.70.0-r0",
+      "o": "nghttp2",
+      "D": "so:libc.musl-x86_64.so.1",
+      "p": "so:libnghttp2.so.14=14.29.5"
+    },
+    "nss_wrapper": {
+      "P": "nss_wrapper",
+      "V": "1.1.12-r1",
+      "o": "nss_wrapper",
+      "D": "so:libc.musl-x86_64.so.1",
+      "p": "so:libnss_wrapper.so.0=0.3.2"
+    },
+    "readline": {
+      "P": "readline",
+      "V": "8.3.3-r1",
+      "o": "readline",
+      "D": "so:libc.musl-x86_64.so.1 so:libncursesw.so.6",
+      "p": "so:libreadline.so.8=8.3"
+    },
+    "scanelf": {
+      "P": "scanelf",
+      "V": "1.3.9-r1",
+      "o": "pax-utils",
+      "D": "so:libc.musl-x86_64.so.1",
+      "p": "cmd:scanelf=1.3.9-r1"
+    },
+    "ssl_client": {
+      "P": "ssl_client",
+      "V": "1.37.0-r31",
+      "o": "busybox",
+      "D": "so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libssl.so.3",
+      "p": "cmd:ssl_client=1.37.0-r31"
+    },
+    "tzdata": {
+      "P": "tzdata",
+      "V": "2026e-r0",
+      "o": "tzdata"
+    },
+    "xz-libs": {
+      "P": "xz-libs",
+      "V": "5.8.4-r0",
+      "o": "xz",
+      "D": "so:libc.musl-x86_64.so.1",
+      "p": "so:liblzma.so.5=5.8.4"
+    },
+    "zlib": {
+      "P": "zlib",
+      "V": "1.3.2-r1",
+      "o": "zlib",
+      "D": "so:libc.musl-x86_64.so.1",
+      "p": "so:libz.so.1=1.3.2"
+    },
+    "zstd": {
+      "P": "zstd",
+      "V": "1.5.7-r2",
+      "o": "zstd",
+      "D": "so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6 so:libzstd.so.1",
+      "p": "cmd:pzstd=1.5.7-r2 cmd:unzstd=1.5.7-r2 cmd:zstd=1.5.7-r2 cmd:zstdcat=1.5.7-r2 cmd:zstdgrep=1.5.7-r2 cmd:zstdless=1.5.7-r2 cmd:zstdmt=1.5.7-r2"
+    },
+    "zstd-libs": {
+      "P": "zstd-libs",
+      "V": "1.5.7-r2",
+      "o": "zstd",
+      "D": "so:libc.musl-x86_64.so.1",
+      "p": "so:libzstd.so.1=1.5.7"
+    }
+  },
+  "brotli_files": [
+    {
+      "path": "/usr/lib/libbrotlicommon.so.1.2.0",
+      "hash": "570b996f56d64d9136900203e3d919d2386280365d3ec3c86906ff38ffed78e8"
+    },
+    {
+      "path": "/usr/lib/libbrotlidec.so.1.2.0",
+      "hash": "8e07ce2b56a473d4246faa077555f5978814793555ce0146821ff52cc972aa63"
+    },
+    {
+      "path": "/usr/lib/libbrotlienc.so.1.2.0",
+      "hash": "42296570d9bf2039fc2b2f26bab2cabe084cb312763caff82761383fbb788c51"
+    }
+  ],
+  "identity_note": "OCI index inspected before build; package probe used original running container before replacement; original raw Trivy config also verified",
+  "raw_capture": {
+    "file": "image-before-original.json",
+    "raw_sha256": "e781908e6df5217c8aa3c7a949b348df868f1e8b12daf3501cb741727a1f7108"
+  }
+}

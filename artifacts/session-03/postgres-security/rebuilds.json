@@ -1,0 +1,17 @@
+{
+  "builds": {
+    "build-postgres": {
+      "oci": "sha256:c3a28e95642954fcf17eff7dc551ff4b0efe07223444b7117efa63c89e54512f",
+      "config": "sha256:2782c1486dfd62b7e709c935f93f90bac4d97f17dc38fc9b021f9d9df0ec70b7",
+      "pinned_upgrade_observed": true,
+      "exit_code": 0
+    },
+    "build-postgres-no-cache": {
+      "oci": "sha256:39d00c5aa3ce070fafcec7db188b7bea93dbbe87fbe8c521d50a19ec7cc6b993",
+      "config": "sha256:d8cd50ddd2b30b89523579865861b7edb8ac7322578a84349469db37dbe019ef",
+      "pinned_upgrade_observed": true,
+      "exit_code": 0
+    }
+  },
+  "reproducibility": "Pinned base/version, signed maintained APK; no promise of bit-identical OCI timestamps/attestations"
+}

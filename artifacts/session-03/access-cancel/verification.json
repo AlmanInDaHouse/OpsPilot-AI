@@ -1,0 +1,143 @@
+{
+  "status": "IMPLEMENTED_TESTED_NO_GO_IMAGE_GATE",
+  "captured_at_utc": "2026-10-23T21:38:34.005057+00:00",
+  "head": "e116767635c2f723456dd27cb7d52ce267e147ac",
+  "branch": "main",
+  "scope": "T03-04 only; three authorized routes, existing UoW/appender; no worker",
+  "baseline": "baseline.json",
+  "commands": "commands.json",
+  "development_attempts": "development-attempts.json",
+  "windows": {
+    "tests": 666,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "real_integrations": 214
+  },
+  "linux": {
+    "tests": 666,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "real_integrations": 214
+  },
+  "observations": {
+    "windows": 30,
+    "linux": 30,
+    "detail": [
+      "tests-windows.json",
+      "tests-linux.json"
+    ]
+  },
+  "gates": {
+    "functional_regression": "PASS",
+    "check": "PASS",
+    "real_pg18_keycloak": "PASS",
+    "fresh_pg": "PASS",
+    "recovery_and_db_outage": "PASS",
+    "restart_cancel_replay": "PASS",
+    "linux_dependency_audit": "PASS",
+    "images": "FAIL"
+  },
+  "images": {
+    "postgres": {
+      "evidence": "artifacts/session-03/access-cancel/scans/postgres-cves.json",
+      "verdict": "FAIL",
+      "reason": "VULNERABILITIES_FOUND",
+      "exit_code": 1,
+      "current_image_verified": true,
+      "vulnerabilities": [
+        {
+          "VulnerabilityID": "CVE-2026-111497",
+          "PkgName": "brotli-libs",
+          "InstalledVersion": "1.2.0-r1",
+          "FixedVersion": "1.2.1-r0",
+          "Severity": "HIGH",
+          "Status": "fixed"
+        }
+      ]
+    },
+    "keycloak": {
+      "evidence": "artifacts/session-03/access-cancel/scans/keycloak-cves.json",
+      "verdict": "PASS",
+      "reason": null,
+      "exit_code": 0,
+      "current_image_verified": true,
+      "vulnerabilities": []
+    },
+    "api": {
+      "evidence": "artifacts/session-03/access-cancel/scans/api-cves.json",
+      "verdict": "PASS",
+      "reason": null,
+      "exit_code": 0,
+      "current_image_verified": true,
+      "vulnerabilities": []
+    }
+  },
+  "preserved_foundation_files": 40,
+  "foundation_all_match_head": true,
+  "input_manifest": "tested-inputs.json",
+  "final_input_manifest": "final-inputs.json",
+  "environment": "environment.json",
+  "lab_final_state": "STOPPED_WITH_VOLUME_AND_CREDENTIALS_PRESERVED",
+  "acceptance": {
+    "AC03-03": "PROVEN_IN_T03_04_SCOPE",
+    "AC03-09": "PROVEN_IN_T03_04_SCOPE",
+    "AC03-06": "PARTIAL_API_SQL_ONLY; actual worker claim/completion pending T03-05/06"
+  },
+  "go_t03_05": false,
+  "go_reason": "HIGH image finding in PostgreSQL; no gate exception or inherited historical PASS",
+  "t03_05": "NOT_IMPLEMENTED",
+  "t03_06": "NOT_IMPLEMENTED",
+  "s03": "OPEN",
+  "go_s04": false,
+  "production": "NO_GO",
+  "remote_ci_current_tree": "NOT_RUN",
+  "git_status_short": [
+    "M AGENTS.md",
+    " M README.md",
+    " M contracts/workflows.openapi.json",
+    " M docs/architecture/API_CONTRACTS.md",
+    " M docs/architecture/DATA_MODEL.md",
+    " M docs/architecture/WORKFLOW_ENGINE.md",
+    " M docs/engineering/PLATFORM_RUNBOOK.md",
+    " M docs/roadmap/HANDOFF.md",
+    " M docs/roadmap/RISKS.md",
+    " M docs/roadmap/SESSION_03_SPEC.md",
+    " M scripts/check_architecture.py",
+    " M scripts/verify_recovery.py",
+    " M specs/003-workflows/checklist.md",
+    " M specs/003-workflows/contracts.md",
+    " M specs/003-workflows/plan.md",
+    " M specs/003-workflows/spec.md",
+    " M specs/003-workflows/tasks.md",
+    " M specs/traceability.json",
+    " M src/opspilot/entrypoints/api/app.py",
+    " M src/opspilot/entrypoints/api/dto.py",
+    " M src/opspilot/identity/domain/principal.py",
+    " M tests/architecture/test_layers.py",
+    " M tests/contract/test_api.py",
+    " M tests/integration/conftest.py",
+    " M tests/integration/test_identity.py",
+    " M tests/unit/test_oidc.py",
+    "?? artifacts/session-03/access-cancel/",
+    "?? docs/roadmap/SESSION_03_ACCESS_CANCEL_REVIEW.md",
+    "?? specs/003-workflows/access-cancel.md",
+    "?? src/opspilot/adapters/postgres/workflows.py",
+    "?? src/opspilot/entrypoints/api/access.py",
+    "?? src/opspilot/workflows/",
+    "?? tests/contract/test_access_cancel_api.py",
+    "?? tests/integration/cancel_process.py",
+    "?? tests/integration/test_access_cancel.py",
+    "?? tests/unit/test_access_cancel.py"
+  ],
+  "publication_actions_performed": false,
+  "residual_risks": [
+    "R01 worker/fence/crash acceptance pending",
+    "R02/R14 external effects and UNKNOWN",
+    "R11 privacy before real data",
+    "R15 maintained image supply; new HIGH finding",
+    "grant revocation has a statement authorization boundary, not retroactive",
+    "hash chain is not WORM; API trusted without per-user RLS"
+  ]
+}

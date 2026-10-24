@@ -11,7 +11,7 @@ from typing import Annotated, Any
 from uuid import UUID, uuid4
 
 import httpx
-from fastapi import Depends, FastAPI, Query, Request
+from fastapi import Depends, FastAPI, Path, Query, Request, Response
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
@@ -24,15 +24,27 @@ from opspilot.adapters.postgres.audit import PostgresAuditReader
 from opspilot.adapters.postgres.database import database_ready, make_engine, require_database
 from opspilot.adapters.postgres.identity import PostgresPrincipals
 from opspilot.adapters.postgres.incidents import PostgresIntakeUow
+from opspilot.adapters.postgres.workflows import PostgresAccessUow
 from opspilot.audit.application.ports import AuditReader
+from opspilot.entrypoints.api.access import (
+    WORKFLOW_ETAG_SCHEMA,
+    InvalidAccess,
+    parse_match,
+    parse_resource,
+)
 from opspilot.entrypoints.api.dto import (
     AuditPage,
+    CancelAcceptedDTO,
+    CancelConflict,
     CreateIncidentInput,
     Error,
     Health,
     IncidentAcceptedDTO,
+    IncidentDTO,
     IntakeConflict,
     Me,
+    ResourceError,
+    WorkflowDTO,
 )
 from opspilot.entrypoints.api.intake import InvalidIntake, parse_intake
 from opspilot.entrypoints.settings import Settings
@@ -41,6 +53,13 @@ from opspilot.identity.domain.principal import Principal
 from opspilot.incidents.application.create import CreateIncident
 from opspilot.incidents.domain.intake import IdempotencyConflict
 from opspilot.shared.errors import DependencyUnavailable, Forbidden, Unauthenticated
+from opspilot.workflows.application.access import WorkflowAccess
+from opspilot.workflows.domain.access import (
+    NotFound,
+    TerminalWorkflow,
+    VersionConflict,
+    WorkflowTag,
+)
 
 LOGGER = logging.getLogger("opspilot.requests")
 SECURITY = HTTPBearer(auto_error=False, scheme_name="bearerAuth", bearerFormat="JWT")
@@ -54,6 +73,7 @@ def platform_api(
     schema_valid: Callable[[], None],
     lifespan: Any = None,
     intake: CreateIncident | None = None,
+    access: WorkflowAccess | None = None,
 ) -> FastAPI:
     app = FastAPI(
         title="OpsPilot platform",
@@ -161,6 +181,22 @@ def platform_api(
     async def conflict(request: Request, exc: IdempotencyConflict) -> JSONResponse:
         return error(request, "IDEMPOTENCY_CONFLICT", 409)
 
+    @app.exception_handler(InvalidAccess)
+    async def invalid_access(request: Request, exc: InvalidAccess) -> JSONResponse:
+        return error(request, "INVALID_REQUEST", 422)
+
+    @app.exception_handler(NotFound)
+    async def not_found(request: Request, exc: NotFound) -> JSONResponse:
+        return error(request, "NOT_FOUND", 404)
+
+    @app.exception_handler(VersionConflict)
+    async def version_conflict(request: Request, exc: VersionConflict) -> JSONResponse:
+        return error(request, "VERSION_CONFLICT", 409)
+
+    @app.exception_handler(TerminalWorkflow)
+    async def terminal(request: Request, exc: TerminalWorkflow) -> JSONResponse:
+        return error(request, "TERMINAL_WORKFLOW", 409)
+
     @app.exception_handler(HTTPException)
     async def http_error(request: Request, exc: HTTPException) -> JSONResponse:
         return error(request, "INVALID_REQUEST", exc.status_code)
@@ -250,6 +286,86 @@ def platform_api(
         )
         return result.body()
 
+    resource_errors: dict[int | str, dict[str, Any]] = {
+        code: {"model": ResourceError} for code in (401, 403, 404, 422, 503)
+    }
+    etag_header = {"ETag": {"required": True, "schema": WORKFLOW_ETAG_SCHEMA}}
+
+    @app.get(
+        "/v1/incidents/{incident_id}",
+        operation_id="getIncident",
+        response_model=IncidentDTO,
+        responses=resource_errors,
+    )
+    async def get_incident(
+        request: Request,
+        principal: Annotated[Principal, Depends(actor)],
+        incident_id: Annotated[str, Path(json_schema_extra={"format": "uuid"})],
+    ) -> dict[str, Any]:
+        principal.require_workflow_read()
+        resource = await parse_resource(request, incident_id)
+        if access is None:
+            raise DependencyUnavailable()
+        return await run_in_threadpool(access.read, principal.id, resource, "incident")
+
+    @app.get(
+        "/v1/workflows/{workflow_id}",
+        operation_id="getWorkflow",
+        response_model=WorkflowDTO,
+        responses={**resource_errors, 200: {"headers": etag_header}},
+    )
+    async def get_workflow(
+        request: Request,
+        response: Response,
+        principal: Annotated[Principal, Depends(actor)],
+        workflow_id: Annotated[str, Path(json_schema_extra={"format": "uuid"})],
+    ) -> dict[str, Any]:
+        principal.require_workflow_read()
+        resource = await parse_resource(request, workflow_id)
+        if access is None:
+            raise DependencyUnavailable()
+        result = await run_in_threadpool(access.read, principal.id, resource, "workflow")
+        response.headers["ETag"] = WorkflowTag(resource, result["version"]).wire()
+        return result
+
+    @app.post(
+        "/v1/workflows/{workflow_id}/cancel",
+        operation_id="cancelWorkflow",
+        status_code=202,
+        response_model=CancelAcceptedDTO,
+        responses={
+            **resource_errors,
+            202: {"headers": etag_header},
+            409: {"model": CancelConflict},
+        },
+        openapi_extra={
+            "parameters": [
+                {
+                    "name": "If-Match",
+                    "in": "header",
+                    "required": True,
+                    "schema": WORKFLOW_ETAG_SCHEMA,
+                }
+            ]
+        },
+    )
+    async def cancel_workflow(
+        request: Request,
+        response: Response,
+        principal: Annotated[Principal, Depends(actor)],
+        workflow_id: Annotated[str, Path(json_schema_extra={"format": "uuid"})],
+    ) -> dict[str, Any]:
+        principal.require_operator()
+        resource = await parse_resource(request, workflow_id)
+        tag = parse_match(request)
+        if access is None:
+            raise DependencyUnavailable()
+        result = await run_in_threadpool(
+            access.cancel, principal.id, resource, tag, request.state.trace_id
+        )
+        response.headers["ETag"] = WorkflowTag(resource, result["version"]).wire()
+        return result
+
     return app
 
 
@@ -290,4 +406,5 @@ def create_app() -> FastAPI:
         lambda: require_database(engine),
         lifespan,
         intake=CreateIncident(lambda: PostgresIntakeUow(sessions)),
+        access=WorkflowAccess(lambda: PostgresAccessUow(sessions)),
     )
