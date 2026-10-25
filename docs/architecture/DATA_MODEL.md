@@ -1,8 +1,19 @@
 # Modelo de datos objetivo
 
 Estado: tablas S02 y seis tablas S03 implementadas mediante Alembic 0002; worker
-local T03-05 utiliza el esquema existente. Reclaim/retry integral T03-06 y campos
+local T03-05 conservado. T03-06 añade recovery/retry y accounting 0003; campos
 de cierre/acciones futuras siguen PROPUESTOS. [Detalle T03-02](../../specs/003-workflows/persistence.md).
+
+T03-06 añade migración incremental 0003: jobs.active_since y active_spent_ms,
+CHECK correlacionado e índice parcial ix_job_expired. Trigger invoker calcula con
+reloj PG el segmento hasta min(now,lease_until), mueve cursor y satura 300000 ms.
+Sin UPDATE directo nuevo para app/worker. Budget de workflow es proyección en
+transiciones auditadas; el contador/cursor de jobs es la fuente durable entre ellas.
+Históricos LEASED inicializan cursor desde su última lease de 60 s: no se inventa
+procesamiento anterior no registrado. Función cerrada worker_result_confirmed
+confirma el evento final mediante boolean; EXECUTE solo worker, dueño audit_owner,
+sin nuevos grants del dueño ni lectura directa del ledger por worker. Véase
+[recovery](../../specs/003-workflows/recovery.md) para semántica y límites.
 UUID para entidades, UTC `timestamptz`, secuencias por agregado,
 JSONB solo para payloads validados/versionados. PK/FK/UNIQUE/CHECK en DB, no solo ORM.
 

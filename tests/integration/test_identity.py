@@ -160,6 +160,9 @@ def test_ready_requires_real_schema_and_jwks(api):
 
 def test_schema_mismatch_fails_closed_and_liveness_survives(api, pg, tokens):
     with pg["engines"]["migration"].begin() as connection:
+        original_revision = connection.execute(
+            text("SELECT version_num FROM alembic_version")
+        ).scalar_one()
         connection.execute(text("UPDATE alembic_version SET version_num='test_invalid_schema'"))
     try:
         assert api.get("/health/live").status_code == 200
@@ -175,4 +178,7 @@ def test_schema_mismatch_fails_closed_and_liveness_survives(api, pg, tokens):
         )
     finally:
         with pg["engines"]["migration"].begin() as connection:
-            connection.execute(text("UPDATE alembic_version SET version_num='0002_workflows'"))
+            connection.execute(
+                text("UPDATE alembic_version SET version_num=:revision"),
+                {"revision": original_revision},
+            )

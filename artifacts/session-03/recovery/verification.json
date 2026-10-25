@@ -1,0 +1,839 @@
+{
+  "recorded_at_utc": "2026-10-25T17:39:08.861359+00:00",
+  "date": "2026-10-25 Europe/Madrid",
+  "head": "224c5ad5c648e231af6bef5bdceeab5c5c14d190",
+  "input_sha256": "868ca2b1d94ec4734ca5e9a610ccff40b84aa090c9770c24f31c10740571ecbb",
+  "state": "IMPLEMENTADO_Y_PROBADO_LOCAL_T03_06",
+  "entry_gate": "entry-gate.json",
+  "inputs": {
+    "report": "inputs.json",
+    "raw_sha256": "76901031024ade91c45d2e0d0befae8437e10f43869bd585d542bca0fb40723c"
+  },
+  "final_suites": {
+    "windows": {
+      "report": "tests-windows-release-candidate.xml",
+      "tests": 755,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "real_integrations": 292,
+      "recovery_integrations": 40,
+      "harness_tests": 23,
+      "raw_sha256": "c866dc68dde53b6f8b1fdfeb68310496d23227542159b5b6e033ea690f62f00b",
+      "properties": {
+        "kill": [
+          {
+            "point": "before_claim_commit",
+            "exit_code": 1,
+            "evidence_count": 1,
+            "audit_events": 2,
+            "observed": {
+              "workflow_state": "QUEUED",
+              "version": 1,
+              "job_state": "READY",
+              "fence": 0,
+              "attempts": 0,
+              "step_status": "PENDING"
+            },
+            "final": {
+              "workflow_state": "NEEDS_OPERATOR",
+              "version": 3,
+              "job_state": "DONE",
+              "fence": 1,
+              "attempts": 1,
+              "step_status": "DONE"
+            }
+          },
+          {
+            "point": "after_claim_commit",
+            "exit_code": 1,
+            "evidence_count": 1,
+            "audit_events": 2,
+            "observed": {
+              "workflow_state": "QUEUED",
+              "version": 1,
+              "job_state": "LEASED",
+              "fence": 1,
+              "attempts": 1,
+              "step_status": "PENDING"
+            },
+            "final": {
+              "workflow_state": "NEEDS_OPERATOR",
+              "version": 3,
+              "job_state": "DONE",
+              "fence": 3,
+              "attempts": 2,
+              "step_status": "DONE"
+            }
+          },
+          {
+            "point": "before_start_commit",
+            "exit_code": 1,
+            "evidence_count": 1,
+            "audit_events": 2,
+            "observed": {
+              "workflow_state": "QUEUED",
+              "version": 1,
+              "job_state": "LEASED",
+              "fence": 1,
+              "attempts": 1,
+              "step_status": "PENDING"
+            },
+            "final": {
+              "workflow_state": "NEEDS_OPERATOR",
+              "version": 3,
+              "job_state": "DONE",
+              "fence": 3,
+              "attempts": 2,
+              "step_status": "DONE"
+            }
+          },
+          {
+            "point": "after_start_commit",
+            "exit_code": 1,
+            "evidence_count": 1,
+            "audit_events": 4,
+            "observed": {
+              "workflow_state": "INVESTIGATING",
+              "version": 2,
+              "job_state": "LEASED",
+              "fence": 1,
+              "attempts": 1,
+              "step_status": "RUNNING"
+            },
+            "final": {
+              "workflow_state": "NEEDS_OPERATOR",
+              "version": 5,
+              "job_state": "DONE",
+              "fence": 3,
+              "attempts": 2,
+              "step_status": "DONE"
+            }
+          },
+          {
+            "point": "snapshot",
+            "exit_code": 1,
+            "evidence_count": 1,
+            "audit_events": 4,
+            "observed": {
+              "workflow_state": "INVESTIGATING",
+              "version": 2,
+              "job_state": "LEASED",
+              "fence": 1,
+              "attempts": 1,
+              "step_status": "RUNNING"
+            },
+            "final": {
+              "workflow_state": "NEEDS_OPERATOR",
+              "version": 5,
+              "job_state": "DONE",
+              "fence": 3,
+              "attempts": 2,
+              "step_status": "DONE"
+            }
+          },
+          {
+            "point": "before_evidence",
+            "exit_code": 1,
+            "evidence_count": 1,
+            "audit_events": 4,
+            "observed": {
+              "workflow_state": "INVESTIGATING",
+              "version": 2,
+              "job_state": "LEASED",
+              "fence": 1,
+              "attempts": 1,
+              "step_status": "RUNNING"
+            },
+            "final": {
+              "workflow_state": "NEEDS_OPERATOR",
+              "version": 5,
+              "job_state": "DONE",
+              "fence": 3,
+              "attempts": 2,
+              "step_status": "DONE"
+            }
+          },
+          {
+            "point": "after_evidence",
+            "exit_code": 1,
+            "evidence_count": 1,
+            "audit_events": 4,
+            "observed": {
+              "workflow_state": "INVESTIGATING",
+              "version": 2,
+              "job_state": "LEASED",
+              "fence": 1,
+              "attempts": 1,
+              "step_status": "RUNNING"
+            },
+            "final": {
+              "workflow_state": "NEEDS_OPERATOR",
+              "version": 5,
+              "job_state": "DONE",
+              "fence": 3,
+              "attempts": 2,
+              "step_status": "DONE"
+            }
+          },
+          {
+            "point": "after_audit",
+            "exit_code": 1,
+            "evidence_count": 1,
+            "audit_events": 4,
+            "observed": {
+              "workflow_state": "INVESTIGATING",
+              "version": 2,
+              "job_state": "LEASED",
+              "fence": 1,
+              "attempts": 1,
+              "step_status": "RUNNING"
+            },
+            "final": {
+              "workflow_state": "NEEDS_OPERATOR",
+              "version": 5,
+              "job_state": "DONE",
+              "fence": 3,
+              "attempts": 2,
+              "step_status": "DONE"
+            }
+          },
+          {
+            "point": "before_result_commit",
+            "exit_code": 1,
+            "evidence_count": 1,
+            "audit_events": 4,
+            "observed": {
+              "workflow_state": "INVESTIGATING",
+              "version": 2,
+              "job_state": "LEASED",
+              "fence": 1,
+              "attempts": 1,
+              "step_status": "RUNNING"
+            },
+            "final": {
+              "workflow_state": "NEEDS_OPERATOR",
+              "version": 5,
+              "job_state": "DONE",
+              "fence": 3,
+              "attempts": 2,
+              "step_status": "DONE"
+            }
+          },
+          {
+            "point": "after_result_commit",
+            "exit_code": 1,
+            "evidence_count": 1,
+            "audit_events": 2,
+            "observed": {
+              "workflow_state": "NEEDS_OPERATOR",
+              "version": 3,
+              "job_state": "DONE",
+              "fence": 1,
+              "attempts": 1,
+              "step_status": "DONE"
+            },
+            "final": {
+              "workflow_state": "NEEDS_OPERATOR",
+              "version": 3,
+              "job_state": "DONE",
+              "fence": 1,
+              "attempts": 1,
+              "step_status": "DONE"
+            }
+          }
+        ],
+        "races": [
+          {
+            "winner": "cancel",
+            "iterations": 5,
+            "unsafe_effects": 0
+          },
+          {
+            "winner": "recover",
+            "iterations": 5,
+            "unsafe_effects": 0
+          },
+          {
+            "winner": "retry",
+            "iterations": 5,
+            "unsafe_effects": 0
+          },
+          {
+            "winner": "heartbeat",
+            "iterations": 5,
+            "unsafe_effects": 0
+          }
+        ],
+        "commit_transport": [
+          {
+            "committed_on_server": true,
+            "response_delivered": false,
+            "connections": 2,
+            "evidence_before_recovery": 1
+          },
+          {
+            "committed_on_server": false,
+            "response_delivered": false,
+            "connections": 2,
+            "evidence_before_recovery": 0
+          }
+        ],
+        "real_expiry_100": [
+          {
+            "jobs": 100,
+            "killed": [
+              1,
+              1
+            ],
+            "per_worker": [
+              50,
+              50
+            ],
+            "reclaimer_processes": 2,
+            "completed_exit_codes": [
+              0,
+              0
+            ]
+          }
+        ],
+        "blocked_insert_kill": [
+          {
+            "table": "evidence",
+            "exit_code": 1,
+            "evidence_during_wait": 0,
+            "evidence_after_recovery": 1,
+            "old_fence": 1,
+            "new_fence": 3
+          },
+          {
+            "table": "audit_events",
+            "exit_code": 1,
+            "evidence_during_wait": 0,
+            "evidence_after_recovery": 1,
+            "old_fence": 1,
+            "new_fence": 3
+          }
+        ],
+        "two_processes": [
+          {
+            "jobs": 1,
+            "exit_codes": [
+              0,
+              0
+            ],
+            "per_worker": [
+              1,
+              0
+            ],
+            "unique_claims": 1,
+            "completed": 1
+          },
+          {
+            "jobs": 100,
+            "exit_codes": [
+              0,
+              0
+            ],
+            "per_worker": [
+              50,
+              50
+            ],
+            "unique_claims": 100,
+            "completed": 100
+          }
+        ]
+      }
+    },
+    "linux": {
+      "report": "tests-linux-final-clock.xml",
+      "tests": 755,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "real_integrations": 292,
+      "recovery_integrations": 40,
+      "harness_tests": 23,
+      "raw_sha256": "26fddcb83722c20d5461e563cb1b20d38ef7b665026a2b5fcc62bea146184d4c",
+      "properties": {
+        "kill": [
+          {
+            "point": "before_claim_commit",
+            "exit_code": -9,
+            "evidence_count": 1,
+            "audit_events": 2,
+            "observed": {
+              "workflow_state": "QUEUED",
+              "version": 1,
+              "job_state": "READY",
+              "fence": 0,
+              "attempts": 0,
+              "step_status": "PENDING"
+            },
+            "final": {
+              "workflow_state": "NEEDS_OPERATOR",
+              "version": 3,
+              "job_state": "DONE",
+              "fence": 1,
+              "attempts": 1,
+              "step_status": "DONE"
+            }
+          },
+          {
+            "point": "after_claim_commit",
+            "exit_code": -9,
+            "evidence_count": 1,
+            "audit_events": 2,
+            "observed": {
+              "workflow_state": "QUEUED",
+              "version": 1,
+              "job_state": "LEASED",
+              "fence": 1,
+              "attempts": 1,
+              "step_status": "PENDING"
+            },
+            "final": {
+              "workflow_state": "NEEDS_OPERATOR",
+              "version": 3,
+              "job_state": "DONE",
+              "fence": 3,
+              "attempts": 2,
+              "step_status": "DONE"
+            }
+          },
+          {
+            "point": "before_start_commit",
+            "exit_code": -9,
+            "evidence_count": 1,
+            "audit_events": 2,
+            "observed": {
+              "workflow_state": "QUEUED",
+              "version": 1,
+              "job_state": "LEASED",
+              "fence": 1,
+              "attempts": 1,
+              "step_status": "PENDING"
+            },
+            "final": {
+              "workflow_state": "NEEDS_OPERATOR",
+              "version": 3,
+              "job_state": "DONE",
+              "fence": 3,
+              "attempts": 2,
+              "step_status": "DONE"
+            }
+          },
+          {
+            "point": "after_start_commit",
+            "exit_code": -9,
+            "evidence_count": 1,
+            "audit_events": 4,
+            "observed": {
+              "workflow_state": "INVESTIGATING",
+              "version": 2,
+              "job_state": "LEASED",
+              "fence": 1,
+              "attempts": 1,
+              "step_status": "RUNNING"
+            },
+            "final": {
+              "workflow_state": "NEEDS_OPERATOR",
+              "version": 5,
+              "job_state": "DONE",
+              "fence": 3,
+              "attempts": 2,
+              "step_status": "DONE"
+            }
+          },
+          {
+            "point": "snapshot",
+            "exit_code": -9,
+            "evidence_count": 1,
+            "audit_events": 4,
+            "observed": {
+              "workflow_state": "INVESTIGATING",
+              "version": 2,
+              "job_state": "LEASED",
+              "fence": 1,
+              "attempts": 1,
+              "step_status": "RUNNING"
+            },
+            "final": {
+              "workflow_state": "NEEDS_OPERATOR",
+              "version": 5,
+              "job_state": "DONE",
+              "fence": 3,
+              "attempts": 2,
+              "step_status": "DONE"
+            }
+          },
+          {
+            "point": "before_evidence",
+            "exit_code": -9,
+            "evidence_count": 1,
+            "audit_events": 4,
+            "observed": {
+              "workflow_state": "INVESTIGATING",
+              "version": 2,
+              "job_state": "LEASED",
+              "fence": 1,
+              "attempts": 1,
+              "step_status": "RUNNING"
+            },
+            "final": {
+              "workflow_state": "NEEDS_OPERATOR",
+              "version": 5,
+              "job_state": "DONE",
+              "fence": 3,
+              "attempts": 2,
+              "step_status": "DONE"
+            }
+          },
+          {
+            "point": "after_evidence",
+            "exit_code": -9,
+            "evidence_count": 1,
+            "audit_events": 4,
+            "observed": {
+              "workflow_state": "INVESTIGATING",
+              "version": 2,
+              "job_state": "LEASED",
+              "fence": 1,
+              "attempts": 1,
+              "step_status": "RUNNING"
+            },
+            "final": {
+              "workflow_state": "NEEDS_OPERATOR",
+              "version": 5,
+              "job_state": "DONE",
+              "fence": 3,
+              "attempts": 2,
+              "step_status": "DONE"
+            }
+          },
+          {
+            "point": "after_audit",
+            "exit_code": -9,
+            "evidence_count": 1,
+            "audit_events": 4,
+            "observed": {
+              "workflow_state": "INVESTIGATING",
+              "version": 2,
+              "job_state": "LEASED",
+              "fence": 1,
+              "attempts": 1,
+              "step_status": "RUNNING"
+            },
+            "final": {
+              "workflow_state": "NEEDS_OPERATOR",
+              "version": 5,
+              "job_state": "DONE",
+              "fence": 3,
+              "attempts": 2,
+              "step_status": "DONE"
+            }
+          },
+          {
+            "point": "before_result_commit",
+            "exit_code": -9,
+            "evidence_count": 1,
+            "audit_events": 4,
+            "observed": {
+              "workflow_state": "INVESTIGATING",
+              "version": 2,
+              "job_state": "LEASED",
+              "fence": 1,
+              "attempts": 1,
+              "step_status": "RUNNING"
+            },
+            "final": {
+              "workflow_state": "NEEDS_OPERATOR",
+              "version": 5,
+              "job_state": "DONE",
+              "fence": 3,
+              "attempts": 2,
+              "step_status": "DONE"
+            }
+          },
+          {
+            "point": "after_result_commit",
+            "exit_code": -9,
+            "evidence_count": 1,
+            "audit_events": 2,
+            "observed": {
+              "workflow_state": "NEEDS_OPERATOR",
+              "version": 3,
+              "job_state": "DONE",
+              "fence": 1,
+              "attempts": 1,
+              "step_status": "DONE"
+            },
+            "final": {
+              "workflow_state": "NEEDS_OPERATOR",
+              "version": 3,
+              "job_state": "DONE",
+              "fence": 1,
+              "attempts": 1,
+              "step_status": "DONE"
+            }
+          }
+        ],
+        "races": [
+          {
+            "winner": "cancel",
+            "iterations": 5,
+            "unsafe_effects": 0
+          },
+          {
+            "winner": "recover",
+            "iterations": 5,
+            "unsafe_effects": 0
+          },
+          {
+            "winner": "retry",
+            "iterations": 5,
+            "unsafe_effects": 0
+          },
+          {
+            "winner": "heartbeat",
+            "iterations": 5,
+            "unsafe_effects": 0
+          }
+        ],
+        "commit_transport": [
+          {
+            "committed_on_server": true,
+            "response_delivered": false,
+            "connections": 2,
+            "evidence_before_recovery": 1
+          },
+          {
+            "committed_on_server": false,
+            "response_delivered": false,
+            "connections": 2,
+            "evidence_before_recovery": 0
+          }
+        ],
+        "real_expiry_100": [
+          {
+            "jobs": 100,
+            "killed": [
+              -9,
+              -9
+            ],
+            "per_worker": [
+              49,
+              51
+            ],
+            "reclaimer_processes": 2,
+            "completed_exit_codes": [
+              0,
+              0
+            ]
+          }
+        ],
+        "blocked_insert_kill": [
+          {
+            "table": "evidence",
+            "exit_code": -9,
+            "evidence_during_wait": 0,
+            "evidence_after_recovery": 1,
+            "old_fence": 1,
+            "new_fence": 3
+          },
+          {
+            "table": "audit_events",
+            "exit_code": -9,
+            "evidence_during_wait": 0,
+            "evidence_after_recovery": 1,
+            "old_fence": 1,
+            "new_fence": 3
+          }
+        ],
+        "two_processes": [
+          {
+            "jobs": 1,
+            "exit_codes": [
+              0,
+              0
+            ],
+            "per_worker": [
+              1,
+              0
+            ],
+            "unique_claims": 1,
+            "completed": 1
+          },
+          {
+            "jobs": 100,
+            "exit_codes": [
+              0,
+              0
+            ],
+            "per_worker": [
+              51,
+              49
+            ],
+            "unique_claims": 100,
+            "completed": 100
+          }
+        ]
+      }
+    }
+  },
+  "commands": {
+    "windows_all": {
+      "exit_code": 0,
+      "private_log": "artifacts/local/recovery-windows-release-candidate.log",
+      "raw_sha256": "5ad0de21d3a931f9523dbe9f5e594399c65da0c01a6862a4ec72df5b4002ed04"
+    },
+    "linux_all": {
+      "exit_code": 0,
+      "private_log": "artifacts/local/recovery-linux-final-clock.log",
+      "raw_sha256": "22dbfb464ae867246c1cea19302fa58f9cd45e458336d3fee3208206ef0ab185"
+    },
+    "windows_check": {
+      "exit_code": 0,
+      "private_log": "artifacts/local/recovery-check-windows-final.log",
+      "raw_sha256": "2b254bd08a8d8e4ab236cebfb47db9bf72b76b5a7bce6c4adbc6938e02b98cd9"
+    },
+    "linux_check": {
+      "exit_code": 0,
+      "private_log": "artifacts/local/recovery-check-linux-final.log",
+      "raw_sha256": "b32cb61ab601a6f593285c4d2c36165c30cfce9c097406d13386d020f4721a2a"
+    },
+    "pending_restart": {
+      "exit_code": 0,
+      "private_log": "artifacts/local/recovery-pending-restart-accepted.log",
+      "raw_sha256": "2700a7ef328fa3eae2f221dd8ddf3ffa03574227e142ea6e6c8ae2ad174dfcd3"
+    },
+    "platform_recovery": {
+      "exit_code": 0,
+      "private_log": "artifacts/local/recovery-platform.log",
+      "raw_sha256": "08ab4fd861cd49222ce9f638befa0756f8a2f1a3967d79e20ecda97a7c827b18"
+    },
+    "fresh_postgres": {
+      "exit_code": 0,
+      "private_log": "artifacts/local/recovery-fresh.log",
+      "raw_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "scans_three": {
+      "exit_code": 0,
+      "private_log": "artifacts/local/recovery-scans-final.log",
+      "raw_sha256": "2e1cfcaf8dd2929053f1948d2e271feb60f944cbbaa4a3d9cda17af3a0d93975"
+    },
+    "scan_api_final": {
+      "exit_code": 0,
+      "private_log": "artifacts/local/recovery-scan-api-final.log",
+      "raw_sha256": "15fe7e5e14eca48a08b6f349a815ebda06c9366e5bb71e04a595d7b37d8c9618"
+    },
+    "stop": {
+      "exit_code": 0,
+      "private_log": "artifacts/local/recovery-stop.log",
+      "raw_sha256": "bbf1fa890838e6027c93b360ea17ee5a74dc349b342114fa0197d632fbeee1d8"
+    }
+  },
+  "images": {
+    "postgres": {
+      "report": "scans-final/postgres-cves.json",
+      "verdict": "PASS",
+      "image": "opspilot-postgres:18.6-s02",
+      "image_id": "sha256:3026d3ea05511cb765561ac647117f6f9bcccc05c1c0ad0ff4313ab1303e9695",
+      "config_id": "sha256:d8cd50ddd2b30b89523579865861b7edb8ac7322578a84349469db37dbe019ef",
+      "same_current_image": true,
+      "raw_sha256": "6ee7e067ca12e7fb9df04e47babcec4309e55c89edbe507f651867aca3b70b9b"
+    },
+    "keycloak": {
+      "report": "scans-final/keycloak-cves.json",
+      "verdict": "PASS",
+      "image": "opspilot-keycloak:26.8.1-s02",
+      "image_id": "sha256:55d4fdc3279aa0fedaf07a18240a305f5465082c804139a731c17e0da35409f1",
+      "config_id": "sha256:38292add2f0c1502ffecbdf7f3778622fc274f2ef0ba04f7c9f1ccc5ddafca48",
+      "same_current_image": true,
+      "raw_sha256": "a941ac9adcc2d832c3dd3a35820aa8c00e382d56cfdf6f1d21ddd4fdeb2a2049"
+    },
+    "api": {
+      "report": "scans-final/api-cves.json",
+      "verdict": "PASS",
+      "image": "opspilot-ai:0.2.0",
+      "image_id": "sha256:cc271c1615110458e7e65c586dba7cfcce79099c81ca4cd3f6c1b9f97d9da2c2",
+      "config_id": "sha256:0f149785027642eedd40cc10a51a5241baa2383422a3e267a58ab10dbb1ee348",
+      "same_current_image": true,
+      "raw_sha256": "cf31ed4b35e7f448f298b891061f71f8fe36561b33ada25df50863f13ba065ee"
+    }
+  },
+  "fresh_postgres": "fresh-postgres.json",
+  "pending_restart": "pending-restart.json",
+  "platform_recovery": "platform-recovery.json",
+  "failed_attempts": "failed-attempts.json",
+  "clock_diagnostic": "selection-diagnostic.json",
+  "monotonic_accounting_cursor_tested": true,
+  "frozen_inputs": [
+    {
+      "path": "migrations/sql/0001_platform.sql",
+      "input_sha256": "a88af2dfb916c19d0709eab810491db0d426aace08eca41ab6bdf28ab7c25d07"
+    },
+    {
+      "path": "migrations/sql/0002_workflows.sql",
+      "input_sha256": "a8c99db78806cceff4efdf520f2c01f0a867f9e66eafcd8015e4901318f00011"
+    },
+    {
+      "path": "migrations/sql/0002_workflow_functions.sql",
+      "input_sha256": "bf233d02b9fb8218eb00a83756ebe647fb1af7b34ff8a080a66f1d410743ba22"
+    },
+    {
+      "path": "migrations/versions/0001_platform.py",
+      "input_sha256": "5d44217a3dda189ba7060c9ae6a2441bbf118437d0545a223fe9815c5cb5958e"
+    },
+    {
+      "path": "migrations/versions/0002_workflows.py",
+      "input_sha256": "a54eb11ba68936e7b7494f98f2827a1e60277099a1a511604329bd7deb8c7667"
+    },
+    {
+      "path": "src/opspilot/adapters/postgres/audit.py",
+      "input_sha256": "d1f14e8a44cb5e08803e4e9cccf64f35730f2f8b2a998d2a29dfbdbafce9f0b0"
+    }
+  ],
+  "historical_snapshots_unchanged": true,
+  "schema": "0003_recovery",
+  "local_t03_07": "GO_TECNICO_LOCAL_PARA_PREPARAR; NO_INICIO_AUTOMATICO",
+  "AC03_04_05_06_07_09": "PROBADOS_LOCALMENTE_SOLO_ALCANCE_T03_06; NO_ACEPTACION_GLOBAL_S03",
+  "remote_ci_for_local_changes": "NOT_RUN; NO_COMMIT_NO_PUSH",
+  "s03_closed": false,
+  "s04_authorized": false,
+  "lab": {
+    "api": {
+      "Status": "exited",
+      "Running": false,
+      "ExitCode": 137,
+      "OOMKilled": false,
+      "StartedAt": "2026-10-25T16:48:37.452341093Z",
+      "FinishedAt": "2026-10-25T17:28:21.639875827Z"
+    },
+    "keycloak": {
+      "Status": "exited",
+      "Running": false,
+      "ExitCode": 137,
+      "OOMKilled": false,
+      "StartedAt": "2026-10-25T16:48:15.945632984Z",
+      "FinishedAt": "2026-10-25T17:28:22.127105654Z"
+    },
+    "postgres": {
+      "Status": "exited",
+      "Running": false,
+      "ExitCode": 0,
+      "OOMKilled": false,
+      "StartedAt": "2026-10-25T16:47:04.080581659Z",
+      "FinishedAt": "2026-10-25T17:28:24.527214113Z"
+    }
+  },
+  "lab_volume_preserved": true,
+  "credentials_preserved": true,
+  "lab_table_hashes_unchanged": true,
+  "residual_risks": [
+    "Database wall clock can step backward; absolute deadlines/leases follow PG time. Accounting cursor never regresses.",
+    "Historical 0002 leases only retain known budget plus last lease window.",
+    "No external effects, exactly-once, HA, backup/restore, WORM or production validation.",
+    "R01/global S03 acceptance, R02/R14 external effects, privacy and R15 maintenance remain."
+  ]
+}

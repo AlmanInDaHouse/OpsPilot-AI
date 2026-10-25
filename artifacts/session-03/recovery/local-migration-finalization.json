@@ -1,0 +1,7 @@
+{
+  "schema": "0003_recovery",
+  "scope": "Refresh only the unpublished in-progress 0003 invoker function on own local lab; no table data or grants changed",
+  "input_sha256": "231818b335ede4143811f276b08aae2fdeee868d9fbbb23a749df64ffbdb7860",
+  "raw_sha256": "065382c6762bc3608104e1215bf56a4ad7f906b2c11ab7f0c4f313f94e465cda",
+  "historical_0001_0002_modified": false
+}

@@ -26,6 +26,7 @@
       "jobs": ["SELECT", "UPDATE(state,available_at,lease_until,owner,fence,attempts)"],
       "evidence": ["SELECT", "INSERT"],
       "alembic_version": ["SELECT"],
+      "worker_result_confirmed": ["EXECUTE"],
       "audit_append_v2": ["EXECUTE"]
     }
   },

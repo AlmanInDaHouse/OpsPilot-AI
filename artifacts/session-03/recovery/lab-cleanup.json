@@ -1,0 +1,6 @@
+{
+  "ephemeral_databases_remaining": 0,
+  "own_fixture_cleanup": "PASS",
+  "persistent_lab_database": "opspilot_lab",
+  "data_volume_will_be_preserved": true
+}

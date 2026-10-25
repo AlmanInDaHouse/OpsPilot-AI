@@ -21,11 +21,15 @@
 - [x] Dos procesos reales/100 jobs y rechazos obsoletos en focused; regresión final en worker/verification.json.
 - [x] T03-05 local: 715 PASS/OS, 252 integraciones/OS; checks/harness, tres scans, fresh/recovery nuevos PASS.
 - [ ] AC03-06 completo con claim/completion del worker real T03-05/06.
+- [x] T03-06 local: reclaim/retry/deadline/accounting y commit incierto, 755 PASS/OS y 292 integraciones reales/OS; sin aceptación global S03.
+- [x] T03-06 gates locales: check Windows/Linux, PG fresco, recovery y tres scans finales PASS; GO local para preparar T03-07, sin iniciarlo.
 - [ ] AC03-01..10 ejecutados; dos workers, 100 jobs y kill points reales.
 - [ ] Gates S02 preservados; CI satisfactoria del SHA final S03.
 - [ ] Evidencias, riesgos y aceptación humana de S03 registradas; GO/NO-GO S04.
 
 Estado: S03 en curso, T03-01 aprobada, T03-02/03/04 implementadas; gates T03-04 en su revisión.
-Worker local T03-05 implementado; reclaim/retry y crash suite integral T03-06 pendientes.
+Worker local T03-05 preservado; T03-06 implementa reclaim/retry/deadline/accounting
+y commit incierto. Ver [revisión/gates](../../docs/roadmap/SESSION_03_RECOVERY_REVIEW.md)
+para estado PROBADO y dictamen T03-07. No marcar aceptación global por código nuevo.
 Cierre/CI/aceptación de S03 pendientes; gates actuales en SESSION_03_WORKER_REVIEW.
 GO técnico S02 no equivale a readiness de producción ni a autorización de S04.

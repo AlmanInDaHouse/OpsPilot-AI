@@ -1,0 +1,204 @@
+{
+  "recorded_at_utc": "2026-10-25T17:43:59.846072+00:00",
+  "head": "224c5ad5c648e231af6bef5bdceeab5c5c14d190",
+  "input_sha256": "868ca2b1d94ec4734ca5e9a610ccff40b84aa090c9770c24f31c10740571ecbb",
+  "scope": "Actual executable/configuration inputs; HEAD alone does not identify uncommitted edits",
+  "session_03": "NO-GO",
+  "files": [
+    {
+      "path": "blocked-insert.xml",
+      "hash": "692e3026ddf20da58f9b5f507b5aae1869f337273a8eddd9b58831c26ae15e2a",
+      "bytes": 1206
+    },
+    {
+      "path": "clock-observation.json",
+      "hash": "4a18e78eb3e369290b78a3bcac75cc13c3148accc8beeca7561ee2dd89337be0",
+      "bytes": 112606
+    },
+    {
+      "path": "clock-regression-fixes-final.xml",
+      "hash": "6cd653503be4119cdc7abfbd8a554912d802cfbf2dbc25744bd74a9c8fd0ccd0",
+      "bytes": 5465
+    },
+    {
+      "path": "clock-regression-fixes.xml",
+      "hash": "37d9caec2d8e37f1b3c19c39b5a011d3426ff2b4db991293515e545ebcabbe3f",
+      "bytes": 563
+    },
+    {
+      "path": "commit-transport-first.xml",
+      "hash": "49a9eb7fd5326526ff75e3b0856f7d0c76a7d08f771bf4323e1999eebfbbbcb3",
+      "bytes": 1084
+    },
+    {
+      "path": "document-check.json",
+      "hash": "2fdef24ab5c6846ddfb97adbe2999b10ff24c403c1e54731adfb920a7c825a92",
+      "bytes": 811
+    },
+    {
+      "path": "entry-gate.json",
+      "hash": "a301e244fa70d54433df80fee24ce10f6e2ffbb8d89a9c16d8f684183aae7592",
+      "bytes": 12712
+    },
+    {
+      "path": "failed-attempts.json",
+      "hash": "dda350bd2fb95e7ae437aac6493dd673902be217ba10644c397e2fcc5276aa34",
+      "bytes": 7997
+    },
+    {
+      "path": "fresh-postgres.json",
+      "hash": "b080aa3b53ec747ad5755a287deeb69b2cf1ebf95656767afd57f8a6bc0fb10e",
+      "bytes": 303
+    },
+    {
+      "path": "inputs.json",
+      "hash": "76901031024ade91c45d2e0d0befae8437e10f43869bd585d542bca0fb40723c",
+      "bytes": 36080
+    },
+    {
+      "path": "integrity-validation.json",
+      "hash": "4961979ab538c632e1d589e85f83f94f878b4619d88349e3a068043af4678379",
+      "bytes": 371
+    },
+    {
+      "path": "lab-cleanup.json",
+      "hash": "33723c81d927cd3916c0e3ba4e6f8569e6b5ea4c4e0c0d7be40b9c590b1f791f",
+      "bytes": 166
+    },
+    {
+      "path": "local-migration-finalization.json",
+      "hash": "b168b5709096e356be88953a7fb87e28fdd629ea9a23cdbb7a7efad88cf74083",
+      "bytes": 378
+    },
+    {
+      "path": "pending-restart.json",
+      "hash": "39260ddd2f9191f427391e59fe862cdce444637ee5bdf78a6d5124b548c6de0f",
+      "bytes": 8270
+    },
+    {
+      "path": "platform-recovery.json",
+      "hash": "bbc01255ad42b8f4dd6a0934ea733304f43a0541d0121cee44cd3d9505542eaa",
+      "bytes": 3294
+    },
+    {
+      "path": "real-expiry-final.xml",
+      "hash": "9ed52eb4468df42b16ff4803caff6e99186425100067a0dc5fecc940c8aca351",
+      "bytes": 1158
+    },
+    {
+      "path": "recovery-first.xml",
+      "hash": "ce06bf822acabe69c6f3846c9548cee48a8904cd1e17bba4d198135f950ad6b2",
+      "bytes": 42134
+    },
+    {
+      "path": "recovery-second.xml",
+      "hash": "28f31cf17aac44177d81efe78891ea6e86f7216af1ccb7f4905ac8576c0c1f1a",
+      "bytes": 43170
+    },
+    {
+      "path": "recovery-third.xml",
+      "hash": "9d2b2ccc49283461499de8c045810cc718c1026a7fcc9a1827d0223e0c0392b0",
+      "bytes": 31650
+    },
+    {
+      "path": "regression-fixtures.xml",
+      "hash": "adc8a805a47b444ca1559c98cf58bd40130f8dd4ecc953a1bcb26c11e829de3e",
+      "bytes": 646
+    },
+    {
+      "path": "scans/api-cves.json",
+      "hash": "02898a29b6d97e29cc62a4772b16974dc1d5cc559cb996f1597f6519c9290059",
+      "bytes": 1506
+    },
+    {
+      "path": "scans/keycloak-cves.json",
+      "hash": "17778b054c916bc88170ba30f7644999c1d3ce88016555e574df0020fb7c6c3d",
+      "bytes": 1517
+    },
+    {
+      "path": "scans/postgres-cves.json",
+      "hash": "1bfe31362862ce8b6dad5da928dc4ee8e4549ec8a8fe961ea7dc7796de251b59",
+      "bytes": 1515
+    },
+    {
+      "path": "scans-final/api-cves.json",
+      "hash": "3d1772932437e1da955d0b8468477558470b964cf5ae8708883806670dbae2e4",
+      "bytes": 1506
+    },
+    {
+      "path": "scans-final/keycloak-cves.json",
+      "hash": "7168943868330391d4b7890ddf742d0521b9160d32d8730277401cac3ee403ae",
+      "bytes": 1517
+    },
+    {
+      "path": "scans-final/postgres-cves.json",
+      "hash": "e70d706b1bd2b7f67e7eddaf83128aca62c9ab67ba07c7d8172c1349aadd2848",
+      "bytes": 1515
+    },
+    {
+      "path": "scans-final-api/api-cves.json",
+      "hash": "4b10959628f08ad60763a02d51517081296b28ff348a27721fdb6ee9033c39ad",
+      "bytes": 1506
+    },
+    {
+      "path": "selection-diagnostic.json",
+      "hash": "6049321439d8a224ad7432830b815e13ad1d403f5732c704615b0db28c6c3888",
+      "bytes": 2148
+    },
+    {
+      "path": "tests-linux-final-clock.xml",
+      "hash": "26fddcb83722c20d5461e563cb1b20d38ef7b665026a2b5fcc62bea146184d4c",
+      "bytes": 389593
+    },
+    {
+      "path": "tests-linux-summary.json",
+      "hash": "c92f58868c19bc70c043fabf1cb334524af3d55a493505f0fb446bcfe22a3f4b",
+      "bytes": 1005
+    },
+    {
+      "path": "tests-windows-accepted.xml",
+      "hash": "22831d97b710ade9da8b22ffa992dd706f9814cf404cd01df15a489dfe680af6",
+      "bytes": 350103
+    },
+    {
+      "path": "tests-windows-final-clock.xml",
+      "hash": "0589fcf02a18998330cebf5ace2ad034197d68f1602d6c0c055a7aaa07fbbb32",
+      "bytes": 200792
+    },
+    {
+      "path": "tests-windows-final.xml",
+      "hash": "e7d45d6db9ab9b6bc01e7ee60a21c70e46839c31e91fd6bc9f80d4e65b2fcb30",
+      "bytes": 352525
+    },
+    {
+      "path": "tests-windows-release-candidate.xml",
+      "hash": "c866dc68dde53b6f8b1fdfeb68310496d23227542159b5b6e033ea690f62f00b",
+      "bytes": 354076
+    },
+    {
+      "path": "tests-windows-summary.json",
+      "hash": "9de084e1b767d843366c685425ae1265fec9218c59aa909decc90b7badaa4cb4",
+      "bytes": 987
+    },
+    {
+      "path": "tests-windows.xml",
+      "hash": "c13a61da909444d8d31cfb5f7bc13200adb0f6ce922298d6177d1bcfe5429e0f",
+      "bytes": 349783
+    },
+    {
+      "path": "uncertain-and-deadline-races.xml",
+      "hash": "10097bc68cec619412ca323b0eedb200c9d57f5698fe87eed70de378c15d2561",
+      "bytes": 850
+    },
+    {
+      "path": "verification.json",
+      "hash": "9914c3741ee09d5a56fd93753ab75acde50385dfb57e7dc7e5e1a120aac51514",
+      "bytes": 25923
+    },
+    {
+      "path": "worker-first.xml",
+      "hash": "c23c23cf8c9e7e14c30fc818580b97172982cc6cd9ebd097c24770de3d460e77",
+      "bytes": 95542
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="1.629" timestamp="2026-10-25T17:45:19.940305+01:00" hostname="ManuelPC"><testcase classname="tests.integration.test_recovery" name="test_accounting_cursor_cannot_regress_or_double_charge_after_clock_rewind" file="tests\integration\test_recovery.py" line="310" time="0.853"><failure>Private diagnostic retained locally; public report preserves test identity and result.</failure></testcase></testsuite></testsuites>

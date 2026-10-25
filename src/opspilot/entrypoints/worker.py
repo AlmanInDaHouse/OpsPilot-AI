@@ -99,6 +99,9 @@ def run(jobs: Jobs, stop: threading.Event, worker: UUID, max_polls: int, drain: 
     emit("worker.started", worker)
     while not stop.is_set() and (max_polls == 0 or polls < max_polls):
         polls += 1
+        if jobs.recover(uuid4().hex):
+            emit("job.recovered", worker)
+            continue
         claim = jobs.claim(uuid4())
         if claim is None:
             if drain:
@@ -106,6 +109,7 @@ def run(jobs: Jobs, stop: threading.Event, worker: UUID, max_polls: int, drain: 
             stop.wait(2 + secrets.SystemRandom().uniform(0, 1))
             continue
         emit("job.claimed", worker, claim, version=claim.version)
+        started = None
         try:
             with Heartbeat(jobs, claim, partial(lease_diagnostic, worker, claim)) as heartbeat:
                 trace = uuid4().hex
@@ -138,6 +142,9 @@ def run(jobs: Jobs, stop: threading.Event, worker: UUID, max_polls: int, drain: 
             )
         except WorkerRejected as exc:
             emit("job.rejected", worker, claim, code=exc.code)
+            if exc.code == "POSTGRES_TRANSIENT" and started is not None:
+                jobs.retry(claim, started, uuid4().hex)
+                continue
             if exc.code in {
                 "POSTGRES_TRANSIENT",
                 "POSTGRES_FAILED",
@@ -146,7 +153,7 @@ def run(jobs: Jobs, stop: threading.Event, worker: UUID, max_polls: int, drain: 
                 "COMMIT_UNCERTAIN",
             }:
                 return 1
-            # No automatic retry/reclaim. Any still-LEASED row is retained for T03-06.
+            # Other rejections never get a generic retry. Expired leases are swept above.
     emit("worker.stopped", worker, completed=completed, polls=polls)
     return 0
 

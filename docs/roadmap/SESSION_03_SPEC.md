@@ -3,7 +3,9 @@
 Estado: EN CURSO por petición explícita del autor el 2026-10-23. T03-01 y ADR-0008
 aprobados tras revisión de cierre/riesgos S02; T03-02 implementada/probada localmente.
 Intake T03-03, lecturas/cancelación T03-04 y worker local T03-05 implementados.
-Reclaim/retry/crash suite integral pendientes T03-06; AC03-04/05/06 parciales.
+T03-06 implementa recovery/retry/deadline/accounting y commit incierto;
+[revisión y gates](SESSION_03_RECOVERY_REVIEW.md). AC03 globales conservan gates
+de regresión/CI/aceptación; no cierre automático S03.
 Base técnica S02 en 660f7d3, según [cierre](SESSION_02_CLOSURE.md).
 [Arranque y supuestos](../../specs/003-workflows/start.md),
 [paquete técnico revisable](../../specs/003-workflows/contracts.md) y ADR-0008.
@@ -154,12 +156,14 @@ T03-01 aprobada por autor; T03-02 implementa migración/grants/appender v2 y lec
 mixta con pruebas PG/IdP reales de almacenamiento. T03-03 implementa intake atómico,
 idempotencia y recuperación de procesos API. T03-04 implementa lecturas/cancelación
 ([revisión](SESSION_03_ACCESS_CANCEL_REVIEW.md)); T03-05 implementa worker/leases/fences
-y snapshot local ([revisión](SESSION_03_WORKER_REVIEW.md)). T03-06..08 pendientes,
-incluidos reclaim/retry y crashes adversariales integrales de jobs S03.
+y snapshot local ([revisión](SESSION_03_WORKER_REVIEW.md)). T03-06 añade recovery,
+reclaim/retry/deadline y campaña adversarial local según su revisión. T03-07/08
+y aceptación global S03 pendientes.
 El paquete concreta wire OpenAPI, lectura/cancelación, appender/evento v2, permisos
 worker, handler local y DefinitionVersion. Persistencia/appender/lector instalados
 en T03-02, rutas de dominio en T03-03/04 y handler local en T03-05. La semántica
-objetivo de recuperación/reintentos descrita arriba sigue T03-06.
+objetivo de recuperación/reintentos local descrita arriba se implementa en T03-06;
+gates y límites actuales en SESSION_03_RECOVERY_REVIEW.
 R01/R02/R14 guían adversariales; si no se logra el motor acotado,
 registrar NO-GO y evaluar alternativa por ADR, sin instalar Temporal automáticamente.
 

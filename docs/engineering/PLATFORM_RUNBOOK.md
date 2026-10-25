@@ -320,3 +320,34 @@ logs y JSON brutos privados. Nunca publicar stdout/stderr completos sin revisió
 Docker clásico devuelve config ID; containerd puede devolver manifest/índice OCI.
 Se verifica cada blob SHA-256 desde inspect hasta config linux/amd64, y su igualdad
 con Metadata.ImageID de Trivy. Cualquier vínculo roto bloquea el gate.
+
+## Worker y recuperación local T03-06
+
+```text
+python scripts/dev.py migrate
+uv run --frozen python -m opspilot.entrypoints.worker --dsn-file artifacts/local/worker.dsn
+```
+
+Solo credencial worker dedicada; no usar app/admin. Un worker activo barre leases
+vencidos y límites antes de cada claim. Reclaim revoca owner/fence; no mover jobs
+manualmente a READY. RETRY_WAIT respeta available_at/intentos PG. --drain sirve para
+pruebas acotadas: termina al vacío elegible y no espera retries futuros. El modo
+normal sigue polling. Parar con señal espera transacciones/heartbeat acotados.
+
+COMMIT_UNCERTAIN fuerza relectura del resultado completo en otra conexión. Si no
+hay prueba, proceso termina sin repetir resultado; reanudar worker cuando PG esté
+listo permite reclaim tras lease. DONE no se reejecuta. No resetear attempts, fence,
+deadline, budget o auditoría para salir de un bloqueo. NEEDS_OPERATOR/DEAD requiere
+inspección autorizada; definición desconocida admite cancelación con ETag actual,
+no auto-upgrade. Incidente permanece OPEN.
+
+Prueba de reinicio con jobs pendientes, exclusivamente local y secuencial:
+
+```text
+uv run --frozen python -m tests.integration.restart_recovery
+```
+
+Detiene/arranca solo PG del Compose propio, conserva volumen/credenciales y usa DB
+efímera para jobs. Después reiniciar Keycloak/API y comprobar PKCE real mediante
+verify_recovery. No ejecutar junto con suites ni reconstrucciones. Evidencias en
+artifacts/session-03/recovery, [revisión y límites](../roadmap/SESSION_03_RECOVERY_REVIEW.md).

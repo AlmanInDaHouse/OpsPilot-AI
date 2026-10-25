@@ -1,0 +1,54 @@
+{
+  "tests": 755,
+  "failures": 0,
+  "skips": 0,
+  "integration": 292,
+  "recovery": 40,
+  "properties": {
+    "commit_transport": [
+      {
+        "committed_on_server": true,
+        "response_delivered": false,
+        "connections": 2,
+        "evidence_before_recovery": 1
+      },
+      {
+        "committed_on_server": false,
+        "response_delivered": false,
+        "connections": 2,
+        "evidence_before_recovery": 0
+      }
+    ],
+    "real_expiry_100": [
+      {
+        "jobs": 100,
+        "killed": [
+          1,
+          1
+        ],
+        "per_worker": [
+          50,
+          50
+        ],
+        "reclaimer_processes": 2,
+        "completed_exit_codes": [
+          0,
+          0
+        ]
+      }
+    ],
+    "two_processes": [
+      {
+        "jobs": 100,
+        "exit_codes": [
+          0,
+          0
+        ],
+        "per_worker": [
+          50,
+          50
+        ]
+      }
+    ]
+  }
+}

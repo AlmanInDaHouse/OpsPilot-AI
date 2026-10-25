@@ -115,9 +115,20 @@ def postgres_database(revision="head"):
             engine.dispose()
         # Only this fixture's uniquely created database can be removed.
         assert database.startswith("opspilot_test_") and len(database) == 46
-        admin.execute(sql.SQL("DROP DATABASE {} WITH (FORCE)").format(sql.Identifier(database)))
-        admin.close()
-        dsnfile.unlink(missing_ok=True)
+        try:
+            statement = sql.SQL("DROP DATABASE IF EXISTS {} WITH (FORCE)").format(
+                sql.Identifier(database)
+            )
+            try:
+                admin.execute(statement)
+            except psycopg.OperationalError:
+                # A real server restart invalidates the fixture's administrative socket too.
+                admin.close()
+                admin = raw_connection(dsn_for("admin"))
+                admin.execute(statement)
+        finally:
+            admin.close()
+            dsnfile.unlink(missing_ok=True)
 
 
 @pytest.fixture(scope="session")
@@ -224,7 +235,7 @@ def pkce_tokens(account, wrong_verifier=False):
         return exchanged.json()
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="module")
 def tokens(accounts):
     return {role: pkce_tokens(account) for role, account in accounts.items()}
 

@@ -1,0 +1,1012 @@
+{
+  "head": "224c5ad5c648e231af6bef5bdceeab5c5c14d190",
+  "scope": "Repository code, contracts, configuration, tests and documentation; artifacts and ignored files excluded",
+  "tree_sha256": "49af91ccbee6b091a179c6fa97474579ef6e25ff85ed5fb05d5e5d578a72bb19",
+  "files": [
+    {
+      "path": ".dockerignore",
+      "bytes": 95,
+      "input_sha256": "7bae3dab3d3597f578ed97fe8e77c58a4fc82104b9b405baa761035136350881"
+    },
+    {
+      "path": ".env.example",
+      "bytes": 569,
+      "input_sha256": "33d59b9fa3807029186ea0fe833f34bf9cd1f5105d26398f110fe24b87927a99"
+    },
+    {
+      "path": ".gitattributes",
+      "bytes": 19,
+      "input_sha256": "d60f352d0db1404c70afb4bb8b2ca3fd1c610572aa40720e8a0b7baa7885418c"
+    },
+    {
+      "path": ".github/dependabot.yml",
+      "bytes": 349,
+      "input_sha256": "0292e1c0bdbcb9f71f2e8a7f53eb0efd5628b5d18ba99f7457471ca77c6ce8e0"
+    },
+    {
+      "path": ".github/workflows/harness.yml",
+      "bytes": 675,
+      "input_sha256": "e8f2674e46168c561e083c13556d57c5f5708d68edc65350da2bf92703d50a02"
+    },
+    {
+      "path": ".github/workflows/platform.yml",
+      "bytes": 2214,
+      "input_sha256": "667ea29310340ad9ea378340c018b3bdcdceeb37a92c7c06883e24b1ea867812"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 166,
+      "input_sha256": "ca16ad98763048c63b4f39b043702625491de02bef190f1bd131b79c9f525232"
+    },
+    {
+      "path": ".pymarkdown.json",
+      "bytes": 141,
+      "input_sha256": "dad087a0b74c92a5f188a160b26a37d6748865e3a65e9f0be27ee1542dceb23b"
+    },
+    {
+      "path": ".python-version",
+      "bytes": 8,
+      "input_sha256": "f8faecf2505680716c6279bf2cdec3d5a5ba2ba852f0d7df45d51ac1ce8d9ade"
+    },
+    {
+      "path": ".secrets-allowlist.json",
+      "bytes": 2549,
+      "input_sha256": "8241e1d16181c49df62398b1263f0d8725150e6916098fca4d482a908b6345ba"
+    },
+    {
+      "path": "AGENTS.md",
+      "bytes": 2384,
+      "input_sha256": "b6aa2d66083775500ae4e9fd5b42c239f1c1f31c65af198ea233c5793a35cf5a"
+    },
+    {
+      "path": "Dockerfile",
+      "bytes": 1580,
+      "input_sha256": "72d2b6956b6c79b99e13bf3fcd949b5dca41efacf8ea2519b1d816eb41fe5263"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6733,
+      "input_sha256": "7b77decbf7dee7e12b064ded622c9a4f04288a8a3fd108cbb23aa87be2855dc1"
+    },
+    {
+      "path": "alembic.ini",
+      "bytes": 89,
+      "input_sha256": "e7955a0ffb9c32a9c5067d7885ee9197328f17a4a12fb4a5bb556c2b85763aa2"
+    },
+    {
+      "path": "contracts/audit-event.schema.json",
+      "bytes": 617,
+      "input_sha256": "ad5d9e330d837d77c0865afbd54aad8421af6804b0d7c768a988e6ad47977c65"
+    },
+    {
+      "path": "contracts/event-v1.schema.json",
+      "bytes": 2907,
+      "input_sha256": "bacdf1bfd5f07050b5c79b67ecdc6aaf607449b1c730cebcb1e58949dc6c71dc"
+    },
+    {
+      "path": "contracts/incident-snapshot-v1.schema.json",
+      "bytes": 1072,
+      "input_sha256": "a7a10063d985c3c59b10a2219822a7abb6b7859c718eeeb46989be4dd1abd57e"
+    },
+    {
+      "path": "contracts/platform.openapi.json",
+      "bytes": 3586,
+      "input_sha256": "c176dcdb6aa312ed5c7dd414cabc020db6d999d95c44ebc7207df210444ef5d5"
+    },
+    {
+      "path": "contracts/proposal-v1.schema.json",
+      "bytes": 949,
+      "input_sha256": "b431ccb62f8325fff8a10cc3c21a6c0d8ab27f2151915a5e15397b31316cf191"
+    },
+    {
+      "path": "contracts/workflow-events-v2.schema.json",
+      "bytes": 13031,
+      "input_sha256": "20e897af1c18029183eb5d348465e3f7b11bce5c92ba1638f920d80590e4db81"
+    },
+    {
+      "path": "contracts/workflow-policy-v1.json",
+      "bytes": 1859,
+      "input_sha256": "4de2fecabcb67d688de2890028240ab73301b299bccc36546271fa805fc9694b"
+    },
+    {
+      "path": "contracts/workflow-snapshot-v1.schema.json",
+      "bytes": 1704,
+      "input_sha256": "2a6cad4a5ac0f7cbad40462f872d31dc4f434fe335d656035f3cc4ce0f4b4317"
+    },
+    {
+      "path": "contracts/workflow-step-v1.json",
+      "bytes": 1480,
+      "input_sha256": "8815010c88bb3fd16a1382929faf8c5bac2bc5625a52699dd6e2a3733ae9b867"
+    },
+    {
+      "path": "contracts/workflow-v1.json",
+      "bytes": 1065,
+      "input_sha256": "58daad4691e8495e9316d09fcf21eb8fac388609bfad1f3552023c37d877df00"
+    },
+    {
+      "path": "contracts/workflows.openapi.json",
+      "bytes": 18991,
+      "input_sha256": "80daa925d9d091032f932e639cff1e3ebaa825656a40865cb6e7e1bf9eeb7847"
+    },
+    {
+      "path": "docs/architecture/AGENT_RUNTIME.md",
+      "bytes": 4640,
+      "input_sha256": "d3ec7e9981657ad61345886626152de6d0909e82d9e69cfe8b3b73bd62689234"
+    },
+    {
+      "path": "docs/architecture/API_CONTRACTS.md",
+      "bytes": 6572,
+      "input_sha256": "b447614ee82605f37a8360c410f6a72492252fa58a88165bfb013204bfcd93ea"
+    },
+    {
+      "path": "docs/architecture/ARCHITECTURE.md",
+      "bytes": 7834,
+      "input_sha256": "bba4b1e8e8de564c1ce597d7efd213ef4106855dd82287db5fac926ead3d3289"
+    },
+    {
+      "path": "docs/architecture/C4.md",
+      "bytes": 6481,
+      "input_sha256": "1056c9d1e23dfa6632a02adfde6b590cddc3b7814a706b2e7cbacdd5a60f28fe"
+    },
+    {
+      "path": "docs/architecture/DATA_MODEL.md",
+      "bytes": 8306,
+      "input_sha256": "673e84f4d0b0123de1a6ccd862a4f8fa00e5c848105cc62f28cc58a4ceab9a01"
+    },
+    {
+      "path": "docs/architecture/WORKFLOW_ENGINE.md",
+      "bytes": 8913,
+      "input_sha256": "4acc8cdab50b135579edd65e9c5bb126059dbbc0f50fe4317b4d87746360762d"
+    },
+    {
+      "path": "docs/decisions/0001-modular-monolith.md",
+      "bytes": 918,
+      "input_sha256": "f481a6f00565934dc27348d2a7cab02a5613004badd6422fcf6c0b6bc84627e5"
+    },
+    {
+      "path": "docs/decisions/0002-durable-postgres.md",
+      "bytes": 1080,
+      "input_sha256": "6f8931a00cd17c5f7144d0728e9068d97a56b706ee9ca1d83d8a3c5a80317a86"
+    },
+    {
+      "path": "docs/decisions/0003-governed-runtime.md",
+      "bytes": 906,
+      "input_sha256": "2a39e65bcd76365aa74e677fc3719b44f253faad175addc8cf455177bb6a9ca9"
+    },
+    {
+      "path": "docs/decisions/0004-sdd-harness.md",
+      "bytes": 962,
+      "input_sha256": "6704df0cbefb6cf0d89d5c980e2ec15712d704ea87c664b8f733a91075fe166d"
+    },
+    {
+      "path": "docs/decisions/0005-platform-stack.md",
+      "bytes": 1003,
+      "input_sha256": "931e6cd667eeb1668c0f9316bca6c5a43b7d98c26eec0605ae7f1c3c915496b9"
+    },
+    {
+      "path": "docs/decisions/0006-platform-boundaries.md",
+      "bytes": 5392,
+      "input_sha256": "b6ca73fccc9ea5851bfd375f2e7e7944b632cf38b80e18fc01b4ef16b3eaf4a6"
+    },
+    {
+      "path": "docs/decisions/0007-keycloak-maintained-runtime.md",
+      "bytes": 2901,
+      "input_sha256": "685bc9a16c4773e2e8f64356b377e5f8a80774400423839843ee0cd6b2eccc58"
+    },
+    {
+      "path": "docs/decisions/0008-workflow-contract-boundary.md",
+      "bytes": 2532,
+      "input_sha256": "a389797b9086514e7841424b8b1b58f7bd475f45084e8abff424fc94d585d5a9"
+    },
+    {
+      "path": "docs/decisions/README.md",
+      "bytes": 995,
+      "input_sha256": "9d6bf3d10f3477aff6f4d9d424132a37fd1363251f872a0d8a5bb445d52dd5d3"
+    },
+    {
+      "path": "docs/engineering/CONSTITUTION.md",
+      "bytes": 1720,
+      "input_sha256": "dd2969a0e8c3497cf45578384ddbb33f1d76f028f72980c07750ac9491d8e2bc"
+    },
+    {
+      "path": "docs/engineering/HARNESS.md",
+      "bytes": 5610,
+      "input_sha256": "96af6c5b00b6fb44d8eef34ee96a1a5f55fab635d79db853db824467aa16fd46"
+    },
+    {
+      "path": "docs/engineering/PLATFORM_RUNBOOK.md",
+      "bytes": 21183,
+      "input_sha256": "53beefb4bf1f22db1771c2b1b1020e5d7acec37123b6fc8d0e77fc1e973ce285"
+    },
+    {
+      "path": "docs/engineering/QUALITY_GATES.md",
+      "bytes": 3463,
+      "input_sha256": "0fb39ce43bfdca8b95f9b5a6655d0773b653547c72a82ec388f8d46f528d995e"
+    },
+    {
+      "path": "docs/engineering/SDD.md",
+      "bytes": 3564,
+      "input_sha256": "ef2d69ad791dd1a8585c73c9aad8ecf955af654f7a41c297f2e7b28dbc51067d"
+    },
+    {
+      "path": "docs/engineering/SOURCES.md",
+      "bytes": 5468,
+      "input_sha256": "f045dbd37c452479fb5cd2722f8f8c07781d2d0e2698f2d787e6c22c0c8314b1"
+    },
+    {
+      "path": "docs/engineering/TEST_STRATEGY.md",
+      "bytes": 3512,
+      "input_sha256": "9043268758bdf572ec87196be523f36af399a60ed72f37c6dea1a35612d5dfe7"
+    },
+    {
+      "path": "docs/product/NFR_SLO.md",
+      "bytes": 3104,
+      "input_sha256": "746013065a66ba34d081696bcf7fdc1421bf74a5833d7bbfaa0d109bdc0102a0"
+    },
+    {
+      "path": "docs/product/PRD.md",
+      "bytes": 3286,
+      "input_sha256": "1c00b923262a7c9a40bf67b32bd92735b29b4fb10a5316c2ba3e5e57bf9b1da9"
+    },
+    {
+      "path": "docs/product/SCOPE.md",
+      "bytes": 2598,
+      "input_sha256": "043aa8fcb4996cae924b973b291be893d4c1572a2701c51f380c292f827b92e2"
+    },
+    {
+      "path": "docs/roadmap/HANDOFF.md",
+      "bytes": 27743,
+      "input_sha256": "b9e3fd53e67d7d5471fe750902f014aabf688651ccda3b2f5bbf73bf92947b62"
+    },
+    {
+      "path": "docs/roadmap/RISKS.md",
+      "bytes": 13739,
+      "input_sha256": "6373f603d3b8b66454a91f4544e7b52428bef53ee266cb30e84e140b5ae99b67"
+    },
+    {
+      "path": "docs/roadmap/ROADMAP_8_SESSIONS.md",
+      "bytes": 10068,
+      "input_sha256": "8a23827056194076d9b0d91b425f7fe8a93b62ca84c59d58f7723db566053a43"
+    },
+    {
+      "path": "docs/roadmap/SESSION_01_REVIEW.md",
+      "bytes": 6836,
+      "input_sha256": "80518958796fef908dee2d27b3435bcd9ca78c6271542563d6b6efd291d5e4b1"
+    },
+    {
+      "path": "docs/roadmap/SESSION_02_CLOSURE.md",
+      "bytes": 13144,
+      "input_sha256": "d0daadc1400f0cdb57f12f9e6b4700f50a106da2ab14fb1ebb03ab42167ff028"
+    },
+    {
+      "path": "docs/roadmap/SESSION_02_PUBLICATION.md",
+      "bytes": 1039,
+      "input_sha256": "0ddc0f3dd64c2de9455cf50850b6f03ebc1f8ab4ae6dd99a81169af3f67e606a"
+    },
+    {
+      "path": "docs/roadmap/SESSION_02_REVIEW.md",
+      "bytes": 17305,
+      "input_sha256": "21f2d0313ea9037b41bc4624da7282c22e8c9fcc98457efc6bfa8adc3ce5bcf8"
+    },
+    {
+      "path": "docs/roadmap/SESSION_02_SCANNER_REMEDIATION.md",
+      "bytes": 6616,
+      "input_sha256": "df2cf2a46415a64b238b9bb87c687008be80a191d23f71aef10cfcba87a5ceb3"
+    },
+    {
+      "path": "docs/roadmap/SESSION_02_SECURITY_REMEDIATION.md",
+      "bytes": 8240,
+      "input_sha256": "71758e28a1de6b0b82c644f1939a76907ff19d429b1aae2c271b838bf7f934fc"
+    },
+    {
+      "path": "docs/roadmap/SESSION_02_SPEC.md",
+      "bytes": 9646,
+      "input_sha256": "8d57ab0529e33046a61de8a4df4a9479dea11e4ac352282639cf4471455e9346"
+    },
+    {
+      "path": "docs/roadmap/SESSION_03_ACCESS_CANCEL_REVIEW.md",
+      "bytes": 15556,
+      "input_sha256": "83c49e9b828b775a21065db8ed7d5d92abb72342e03b641ee53af5857c94e03f"
+    },
+    {
+      "path": "docs/roadmap/SESSION_03_INTAKE_REVIEW.md",
+      "bytes": 16074,
+      "input_sha256": "37b85b861a3677bf94a5966cb2aa869c844a57fb6c0b336b3ae10c6e5c8585fc"
+    },
+    {
+      "path": "docs/roadmap/SESSION_03_PERSISTENCE_REVIEW.md",
+      "bytes": 5328,
+      "input_sha256": "73861bbd1e879c67d5049fa2792490f6e13b2715e097f6352f66ad6d514fc88f"
+    },
+    {
+      "path": "docs/roadmap/SESSION_03_POSTGRES_SECURITY_REVIEW.md",
+      "bytes": 11254,
+      "input_sha256": "f0f0ff9b68a36f43833ee1d9f6a9b7d9398d475054b67db1334da6130c2e1dee"
+    },
+    {
+      "path": "docs/roadmap/SESSION_03_RECOVERY_REVIEW.md",
+      "bytes": 16648,
+      "input_sha256": "9f2bd4dd6f5e0074fbf583ce91a3a8d386e2cbbc513e156aadc0e014907645a9"
+    },
+    {
+      "path": "docs/roadmap/SESSION_03_SPEC.md",
+      "bytes": 12111,
+      "input_sha256": "b6f987ca8d14970226e2edfb8ccaa44425629446ff73a6060b267a014a5e972e"
+    },
+    {
+      "path": "docs/roadmap/SESSION_03_START_REVIEW.md",
+      "bytes": 3829,
+      "input_sha256": "9f2432439738c430ed0f61ae9292de835405704d8e1acdbcc6194bf4583b69d5"
+    },
+    {
+      "path": "docs/roadmap/SESSION_03_WORKER_REVIEW.md",
+      "bytes": 15331,
+      "input_sha256": "942065a19dfd337dfada068918b3be322ec56c625b72b416b23f8e5b2d9882db"
+    },
+    {
+      "path": "docs/security/CONTROL_MATRIX.md",
+      "bytes": 4810,
+      "input_sha256": "7e5b4792b14076a3db60bac0873c67d427c8bc27d3123df553611b7ccb073570"
+    },
+    {
+      "path": "docs/security/THREAT_MODEL.md",
+      "bytes": 4616,
+      "input_sha256": "5e2315ad67a1c6ba5ee4cbd21488b8d0180c6a371ef1cf6b8cad704d14c71cfe"
+    },
+    {
+      "path": "infra/compose.yaml",
+      "bytes": 3739,
+      "input_sha256": "fdc96da59f73f1147ba4338d194a3edbd9c14eb8d432212dae5a49781d66eb2d"
+    },
+    {
+      "path": "infra/keycloak.Dockerfile",
+      "bytes": 1007,
+      "input_sha256": "41bffd487482f9f8809666d22b2e12f1daf1b2f04463268f2321f5503aa966ac"
+    },
+    {
+      "path": "infra/postgres.Dockerfile",
+      "bytes": 357,
+      "input_sha256": "e7c78a107fa59e8a57a29c4e3292971a1b6653a8dffa9f2fa7f4ada5895e9438"
+    },
+    {
+      "path": "infra/realm.json",
+      "bytes": 828,
+      "input_sha256": "e8c055f78c247087b74d099c00e611d9ac9f4b2f2ac46b618c5c13315b4d0fdc"
+    },
+    {
+      "path": "infra/start-keycloak.sh",
+      "bytes": 190,
+      "input_sha256": "8f76b3d220f58751f41a1001918080069c36a658c87d4177ffd8a342b9430549"
+    },
+    {
+      "path": "migrations/env.py",
+      "bytes": 1128,
+      "input_sha256": "32fdc4448b0fb889085ffec68cefee8c6d24dff7af2d2eb9cfbceed52b45826d"
+    },
+    {
+      "path": "migrations/script.py.mako",
+      "bytes": 394,
+      "input_sha256": "a7219da51c81878ae9ff44b68989051404c0d1464413b780c7e79fd1a7356e83"
+    },
+    {
+      "path": "migrations/sql/0001_platform.sql",
+      "bytes": 7461,
+      "input_sha256": "a88af2dfb916c19d0709eab810491db0d426aace08eca41ab6bdf28ab7c25d07"
+    },
+    {
+      "path": "migrations/sql/0002_workflow_functions.sql",
+      "bytes": 15424,
+      "input_sha256": "bf233d02b9fb8218eb00a83756ebe647fb1af7b34ff8a080a66f1d410743ba22"
+    },
+    {
+      "path": "migrations/sql/0002_workflows.sql",
+      "bytes": 8159,
+      "input_sha256": "a8c99db78806cceff4efdf520f2c01f0a867f9e66eafcd8015e4901318f00011"
+    },
+    {
+      "path": "migrations/sql/0003_recovery.sql",
+      "bytes": 2892,
+      "input_sha256": "4053528a6409012b0c0c73de96bb4da7b6d55cd9dd9dde116adfa12c7c892b89"
+    },
+    {
+      "path": "migrations/versions/0001_platform.py",
+      "bytes": 536,
+      "input_sha256": "5d44217a3dda189ba7060c9ae6a2441bbf118437d0545a223fe9815c5cb5958e"
+    },
+    {
+      "path": "migrations/versions/0002_workflows.py",
+      "bytes": 623,
+      "input_sha256": "a54eb11ba68936e7b7494f98f2827a1e60277099a1a511604329bd7deb8c7667"
+    },
+    {
+      "path": "migrations/versions/0003_recovery.py",
+      "bytes": 537,
+      "input_sha256": "42579e575e7b2d26d875897fc5816a4db7a0595ef237394f4cb470d010041c6f"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 1324,
+      "input_sha256": "91c0abe560fbd95a17ec8a201af5c64a99e4e63756b966d2f0656df6817b005a"
+    },
+    {
+      "path": "scripts/check_architecture.py",
+      "bytes": 3869,
+      "input_sha256": "1a7d19ded8a33f8ab61d72c30fefda5cf4a75b81bbfd919fef8404f7ae838cbb"
+    },
+    {
+      "path": "scripts/check_repository.py",
+      "bytes": 15250,
+      "input_sha256": "08457d9a5bd77b68c1a2c1832abc75fbda02a3778c6f8a91057a87b2540152ae"
+    },
+    {
+      "path": "scripts/check_secrets.py",
+      "bytes": 5273,
+      "input_sha256": "6baadf79ac82e0b8a960923a7a8cad8d73b04ac43f2432181c78c7f034c1a655"
+    },
+    {
+      "path": "scripts/dev.py",
+      "bytes": 4679,
+      "input_sha256": "e2021d4420a780f37d3c8b71be201de55cd7d52e092b7af3d875e366ae06533e"
+    },
+    {
+      "path": "scripts/lab.py",
+      "bytes": 14567,
+      "input_sha256": "38419187b68d9acbd7c4e7002fd240a317c11a13f2bd666a47794fa07a494a7f"
+    },
+    {
+      "path": "scripts/scan_images.py",
+      "bytes": 18784,
+      "input_sha256": "0c720bfe694b9356ec0e1b88ea605fd7252d7a487175bdac506bc29a5405cd04"
+    },
+    {
+      "path": "scripts/verify_fresh_postgres.py",
+      "bytes": 3560,
+      "input_sha256": "92681fe587b7a13502a2cf55d1d41c32f4ab615bb9a13379adcde29771d57e9d"
+    },
+    {
+      "path": "scripts/verify_recovery.py",
+      "bytes": 6122,
+      "input_sha256": "d8a86302f185e119e3af8cde28f6e8d3e4193ddec6006ec58ce87afa65145094"
+    },
+    {
+      "path": "scripts/verify_scanner_environment.py",
+      "bytes": 4393,
+      "input_sha256": "687cc8364c72434e5deb833c5c69d25023ca8b87f6939fdc2ed6bdb9e445f0ea"
+    },
+    {
+      "path": "scripts/verify_session02.py",
+      "bytes": 11157,
+      "input_sha256": "911147aa3db96f69ae90b0ce9f8eb3b340d8f17453188a6155ec03382d677e43"
+    },
+    {
+      "path": "specs/001-vpn/spec.md",
+      "bytes": 4479,
+      "input_sha256": "93671767bb67c266d65347aa0de909e19df080bcf321d2c18d596fefcabf0128"
+    },
+    {
+      "path": "specs/002-platform/checklist.md",
+      "bytes": 1627,
+      "input_sha256": "88796ee106be845eab87536ae360673b5b428059380c56b35835fa3fdef558ed"
+    },
+    {
+      "path": "specs/002-platform/execution.md",
+      "bytes": 1669,
+      "input_sha256": "13d4a154c7b1f52e884b040bedad5650891a61a11d9eb34e961c561a232cf4f5"
+    },
+    {
+      "path": "specs/002-platform/formal-closure.md",
+      "bytes": 1999,
+      "input_sha256": "2bc20d251a96b8cb5310312e1ce7b3a6fb156aa0ba65ea155e0521f741934b69"
+    },
+    {
+      "path": "specs/002-platform/plan.md",
+      "bytes": 1534,
+      "input_sha256": "71f32038e990ae13bcf2b61d6b16e2962bde32d0979bad4cb953641e709086e4"
+    },
+    {
+      "path": "specs/002-platform/scanner-remediation.md",
+      "bytes": 2907,
+      "input_sha256": "ae5f31d7a46c3dc162bf22cdfa84607d69da929bfc559382f1eafaae93ee0158"
+    },
+    {
+      "path": "specs/002-platform/security-remediation.md",
+      "bytes": 1978,
+      "input_sha256": "bedc3c4354d09452547897f38553114dacbbcb4c1026f44abd904d28c0c4da52"
+    },
+    {
+      "path": "specs/002-platform/spec.md",
+      "bytes": 705,
+      "input_sha256": "16b08240d10099e925e5c8a1bffec155a2b5ea3157a26f0ac5f25f99058f7449"
+    },
+    {
+      "path": "specs/002-platform/tasks.md",
+      "bytes": 3982,
+      "input_sha256": "ab11c633bfbaceddcc8d3918aaa637e3ad64361b58ea26ef33ef9051996c05c7"
+    },
+    {
+      "path": "specs/003-workflows/access-cancel.md",
+      "bytes": 3996,
+      "input_sha256": "dee9c090a1077278080746eba7b1eca17adde3def50025e702d5e6db5f0338d0"
+    },
+    {
+      "path": "specs/003-workflows/checklist.md",
+      "bytes": 2995,
+      "input_sha256": "d638d96abf6b04dfb933761d5c36d1934bf833982e2ce36e6d04db45fc2786f3"
+    },
+    {
+      "path": "specs/003-workflows/contracts.md",
+      "bytes": 9104,
+      "input_sha256": "3597b285fa8a2adfcb204c622b40e0453d818f8babb51b3d514df1ca790a70b5"
+    },
+    {
+      "path": "specs/003-workflows/intake.md",
+      "bytes": 2343,
+      "input_sha256": "4cd1138a76ef1f23429008643334d2841030778f9209e1164d15d2fe06b94006"
+    },
+    {
+      "path": "specs/003-workflows/persistence.md",
+      "bytes": 3212,
+      "input_sha256": "1c7b6d0ec290c4c499ddd81d6a2690cf50b5e31d306a5c01a787202b425f1118"
+    },
+    {
+      "path": "specs/003-workflows/plan.md",
+      "bytes": 1359,
+      "input_sha256": "82187b1c0cfa0d05f6e5fbc4743d31aa5eb23a65de182a6c352751c832d25a35"
+    },
+    {
+      "path": "specs/003-workflows/postgres-security.md",
+      "bytes": 2285,
+      "input_sha256": "c4c807733d9fe539c16e2067ca7e9508f09564fb99ecc65bf1836faa7ea8617b"
+    },
+    {
+      "path": "specs/003-workflows/recovery.md",
+      "bytes": 5881,
+      "input_sha256": "c6806e9eae6543deab3eacd45661cea834ce8e93fb5df82c1f78145ef6409744"
+    },
+    {
+      "path": "specs/003-workflows/spec.md",
+      "bytes": 1650,
+      "input_sha256": "bd81893643e6371b05b328b6f70bfaf0847c6786830e23ab6ad863be1c0ca399"
+    },
+    {
+      "path": "specs/003-workflows/start.md",
+      "bytes": 1842,
+      "input_sha256": "3bc65762916077e6d22f70734f292bae83b5297c12831025622e01d30a47c88b"
+    },
+    {
+      "path": "specs/003-workflows/tasks.md",
+      "bytes": 3405,
+      "input_sha256": "c960d1244a73d44e3fd7fb14405d4be75ffb1fbfc9c9277d835f1220b37d91fd"
+    },
+    {
+      "path": "specs/003-workflows/worker.md",
+      "bytes": 2780,
+      "input_sha256": "13efdd80016d4d43a55442f5cf356816372981a7267403cc79c71d6c901896f4"
+    },
+    {
+      "path": "specs/TEMPLATE.md",
+      "bytes": 1273,
+      "input_sha256": "203ffbc80b6641d1f598ee3a29c89abbf67d6cad25149eb2ff7e72dc5b7208f6"
+    },
+    {
+      "path": "specs/traceability.json",
+      "bytes": 22861,
+      "input_sha256": "5c70ea901d517bf979cf7d866ab595a610af347dbd05f3f12e2e3e43ffb3aaab"
+    },
+    {
+      "path": "src/opspilot/__init__.py",
+      "bytes": 84,
+      "input_sha256": "bf5d732099051d2dad348214e9baa615bc13e17dc1196c32f1cdce11f2854c3b"
+    },
+    {
+      "path": "src/opspilot/adapters/__init__.py",
+      "bytes": 21,
+      "input_sha256": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "path": "src/opspilot/adapters/oidc/__init__.py",
+      "bytes": 21,
+      "input_sha256": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "path": "src/opspilot/adapters/oidc/verifier.py",
+      "bytes": 5370,
+      "input_sha256": "634a61c6eb8ea13cf27d817d1745cb29653800727e073dbf1f0f1c5d54f080bf"
+    },
+    {
+      "path": "src/opspilot/adapters/postgres/__init__.py",
+      "bytes": 21,
+      "input_sha256": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "path": "src/opspilot/adapters/postgres/audit.py",
+      "bytes": 3325,
+      "input_sha256": "d1f14e8a44cb5e08803e4e9cccf64f35730f2f8b2a998d2a29dfbdbafce9f0b0"
+    },
+    {
+      "path": "src/opspilot/adapters/postgres/database.py",
+      "bytes": 1955,
+      "input_sha256": "b2f9c250c76f750dd975b419844a917b1b7ca763df80a2d6c5262a2db83e7bf6"
+    },
+    {
+      "path": "src/opspilot/adapters/postgres/identity.py",
+      "bytes": 3757,
+      "input_sha256": "3cb2d74a45a9cf874315c7062af91716ce9590dbaad852f61715eacc18955001"
+    },
+    {
+      "path": "src/opspilot/adapters/postgres/incidents.py",
+      "bytes": 5181,
+      "input_sha256": "53b466212c5fa28c844cf8d7dcef37d8853fe0aa07bb5f9df1fd1e5eaf033cb7"
+    },
+    {
+      "path": "src/opspilot/adapters/postgres/jobs.py",
+      "bytes": 22611,
+      "input_sha256": "22c7316bc81a900ba0d52435e2b6af829a95192021c4d331ea5fbb0178d55ff4"
+    },
+    {
+      "path": "src/opspilot/adapters/postgres/models.py",
+      "bytes": 15289,
+      "input_sha256": "71ab7f1f0817bff61290a4680b809b4738b5906b2879baa307aed6d5d69da844"
+    },
+    {
+      "path": "src/opspilot/adapters/postgres/workflows.py",
+      "bytes": 8512,
+      "input_sha256": "6964f73d8a903eb4a364e508faaeb3314137b21e422feb6bb8689ed65e77a5f5"
+    },
+    {
+      "path": "src/opspilot/audit/__init__.py",
+      "bytes": 21,
+      "input_sha256": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "path": "src/opspilot/audit/application/__init__.py",
+      "bytes": 21,
+      "input_sha256": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "path": "src/opspilot/audit/application/ports.py",
+      "bytes": 619,
+      "input_sha256": "3439219a5e04a66db7133a4756e3c61d9c0a71ee68224dfc2eeccd2539074b84"
+    },
+    {
+      "path": "src/opspilot/audit/domain/__init__.py",
+      "bytes": 21,
+      "input_sha256": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "path": "src/opspilot/audit/domain/envelope.py",
+      "bytes": 2515,
+      "input_sha256": "e6a038d22c52d3eeebc08e8cbeb23aeb4d4173b6840cb137f469e45deaf8793a"
+    },
+    {
+      "path": "src/opspilot/entrypoints/__init__.py",
+      "bytes": 21,
+      "input_sha256": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "path": "src/opspilot/entrypoints/api/__init__.py",
+      "bytes": 21,
+      "input_sha256": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "path": "src/opspilot/entrypoints/api/access.py",
+      "bytes": 1006,
+      "input_sha256": "648576f67df65c5c251b5dbc994c73424b67247971d743edd36f8815bd2667f4"
+    },
+    {
+      "path": "src/opspilot/entrypoints/api/app.py",
+      "bytes": 15596,
+      "input_sha256": "ae4156f30246acd4072926b295774f205bba06f47f9d8dc73531e7766ad002e3"
+    },
+    {
+      "path": "src/opspilot/entrypoints/api/dto.py",
+      "bytes": 8214,
+      "input_sha256": "40f6b0b7f942bf56f0b57589662f0966077dca48cee886822243b26f464795ce"
+    },
+    {
+      "path": "src/opspilot/entrypoints/api/intake.py",
+      "bytes": 1553,
+      "input_sha256": "9304d59d5bca1b70d266d7815f51373952e13c8e48baaf87f0b5711f2f655898"
+    },
+    {
+      "path": "src/opspilot/entrypoints/provision.py",
+      "bytes": 2177,
+      "input_sha256": "2d2b76ed68dda87c2db393bbc67fdc508379856aa576dd5bbfdf7bb979465bf3"
+    },
+    {
+      "path": "src/opspilot/entrypoints/settings.py",
+      "bytes": 2533,
+      "input_sha256": "1a359aa218906d5cb2e5c627e2242b764c6870357627086d3dda3d4fa4eae423"
+    },
+    {
+      "path": "src/opspilot/entrypoints/worker.py",
+      "bytes": 7593,
+      "input_sha256": "17743f6a45e36de2a2670ed3e5c905093607f28d88cb6ae438c9575e6c73e28d"
+    },
+    {
+      "path": "src/opspilot/identity/__init__.py",
+      "bytes": 21,
+      "input_sha256": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "path": "src/opspilot/identity/application/__init__.py",
+      "bytes": 21,
+      "input_sha256": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "path": "src/opspilot/identity/application/authenticate.py",
+      "bytes": 745,
+      "input_sha256": "d3f1c01df27a2c8a8b6e55391b36e2d676534f1097a0df41fc8b051a1be1ea2f"
+    },
+    {
+      "path": "src/opspilot/identity/application/provision.py",
+      "bytes": 2245,
+      "input_sha256": "0cf6d818b05223ad22167bf0d0fee1aa5d6644327f98150bcbb388d44e297c40"
+    },
+    {
+      "path": "src/opspilot/identity/domain/__init__.py",
+      "bytes": 21,
+      "input_sha256": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "path": "src/opspilot/identity/domain/principal.py",
+      "bytes": 968,
+      "input_sha256": "147296f14d87ee5575380fd75df881d1bed979c095acda8ed49f321133abd02a"
+    },
+    {
+      "path": "src/opspilot/incidents/__init__.py",
+      "bytes": 30,
+      "input_sha256": "9ab143d6363a6c6ea72f8a5290a0ea57e297ac2e26ae8f4d27e49719b124f35b"
+    },
+    {
+      "path": "src/opspilot/incidents/application/__init__.py",
+      "bytes": 33,
+      "input_sha256": "00cb0a06eb0e125c2e89b748f3f94bc1ddf120baee2eb2aef63d8ca62e4e646c"
+    },
+    {
+      "path": "src/opspilot/incidents/application/create.py",
+      "bytes": 2482,
+      "input_sha256": "7b548d115e8cd177c0b84d06a0974e3423fb3330eb11d39522e70bc2e0002dfe"
+    },
+    {
+      "path": "src/opspilot/incidents/domain/__init__.py",
+      "bytes": 26,
+      "input_sha256": "bd6e3dd1c9b59010429b6285acbb7b0e420acc280d752ca1fffa3930c4025542"
+    },
+    {
+      "path": "src/opspilot/incidents/domain/intake.py",
+      "bytes": 1640,
+      "input_sha256": "7fb534580554ab138e87fe6f9d7a32fd08da5b7e04e96d23f534e2a00450c28f"
+    },
+    {
+      "path": "src/opspilot/shared/__init__.py",
+      "bytes": 21,
+      "input_sha256": "66b3bdd3b4dc2acb90bad252b83bd81f2486ece78c8fd700ff5451efe5607c5c"
+    },
+    {
+      "path": "src/opspilot/shared/errors.py",
+      "bytes": 249,
+      "input_sha256": "dd18dcc15cf3dff07108db74c6a57c946bdacf350fb9e936452e545456d8da44"
+    },
+    {
+      "path": "src/opspilot/shared/uow.py",
+      "bytes": 418,
+      "input_sha256": "f569a273c2da5cf9b821c028fa94aaab58ac31133e2a3237204e3ad76200116e"
+    },
+    {
+      "path": "src/opspilot/workflows/__init__.py",
+      "bytes": 51,
+      "input_sha256": "4e55178255c84eb45890209bc680c36ce6b3032720f0f0ca74c822dd3a777633"
+    },
+    {
+      "path": "src/opspilot/workflows/application/__init__.py",
+      "bytes": 55,
+      "input_sha256": "4f9dce22ce74aafa3debbb2b5271eabd1bbec7197ccf7c58ce2c53297b210f51"
+    },
+    {
+      "path": "src/opspilot/workflows/application/access.py",
+      "bytes": 1298,
+      "input_sha256": "3767dfc0668f039f6d689adad8cf90b90bd37bc610eaf7b8c58ad80402a7c309"
+    },
+    {
+      "path": "src/opspilot/workflows/application/jobs.py",
+      "bytes": 3117,
+      "input_sha256": "df65c810ddccc893977a2e41c22c8044eaed817aa1dc27815f8ce33aed8e095d"
+    },
+    {
+      "path": "src/opspilot/workflows/domain/__init__.py",
+      "bytes": 34,
+      "input_sha256": "a4bb030d9817d2885254f6a330ddbe8357a97a32e39ca1817da9b0c8e65d026d"
+    },
+    {
+      "path": "src/opspilot/workflows/domain/access.py",
+      "bytes": 1052,
+      "input_sha256": "9e4278c67c64cc9917a91ada829666151e3554fccd31f6c3ef4d646fd88380b9"
+    },
+    {
+      "path": "src/opspilot/workflows/domain/jobs.py",
+      "bytes": 1857,
+      "input_sha256": "369f18882e493e3865ddb6c18f9ae2806cfbefb9af72869cb91a7673eaa4f59d"
+    },
+    {
+      "path": "tests/architecture/test_layers.py",
+      "bytes": 1805,
+      "input_sha256": "e95368e6f9f02eed39736fa9e72e13eca54de7950be9baba39af242fdd716a8e"
+    },
+    {
+      "path": "tests/architecture/test_worker.py",
+      "bytes": 1116,
+      "input_sha256": "9bda2405cacdab0174ef2deecc295df5a5a7c4ee46062e9297126e9a67394e07"
+    },
+    {
+      "path": "tests/contract/test_access_cancel_api.py",
+      "bytes": 5888,
+      "input_sha256": "6a1a9f650e720af4ef6fbafcdcfe0411dfaa24f2441b433252c90dc67f930078"
+    },
+    {
+      "path": "tests/contract/test_api.py",
+      "bytes": 8827,
+      "input_sha256": "8626ec49acd3eb757badf9bb05155b0045098c2f689fc8f6ce05874bf36ed2fd"
+    },
+    {
+      "path": "tests/contract/test_intake_api.py",
+      "bytes": 6303,
+      "input_sha256": "038781ec2163bc48bc786ec0d80767a7b895ee3c20e1b441d8889ffda9767f91"
+    },
+    {
+      "path": "tests/contract/test_worker.py",
+      "bytes": 1466,
+      "input_sha256": "ed9916f0b9edccc5a4eca90152a376a37dad8ffce113a6631432079f1894a7d3"
+    },
+    {
+      "path": "tests/contract/test_workflow_design.py",
+      "bytes": 16155,
+      "input_sha256": "3ed4fb9fb7e0eaf451ed491a1c6c4311ef0774545dbb5ce7a7316c3103f1c15b"
+    },
+    {
+      "path": "tests/fixtures/workflow-hash-v1.json",
+      "bytes": 1581,
+      "input_sha256": "e65f560e4452c8d913452c26a4ff1afbe0cfe957a8b9f81f1b486cfd65754f00"
+    },
+    {
+      "path": "tests/harness/test_checks.py",
+      "bytes": 7843,
+      "input_sha256": "2e8dcccc6044c9c472aa6a6c18120fb8770ef636bb88aed28f2c606b767e95a2"
+    },
+    {
+      "path": "tests/integration/cancel_process.py",
+      "bytes": 977,
+      "input_sha256": "0ceefaf3414024ab0affc3a87e585eae59fe93e5964a174e63028ea5c6a5622e"
+    },
+    {
+      "path": "tests/integration/commit_transport.py",
+      "bytes": 2646,
+      "input_sha256": "91261d03e95126955b8f2c852dbfff1ef83f4536b6673492c11d41d59c0cb58a"
+    },
+    {
+      "path": "tests/integration/conftest.py",
+      "bytes": 10351,
+      "input_sha256": "e4094e97569c4ff2e3865e14a89d657d5675cf38491c9bbfd1d91c6d93394798"
+    },
+    {
+      "path": "tests/integration/intake_process.py",
+      "bytes": 2283,
+      "input_sha256": "1db482a90ba7c267b32f8426e1f0d40f5c198b7f3a82a97a156e26a6b1a88328"
+    },
+    {
+      "path": "tests/integration/recovery_process.py",
+      "bytes": 2359,
+      "input_sha256": "66f95e38d066496f15407ac8250a72b70ed13d09381c91fa069d99c93bb8239f"
+    },
+    {
+      "path": "tests/integration/restart_recovery.py",
+      "bytes": 5569,
+      "input_sha256": "66277a50447960453580f855b8531899cc1c8908012b40441d3bc2f789fb6c3c"
+    },
+    {
+      "path": "tests/integration/test_access_cancel.py",
+      "bytes": 37214,
+      "input_sha256": "503586bbc1ed979975dadb946067f7f93c9da04320eaaaaf939ae1578fe1ba4e"
+    },
+    {
+      "path": "tests/integration/test_audit.py",
+      "bytes": 10398,
+      "input_sha256": "940f14c257b0ad7e4b2302d2b464e378c1f9bf3ea42a194f48f07f774ac71abc"
+    },
+    {
+      "path": "tests/integration/test_entrypoints.py",
+      "bytes": 2881,
+      "input_sha256": "d76332199b58b83d3a3f69b0b4af1b009acb010a9d201e117dfc38dd696f379c"
+    },
+    {
+      "path": "tests/integration/test_identity.py",
+      "bytes": 6647,
+      "input_sha256": "ffb90341f6a2f2c058426cbe6d360c8adf3633069fb2de48b11348a3861ae8dd"
+    },
+    {
+      "path": "tests/integration/test_idp_security.py",
+      "bytes": 943,
+      "input_sha256": "c432d2194ff8af40805488a9f7ffdcc671fb99c05816652a0ea6d7f247d39296"
+    },
+    {
+      "path": "tests/integration/test_incident_intake.py",
+      "bytes": 29132,
+      "input_sha256": "6b01e2c0f02d8cb043c29812e9766f529f80050a263033982fbddc6fd368443e"
+    },
+    {
+      "path": "tests/integration/test_recovery.py",
+      "bytes": 31865,
+      "input_sha256": "63486516000179b5cf3811bc967ba58fbdc5381a51fb6a0b30dc61e7810356af"
+    },
+    {
+      "path": "tests/integration/test_worker.py",
+      "bytes": 29278,
+      "input_sha256": "2cdfeebbe05d9ee5de562f6a23d3651a532a8e6baff9415f7f37b05a46474adb"
+    },
+    {
+      "path": "tests/integration/test_workflow_persistence.py",
+      "bytes": 31642,
+      "input_sha256": "7d079f95494ae4aa59005a7b6f5c13c01c10a46ca3453d39a6bc765104ec43f9"
+    },
+    {
+      "path": "tests/integration/worker_process.py",
+      "bytes": 1877,
+      "input_sha256": "06a0e0052f4c5669ed69e015dca9a57550aee1b8b112793fb5b5b92c6ca4b71d"
+    },
+    {
+      "path": "tests/unit/test_access_cancel.py",
+      "bytes": 1464,
+      "input_sha256": "bedbdf4448be3081046ba86269c160e3312b4c315709ff808e4dce39dd6cb98f"
+    },
+    {
+      "path": "tests/unit/test_canonical.py",
+      "bytes": 938,
+      "input_sha256": "86a67cf195423f3774e0a8ab4f2a603d9d80494f865da06b15e1fe23ee7dbc56"
+    },
+    {
+      "path": "tests/unit/test_configuration.py",
+      "bytes": 2715,
+      "input_sha256": "e5cb3e853cb8bbf0ec8c631c5054235be83df09469a4395011217d3fad55e1d6"
+    },
+    {
+      "path": "tests/unit/test_identity.py",
+      "bytes": 1897,
+      "input_sha256": "4a888ce9bc60d51ca66f04d7e6e7414da2a996abc04ce48f48b9e15d3f3ccba6"
+    },
+    {
+      "path": "tests/unit/test_image_scan_gate.py",
+      "bytes": 9825,
+      "input_sha256": "9f8777e9c08a5814a09e038cc62bd5b74475fdcdab1c8bec209da590bfa65c10"
+    },
+    {
+      "path": "tests/unit/test_intake.py",
+      "bytes": 4415,
+      "input_sha256": "8bfe87e9a431770f81a498efdc3830813cc2837ee6ac62783c51d67731e2244c"
+    },
+    {
+      "path": "tests/unit/test_oidc.py",
+      "bytes": 7685,
+      "input_sha256": "658a4e91bdb90f02227c103ebe640144471d90b881af1fad2b80c3aa849030f7"
+    },
+    {
+      "path": "tests/unit/test_secret_scanner.py",
+      "bytes": 2249,
+      "input_sha256": "b0eb03c77b68a5b86ff7b8f1da534de4d56a86b9b774e39c984450546cb86b6c"
+    },
+    {
+      "path": "tests/unit/test_verification_acceptance.py",
+      "bytes": 2042,
+      "input_sha256": "3d6a219498dbe1b1ea215af1097e9513026b607c0238bab77a8958b75e5ff870"
+    },
+    {
+      "path": "tests/unit/test_worker.py",
+      "bytes": 3219,
+      "input_sha256": "348271f61a32133da164afb5922f475bbc393013d6437919ee5f60e04821ad14"
+    },
+    {
+      "path": "uv.lock",
+      "bytes": 181490,
+      "input_sha256": "ae0f7e79eabd24c7675308812a47bad5785911f7cf04b9d84d4ac5e5058537af"
+    }
+  ]
+}

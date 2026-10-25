@@ -1,0 +1,355 @@
+{
+  "checked_on": "2026-10-25 Europe/Madrid",
+  "head": "224c5ad5c648e231af6bef5bdceeab5c5c14d190",
+  "initial_git": {
+    "branch": "main",
+    "clean": true,
+    "head": "224c5ad5c648e231af6bef5bdceeab5c5c14d190"
+  },
+  "platform": {
+    "id": 40054234985,
+    "status": "completed",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "id": 120753531669,
+        "name": "quality (windows-latest)",
+        "head_sha": "224c5ad5c648e231af6bef5bdceeab5c5c14d190",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1,
+            "started_at": "2026-10-24T02:27:29Z",
+            "completed_at": "2026-10-24T02:27:29Z"
+          },
+          {
+            "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2,
+            "started_at": "2026-10-24T02:27:29Z",
+            "completed_at": "2026-10-24T02:27:35Z"
+          },
+          {
+            "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3,
+            "started_at": "2026-10-24T02:27:35Z",
+            "completed_at": "2026-10-24T02:28:07Z"
+          },
+          {
+            "name": "Run python -m pip install uv==0.11.13",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4,
+            "started_at": "2026-10-24T02:28:07Z",
+            "completed_at": "2026-10-24T02:28:10Z"
+          },
+          {
+            "name": "Run python scripts/dev.py install",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5,
+            "started_at": "2026-10-24T02:28:10Z",
+            "completed_at": "2026-10-24T02:28:19Z"
+          },
+          {
+            "name": "Run python scripts/dev.py check",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6,
+            "started_at": "2026-10-24T02:28:19Z",
+            "completed_at": "2026-10-24T02:28:51Z"
+          },
+          {
+            "name": "Run python scripts/dev.py test --suite local",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7,
+            "started_at": "2026-10-24T02:28:51Z",
+            "completed_at": "2026-10-24T02:28:59Z"
+          },
+          {
+            "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 13,
+            "started_at": "2026-10-24T02:28:59Z",
+            "completed_at": "2026-10-24T02:28:59Z"
+          },
+          {
+            "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 14,
+            "started_at": "2026-10-24T02:28:59Z",
+            "completed_at": "2026-10-24T02:29:00Z"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 15,
+            "started_at": "2026-10-24T02:29:00Z",
+            "completed_at": "2026-10-24T02:29:00Z"
+          }
+        ]
+      },
+      {
+        "id": 120753531831,
+        "name": "quality (ubuntu-latest)",
+        "head_sha": "224c5ad5c648e231af6bef5bdceeab5c5c14d190",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1,
+            "started_at": "2026-10-24T02:27:29Z",
+            "completed_at": "2026-10-24T02:27:30Z"
+          },
+          {
+            "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2,
+            "started_at": "2026-10-24T02:27:30Z",
+            "completed_at": "2026-10-24T02:27:31Z"
+          },
+          {
+            "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3,
+            "started_at": "2026-10-24T02:27:31Z",
+            "completed_at": "2026-10-24T02:27:38Z"
+          },
+          {
+            "name": "Run python -m pip install uv==0.11.13",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4,
+            "started_at": "2026-10-24T02:27:38Z",
+            "completed_at": "2026-10-24T02:27:40Z"
+          },
+          {
+            "name": "Run python scripts/dev.py install",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5,
+            "started_at": "2026-10-24T02:27:40Z",
+            "completed_at": "2026-10-24T02:27:41Z"
+          },
+          {
+            "name": "Run python scripts/dev.py check",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6,
+            "started_at": "2026-10-24T02:27:41Z",
+            "completed_at": "2026-10-24T02:28:20Z"
+          },
+          {
+            "name": "Run python scripts/dev.py test --suite local",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7,
+            "started_at": "2026-10-24T02:28:20Z",
+            "completed_at": "2026-10-24T02:28:30Z"
+          },
+          {
+            "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 13,
+            "started_at": "2026-10-24T02:28:30Z",
+            "completed_at": "2026-10-24T02:28:30Z"
+          },
+          {
+            "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 14,
+            "started_at": "2026-10-24T02:28:30Z",
+            "completed_at": "2026-10-24T02:28:30Z"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 15,
+            "started_at": "2026-10-24T02:28:30Z",
+            "completed_at": "2026-10-24T02:28:30Z"
+          }
+        ]
+      },
+      {
+        "id": 120753878328,
+        "name": "integration",
+        "head_sha": "224c5ad5c648e231af6bef5bdceeab5c5c14d190",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1,
+            "started_at": "2026-10-24T02:29:05Z",
+            "completed_at": "2026-10-24T02:29:06Z"
+          },
+          {
+            "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2,
+            "started_at": "2026-10-24T02:29:06Z",
+            "completed_at": "2026-10-24T02:29:07Z"
+          },
+          {
+            "name": "Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3,
+            "started_at": "2026-10-24T02:29:07Z",
+            "completed_at": "2026-10-24T02:29:15Z"
+          },
+          {
+            "name": "Run python -m pip install uv==0.11.13",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4,
+            "started_at": "2026-10-24T02:29:15Z",
+            "completed_at": "2026-10-24T02:29:17Z"
+          },
+          {
+            "name": "Run python scripts/dev.py install",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5,
+            "started_at": "2026-10-24T02:29:17Z",
+            "completed_at": "2026-10-24T02:29:18Z"
+          },
+          {
+            "name": "Run python scripts/verify_scanner_environment.py --report artifacts/session-02/ci/scanner-environment.json",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6,
+            "started_at": "2026-10-24T02:29:18Z",
+            "completed_at": "2026-10-24T02:29:32Z"
+          },
+          {
+            "name": "Run python scripts/dev.py infra",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7,
+            "started_at": "2026-10-24T02:29:32Z",
+            "completed_at": "2026-10-24T02:30:52Z"
+          },
+          {
+            "name": "Run python scripts/dev.py up",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8,
+            "started_at": "2026-10-24T02:30:52Z",
+            "completed_at": "2026-10-24T02:31:48Z"
+          },
+          {
+            "name": "Run uv run --frozen pytest --junitxml=artifacts/session-02/ci/tests-ci.xml",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9,
+            "started_at": "2026-10-24T02:31:48Z",
+            "completed_at": "2026-10-24T02:33:47Z"
+          },
+          {
+            "name": "Run uv run --frozen python scripts/verify_fresh_postgres.py --report artifacts/session-02/ci/fresh-postgres.json",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 10,
+            "started_at": "2026-10-24T02:33:47Z",
+            "completed_at": "2026-10-24T02:33:49Z"
+          },
+          {
+            "name": "Run uv run --frozen python scripts/verify_recovery.py --report artifacts/session-02/ci/recovery.json",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 11,
+            "started_at": "2026-10-24T02:33:49Z",
+            "completed_at": "2026-10-24T02:35:00Z"
+          },
+          {
+            "name": "Run uv run --frozen python scripts/scan_images.py --evidence-dir artifacts/session-02/ci/scans",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 12,
+            "started_at": "2026-10-24T02:35:00Z",
+            "completed_at": "2026-10-24T02:36:21Z"
+          },
+          {
+            "name": "Run uv run --frozen python scripts/verify_session02.py --manifest-only --evidence-dir artifacts/session-02/ci",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 13,
+            "started_at": "2026-10-24T02:36:21Z",
+            "completed_at": "2026-10-24T02:36:21Z"
+          },
+          {
+            "name": "Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 14,
+            "started_at": "2026-10-24T02:36:21Z",
+            "completed_at": "2026-10-24T02:36:22Z"
+          },
+          {
+            "name": "Run python scripts/dev.py stop",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 15,
+            "started_at": "2026-10-24T02:36:22Z",
+            "completed_at": "2026-10-24T02:36:26Z"
+          },
+          {
+            "name": "Post Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 29,
+            "started_at": "2026-10-24T02:36:26Z",
+            "completed_at": "2026-10-24T02:36:26Z"
+          },
+          {
+            "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 30,
+            "started_at": "2026-10-24T02:36:26Z",
+            "completed_at": "2026-10-24T02:36:26Z"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 31,
+            "started_at": "2026-10-24T02:36:26Z",
+            "completed_at": "2026-10-24T02:36:26Z"
+          }
+        ]
+      }
+    ]
+  },
+  "harness": [
+    {
+      "id": 40054235016,
+      "head_sha": "224c5ad5c648e231af6bef5bdceeab5c5c14d190",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/AlmanInDaHouse/OpsPilot-AI/actions/runs/40054235016"
+    }
+  ],
+  "source": "GitHub connected API; read-only",
+  "scope": "Entry gate only; not evidence of T03-06 changes"
+}

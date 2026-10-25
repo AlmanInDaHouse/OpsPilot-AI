@@ -2,8 +2,9 @@
 
 S03 iniciada por petición explícita. El autor aprueba cierre/riesgos S02 y T03-01/
 ADR-0008 tras revisión. T03-04 preservada; nueva petición 2026-10-24 autoriza
-exclusivamente T03-05 local.
-Intake, acceso/cancelación y worker local implementados; T03-06..08 pendientes.
+exclusivamente T03-05 local. Nueva petición 2026-10-25 autoriza exclusivamente T03-06.
+Intake, acceso/cancelación y worker local preservados; recovery T03-06 implementado
+con gates propios. T03-07/08 pendientes, sin avance automático.
 Fuente de criterios: [SESSION_03_SPEC](../../docs/roadmap/SESSION_03_SPEC.md).
 
 | ID | Dependencia | Cambio acotado | Verificación necesaria |
@@ -13,7 +14,7 @@ Fuente de criterios: [SESSION_03_SPEC](../../docs/roadmap/SESSION_03_SPEC.md).
 | T03-03 | T03-02 | IMPLEMENTADO/PROBADO local: [intake](intake.md), POST + CreateIncident + idempotency/UoW/audit atómicos | [Revisión y resultados reales](../../docs/roadmap/SESSION_03_INTAKE_REVIEW.md): AC03-01/02, 20 requests, dos API, kills, commit PG diferido fallido; 567 PASS/OS, 155 integraciones/OS |
 | T03-04 | T03-03 | IMPLEMENTADO/PROBADO funcionalmente: [lectura autorizada y cancel CAS](access-cancel.md), UoW/audit v2 existentes, sin worker | [Revisión y evidencia](../../docs/roadmap/SESSION_03_ACCESS_CANCEL_REVIEW.md): 666 PASS/OS, 214 integraciones/OS; AC03-03/09 del alcance, AC03-06 parcial API/SQL; NO-GO T03-05 por scan de imágenes |
 | T03-05 | T03-02/03/04 + gate hotfix PG | IMPLEMENTADO/PROBADO local: [worker](worker.md), Job Store PG, claim/heartbeat/CAS/evidence/audit reales | [Revisión/evidencia actual](../../docs/roadmap/SESSION_03_WORKER_REVIEW.md): 715 PASS/OS, 252 integraciones/OS; dos procesos/100 jobs, checks/scans/fresh/recovery PASS; AC03-04/05/06 parciales |
-| T03-06 | T03-04/05 | Reclaim, retry, deadline y definición versionada | AC03-04/05/06/07/09, kill points y 100 jobs |
+| T03-06 | T03-04/05 + CI exacta 224c5ad SUCCESS | IMPLEMENTADO/PROBADO local: [recovery](recovery.md), reclaim/retry/deadline/accounting 0003 y commit incierto | AC03-04/05/06/07/09 acotados: 755 PASS/OS, 292 integraciones/OS, kill points y 100 jobs; [gates y límites](../../docs/roadmap/SESSION_03_RECOVERY_REVIEW.md), sin aceptación global S03 |
 | T03-07 | T03-06 | Regresión completa y CI con evidencia saneada | AC03-10 y todos los gates S02 |
 | T03-08 | T03-07 | Revisión humana, riesgos, evidencia y handoff | AC03-01..10 y GO/NO-GO S04 documentado |
 

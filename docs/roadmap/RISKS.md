@@ -1,5 +1,26 @@
 # Registro de riesgos y decisiones abiertas
 
+## T03-06 — 2026-10-25
+
+R01: reclaim/retry/deadline/commit incierto implementados localmente; gates efectivos
+en [revisión recovery](SESSION_03_RECOVERY_REVIEW.md) y verification.json separado.
+Owner autor, cierre global S03 pendiente. Accounting tras crash es conservador hasta
+lease_until, con redondeo superior por segmento; no mide CPU. Registros históricos
+0002 conservan solo budget conocido y última ventana de lease, sin reconstrucción
+de procesamiento anterior. Jobs es fuente durable y budget de workflow proyección
+en transiciones, sin versiones artificiales por heartbeat. Inconsistencias se retienen
+fail-closed. Función nueva solo boolean/EXECUTE worker, sin grants del ledger.
+R16: ejecutar reconstrucción/reinicio y suites de integración secuencialmente;
+arranque/edición concurrentes invalidaron el primer baseline y recreación PG
+interrumpió un focused. Fallos conservados, nunca contados como PASS.
+También se reprodujo un retroceso de reloj PG de aproximadamente 5 s tras claim
+válido (selection-diagnostic.json). Cursor de accounting monotónico evita doble
+cómputo; fixtures envejecidas evitan asumir elegibilidad inmediata tras ese salto.
+Las fechas absolutas no se reinician. Dueño autor: estabilizar reloj del servidor
+para interpretar duraciones físicas/SLO; no afirmar HA ni reloj monotónico de PG.
+R02/R14 externos, privacidad y R15/musl/linux-amd64 continúan; no HA/backup/restore,
+exactly-once externo ni WORM frente al administrador. Sin GO S04/producción.
+
 ## T03-05 — 2026-10-24
 
 R01 sigue ABIERTO: worker PG real con dos procesos/100 jobs, leases/fences/CAS,

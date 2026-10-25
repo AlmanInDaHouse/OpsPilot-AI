@@ -1,0 +1,86 @@
+{
+  "iterations": 263,
+  "misses": [
+    {
+      "iteration": 263,
+      "initial_claim": true,
+      "snapshot": {
+        "observed_at": "2026-10-25 16:39:27.766156+00:00",
+        "state": "READY",
+        "available_at": "2026-10-25 16:39:32.735840+00:00",
+        "available": false,
+        "workflow_state": "INVESTIGATING",
+        "cancel_requested_at": null,
+        "attempts": 1
+      },
+      "locks": [
+        {
+          "pid": 18730,
+          "mode": "AccessShareLock",
+          "granted": true,
+          "relation": "ix_job_expired"
+        },
+        {
+          "pid": 18730,
+          "mode": "AccessShareLock",
+          "granted": true,
+          "relation": "jobs"
+        },
+        {
+          "pid": 18730,
+          "mode": "RowShareLock",
+          "granted": true,
+          "relation": "jobs"
+        },
+        {
+          "pid": 18730,
+          "mode": "AccessShareLock",
+          "granted": true,
+          "relation": "pg_locks"
+        },
+        {
+          "pid": 18730,
+          "mode": "AccessShareLock",
+          "granted": true,
+          "relation": "workflows_pkey"
+        },
+        {
+          "pid": 18730,
+          "mode": "AccessShareLock",
+          "granted": true,
+          "relation": "uq_workflow_active_incident"
+        },
+        {
+          "pid": 18730,
+          "mode": "AccessShareLock",
+          "granted": true,
+          "relation": "ix_job_available"
+        },
+        {
+          "pid": 18730,
+          "mode": "AccessShareLock",
+          "granted": true,
+          "relation": "jobs_pkey"
+        },
+        {
+          "pid": 18730,
+          "mode": "AccessShareLock",
+          "granted": true,
+          "relation": "uq_workflow_incident_creator"
+        },
+        {
+          "pid": 18730,
+          "mode": "AccessShareLock",
+          "granted": true,
+          "relation": "uq_job_active_workflow"
+        },
+        {
+          "pid": 18730,
+          "mode": "AccessShareLock",
+          "granted": true,
+          "relation": "workflows"
+        }
+      ]
+    }
+  ]
+}

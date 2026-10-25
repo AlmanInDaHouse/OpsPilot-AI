@@ -603,7 +603,16 @@ def test_heartbeat_real_thread_renews_while_handler_is_paused(store):
             observed = json.loads(pool.submit(child.stdout.readline).result(timeout=25))
         assert observed["event"] == "lease.status" and observed["code"] == "LEASE_RENEWED"
         after = rows(pg, ids)["job"]["lease_until"]
-        assert (after - before).total_seconds() >= 14
+        assert after > before
+        # The thread interval is checked separately. Only PG time decides lease validity;
+        # do not assume host monotonic and Docker's DB wall clock advance identically.
+        with pg["engines"]["admin"].connect() as conn:
+            assert conn.execute(
+                text("""SELECT lease_until>clock_timestamp()
+                AND lease_until<=clock_timestamp()+interval '60 seconds'
+                FROM jobs WHERE id=:id"""),
+                {"id": ids["job"]},
+            ).scalar_one()
         out, errors = child.communicate("go\n", timeout=15)
         assert child.returncode == 0 and not errors
     assert rows(pg, ids)["workflow"]["state"] == "NEEDS_OPERATOR"

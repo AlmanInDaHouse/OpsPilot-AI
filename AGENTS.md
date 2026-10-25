@@ -6,7 +6,8 @@ S02 tiene GO técnico para 660f7d3. El autor aprobó cierre/riesgos S02, T03-01 
 ADR-0008; T03-02 implementa persistencia/appender v2 y T03-03 añade intake atómico.
 T03-04 implementa [acceso/cancelación CAS](docs/roadmap/SESSION_03_ACCESS_CANCEL_REVIEW.md);
 T03-05 añade [worker local](docs/roadmap/SESSION_03_WORKER_REVIEW.md);
-T03-06/reclaim/retry pendiente y AC03-04/05/06 solo parciales.
+T03-06 añade [recovery/retry local](docs/roadmap/SESSION_03_RECOVERY_REVIEW.md).
+Consultar sus gates; T03-07/08 y aceptación global S03 siguen pendientes.
 Leer [revisión de intake](docs/roadmap/SESSION_03_INTAKE_REVIEW.md) y sus gates.
 Consultar revisión y handoff para gates y limitaciones; sin GO S04.
 

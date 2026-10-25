@@ -3,7 +3,9 @@
 Estado: ejecución de motor PROPUESTA; T03-02 implementa almacenamiento, constraints
 y appender/lectura v2; T03-03 añade intake/UoW/idempotencia y T03-04 lecturas/cancel CAS.
 T03-05 implementa worker local independiente y Job Store PG; [revisión actual](../roadmap/SESSION_03_WORKER_REVIEW.md).
-Reclaim/retry/crash suite integral continúan T03-06. [Revisión de cancelación](../roadmap/SESSION_03_ACCESS_CANCEL_REVIEW.md).
+T03-06 añade recuperación local: [spec](../../specs/003-workflows/recovery.md) y
+[revisión/gates](../roadmap/SESSION_03_RECOVERY_REVIEW.md).
+[Revisión de cancelación](../roadmap/SESSION_03_ACCESS_CANCEL_REVIEW.md).
 REQ-WF-01/02/03. Fuente de estados/transiciones:
 [workflow-v1.json](../../contracts/workflow-v1.json); diagrama derivado en [C4](C4.md).
 Workflow, ticket y ejecución externa tienen estados independientes.
@@ -20,6 +22,18 @@ Unknown definition bloquea sin ejecutar v1; permanente pausa sin retry. Deadline
 solo tiene guardas mínimas: no presupuesto acumulado/reclaim/backoff automático.
 Tras muerte, filas LEASED retenidas hasta política T03-06. Los apartados siguientes
 describen también mecanismos objetivo posteriores; no todos están implementados.
+
+## Implementación local T03-06
+
+Supera esas limitaciones del snapshot T03-05 para intake_snapshot: selección sin
+locks y revalidación workflow → job → step → audit, fence al revocar generación,
+retry durable con full jitter/3 claims y RETRY_WAIT → INVESTIGATING. Barrido también
+resuelve deadline/budget agotados y bloquea definiciones desconocidas sin ejecutar
+v1. 0003 guarda contador/cursor activo por job; cursor no retrocede con reloj DB.
+Relectura independiente tras COMMIT_UNCERTAIN exige resultado completo y evento
+confirmado. Timeout de relectura conserva incertidumbre, sin convertirlo a retry.
+755 PASS Windows/Linux, 292 integraciones reales/OS; evidencia, límites de reloj y
+dictamen local en SESSION_03_RECOVERY_REVIEW. Intent UNKNOWN externo sigue S05.
 
 ## Estados y guardas
 

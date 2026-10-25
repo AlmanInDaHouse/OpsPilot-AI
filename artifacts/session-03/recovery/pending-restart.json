@@ -1,0 +1,261 @@
+{
+  "verdict": "PASS",
+  "database": "opspilot_test_1e31be437d6a40d99a86657d8acdc862",
+  "claim_during_outage_rejected": true,
+  "before": [
+    {
+      "workflow": {
+        "state": "RETRY_WAIT",
+        "version": 3,
+        "definition_version": 1,
+        "deadline_at": "2026-10-25 16:51:59.699305+00:00",
+        "budget_spent_ms": 63
+      },
+      "job": {
+        "id": "ed64560a-5089-4e32-b7bd-63c41ff4d83b",
+        "workflow_id": "95c16cb2-4af3-43d1-92d2-84026c905298",
+        "step_id": "e026e274-f2bc-4630-80d5-ac5140644ce6",
+        "kind": "intake_snapshot",
+        "state": "READY",
+        "available_at": "2026-10-25 16:47:00.795694+00:00",
+        "lease_until": null,
+        "owner": null,
+        "fence": 2,
+        "attempts": 1,
+        "active_since": null,
+        "active_spent_ms": 63
+      },
+      "step_status": "FAILED",
+      "evidence_count": 0,
+      "audit_count": 2
+    },
+    {
+      "workflow": {
+        "state": "QUEUED",
+        "version": 1,
+        "definition_version": 1,
+        "deadline_at": "2026-10-25 16:51:59.828285+00:00",
+        "budget_spent_ms": 0
+      },
+      "job": {
+        "id": "5f628aaf-8a00-4eeb-aa4a-8f6845107e13",
+        "workflow_id": "d9d221e4-b022-44f5-99ab-16936ef3cfee",
+        "step_id": "c0f00056-1cc1-4b12-9347-9e0b04bb9949",
+        "kind": "intake_snapshot",
+        "state": "LEASED",
+        "available_at": "2026-10-25 16:46:29.830633+00:00",
+        "lease_until": "2026-10-25 16:46:29.872006+00:00",
+        "owner": "fee44621-4f10-41ab-90eb-9cc9f74daae3",
+        "fence": 1,
+        "attempts": 1,
+        "active_since": "2026-10-25 16:46:59.873069+00:00",
+        "active_spent_ms": 8
+      },
+      "step_status": "PENDING",
+      "evidence_count": 0,
+      "audit_count": 0
+    }
+  ],
+  "after_restart": [
+    {
+      "workflow": {
+        "state": "RETRY_WAIT",
+        "version": 3,
+        "definition_version": 1,
+        "deadline_at": "2026-10-25 16:51:59.699305+00:00",
+        "budget_spent_ms": 63
+      },
+      "job": {
+        "id": "ed64560a-5089-4e32-b7bd-63c41ff4d83b",
+        "workflow_id": "95c16cb2-4af3-43d1-92d2-84026c905298",
+        "step_id": "e026e274-f2bc-4630-80d5-ac5140644ce6",
+        "kind": "intake_snapshot",
+        "state": "READY",
+        "available_at": "2026-10-25 16:47:00.795694+00:00",
+        "lease_until": null,
+        "owner": null,
+        "fence": 2,
+        "attempts": 1,
+        "active_since": null,
+        "active_spent_ms": 63
+      },
+      "step_status": "FAILED",
+      "evidence_count": 0,
+      "audit_count": 2
+    },
+    {
+      "workflow": {
+        "state": "QUEUED",
+        "version": 1,
+        "definition_version": 1,
+        "deadline_at": "2026-10-25 16:51:59.828285+00:00",
+        "budget_spent_ms": 0
+      },
+      "job": {
+        "id": "5f628aaf-8a00-4eeb-aa4a-8f6845107e13",
+        "workflow_id": "d9d221e4-b022-44f5-99ab-16936ef3cfee",
+        "step_id": "c0f00056-1cc1-4b12-9347-9e0b04bb9949",
+        "kind": "intake_snapshot",
+        "state": "LEASED",
+        "available_at": "2026-10-25 16:46:29.830633+00:00",
+        "lease_until": "2026-10-25 16:46:29.872006+00:00",
+        "owner": "fee44621-4f10-41ab-90eb-9cc9f74daae3",
+        "fence": 1,
+        "attempts": 1,
+        "active_since": "2026-10-25 16:46:59.873069+00:00",
+        "active_spent_ms": 8
+      },
+      "step_status": "PENDING",
+      "evidence_count": 0,
+      "audit_count": 0
+    }
+  ],
+  "final": [
+    {
+      "workflow": {
+        "state": "NEEDS_OPERATOR",
+        "version": 5,
+        "definition_version": 1,
+        "deadline_at": "2026-10-25 16:51:59.699305+00:00",
+        "budget_spent_ms": 129
+      },
+      "job": {
+        "id": "ed64560a-5089-4e32-b7bd-63c41ff4d83b",
+        "workflow_id": "95c16cb2-4af3-43d1-92d2-84026c905298",
+        "step_id": "e026e274-f2bc-4630-80d5-ac5140644ce6",
+        "kind": "intake_snapshot",
+        "state": "DONE",
+        "available_at": "2026-10-25 16:47:00.795694+00:00",
+        "lease_until": null,
+        "owner": null,
+        "fence": 3,
+        "attempts": 2,
+        "active_since": null,
+        "active_spent_ms": 139
+      },
+      "step_status": "DONE",
+      "evidence_count": 1,
+      "audit_count": 4
+    },
+    {
+      "workflow": {
+        "state": "NEEDS_OPERATOR",
+        "version": 3,
+        "definition_version": 1,
+        "deadline_at": "2026-10-25 16:51:59.828285+00:00",
+        "budget_spent_ms": 43
+      },
+      "job": {
+        "id": "5f628aaf-8a00-4eeb-aa4a-8f6845107e13",
+        "workflow_id": "d9d221e4-b022-44f5-99ab-16936ef3cfee",
+        "step_id": "c0f00056-1cc1-4b12-9347-9e0b04bb9949",
+        "kind": "intake_snapshot",
+        "state": "DONE",
+        "available_at": "2026-10-25 16:47:07.917522+00:00",
+        "lease_until": null,
+        "owner": null,
+        "fence": 3,
+        "attempts": 2,
+        "active_since": null,
+        "active_spent_ms": 52
+      },
+      "step_status": "DONE",
+      "evidence_count": 1,
+      "audit_count": 2
+    }
+  ],
+  "raw_sha256": "33d0f2d3ea45ee5b93a63425935b83a418815efe516229d3c682a8685c583299",
+  "lab_before": {
+    "principals": {
+      "rows": 4,
+      "hash": "49efa68c85cf1df0ce699fa92c7282df5f0e14b879f64aacdeefc65a357aecaf"
+    },
+    "role_grants": {
+      "rows": 4,
+      "hash": "08d515dc94b1ce8fb902f4a6345c44e0c7c48bb195b78ecd01f2b915305d48e8"
+    },
+    "audit_streams": {
+      "rows": 7,
+      "hash": "1e084c38bdac380bedf0b55735079cfbab8ceb98868ddf5ac744b8a03ee34988"
+    },
+    "audit_events": {
+      "rows": 11,
+      "hash": "5fb1a99a09f30be04e928a64c62df60542e9b0582916274fdc24d38297921de1"
+    },
+    "incidents": {
+      "rows": 2,
+      "hash": "4a96f5221feb2b431015152b3355941b0f88fb1cdfff568d2c15c3f6ad860c29"
+    },
+    "workflows": {
+      "rows": 2,
+      "hash": "5b86e14472ed219f57635572cc1d252543ca8053fa1b9ba3ce66bfd2c788142f"
+    },
+    "workflow_steps": {
+      "rows": 2,
+      "hash": "11bbfba76aa20f322ac4b0f60542fe39d398641ca75f3d2a267034f749914b10"
+    },
+    "jobs": {
+      "rows": 2,
+      "hash": "ca799a9e8290686850f5e271cf259da443cc2ca6763fd8e7c0d45064cdc5d918"
+    },
+    "evidence": {
+      "rows": 0,
+      "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "api_idempotency": {
+      "rows": 2,
+      "hash": "0fd7d4c04718634fd8e0e3c8b0e9c2b4ac2bc0529ed17f26d02dbdb1eade9a16"
+    },
+    "alembic_version": {
+      "rows": 1,
+      "hash": "7ffde435651ece2e433a79d67eca3ed8ad005989e513f57734347565ac821e93"
+    }
+  },
+  "lab_after": {
+    "principals": {
+      "rows": 4,
+      "hash": "49efa68c85cf1df0ce699fa92c7282df5f0e14b879f64aacdeefc65a357aecaf"
+    },
+    "role_grants": {
+      "rows": 4,
+      "hash": "08d515dc94b1ce8fb902f4a6345c44e0c7c48bb195b78ecd01f2b915305d48e8"
+    },
+    "audit_streams": {
+      "rows": 7,
+      "hash": "1e084c38bdac380bedf0b55735079cfbab8ceb98868ddf5ac744b8a03ee34988"
+    },
+    "audit_events": {
+      "rows": 11,
+      "hash": "5fb1a99a09f30be04e928a64c62df60542e9b0582916274fdc24d38297921de1"
+    },
+    "incidents": {
+      "rows": 2,
+      "hash": "4a96f5221feb2b431015152b3355941b0f88fb1cdfff568d2c15c3f6ad860c29"
+    },
+    "workflows": {
+      "rows": 2,
+      "hash": "5b86e14472ed219f57635572cc1d252543ca8053fa1b9ba3ce66bfd2c788142f"
+    },
+    "workflow_steps": {
+      "rows": 2,
+      "hash": "11bbfba76aa20f322ac4b0f60542fe39d398641ca75f3d2a267034f749914b10"
+    },
+    "jobs": {
+      "rows": 2,
+      "hash": "ca799a9e8290686850f5e271cf259da443cc2ca6763fd8e7c0d45064cdc5d918"
+    },
+    "evidence": {
+      "rows": 0,
+      "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "api_idempotency": {
+      "rows": 2,
+      "hash": "0fd7d4c04718634fd8e0e3c8b0e9c2b4ac2bc0529ed17f26d02dbdb1eade9a16"
+    },
+    "alembic_version": {
+      "rows": 1,
+      "hash": "7ffde435651ece2e433a79d67eca3ed8ad005989e513f57734347565ac821e93"
+    }
+  },
+  "scope": "Two ephemeral jobs across real PostgreSQL stop/start; existing volume preserved"
+}

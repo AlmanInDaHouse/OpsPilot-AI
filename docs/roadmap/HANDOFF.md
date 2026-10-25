@@ -1,5 +1,51 @@
 # Handoff versionado — plataforma S02 y arranque S03
 
+## Publicación T03-06 autorizada — 2026-10-25
+
+Tras la entrega local, el autor autoriza commit y push con «pushealo». Se publica
+T03-06 en origin/main con código, migración incremental 0003, tests, documentación
+y evidencias. Antes de editar este handoff: HEAD/origin/main 224c5ad iguales tras
+fetch, índice vacío y manifest recovery sin drift: 39 archivos de evidencia y
+201 entradas del repositorio verificadas. 755 PASS Windows/Linux, 292 integraciones
+reales/OS, 40 nuevas de recovery; checks, PG fresco, recovery y tres scans PASS.
+
+Solo esta entrada se añade después de las verificaciones. Los snapshots conservan
+el árbol anterior a publicación, incluido su estado sin commit/push y el hash previo
+de este handoff. Consultar Git para el SHA publicado y Actions para CI de ese mismo
+SHA; los resultados locales no acreditan CI remota ni aceptación global S03.
+La publicación no inicia T03-07, no cierra S03 y no autoriza S04, merge, release ni
+despliegue. Lab detenido, volumen/credenciales preservados; R16/reloj y salidas 137
+de API/Keycloak sin OOM documentados en la revisión T03-06.
+
+## T03-06 — recuperación local, 2026-10-25
+
+Petición explícita autoriza solo T03-06 local, sin commit/push ni avance automático.
+Base main limpia 224c5ad; CI 40054234985 y harness 40054235016 SUCCESS para el SHA
+exacto, entrada en artifacts/session-03/recovery/entry-gate.json. Se extiende worker
+existente con reclaim workflow→job, retry full jitter/3 claims, RETRY_WAIT/deadline,
+accounting PG durable 0003 y relectura tras COMMIT_UNCERTAIN. 0001/0002 y appender
+v2 conservados. Nuevo EXECUTE cerrado para confirmar evento sin leer ledger.
+[Spec](../../specs/003-workflows/recovery.md), [revisión](SESSION_03_RECOVERY_REVIEW.md)
+y [gates actuales](../../artifacts/session-03/recovery/verification.json).
+
+Consultar esos gates antes de otorgar GO T03-07; no heredar PASS T03-05 ni declarar
+CI remota de cambios locales. AC03 globales/S03/S04 no se cierran automáticamente.
+Accounting de crash cobra hasta lease vencido, no CPU; históricos previos a 0003
+carecen de cursor anterior. R01/R02/R14/privacidad/R15 siguen con límites documentados.
+Resultados de regresión: 755 PASS Windows y Linux, 292 integraciones reales/OS,
+40 nuevas de recovery, 23 harness/OS, cero fallos/errors/skips. Nominal 100 jobs:
+50/50 Windows y 51/49 Linux; después de kills/expiración real: 50/50 y 49/51.
+Reloj PG retrocedió aproximadamente 5 s en diagnóstico: cursor monotónico evita
+doble cuenta y fixtures envejecidas estabilizan observación, sin alterar 60/15/300 s.
+Scans y dictamen vigentes solo en verification.json, sin heredar verdes anteriores.
+Lab detenido, PG exit 0 y API/Keycloak 137, OOMKilled=false; no afirmar cierre limpio
+de estos dos procesos. Sin DBs efímeras restantes; volumen/credenciales y snapshots
+anteriores preservados. Fallos intermedios y hashes de diagnósticos privados conservados.
+Gates finales locales PASS: check Windows/Linux, PG fresco, recovery con jobs y de
+plataforma, tres scans nuevos sin HIGH/CRITICAL ligados al árbol/IDs finales.
+GO técnico LOCAL para preparar T03-07, sin iniciarlo ni publicar; CI de estos cambios
+sin commit y aceptación global S03 pendientes. Sin GO S04/producción.
+
 ## Publicación T03-05 autorizada — 2026-10-24
 
 Tras la entrega local, el autor autoriza commit y push con «pushealo». Se publica

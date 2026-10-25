@@ -17,7 +17,10 @@ implementa intake atómico/idempotente.
 T03-04 añade [lecturas autorizadas y cancelación CAS](docs/roadmap/SESSION_03_ACCESS_CANCEL_REVIEW.md),
 sin cierre automático del incidente. [T03-05](docs/roadmap/SESSION_03_WORKER_REVIEW.md)
 añade worker independiente, Job Store PG, leases/fences, snapshot local y resultado
-auditado atómico NEEDS_OPERATOR; incidente OPEN. Reclaim/retry integral pendiente T03-06.
+auditado atómico NEEDS_OPERATOR; incidente OPEN.
+[T03-06](docs/roadmap/SESSION_03_RECOVERY_REVIEW.md) añade reclaim/retry/deadline,
+accounting PG 0003 y reconciliación de COMMIT incierto al worker existente;
+gates propios en artifacts/session-03/recovery/verification.json.
 T03-05: 715 PASS/OS, 252 integraciones reales/OS, dos procesos/100 jobs;
 [Hotfix PostgreSQL/Brotli](docs/roadmap/SESSION_03_POSTGRES_SECURITY_REVIEW.md)
 preservado. Checks/scans/fresh/recovery nuevos en artifacts/session-03/worker/verification.json.
@@ -37,7 +40,7 @@ Una ejecución técnica correcta no demuestra la resolución del ticket.
 | Arquitectura, contratos y roadmap | Diseño versionado; S02 implementada, hitos posteriores propuestos |
 | Harness y CI | 660f7d3: CI plataforma/harness SUCCESS; cierre/riesgos aceptados por autor. Árbol S03 con pruebas locales, CI nueva pendiente |
 | API/identidad/audit | S02 y lectura mixta audit v1/v2 implementados y probados con PG/Keycloak reales |
-| Persistencia/intake/worker S03 | 0002, intake y cancelación conservados; T03-05 worker local implementado, recovery/retry completo pendiente T03-06 |
+| Persistencia/intake/worker S03 | 0002, intake/cancel y worker conservados; T03-06 recovery/retry/accounting 0003 implementado con gates locales propios |
 | LLM y VPN | PROPUESTO; fuera de S02, sin conexiones ni efectos IT |
 
 Empieza por [alcance](docs/product/SCOPE.md), [arquitectura](docs/architecture/ARCHITECTURE.md),

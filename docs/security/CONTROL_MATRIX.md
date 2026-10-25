@@ -3,8 +3,10 @@
 CT-01 y parte S02 de CT-02/10 implementados; consultar resultados y límites en
 [revisión S02](../roadmap/SESSION_02_REVIEW.md). CT-03 parcialmente implementado y
 probado localmente en [T03-05](../roadmap/SESSION_03_WORKER_REVIEW.md): leases/fences,
-CAS/cancel y resultado atómico. Recovery/retry integral T03-06 e intent UNKNOWN
-S05 siguen pendientes. Resto PROPUESTO. Evidencias raw bajo
+CAS/cancel y resultado atómico. [T03-06](../roadmap/SESSION_03_RECOVERY_REVIEW.md)
+añade reclaim/retry/deadline/accounting y commit incierto; consultar sus gates
+ejecutados, sin aceptación global S03. Intent UNKNOWN externo S05 sigue pendiente.
+Resto PROPUESTO. Evidencias raw bajo
 `artifacts/local/`, con resumen redacted versionado y hash de resultados. Ninguna
 fila acredita compliance. Ancla externa CT-02 y controles de RC siguen S08.
 Autor = responsable técnico hasta asignación empresarial.
@@ -13,7 +15,7 @@ Autor = responsable técnico hasta asignación empresarial.
 |---|---|---|---|---|
 | CT-01 | TH-04/14, REQ-PLAT-01 | JWT estricto y grants locales | TEST-02-AUTH: iss/aud/exp/nbf/alg/kid y roles negativos, integración IdP real | Autor S02 |
 | CT-02 | TH-12, REQ-PLAT-02 | Appender audit atómico y rol restringido | TEST-02-AUDIT: rollback, UPDATE/DELETE denegados, hash bytes | Autor S02; ancla S08 |
-| CT-03 | TH-06, REQ-WF-02/03 | Leases/fences/CAS local T03-05 probado; reclaim/retry T03-06 e intent UNKNOWN pendientes | Dos procesos/100 jobs, cancel/stale y rollback PG reales; TEST-03-CRASH integral + TEST-05-UNKNOWN pendientes | Autor S03/S05 |
+| CT-03 | TH-06, REQ-WF-02/03 | Leases/fences/CAS T03-05; reclaim/retry/deadline/accounting T03-06, sin efectos externos | Dos procesos/100 jobs, kills, commit incierto y cancel/reclaim/retry PG reales; gates locales en recovery/verification.json, TEST-05-UNKNOWN pendiente | Autor S03/S05 |
 | CT-04 | TH-01/02/07/08, REQ-RAG-01 | ACL+minimización+procedencia | TEST-04-ACL/INJECT: permisos revocados, poisoning, canary y tool output | Autor S04 |
 | CT-05 | TH-03/09, REQ-AI-01 | Schema estricto y evidencia por afirmación | TEST-04-EVAL: golden/citas/abstención y presupuesto | Autor S04 |
 | CT-06 | TH-03/04/13, REQ-POL-01/TOOL-01 | Gateway default-deny, catálogo y roles/red | TEST-05-POLICY: bypass/args/credencial/red denegados | Autor S05 |

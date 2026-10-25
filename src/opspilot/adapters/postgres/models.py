@@ -21,7 +21,7 @@ from sqlalchemy import (
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
-SCHEMA_VERSION = "0002_workflows"
+SCHEMA_VERSION = "0003_recovery"
 
 WORKFLOW_STATES = "'QUEUED','INVESTIGATING','PLAN_READY','AWAITING_APPROVAL','EXECUTING','VERIFYING','RETRY_WAIT','OUTCOME_UNKNOWN','NEEDS_OPERATOR','SUCCEEDED','FAILED','CANCELLED'"
 WORKFLOW_REASONS = "'INTAKE_ACCEPTED','LOCAL_STEP_STARTED','LOCAL_SNAPSHOT_RECORDED','TRANSIENT_LOCAL_FAILURE','RETRY_READY','DEADLINE_EXHAUSTED','RETRY_EXHAUSTED','PERMANENT_LOCAL_FAILURE','UNSUPPORTED_DEFINITION','CANCELLED_BY_OPERATOR','CANCEL_REQUESTED'"
@@ -274,6 +274,11 @@ class JobRow(Base):
             name="ck_job_ownership",
         ),
         Index("ix_job_available", "state", "available_at"),
+        Index("ix_job_expired", "lease_until", "id", postgresql_where=text("state='LEASED'")),
+        CheckConstraint(
+            "active_spent_ms BETWEEN 0 AND 300000 AND ((state='LEASED' AND active_since IS NOT NULL) OR (state<>'LEASED' AND active_since IS NULL))",
+            name="ck_job_active",
+        ),
         Index(
             "uq_job_active_workflow",
             "workflow_id",
@@ -294,6 +299,8 @@ class JobRow(Base):
     owner: Mapped[UUID | None] = mapped_column()
     fence: Mapped[int] = mapped_column(BigInteger, server_default=text("0"))
     attempts: Mapped[int] = mapped_column(Integer, server_default=text("0"))
+    active_since: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    active_spent_ms: Mapped[int] = mapped_column(BigInteger, server_default=text("0"))
 
 
 class IdempotencyRow(Base):

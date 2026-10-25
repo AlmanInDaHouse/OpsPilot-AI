@@ -220,7 +220,8 @@
       "specs/003-workflows/persistence.md",
       "specs/003-workflows/intake.md",
       "specs/003-workflows/access-cancel.md",
-      "specs/003-workflows/worker.md"
+      "specs/003-workflows/worker.md",
+      "specs/003-workflows/recovery.md"
     ],
     "design": [
       "docs/architecture/WORKFLOW_ENGINE.md",
@@ -234,7 +235,6 @@
       "specs/003-workflows/tasks.md"
     ],
     "code": [
-      "src/opspilot/workflows/application/recovery.py",
       "migrations/versions/0002_workflows.py",
       "migrations/sql/0002_workflows.sql",
       "migrations/sql/0002_workflow_functions.sql",
@@ -252,10 +252,11 @@
       "src/opspilot/workflows/domain/jobs.py",
       "src/opspilot/workflows/application/jobs.py",
       "src/opspilot/adapters/postgres/jobs.py",
-      "src/opspilot/entrypoints/worker.py"
+      "src/opspilot/entrypoints/worker.py",
+      "migrations/versions/0003_recovery.py",
+      "migrations/sql/0003_recovery.sql"
     ],
     "test": [
-      "tests/integration/test_workflow_crash.py",
       "tests/contract/test_workflow_design.py",
       "tests/integration/test_workflow_persistence.py",
       "tests/unit/test_intake.py",
@@ -269,7 +270,11 @@
       "tests/integration/test_worker.py",
       "tests/unit/test_worker.py",
       "tests/contract/test_worker.py",
-      "tests/architecture/test_worker.py"
+      "tests/architecture/test_worker.py",
+      "tests/integration/test_recovery.py",
+      "tests/integration/recovery_process.py",
+      "tests/integration/commit_transport.py",
+      "tests/integration/restart_recovery.py"
     ],
     "evidence": [
       "artifacts/session-03/start/verification.json",
@@ -284,19 +289,23 @@
       "artifacts/session-03/postgres-security/verification.json",
       "artifacts/session-03/postgres-security/tests-windows-final.json",
       "artifacts/session-03/postgres-security/tests-linux.json",
-      "artifacts/session-03/worker/verification.json"
+      "artifacts/session-03/worker/verification.json",
+      "artifacts/session-03/recovery/verification.json",
+      "artifacts/session-03/recovery/entry-gate.json"
     ],
-    "acceptance": "T03-02/03/04 preserved. T03-05 implements real local PG worker, claim/lease/heartbeat/fencing/CAS, intake snapshot and atomic evidence/step/workflow/job/audit v2, with two real processes and 100 jobs. Actual local regression/security gates are in worker/verification.json. AC03-04/05/06 remain partial pending T03-06 reclaim/retry/deadline/adversarial recovery; external UNKNOWN/reconciliation remains future work. Requirement stays PROPOSED until full acceptance. No remote CI for unpublished changes or global S03/S04/production GO.",
+    "acceptance": "T03-06 implemented and tested locally: 755 PASS per OS, 292 real integrations per OS, 40 new recovery scenarios, real crash/reclaim/retry/deadline and conservative COMMIT_UNCERTAIN reconciliation. Actual checks/scans/image/input hashes and failures in recovery/verification.json. Technical local GO to prepare T03-07 only; no automatic start, remote CI for unpublished changes, global S03 acceptance, external recovery or S04/production GO. Historical snapshots unchanged. Requirement remains PROPOSED pending global acceptance.",
     "task_ids": [
       "T03-04",
-      "T03-05"
+      "T03-05",
+      "T03-06"
     ],
     "acceptance_ids": [
       "AC03-03",
       "AC03-06",
       "AC03-09",
       "AC03-04",
-      "AC03-05"
+      "AC03-05",
+      "AC03-07"
     ]
   },
   {

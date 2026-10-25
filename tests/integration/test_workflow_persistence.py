@@ -71,7 +71,7 @@ def seed(pg, creator=None, definition=1, state="QUEUED"):
         )
         conn.execute(
             text(
-                "INSERT INTO jobs(id,workflow_id,step_id,kind) VALUES(:job,:workflow,:step,'intake_snapshot')"
+                "INSERT INTO jobs(id,workflow_id,step_id,kind,available_at) VALUES(:job,:workflow,:step,'intake_snapshot',clock_timestamp()-interval '30 seconds')"
             ),
             ids,
         )

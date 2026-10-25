@@ -1,0 +1,150 @@
+{
+  "scope": "Actual failed intermediate attempts; never acceptance evidence",
+  "junit_attempts": [
+    {
+      "report": "clock-regression-fixes.xml",
+      "tests_executed": 1,
+      "failed_cases": [
+        "tests.integration.test_recovery.test_accounting_cursor_cannot_regress_or_double_charge_after_clock_rewind"
+      ],
+      "raw_sha256": "4866f820fe93ddaa14b05ad9605015fdc8d65b2bc44c58b7e12599c9735f01a0",
+      "private_raw": "artifacts/local/recovery-private-clock-regression-fixes.xml"
+    },
+    {
+      "report": "recovery-first.xml",
+      "tests_executed": 23,
+      "failed_cases": [
+        "tests.integration.test_recovery.test_new_accounting_and_audit_confirmation_do_not_expand_table_permissions[app-SELECT worker_result_confirmed(gen_random_uuid(),2,gen_random_uuid())]"
+      ],
+      "raw_sha256": "3b31d804f4c31668610e1eb2f0056058eadc15608b7a57491e9729d6058d54e3",
+      "private_raw": "artifacts/local/recovery-private-recovery-first.xml"
+    },
+    {
+      "report": "recovery-second.xml",
+      "tests_executed": 26,
+      "failed_cases": [
+        "tests.integration.test_recovery.test_deadline_expires_original_clock_even_when_retry_is_future[QUEUED]"
+      ],
+      "raw_sha256": "81377c0bc83739d269024c708bc262b398dcf2645569bd54c0b96e5759d45d19",
+      "private_raw": "artifacts/local/recovery-private-recovery-second.xml"
+    },
+    {
+      "report": "recovery-third.xml",
+      "tests_executed": 11,
+      "failed_cases": [
+        "tests.integration.test_recovery.test_kill_points_recover_without_partial_effects[before_result_commit]"
+      ],
+      "raw_sha256": "0c7c2f2d81215d28b11d6bebabca113dae59749db50fe6e237ec045811e9dc37",
+      "private_raw": "artifacts/local/recovery-private-recovery-third.xml"
+    },
+    {
+      "report": "tests-windows-accepted.xml",
+      "tests_executed": 754,
+      "failed_cases": [
+        "tests.integration.test_recovery.test_kill_points_recover_without_partial_effects[after_evidence]",
+        "tests.integration.test_recovery.test_cancel_vs_deadline_first_commit_decides_without_extra_versions[deadline]",
+        "tests.integration.test_worker.test_new_generation_rejects_old_owner_and_commits_one_result",
+        "tests.integration.test_worker.test_worker_kill_and_restart_retains_rows_without_speculative_reclaim[before_result-False]"
+      ],
+      "raw_sha256": "8920ecf00e2a56ebd89cd8537903244b2daad54da271b5236d84e266742f8f8b",
+      "private_raw": "artifacts/local/recovery-tests-windows-accepted-failed-raw.xml"
+    },
+    {
+      "report": "tests-windows-final-clock.xml",
+      "tests_executed": 477,
+      "failed_cases": [
+        "tests.integration.test_recovery.test_two_workers_die_real_leases_expire_then_100_jobs_recover"
+      ],
+      "raw_sha256": "5467fdef01b0ad8529d2bbd337dcd777997070ebedbdaf587d51a9e68589affe",
+      "private_raw": "artifacts/local/recovery-private-windows-final-clock.xml"
+    },
+    {
+      "report": "tests-windows-final.xml",
+      "tests_executed": 749,
+      "failed_cases": [
+        "tests.integration.test_worker.test_heartbeat_real_thread_renews_while_handler_is_paused",
+        "tests.integration.test_workflow_persistence.test_real_http_audit_reads_mixed_versions_without_private_state"
+      ],
+      "raw_sha256": "e257d12d6326050dc7693861273a0df39bef901e468b74f5f0835c021028f4eb",
+      "private_raw": "artifacts/local/recovery-tests-windows-final-failed-raw.xml"
+    },
+    {
+      "report": "tests-windows.xml",
+      "tests_executed": 748,
+      "failed_cases": [
+        "tests.integration.test_incident_intake.test_complete_intake_replay_hash_conflict_and_redacted_chain",
+        "tests.integration.test_incident_intake.test_other_roles_do_not_create[admin]",
+        "tests.integration.test_incident_intake.test_other_roles_do_not_create[auditor]",
+        "tests.integration.test_incident_intake.test_other_roles_do_not_create[approver]",
+        "tests.integration.test_incident_intake.test_other_roles_do_not_create[unmapped]",
+        "tests.integration.test_incident_intake.test_replay_rechecks_current_identity_and_grants[revoke]",
+        "tests.integration.test_incident_intake.test_replay_rechecks_current_identity_and_grants[disable]",
+        "tests.integration.test_incident_intake.test_twenty_simultaneous_requests[same]",
+        "tests.integration.test_incident_intake.test_twenty_simultaneous_requests[different_body]",
+        "tests.integration.test_incident_intake.test_twenty_simultaneous_requests[independent_keys]",
+        "tests.integration.test_incident_intake.test_separate_principals_same_key_and_token_renewal",
+        "tests.integration.test_incident_intake.test_actual_deferred_commit_failure_has_no_accepted_response_or_rows",
+        "tests.integration.test_incident_intake.test_no_success_visible_before_commit",
+        "tests.integration.test_incident_intake.test_two_real_api_processes_and_restart_recover_exact_response",
+        "tests.integration.test_incident_intake.test_http_connection_lost_on_process_kill[serve_before_commit]",
+        "tests.integration.test_incident_intake.test_http_connection_lost_on_process_kill[serve_after_commit]",
+        "tests.integration.test_workflow_persistence.test_real_http_audit_reads_mixed_versions_without_private_state"
+      ],
+      "raw_sha256": "c65e11172a6b1eaacbabaea28c776a49f15240e0a9bf977f609034a44d23dcf9",
+      "private_raw": "artifacts/local/recovery-tests-windows-failed-raw.xml"
+    },
+    {
+      "report": "worker-first.xml",
+      "tests_executed": 15,
+      "failed_cases": [
+        "tests.integration.test_worker.test_cancel_respects_real_process_boundaries[after_result-3]"
+      ],
+      "raw_sha256": "22065c7ce41503d0cd9b247d0fba3bb7fcc57e095a715f2f302e4bea6429814d",
+      "private_raw": "artifacts/local/recovery-private-worker-first.xml"
+    }
+  ],
+  "other_attempts": [
+    {
+      "name": "invalid_baseline",
+      "exit_code": 1,
+      "reason": "670 passed, 7 failed, 38 errors; startup/source-edit overlap; not a valid baseline",
+      "private_raw": "artifacts/local/recovery-baseline-tests.log",
+      "raw_sha256": "8b8e025148d383271641a904779122013d9ead04015bbfac145c75d50a694a18"
+    },
+    {
+      "name": "initial_check",
+      "exit_code": 1,
+      "reason": "Public base SHA under base_sha key was a false positive; use recognized head metadata",
+      "private_raw": "artifacts/local/recovery-baseline-check.log",
+      "raw_sha256": "742f9e555f0aac1fbcb9ec1b1ddd580838c765012e6511c1a903be7cd1cf7dd6"
+    },
+    {
+      "name": "linux_cache",
+      "exit_code": 1,
+      "reason": "Non-root image home directory absent; isolated writable tmpfs added for quality checks",
+      "private_raw": "artifacts/local/recovery-check-linux.log",
+      "raw_sha256": "e954e997ce25a4c163c6361ccaa73584e3832630daaee3c7dc52a37d20cc6c24"
+    },
+    {
+      "name": "restart_helper_initial",
+      "exit_code": 1,
+      "reason": "Administrative DSN default database was postgres; explicit opspilot_lab selected",
+      "private_raw": "artifacts/local/recovery-pending-restart.log",
+      "raw_sha256": "5b290f3cd128e3a035de9ea862eb54065927048f073f24c41d4228905b8ca65d"
+    },
+    {
+      "name": "restart_helper_restart",
+      "exit_code": 1,
+      "reason": "Unsupported compose start --wait; use up --no-deps --wait; reconnect cleanup after real restart",
+      "private_raw": "artifacts/local/recovery-pending-restart-final.log",
+      "raw_sha256": "6089dcb7f629012eab267d600d68f496303867916862f05f97c2af7211288d9b"
+    },
+    {
+      "name": "test_image_cache",
+      "exit_code": 1,
+      "reason": "BuildKit parent snapshot missing; no-cache test image rebuild succeeded without prune or volume removal",
+      "private_raw": "artifacts/local/recovery-build-tests-final-clock.log",
+      "raw_sha256": "98f05f4b643b1d415e5b86e6084c4a4c6b704ab262cb81cd857ea6b13d74e953"
+    }
+  ]
+}
