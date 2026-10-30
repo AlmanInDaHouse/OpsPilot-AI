@@ -1,4 +1,4 @@
-FROM quay.io/keycloak/keycloak:26.8.1@sha256:79c623a22abacf3fe6c00a5fb30f5b7843d717b234033b80995891c06116d244 AS keycloak
+FROM quay.io/keycloak/keycloak:26.8.1@sha256:a78d6b79572168cb25886b80a8b5b8d4ed4390743e3eecb810538683e209dd6b AS keycloak
 FROM alpine:3.24@sha256:71e9b7bae160ba167fa17414401b94cbcdaf3c32feeab9298bd794a2a0614c35
 ARG TARGETARCH
 RUN test "$TARGETARCH" = amd64 && apk add --no-cache bash=5.3.9-r1 ca-certificates=20261020-r0 libstdc++=15.2.0-r5 freetype=2.14.3-r0 fontconfig=2.17.1-r1
